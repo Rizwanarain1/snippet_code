@@ -1,0 +1,6231 @@
+/* Button Preview Styles */
+.live-preview-mini {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f8fafc;
+}
+
+.preview-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.preview-container.dark-bg {
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+/* Button Preview Styles */
+.btn-preview {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Outline Pulse Button */
+.btn-outline-pulse {
+    background: transparent;
+    color: #7c3aed;
+    border: 2px solid #7c3aed;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline-pulse:hover {
+    color: white;
+    animation: pulseOutline 1.5s infinite;
+}
+
+.btn-outline-pulse::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #7c3aed;
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.btn-outline-pulse:hover::before {
+    left: 0;
+}
+
+@keyframes pulseOutline {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(124, 58, 237, 0);
+    }
+}
+
+/* Outline Glow Button */
+.btn-outline-glow {
+    background: transparent;
+    color: #10b981;
+    border: 2px solid #10b981;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline-glow:hover {
+    color: white;
+    background: #10b981;
+    box-shadow: 
+        0 0 10px #10b981,
+        0 0 20px #10b981,
+        0 0 40px #10b981;
+    transform: translateY(-2px);
+}
+
+.btn-outline-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-outline-glow:hover::before {
+    left: 100%;
+}
+
+/* Outline Slide Button */
+.btn-outline-slide {
+    background: transparent;
+    color: #3b82f6;
+    border: 2px solid #3b82f6;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-outline-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #3b82f6;
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.btn-outline-slide:hover::before {
+    left: 0;
+}
+
+.btn-outline-slide:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* Outline Border Animation */
+.btn-outline-border {
+    background: transparent;
+    color: #ec4899;
+    border: 2px solid transparent;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #7c3aed, #ec4899, #3b82f6, #10b981);
+    background-size: 400% 400%;
+    border-radius: 10px;
+    z-index: -1;
+    animation: borderRotate 3s linear infinite;
+}
+
+.btn-outline-border::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: white;
+    border-radius: 6px;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-border:hover::after {
+    background: transparent;
+}
+
+.btn-outline-border:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+@keyframes borderRotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Outline Morph Button */
+.btn-outline-morph {
+    background: transparent;
+    color: #f59e0b;
+    border: 2px solid #f59e0b;
+    padding: 8px 20px;
+    border-radius: 25px 8px 25px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline-morph::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #f59e0b;
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+.btn-outline-morph:hover::before {
+    left: 0;
+}
+
+.btn-outline-morph:hover {
+    color: white;
+    border-radius: 8px 25px 8px 25px;
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+}
+/* Outline Shine Button */
+.btn-outline-shine {
+    background: transparent;
+    color: #8b5cf6;
+    border: 2px solid #8b5cf6;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-outline-shine:hover::before {
+    left: 100%;
+}
+
+.btn-outline-shine:hover {
+    background: #8b5cf6;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+
+/* Outline Double Border */
+.btn-outline-double {
+    background: transparent;
+    color: #06b6d4;
+    border: 2px solid #06b6d4;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.btn-outline-double::before,
+.btn-outline-double::after {
+    content: '';
+    position: absolute;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    top: -2px;
+    left: -2px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-double::before {
+    border-top: 2px solid #06b6d4;
+    border-bottom: 2px solid #06b6d4;
+    transform: scaleX(0);
+}
+
+.btn-outline-double::after {
+    border-left: 2px solid #06b6d4;
+    border-right: 2px solid #06b6d4;
+    transform: scaleY(0);
+}
+
+.btn-outline-double:hover::before {
+    transform: scaleX(1);
+}
+
+.btn-outline-double:hover::after {
+    transform: scaleY(1);
+}
+
+.btn-outline-double:hover {
+    background: #06b6d4;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Outline 3D Effect */
+.btn-outline-3d {
+    background: transparent;
+    color: #ef4444;
+    border: 2px solid #ef4444;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.btn-outline-3d::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: -4px;
+    bottom: -4px;
+    background: #dc2626;
+    border-radius: 8px;
+    z-index: -1;
+    transition: all 0.3s ease;
+    transform: translateZ(-10px);
+}
+
+.btn-outline-3d:hover {
+    background: #ef4444;
+    color: white;
+    transform: translateY(-2px) translateZ(10px);
+}
+
+.btn-outline-3d:hover::before {
+    top: 2px;
+    left: 2px;
+    right: -2px;
+    bottom: -2px;
+}
+
+/* Outline Liquid Fill */
+.btn-outline-liquid {
+    background: transparent;
+    color: #10b981;
+    border: 2px solid #10b981;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-outline-liquid::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #10b981;
+    transition: height 0.5s ease;
+    z-index: -1;
+    border-radius: 50% 50% 0 0;
+}
+
+.btn-outline-liquid:hover::before {
+    height: 100%;
+    border-radius: 0;
+}
+
+.btn-outline-liquid:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Outline Magnetic */
+.btn-outline-magnetic {
+    background: transparent;
+    color: #f59e0b;
+    border: 2px solid #f59e0b;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline-magnetic::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-outline-magnetic:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-outline-magnetic:hover {
+    background: #f59e0b;
+    color: white;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+}
+/* Wave Shape Button Preview */
+.btn-wave-shape {
+    border: none;
+    position: relative;
+    width: 120px;
+    height: 44px;
+    padding: 0;
+    z-index: 2;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='868' width='2500' viewBox='0 0 726 252.17'%3E%3Cpath d='M483.92 0S481.38 24.71 466 40.11c-11.74 11.74-24.09 12.66-40.26 15.07-9.42 1.41-29.7 3.77-34.81-.79-2.37-2.11-3-21-3.22-27.62-.21-6.92-1.36-16.52-2.82-18-.75 3.06-2.49 11.53-3.09 13.61S378.49 34.3 378 36a85.13 85.13 0 0 0-30.09 0c-.46-1.67-3.17-11.48-3.77-13.56s-2.34-10.55-3.09-13.61c-1.45 1.45-2.61 11.05-2.82 18-.21 6.67-.84 25.51-3.22 27.62-5.11 4.56-25.38 2.2-34.8.79-16.16-2.47-28.51-3.39-40.21-15.13C244.57 24.71 242 0 242 0H0s69.52 22.74 97.52 68.59c16.56 27.11 14.14 58.49 9.92 74.73C170 140 221.46 140 273 158.57c69.23 24.93 83.2 76.19 90 93.6 6.77-17.41 20.75-68.67 90-93.6 51.54-18.56 103-18.59 165.56-15.25-4.21-16.24-6.63-47.62 9.93-74.73C656.43 22.74 726 0 726 0z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='868' width='2500' viewBox='0 0 726 252.17'%3E%3Cpath d='M483.92 0S481.38 24.71 466 40.11c-11.74 11.74-24.09 12.66-40.26 15.07-9.42 1.41-29.7 3.77-34.81-.79-2.37-2.11-3-21-3.22-27.62-.21-6.92-1.36-16.52-2.82-18-.75 3.06-2.49 11.53-3.09 13.61S378.49 34.3 378 36a85.13 85.13 0 0 0-30.09 0c-.46-1.67-3.17-11.48-3.77-13.56s-2.34-10.55-3.09-13.61c-1.45 1.45-2.61 11.05-2.82 18-.21 6.67-.84 25.51-3.22 27.62-5.11 4.56-25.38 2.2-34.8.79-16.16-2.47-28.51-3.39-40.21-15.13C244.57 24.71 242 0 242 0H0s69.52 22.74 97.52 68.59c16.56 27.11 14.14 58.49 9.92 74.73C170 140 221.46 140 273 158.57c69.23 24.93 83.2 76.19 90 93.6 6.77-17.41 20.75-68.67 90-93.6 51.54-18.56 103-18.59 165.56-15.25-4.21-16.24-6.63-47.62 9.93-74.73C656.43 22.74 726 0 726 0z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+    /* -webkit-mask-size: 100%; */
+    cursor: pointer;
+    background-color: transparent;
+    transform: translateY(4px);
+}
+
+.btn-wave-shape:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0px 0 0 0 white;
+    transition: all 1s ease;
+}
+
+.btn-wave-shape:hover:after {
+    box-shadow: 0px -8px 30px 8px #ffffffa6;
+}
+
+.btn-wave-shape span {
+    position: absolute;
+    width: 100%;
+    font-size: 11px;
+    font-weight: 300;
+    left: 50%;
+    top: 39%;
+    letter-spacing: 2px;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    color: black;
+    transition: all 1s ease;
+}
+
+.btn-wave-shape:hover span {
+    color: white;
+}
+
+.btn-wave-shape:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: black;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
+}
+
+.btn-wave-shape:hover:before {
+    width: 100%;
+}
+
+/* Neon Glow Button Preview */
+.btn-wrapper-neon {
+    position: relative;
+    display: inline-block;
+}
+
+.btn-neon {
+    --border-radius: 20px;
+    --padding: 3px;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+    font-family: "Poppins", "Inter", "Segoe UI", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    background-color: #101010;
+    box-shadow: 
+        inset 0px 1px 1px rgba(255, 255, 255, 0.2),
+        inset 0px 2px 2px rgba(255, 255, 255, 0.15),
+        0px -1px 1px rgba(0, 0, 0, 0.02),
+        0px -2px 2px rgba(0, 0, 0, 0.03);
+    border: solid 1px #fff2;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    gap: 4px;
+}
+
+.btn-letter {
+    position: relative;
+    display: inline-block;
+    color: #fff5;
+    animation: letter-anim-preview 2s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+@keyframes letter-anim-preview {
+    50% {
+        text-shadow: 0 0 2px #fff8;
+        color: #fff;
+    }
+}
+
+.btn-svg-neon {
+    height: 14px;
+    margin-left: 4px;
+    fill: #e8e8e8;
+    animation: flicker-preview 2s linear infinite;
+    animation-delay: 0.5s;
+    filter: drop-shadow(0 0 1px #fff9);
+    transition: all 0.3s ease;
+}
+
+@keyframes flicker-preview {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.btn-neon:hover {
+    border: solid 1px hsla(210, 100%, 80%, 40%);
+}
+
+.btn-neon:hover .btn-svg-neon {
+    fill: #fff;
+    filter: drop-shadow(0 0 2px hsl(210, 100%, 70%));
+    animation: none;
+}
+
+/* Text Transform Button Preview */
+.btn-text-transform {
+    background: #000;
+    color: #fff;
+    border: 1px solid;
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-size: 10px;
+    font-weight: 900;
+    overflow: hidden;
+    position: relative;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-text-transform .original {
+    background: #fff;
+    color: #000;
+    display: grid;
+    inset: 0;
+    place-content: center;
+    position: absolute;
+    transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+    border-radius: 50px;
+}
+
+.btn-text-transform:hover .original {
+    transform: translateY(100%);
+}
+
+.btn-text-transform .letters {
+    display: inline-flex;
+}
+
+.btn-text-transform span {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.2s;
+    font-size: 10px;
+}
+
+.btn-text-transform span:nth-child(2n) {
+    transform: translateY(10px);
+}
+
+.btn-text-transform:hover span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-text-transform:hover span:nth-child(2) { transition-delay: 0.1s; }
+.btn-text-transform:hover span:nth-child(3) { transition-delay: 0.2s; }
+.btn-text-transform:hover span:nth-child(4) { transition-delay: 0.3s; }
+.btn-text-transform:hover span:nth-child(5) { transition-delay: 0.4s; }
+.btn-text-transform:hover span:nth-child(6) { transition-delay: 0.5s; }
+
+/* Social Media Grid Preview */
+.social-grid-preview {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.social-card-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.596);
+    backdrop-filter: blur(3px);
+    border: 1px solid transparent;
+    transition: 0.3s ease-in-out;
+}
+
+.social-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+    fill: #cc39a4;
+}
+
+.social-text-preview {
+    position: absolute;
+    font-size: 6px;
+    transition: 0.3s ease-in-out;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    z-index: 3;
+}
+
+.social-grid-preview:hover .social-card-preview {
+    margin: 1px;
+    border-radius: 6px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.social-grid-preview:hover .social-text-preview {
+    opacity: 0;
+}
+
+.social-grid-preview:hover .social-icon {
+    opacity: 1;
+}
+
+.social-card-preview:hover {
+    background-color: #cc39a4;
+}
+
+.social-card-preview:hover .instagram-preview {
+    fill: white;
+}
+
+/* Emoji Reaction Buttons Preview */
+.emoji-container-preview {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    background: #e8e4df;
+    padding: 4px;
+    border-radius: 20px;
+}
+
+.emoji-btn-preview {
+    background: white;
+    border: none;
+    border-radius: 50%;
+    padding: 4px 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.emoji-btn-preview:hover {
+    transform: translateY(-3px) scale(1.2);
+}
+
+.emoji-btn-preview:first-child:hover::before {
+    content: 'Like';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 8px;
+    white-space: nowrap;
+}
+
+.emoji-btn-preview:nth-child(2):hover::before {
+    content: 'Cheer';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 8px;
+    white-space: nowrap;
+}
+
+.emoji-btn-preview:nth-child(3):hover::before {
+    content: 'Celebrate';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 8px;
+    white-space: nowrap;
+}
+
+
+
+/* ========== EXACT SAME MODAL STYLING AS NAVIGATION ========== */
+
+/* Template Preview Base Styles */
+.template-preview {
+    height: 200px;
+    background-color: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Categories */
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+.category-btn {
+    padding: 0.8rem 1.8rem;
+    background-color: var(--card-bg);
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-btn.active, .category-btn:hover {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 15px 0 rgba(124, 58, 237, 0.4);
+    transform: translateY(-2px);
+}
+
+.template-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    padding: 0 1rem;
+}
+
+.template-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #f1f5f9;
+    position: relative;
+}
+
+.template-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.template-info {
+    padding: 1.8rem;
+}
+
+.template-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.template-info p {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.template-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+}
+
+.template-actions .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+/* ========== BEAUTIFUL MODAL DESIGN ========== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    z-index: 10000;
+    overflow: hidden;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(12px);
+    }
+}
+
+.modal-content {
+    position: relative;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    margin: 2% auto;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 24px;
+    box-shadow: 
+        0 32px 64px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-60px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        #7c3aed, 
+        #ec4899, 
+        #f59e0b, 
+        #10b981,
+        #3b82f6,
+        #7c3aed
+    );
+    background-size: 400% 100%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.modal-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.modal-header {
+    padding: 1.8rem 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.modal-header h3 {
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header h3::before {
+    content: '💎';
+    font-size: 1.4rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.close-modal {
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #94a3b8;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.close-modal:hover {
+    color: #fbbf24;
+    background: rgba(251, 191, 36, 0.2);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+}
+
+.modal-body {
+    padding: 0;
+    position: relative;
+}
+
+/* Beautiful Code Tabs */
+.code-tabs {
+    display: flex;
+    background: rgba(15, 23, 42, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 2rem;
+    gap: 0.5rem;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.code-tabs::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent
+    );
+}
+
+.code-tab {
+    padding: 1.2rem 1.8rem;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    overflow: hidden;
+}
+
+.code-tab::before {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.code-tab[data-tab="html"]::before {
+    content: '🌐';
+}
+
+.code-tab[data-tab="css"]::before {
+    content: '🎨';
+}
+
+.code-tab[data-tab="js"]::before {
+    content: '⚡';
+}
+
+.code-tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #7c3aed, #ec4899);
+    border-radius: 3px 3px 0 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+}
+
+.code-tab.active {
+    color: white;
+    background: rgba(124, 58, 237, 0.15);
+}
+
+.code-tab.active::after {
+    width: 80%;
+}
+
+.code-tab.active::before {
+    transform: scale(1.2);
+}
+
+.code-tab:hover:not(.active) {
+    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+/* Beautiful Code Content */
+.code-content {
+    background: #0f172a;
+    padding: 2.5rem;
+    position: relative;
+    min-height: 500px;
+    max-height: 65vh;
+    overflow-y: auto;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(124, 58, 237, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+}
+
+.code-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.code-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin: 4px;
+}
+
+.code-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    border-radius: 10px;
+    border: 2px solid #0f172a;
+}
+
+.code-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #6d28d9, #db2777);
+}
+
+.code-content pre {
+    margin: 0;
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+.code-content code {
+    font-family: 'Fira Code', 'Cascadia Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+    background: transparent !important;
+    padding: 0 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Beautiful Syntax Highlighting */
+.language-html .tag {
+    color: #7c3aed;
+    font-weight: 600;
+}
+
+.language-html .attr-name {
+    color: #fbbf24;
+}
+
+.language-html .attr-value {
+    color: #10b981;
+}
+
+.language-html .comment {
+    color: #64748b;
+    font-style: italic;
+}
+
+.language-css .selector {
+    color: #7c3aed;
+    font-weight: 600;
+}
+
+.language-css .property {
+    color: #fbbf24;
+}
+
+.language-css .value {
+    color: #10b981;
+}
+
+.language-css .punctuation {
+    color: #94a3b8;
+}
+
+.language-js .keyword {
+    color: #7c3aed;
+    font-weight: 600;
+}
+
+.language-js .function {
+    color: #fbbf24;
+}
+
+.language-js .string {
+    color: #10b981;
+}
+
+.language-js .number {
+    color: #ec4899;
+}
+
+/* Beautiful Copy Button */
+.copy-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    border: none;
+    color: white;
+    padding: 1rem 1.8rem;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 
+        0 8px 25px rgba(124, 58, 237, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.copy-btn::before {
+    content: '📋';
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.copy-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 12px 35px rgba(124, 58, 237, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #6d28d9, #db2777);
+}
+
+.copy-btn:hover::before {
+    transform: scale(1.2);
+}
+
+.copy-btn:active {
+    transform: translateY(-1px);
+}
+
+.copy-btn.copied {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 
+        0 8px 25px rgba(16, 185, 129, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.copy-btn.copied::before {
+    content: '✅';
+    transform: scale(1.2);
+}
+
+/* Beautiful Copy Notification */
+.copy-notification {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 1.2rem 2rem;
+    border-radius: 16px;
+    box-shadow: 
+        0 12px 35px -5px rgba(16, 185, 129, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    z-index: 10001;
+    display: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    animation: notificationSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+               notificationSlideOut 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 1s forwards;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.copy-notification::before {
+    content: '✨';
+    font-size: 1.2rem;
+    animation: bounce 0.6s ease infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: scale(1); }
+    to { transform: scale(1.3); }
+}
+
+@keyframes notificationSlideIn {
+    from {
+        transform: translateX(100%) translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes notificationSlideOut {
+    from {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%) translateY(-20px);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .template-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .template-preview {
+        height: 180px;
+    }
+    
+    .btn-preview {
+        font-size: 11px;
+        padding: 6px 12px;
+    }
+
+    /* Responsive Modal */
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        border-radius: 20px;
+    }
+    
+    .modal-header {
+        padding: 1.5rem 1.5rem;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .code-tabs {
+        padding: 0 1.5rem;
+        gap: 0.25rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+    
+    .code-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .code-tab {
+        padding: 1rem 1.2rem;
+        font-size: 0.85rem;
+        flex-shrink: 0;
+    }
+    
+    .code-content {
+        padding: 1.5rem;
+        min-height: 350px;
+        max-height: 55vh;
+    }
+    
+    .code-content code {
+        font-size: 0.85rem;
+    }
+    
+    .copy-btn {
+        top: 1.5rem;
+        right: 1.5rem;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.85rem;
+    }
+    
+    .copy-notification {
+        top: 20px;
+        right: 20px;
+        padding: 1rem 1.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .template-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .template-preview {
+        height: 160px;
+    }
+    
+    .btn-preview {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+
+    /* Responsive Modal */
+    .modal-content {
+        width: 98%;
+        margin: 2% auto;
+        border-radius: 16px;
+    }
+    
+    .modal-header {
+        padding: 1.2rem 1.2rem;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.1rem;
+        gap: 0.6rem;
+    }
+    
+    .modal-header h3::before {
+        font-size: 1.2rem;
+    }
+    
+    .close-modal {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .code-tabs {
+        padding: 0 1rem;
+    }
+    
+    .code-tab {
+        padding: 0.8rem 1rem;
+        font-size: 0.8rem;
+        gap: 0.5rem;
+    }
+    
+    .code-tab::before {
+        font-size: 1rem;
+    }
+    
+    .code-content {
+        padding: 1.2rem;
+        min-height: 300px;
+        max-height: 50vh;
+    }
+    
+    .code-content code {
+        font-size: 0.8rem;
+    }
+    
+    .copy-btn {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
+        gap: 0.5rem;
+    }
+    
+    .copy-btn::before {
+        font-size: 1rem;
+    }
+    
+    .copy-notification {
+        top: 15px;
+        right: 15px;
+        padding: 0.8rem 1.2rem;
+        font-size: 0.8rem;
+        gap: 0.5rem;
+    }
+    
+    .copy-notification::before {
+        font-size: 1rem;
+    }
+}
+/* Animated Border Button Preview */
+.buttons-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-preview-animated {
+    width: 120px;
+    height: 40px;
+    background-color: white;
+    color: #568fa6;
+    position: relative;
+    overflow: hidden;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+}
+
+.btn-preview-animated:before, .btn-preview-animated:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: #44d8a4;
+    transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.btn-preview-animated:before {
+    right: 0;
+    top: 0;
+    transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.btn-preview-animated:after {
+    left: 0;
+    bottom: 0;
+}
+
+.btn-preview-animated span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+
+.btn-preview-animated span:before, .btn-preview-animated span:after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 0;
+    background-color: #44d8a4;
+    transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.btn-preview-animated span:before {
+    right: 0;
+    top: 0;
+    transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.btn-preview-animated span:after {
+    left: 0;
+    bottom: 0;
+}
+
+.btn-preview-animated p {
+    padding: 0;
+    margin: 0;
+    transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-preview-animated p:before, .btn-preview-animated p:after {
+    position: absolute;
+    width: 100%;
+    transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+    z-index: 1;
+    left: 0;
+    text-align: center;
+}
+
+.btn-preview-animated p:before {
+    content: attr(data-title);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-preview-animated p:after {
+    content: attr(data-text);
+    top: 150%;
+    color: #44d8a4;
+}
+
+.btn-preview-animated:hover:before, .btn-preview-animated:hover:after {
+    width: 100%;
+}
+
+.btn-preview-animated:hover span {
+    z-index: 1;
+}
+
+.btn-preview-animated:hover span:before, .btn-preview-animated:hover span:after {
+    height: 100%;
+}
+
+.btn-preview-animated:hover p:before {
+    top: -50%;
+    transform: rotate(5deg);
+}
+
+.btn-preview-animated:hover p:after {
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* Social Media Grid Full Preview */
+.social-grid-full-preview {
+    display: flex;
+    flex-wrap: wrap;
+    width: 120px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.social-card-full-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-top-left-radius: 8px;
+    background: rgba(255, 255, 255, 0.596);
+    backdrop-filter: blur(5px);
+    border: 1px solid transparent;
+    transition: 0.3s ease-in-out;
+}
+
+.social-icon-full {
+    width: 18px;
+    height: 18px;
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+}
+
+.instagram-full { fill: #cc39a4; }
+.twitter-full { fill: #03a9f4; }
+.dribble-full { fill: #ffb5d2; }
+.codepen-full { fill: black; }
+.discord-full { fill: #8c9eff; }
+.github-full { fill: black; }
+.telegram-full { fill: #29b6f6; }
+
+.social-text-full {
+    position: absolute;
+    font-size: 8px;
+    transition: 0.3s ease-in-out;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    z-index: 3;
+}
+
+.social-grid-full-preview:hover .social-card-full-preview {
+    margin: 2px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.social-grid-full-preview:hover .social-text-full {
+    opacity: 0;
+}
+
+.social-grid-full-preview:hover .social-icon-full {
+    opacity: 1;
+}
+
+.social-card-full-preview:nth-child(1):hover { background-color: #cc39a4; }
+.social-card-full-preview:nth-child(2):hover { background-color: #03a9f4; }
+.social-card-full-preview:nth-child(3):hover { background-color: #ffb5d2; }
+.social-card-full-preview:nth-child(4):hover { background-color: #1e1f26; }
+.social-card-full-preview:nth-child(6):hover { background-color: #8c9eff; }
+.social-card-full-preview:nth-child(7):hover { background-color: black; }
+.social-card-full-preview:nth-child(8):hover { background-color: #29b6f6; }
+
+.social-card-full-preview:hover .social-icon-full {
+    fill: white;
+}
+
+/* Emoji Buttons Full Preview */
+.emoji-container-full-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    background: #e8e4df;
+    padding: 6px;
+    border-radius: 20px;
+}
+
+.emoji-btn-full-preview {
+    position: relative;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    padding: 6px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.emoji-btn-full-preview:hover {
+    transform: translateY(-3px) scale(1.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+/* Liquid Wave Button */
+.btn-liquid-wave {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.btn-liquid-wave .liquid-wave {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.3);
+    transition: top 0.6s ease;
+    border-radius: 0 0 50% 50%;
+}
+
+.btn-liquid-wave:hover .liquid-wave {
+    top: 0;
+}
+
+.btn-liquid-wave:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Particle Effect Button */
+.btn-particle-effect {
+    background: #1a1a1a;
+    color: #00ff88;
+    border: 2px solid #00ff88;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-particle-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-particle-effect:hover::before {
+    left: 100%;
+}
+
+.btn-particle-effect:hover {
+    background: #00ff88;
+    color: #1a1a1a;
+    box-shadow: 
+        0 0 10px #00ff88,
+        0 0 20px #00ff88,
+        0 0 30px #00ff88;
+    transform: translateY(-2px);
+}
+
+/* Morphing Gradient Button */
+.btn-morphing-gradient {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+    background-size: 400% 400%;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px 8px 25px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation: gradientShift 3s ease infinite;
+}
+
+.btn-morphing-gradient:hover {
+    border-radius: 8px 25px 8px 25px;
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Neon Flicker Button */
+.btn-neon-flicker {
+    background: transparent;
+    color: #ff0080;
+    border: 2px solid #ff0080;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px #ff0080;
+    box-shadow: 
+        0 0 5px #ff0080,
+        inset 0 0 5px #ff0080;
+    animation: flicker 2s infinite alternate;
+}
+
+.btn-neon-flicker:hover {
+    background: #ff0080;
+    color: #000;
+    text-shadow: none;
+    box-shadow: 
+        0 0 20px #ff0080,
+        0 0 40px #ff0080,
+        inset 0 0 20px #ff0080;
+    transform: translateY(-2px);
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+        box-shadow: 
+            0 0 5px #ff0080,
+            inset 0 0 5px #ff0080;
+    }
+    20%, 24%, 55% {
+        opacity: 0.8;
+        box-shadow: 
+            0 0 2px #ff0080,
+            inset 0 0 2px #ff0080;
+    }
+}
+
+/* 3D Flip Button */
+.btn-3d-flip {
+    background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-3d-flip .front,
+.btn-3d-flip .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    border-radius: 8px;
+}
+
+.btn-3d-flip .back {
+    transform: rotateX(180deg);
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+}
+
+.btn-3d-flip:hover {
+    transform: rotateX(180deg);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+}
+/* Special Backgrounds for New Buttons */
+.preview-container.matrix-bg {
+    background: #0a0a0a;
+    background-image: 
+        linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.preview-container.cyber-bg {
+    background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e);
+}
+
+.preview-container.metal-bg {
+    background: linear-gradient(135deg, #2c3e50, #34495e, #7f8c8d);
+}
+
+/* Holographic Button */
+.btn-holographic {
+    background: linear-gradient(45deg, 
+        rgba(255, 0, 255, 0.1), 
+        rgba(0, 255, 255, 0.1), 
+        rgba(255, 255, 0, 0.1)
+    );
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: transparent;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.hologram-text {
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: hologramShift 2s ease infinite;
+}
+
+.hologram-effect {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.btn-holographic:hover .hologram-effect {
+    left: 100%;
+}
+
+.btn-holographic:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 0 20px rgba(255, 0, 255, 0.5),
+        0 0 40px rgba(0, 255, 255, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+@keyframes hologramShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Matrix Digital Rain Button */
+.btn-matrix {
+    background: rgba(0, 20, 0, 0.8);
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.matrix-text {
+    position: relative;
+    z-index: 2;
+}
+
+.digital-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 50%, rgba(0, 255, 0, 0.1) 50%);
+    background-size: 100% 4px;
+    animation: matrixScan 0.5s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-matrix:hover .digital-rain {
+    opacity: 1;
+}
+
+.btn-matrix:hover {
+    background: rgba(0, 255, 0, 0.1);
+    box-shadow: 
+        0 0 10px #00ff00,
+        0 0 20px #00ff00,
+        inset 0 0 10px #00ff00;
+    transform: translateY(-1px);
+}
+
+@keyframes matrixScan {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 4px; }
+}
+
+/* Quantum Particle Button */
+.btn-quantum {
+    background: radial-gradient(circle at 30% 30%, #1a1a2e, #16213e, #0f3460);
+    border: 1px solid rgba(127, 0, 255, 0.5);
+    color: #7f00ff;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.quantum-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(127, 0, 255, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 127, 0.3) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    animation: quantumPulse 2s ease-in-out infinite;
+}
+
+.btn-quantum:hover .quantum-field {
+    opacity: 1;
+}
+
+.btn-quantum:hover {
+    color: #ffffff;
+    box-shadow: 
+        0 0 15px rgba(127, 0, 255, 0.7),
+        0 0 30px rgba(255, 0, 127, 0.5),
+        inset 0 0 15px rgba(127, 0, 255, 0.3);
+    transform: translateY(-2px) scale(1.05);
+}
+
+@keyframes quantumPulse {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% { 
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* Cyberpunk Glitch Button */
+.btn-cyberpunk {
+    background: linear-gradient(45deg, #ff0080, #00ff80, #0080ff);
+    background-size: 300% 300%;
+    border: none;
+    color: #000;
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 900;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: cyberGradient 3s ease infinite;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-cyberpunk span {
+    position: relative;
+    z-index: 2;
+}
+
+.glitch-layers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-cyberpunk:hover .glitch-layers {
+    opacity: 1;
+    animation: cyberGlitch 0.3s infinite;
+}
+
+.btn-cyberpunk:hover {
+    animation: cyberGradient 1s ease infinite;
+    box-shadow: 
+        0 0 20px #ff0080,
+        0 0 40px #00ff80,
+        0 0 60px #0080ff;
+    transform: skew(-2deg) translateY(-2px);
+}
+
+@keyframes cyberGradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes cyberGlitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Liquid Metal Button */
+.btn-liquid-metal {
+    background: linear-gradient(135deg, 
+        #b8b8b8, #d4d4d4, #b8b8b8, 
+        #a0a0a0, #c8c8c8, #a0a0a0
+    );
+    background-size: 200% 200%;
+    border: none;
+    color: #2c3e50;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    animation: metalShine 3s ease-in-out infinite;
+}
+
+.metal-reflection {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        transparent 70%
+    );
+    transform: rotate(45deg);
+    transition: left 0.6s ease;
+}
+
+.btn-liquid-metal:hover .metal-reflection {
+    left: 100%;
+}
+
+.btn-liquid-metal:hover {
+    background: linear-gradient(135deg, 
+        #c8c8c8, #e8e8e8, #c8c8c8, 
+        #b0b0b0, #d8d8d8, #b0b0b0
+    );
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px) scale(1.02);
+}
+
+@keyframes metalShine {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+/* 3D Outline Lift Button */
+.btn-3d-outline-lift {
+    background: transparent;
+    color: #7c3aed;
+    border: 2px solid #7c3aed;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.btn-3d-outline-lift::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: -6px;
+    bottom: -6px;
+    background: #6d28d9;
+    border-radius: 8px;
+    z-index: -1;
+    transition: all 0.3s ease;
+    transform: translateZ(-10px);
+    opacity: 0.3;
+}
+
+.btn-3d-outline-lift:hover {
+    background: #7c3aed;
+    color: white;
+    transform: translateY(-4px) translateZ(10px);
+    box-shadow: 
+        0 10px 20px rgba(124, 58, 237, 0.3),
+        0 6px 6px rgba(124, 58, 237, 0.2);
+}
+
+.btn-3d-outline-lift:hover::before {
+    top: 3px;
+    left: 3px;
+    right: -3px;
+    bottom: -3px;
+    opacity: 0.5;
+}
+
+.btn-3d-outline-lift:active {
+    transform: translateY(-2px) translateZ(5px);
+}
+
+/* Outline Perspective Button */
+.btn-outline-perspective {
+    background: transparent;
+    color: #10b981;
+    border: 2px solid #10b981;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    perspective: 600px;
+}
+
+.btn-outline-perspective::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #10b981;
+    border-radius: 8px;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+    transition: transform 0.4s ease;
+    z-index: -1;
+    opacity: 0;
+}
+
+.btn-outline-perspective:hover {
+    color: white;
+    transform: rotateX(-15deg) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+.btn-outline-perspective:hover::before {
+    transform: rotateX(0deg);
+    opacity: 1;
+}
+
+/* Floating Outline Button */
+.btn-floating-outline {
+    background: transparent;
+    color: #3b82f6;
+    border: 2px solid #3b82f6;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: floatOutline 3s ease-in-out infinite;
+}
+
+.btn-floating-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #3b82f6;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    z-index: -1;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.btn-floating-outline:hover {
+    color: white;
+    transform: translateY(-6px) scale(1.05);
+    animation: none;
+    box-shadow: 
+        0 15px 30px rgba(59, 130, 246, 0.4),
+        0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.btn-floating-outline:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@keyframes floatOutline {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+}
+
+/* Outline Depth Button */
+.btn-outline-depth {
+    background: transparent;
+    color: #ec4899;
+    border: 2px solid #ec4899;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+.btn-outline-depth::before,
+.btn-outline-depth::after {
+    content: '';
+    position: absolute;
+    border: 2px solid #ec4899;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+}
+
+.btn-outline-depth::before {
+    top: 3px;
+    left: 3px;
+    right: -3px;
+    bottom: -3px;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.btn-outline-depth::after {
+    top: 6px;
+    left: 6px;
+    right: -6px;
+    bottom: -6px;
+    z-index: -2;
+    opacity: 0.3;
+}
+
+.btn-outline-depth:hover {
+    background: #ec4899;
+    color: white;
+    transform: translateY(-4px) translateZ(10px);
+    box-shadow: 
+        0 12px 25px rgba(236, 72, 153, 0.4),
+        0 8px 15px rgba(236, 72, 153, 0.3);
+}
+
+.btn-outline-depth:hover::before {
+    top: 2px;
+    left: 2px;
+    right: -2px;
+    bottom: -2px;
+    opacity: 0.8;
+}
+
+.btn-outline-depth:hover::after {
+    top: 4px;
+    left: 4px;
+    right: -4px;
+    bottom: -4px;
+    opacity: 0.5;
+}
+
+/* 3D Outline Rotate Button */
+.btn-3d-outline-rotate {
+    background: transparent;
+    color: #f59e0b;
+    border: 2px solid transparent;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+.btn-3d-outline-rotate::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #f59e0b, #d97706, #f59e0b);
+    border-radius: 10px;
+    z-index: -1;
+    transition: all 0.5s ease;
+    transform: rotateY(0deg) rotateX(0deg);
+}
+
+.btn-3d-outline-rotate::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: white;
+    border-radius: 6px;
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
+.btn-3d-outline-rotate:hover {
+    color: #d97706;
+    transform: rotateY(15deg) rotateX(10deg) translateZ(10px);
+}
+
+.btn-3d-outline-rotate:hover::before {
+    transform: rotateY(-15deg) rotateX(-10deg);
+    background: linear-gradient(45deg, #d97706, #f59e0b, #d97706);
+}
+
+.btn-3d-outline-rotate:hover::after {
+    background: transparent;
+}
+/* Expand Delete Button */
+.btn-expand-delete {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    transition-duration: .3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.btn-expand-delete .svgIcon {
+    width: 10px;
+    transition-duration: .3s;
+}
+
+.btn-expand-delete .svgIcon path {
+    fill: white;
+}
+
+.btn-expand-delete:hover {
+    width: 100px;
+    border-radius: 40px;
+    transition-duration: .3s;
+    background-color: rgb(255, 69, 69);
+    align-items: center;
+}
+
+.btn-expand-delete:hover .svgIcon {
+    width: 30px;
+    transition-duration: .3s;
+    transform: translateY(60%);
+}
+
+.btn-expand-delete::before {
+    position: absolute;
+    top: -15px;
+    content: "Delete";
+    color: white;
+    transition-duration: .3s;
+    font-size: 1px;
+    opacity: 0;
+}
+
+.btn-expand-delete:hover::before {
+    font-size: 10px;
+    opacity: 1;
+    transform: translateY(20px);
+    transition-duration: .3s;
+}
+
+/* Gradient Border Button */
+.btn-gradient-border {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 11px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-gradient-border span {
+    position: relative;
+    z-index: 1;
+}
+
+.btn-gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: #272727;
+    border-radius: 7px;
+    transition: 0.5s;
+}
+
+.btn-gradient-border:hover::before {
+    opacity: 0.7;
+}
+
+.btn-gradient-border::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+    border-radius: 7px;
+    transition: 0.5s;
+    opacity: 0;
+    filter: blur(15px);
+}
+
+.btn-gradient-border:hover:after {
+    opacity: 1;
+}
+
+/* 3D Press Button */
+.btn-3d-press {
+    all: unset;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+    border-radius: 100em;
+    background-color: rgba(0, 0, 0, 0.75);
+    box-shadow:
+        -0.1em -0.1em 0.1em -0.05em rgba(5, 5, 5, 0.25),
+        0.025em 0.025em 0.05em 0 rgba(5, 5, 5, 0.1);
+}
+
+.btn-3d-press::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: calc(100% + 0.2em);
+    height: calc(100% + 0.2em);
+    top: -0.1em;
+    left: -0.1em;
+    border-radius: inherit;
+    background: linear-gradient(
+        -135deg,
+        rgba(5, 5, 5, 0.5),
+        transparent 20%,
+        transparent 100%
+    );
+    filter: blur(0.01em);
+    opacity: 0.25;
+    mix-blend-mode: multiply;
+}
+
+.btn-3d-press .button-outer {
+    position: relative;
+    z-index: 1;
+    border-radius: inherit;
+    transition: box-shadow 300ms ease;
+    will-change: box-shadow;
+    box-shadow:
+        0 0.03em 0.03em -0.01em rgba(5, 5, 5, 1),
+        0 0.01em 0.01em -0.01em rgba(5, 5, 5, 0.5),
+        0.1em 0.2em 0.1em -0.01em rgba(5, 5, 5, 0.25);
+}
+
+.btn-3d-press:hover .button-outer {
+    box-shadow:
+        0 0 0 0 rgba(5, 5, 5, 1),
+        0 0 0 0 rgba(5, 5, 5, 0.5),
+        0 0 0 0 rgba(5, 5, 5, 0.25);
+}
+
+.btn-3d-press .button-inner {
+    --inset: 0.025em;
+    position: relative;
+    z-index: 1;
+    border-radius: inherit;
+    padding: 8px 12px;
+    background-image: linear-gradient(
+        135deg,
+        rgba(230, 230, 230, 1),
+        rgba(180, 180, 180, 1)
+    );
+    transition:
+        box-shadow 300ms ease,
+        clip-path 250ms ease,
+        background-image 250ms ease,
+        transform 250ms ease;
+    will-change: box-shadow, clip-path, background-image, transform;
+    overflow: clip;
+    clip-path: inset(0 0 0 0 round 100em);
+    box-shadow:
+        0 0 0 0 inset rgba(5, 5, 5, 0.1),
+        -0.03em -0.03em 0.03em 0 inset rgba(5, 5, 5, 0.25),
+        0 0 0 0 inset rgba(5, 5, 5, 0.1),
+        0 0 0.03em 0.15em inset rgba(255, 255, 255, 0.25),
+        0.015em 0.03em 0.1em 0 inset rgba(255, 255, 255, 1),
+        0.08em 0.08em 0.08em inset rgba(255, 255, 255, 0.25),
+        -0.05em -0.15em 0.15em 0.05em inset rgba(5, 5, 5, 0.25);
+}
+
+.btn-3d-press:hover .button-inner {
+    clip-path: inset(
+        clamp(1px, 0.05em, 2px) clamp(1px, 0.05em, 2px)
+        clamp(1px, 0.05em, 2px) clamp(1px, 0.05em, 2px) round 100em
+    );
+    box-shadow:
+        0.05em 0.1em 0.03em 0 inset rgba(5, 5, 5, 0.75),
+        -0.015em -0.02em 0.03em 0.015em inset rgba(5, 5, 5, 0.5),
+        0.15em 0.15em 0.15em 0 inset rgba(5, 5, 5, 0.5),
+        0 0 0.03em 0.3em inset rgba(255, 255, 255, 0.15),
+        0 0 0 0 inset rgba(255, 255, 255, 1),
+        0.08em 0.08em 0.08em inset rgba(255, 255, 255, 0.25),
+        -0.05em -0.08em 0.15em 0.05em inset rgba(5, 5, 5, 0.25);
+}
+
+.btn-3d-press .button-inner span {
+    position: relative;
+    z-index: 4;
+    font-family: "Inter", sans-serif;
+    letter-spacing: -0.03em;
+    font-weight: 500;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(
+        135deg,
+        rgba(25, 25, 25, 1),
+        rgba(75, 75, 75, 1)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: transform 250ms ease;
+    display: block;
+    will-change: transform;
+    text-shadow: rgba(0, 0, 0, 0.1) 0 0 0.1em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn-3d-press:hover .button-inner span {
+    transform: scale(0.975);
+}
+
+.btn-3d-press:active .button-inner {
+    transform: scale(0.975);
+}
+
+/* Leaf Animation Button */
+.btn-leaf-animation {
+    position: relative;
+    padding: 8px 20px;
+    background: #f5ddb7;
+    font-size: 11px;
+    font-weight: 900;
+    color: #181818;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 1px 1px 3px #18181869, inset 1px 1px 6px #ffffffb0;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-leaf-animation .icon-1,
+.btn-leaf-animation .icon-2,
+.btn-leaf-animation .icon-3 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 0px;
+    height: auto;
+    transition: all .5s ease-in-out;
+    z-index: -1;
+}
+
+.btn-leaf-animation:hover {
+    padding: 8px 15px;
+    border-radius: 6px 6px 18px 18px;
+}
+
+.btn-leaf-animation:hover .icon-1 {
+    top: -180%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 35px;
+    height: auto;
+    animation: inIcon1 1s ease .45s forwards;
+}
+
+.btn-leaf-animation:hover .icon-2 {
+    position: absolute;
+    top: -150%;
+    left: 80%;
+    transform: translate(-50%, 0);
+    width: 50px;
+    height: auto;
+    animation: inIcon2 1s ease .45s forwards;
+}
+
+.btn-leaf-animation:hover .icon-3 {
+    position: absolute;
+    top: -200%;
+    left: 20%;
+    transform: translate(-50%, 0);
+    width: 45px;
+    height: auto;
+    animation: inIcon3 1s ease .45s forwards;
+}
+
+@keyframes inIcon1 {
+    0% { transform-origin: 0 100%; transform: translate(-50%, 0) rotate(0deg); }
+    25% { transform-origin: 0 100%; transform: translate(-50%, 0) rotate(5deg); }
+    50% { transform-origin: 0 100%; transform: translate(-50%, 0) rotate(1deg); }
+    65% { transform-origin: 0 100%; transform: translate(-50%, 0) rotate(3deg); }
+    100% { transform-origin: 0 100%; transform: translate(-50%, 0) rotate(0deg); }
+}
+
+@keyframes inIcon2 {
+    0% { transform-origin: 0 100%; transform: translate(-50%, 0) rotate(0deg); }
+    35% { transform-origin: 0 100%; transform: translate(-50%, 0) rotate(10deg); }
+    50% { transform-origin: 0 100%; transform: translate(-50%, 0) rotate(4deg); }
+    80% { transform-origin: 0 100%; transform: translate(-50%, 0) rotate(5deg); }
+    100% { transform-origin: 0 100%; transform: translate(-50%, 0) rotate(0deg); }
+}
+
+@keyframes inIcon3 {
+    0% { transform-origin: 0 100%; transform: translate(-50%, 0) rotate(0deg); }
+    35% { transform-origin: 0 100%; transform: translate(-50%, 0) rotate(-2deg); }
+    100% { transform-origin: 0 100%; transform: translate(-50%, 0) rotate(0deg); }
+}
+
+.fil-leaf-1 { fill: #7B9B3A }
+.fil-leaf-2 { fill: #556729; fill-rule: nonzero }
+.fil-leaf-3 { fill: #556729 }
+.fil-leaf-4 { fill: #3C4819 }
+
+/* Text Reveal Button */
+.btn-text-reveal {
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    --border-right: 4px;
+    --text-stroke-color: rgba(255,255,255,0.6);
+    --animation-color: #37FF8B;
+    --fs-size: 1.2em;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+.btn-text-reveal .hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+}
+
+.btn-text-reveal:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 15px var(--animation-color));
+}
+/* Template 20 - Animated Border Cut */
+.btn-animated-cut {
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    border: 2px solid #fefefe;
+    text-transform: uppercase;
+    color: #fefefe;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+    background: #212121;
+    border-radius: 4px;
+}
+
+.btn-animated-cut::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% - 8px);
+    background-color: #212121;
+    transition: 0.3s ease-in-out;
+    transform: scaleY(1);
+    border-radius: 2px;
+}
+
+.btn-animated-cut:hover::before {
+    transform: scaleY(0);
+}
+
+.btn-animated-cut::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: -2px;
+    height: calc(100% + 4px);
+    width: calc(100% - 8px);
+    background-color: #212121;
+    transition: 0.3s ease-in-out;
+    transform: scaleX(1);
+    transition-delay: 0.3s;
+    border-radius: 2px;
+}
+
+.btn-animated-cut:hover::after {
+    transform: scaleX(0);
+}
+
+.btn-animated-cut span {
+    position: relative;
+    z-index: 3;
+}
+
+/* Template 21 - Learn More Button */
+.btn-learn-more {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: 12px;
+    font-family: inherit;
+    width: 8rem;
+    height: auto;
+}
+
+.btn-learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 2rem;
+    height: 2rem;
+    background: #282936;
+    border-radius: 1.625rem;
+}
+
+.btn-learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+    left: 0.4rem;
+    width: 0.8rem;
+    height: 0.1rem;
+}
+
+.btn-learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.2rem;
+    right: 0.05rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-top: 0.1rem solid #fff;
+    border-right: 0.1rem solid #fff;
+    transform: rotate(45deg);
+}
+
+.btn-learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.5rem 0;
+    margin: 0 0 0 1.2rem;
+    color: #282936;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.btn-learn-more:hover .circle {
+    width: 100%;
+}
+
+.btn-learn-more:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(0.6rem, 0);
+}
+
+.btn-learn-more:hover .button-text {
+    color: #fff;
+}
+
+/* Template 22 - Sliding Fill Button */
+.btn-sliding-fill {
+    border: none;
+    display: block;
+    position: relative;
+    padding: 6px 16px;
+    font-size: 12px;
+    background: transparent;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    color: royalblue;
+    z-index: 1;
+    font-family: inherit;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.btn-sliding-fill span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: -1;
+    border: 2px solid royalblue;
+    border-radius: 4px;
+}
+
+.btn-sliding-fill span::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 8%;
+    height: 500%;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-60deg);
+    transition: all 0.3s;
+}
+
+.btn-sliding-fill:hover span::before {
+    transform: translate(-50%, -50%) rotate(-90deg);
+    width: 100%;
+    background: royalblue;
+}
+
+.btn-sliding-fill:hover {
+    color: white;
+}
+
+/* Template 23 - Icon Hover Button */
+.btn-icon-hover {
+    display: flex;
+    height: 2em;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    color: #333;
+}
+
+.btn-icon-hover > svg {
+    margin-right: 3px;
+    transition: all 0.4s ease-in;
+}
+
+.btn-icon-hover:hover > svg {
+    transform: translateX(-3px);
+}
+
+.btn-icon-hover:hover {
+    box-shadow: 4px 4px 15px #d1d1d1, -4px -4px 15px #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Template 24 - 3D Cube Button */
+.scene-preview {
+    width: 6em;
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cube-preview {
+    color: #ccc;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.85s cubic-bezier(.17,.67,.14,.93);
+    transform-style: preserve-3d;
+    transform-origin: 100% 50%;
+    width: 6em;
+    height: 2.5em;
+}
+
+.cube-preview:hover {
+    transform: rotateX(-90deg);
+}
+
+.side {
+    box-sizing: border-box;
+    position: absolute;
+    display: inline-block;
+    height: 2.5em;
+    width: 6em;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 0.8em;
+    font-weight: bold;
+    font-size: 10px;
+    border-radius: 3px;
+}
+
+.top-preview {
+    background: wheat;
+    color: #222229;
+    transform: rotateX(90deg) translate3d(0, 0, 1.25em);
+    box-shadow: inset 0 0 0 2px #fff;
+}
+
+.front-preview {
+    background: #222229;
+    color: #fff;
+    box-shadow: inset 0 0 0 2px #fff;
+    transform: translate3d(0, 0, 1.25em);
+}
+/* Template 42 - 3D Flip Button */
+.btn-3d-flip {
+    position: relative;
+    width: 100px;
+    height: 40px;
+    perspective: 500px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-3d-flip .front,
+.btn-3d-flip .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.btn-3d-flip .front {
+    background: linear-gradient(145deg, #7c3aed, #6d28d9);
+    color: white;
+    transform: rotateX(0deg);
+}
+
+.btn-3d-flip .back {
+    background: linear-gradient(145deg, #ec4899, #db2777);
+    color: white;
+    transform: rotateX(180deg);
+}
+
+.btn-3d-flip:hover .front {
+    transform: rotateX(-180deg);
+}
+
+.btn-3d-flip:hover .back {
+    transform: rotateX(0deg);
+}
+
+/* Template 43 - 3D Press Button */
+.btn-3d-press {
+    position: relative;
+    padding: 8px 20px;
+    background: linear-gradient(145deg, #3b82f6, #2563eb);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 8px 0 #1d4ed8,
+        0 12px 10px rgba(59, 130, 246, 0.3);
+}
+
+.btn-3d-press:hover {
+    transform: translateY(4px);
+    box-shadow: 
+        0 4px 0 #1d4ed8,
+        0 6px 5px rgba(59, 130, 246, 0.3);
+}
+
+.btn-3d-press:active {
+    transform: translateY(6px);
+    box-shadow: 
+        0 2px 0 #1d4ed8,
+        0 3px 2px rgba(59, 130, 246, 0.3);
+}
+
+/* Template 44 - 3D Gradient Rotate */
+.btn-3d-gradient {
+    position: relative;
+    padding: 8px 20px;
+    background: linear-gradient(45deg, #7c3aed, #ec4899, #3b82f6);
+    background-size: 300% 300%;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    animation: gradientShift 3s ease infinite;
+    box-shadow: 
+        0 6px 0 #6d28d9,
+        0 10px 20px rgba(124, 58, 237, 0.4);
+}
+
+.btn-3d-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+    border-radius: 10px;
+    transform: translateZ(-5px);
+    transition: all 0.5s ease;
+}
+
+.btn-3d-gradient:hover {
+    transform: translateY(-3px) rotateX(10deg);
+    box-shadow: 
+        0 9px 0 #6d28d9,
+        0 15px 30px rgba(124, 58, 237, 0.6);
+}
+
+.btn-3d-gradient:hover::before {
+    transform: translateZ(-2px);
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Template 45 - 3D Liquid Rise */
+.btn-3d-liquid {
+    position: relative;
+    padding: 8px 20px;
+    background: #10b981;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 6px 0 #059669,
+        0 8px 15px rgba(16, 185, 129, 0.3);
+}
+
+.btn-3d-liquid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-3d-liquid:hover::before {
+    left: 100%;
+}
+
+.btn-3d-liquid:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 
+        0 8px 0 #059669,
+        0 12px 25px rgba(16, 185, 129, 0.5);
+}
+
+.btn-3d-liquid:active {
+    transform: translateY(4px) scale(1);
+    box-shadow: 
+        0 2px 0 #059669,
+        0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* Template 46 - 3D Hologram */
+.btn-3d-hologram {
+    position: relative;
+    padding: 8px 20px;
+    background: transparent;
+    border: 2px solid #00ff88;
+    border-radius: 8px;
+    color: #00ff88;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transform-style: preserve-3d;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    text-shadow: 0 0 5px #00ff88;
+    box-shadow: 
+        0 0 10px #00ff88,
+        inset 0 0 5px #00ff88;
+}
+
+.btn-3d-hologram::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+}
+
+.btn-3d-hologram::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-3d-hologram:hover::before {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.btn-3d-hologram:hover::after {
+    left: 100%;
+}
+
+.btn-3d-hologram:hover {
+    background: rgba(0, 255, 136, 0.1);
+    transform: translateY(-3px) translateZ(10px);
+    box-shadow: 
+        0 0 20px #00ff88,
+        inset 0 0 10px #00ff88,
+        0 5px 15px rgba(0, 255, 136, 0.4);
+}
+/* Template 47 - Bounce Animation */
+.btn-bounce {
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-bounce:hover {
+    animation: bounce 0.5s ease infinite alternate;
+    transform: translateY(-3px);
+}
+
+@keyframes bounce {
+    from { transform: translateY(-3px); }
+    to { transform: translateY(-6px); }
+}
+
+/* Template 48 - Wave Animation */
+.btn-wave {
+    position: relative;
+    padding: 8px 20px;
+    background: #10b981;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-wave::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
+}
+
+.btn-wave:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-wave:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+/* Template 49 - Neon Pulse */
+.btn-neon-pulse {
+    padding: 8px 20px;
+    background: transparent;
+    border: 2px solid #ff0080;
+    border-radius: 8px;
+    color: #ff0080;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: neonPulse 2s infinite;
+    text-shadow: 0 0 5px #ff0080;
+    box-shadow: 
+        0 0 10px #ff0080,
+        inset 0 0 5px #ff0080;
+}
+
+@keyframes neonPulse {
+    0%, 100% { 
+        box-shadow: 
+            0 0 10px #ff0080,
+            inset 0 0 5px #ff0080;
+    }
+    50% { 
+        box-shadow: 
+            0 0 20px #ff0080,
+            inset 0 0 10px #ff0080;
+    }
+}
+
+.btn-neon-pulse:hover {
+    background: #ff0080;
+    color: white;
+    animation: none;
+}
+
+/* Template 50 - Magnetic 2D */
+.btn-magnetic-2d {
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-magnetic-2d::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-magnetic-2d:hover::before {
+    left: 100%;
+}
+
+/* Template 51 - Shake Animation */
+.btn-shake {
+    padding: 8px 20px;
+    background: #f59e0b;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-shake:hover {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Template 52 - Rotate 3D */
+.btn-rotate-3d {
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.btn-rotate-3d:hover {
+    transform: rotateX(15deg) rotateY(15deg) scale(1.1);
+    box-shadow: 
+        0 15px 30px rgba(79, 172, 254, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Template 53 - Glitch Effect */
+.btn-glitch {
+    padding: 8px 20px;
+    background: #000;
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    color: #00ffff;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+.btn-glitch:hover {
+    animation: glitch 0.3s linear;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Template 54 - Particle Explosion */
+.btn-particle {
+    position: relative;
+    padding: 8px 20px;
+    background: #8b5cf6;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-particle::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease;
+}
+
+.btn-particle:hover::before {
+    transform: translate(-50%, -50%) scale(10);
+    opacity: 0;
+}
+
+.btn-particle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+/* Template 55 - Morph Shape */
+.btn-morph {
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #ff6b6b, #ffa8a8);
+    border: none;
+    border-radius: 25px 8px 25px 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.btn-morph:hover {
+    border-radius: 8px 25px 8px 25px;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+}
+
+/* Template 56 - Infinite Spin */
+.btn-spin {
+    position: relative;
+    padding: 8px 20px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: #6366f1;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.btn-spin::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: conic-gradient(from 0deg, #6366f1, #8b5cf6, #ec4899, #6366f1);
+    border-radius: 10px;
+    animation: spin 2s linear infinite;
+    z-index: -1;
+}
+
+.btn-spin::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    bottom: 1px;
+    background: white;
+    border-radius: 7px;
+    z-index: -1;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.btn-spin:hover::before {
+    animation-duration: 0.5s;
+}
+/* Base Button Structure */
+.btn-slide-fill,
+.btn-gradient-slide,
+.btn-dual-fill,
+.btn-bounce-fill,
+.btn-wave-fill,
+.btn-diagonal-slide,
+.btn-circular-expand,
+.btn-double-slide,
+.btn-neon-slide,
+.btn-3d-slide {
+    text-decoration: none;
+    line-height: 1;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 6px 6px 12px rgba(0,0,0,.05);
+    background-color: #fff;
+    color: #121212;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.btn-decor {
+    position: absolute;
+    inset: 0;
+    background-color: var(--clr);
+    transform: translateX(-100%);
+    transition: transform .3s;
+    z-index: 0;
+}
+
+.btn-content {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-icon {
+    width: 32px;
+    height: 28px;
+    background-color: var(--clr);
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-text {
+    display: inline-block;
+    transition: color .2s;
+    padding: 4px 12px 4px;
+    padding-left: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 80px;
+}
+
+/* Template 57 - Slide Fill Animation */
+.btn-slide-fill:hover .btn-text {
+    color: #fff;
+}
+
+.btn-slide-fill:hover .btn-decor {
+    transform: translate(0);
+}
+
+/* Template 58 - Gradient Slide */
+.btn-gradient-slide .btn-decor {
+    background: var(--clr);
+}
+
+.btn-gradient-slide:hover .btn-text {
+    color: #fff;
+}
+
+.btn-gradient-slide:hover .btn-decor {
+    transform: translate(0);
+}
+
+.btn-gradient-slide:hover .btn-icon {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Template 59 - Dual Color Fill */
+.btn-dual-fill .btn-decor {
+    background: linear-gradient(90deg, var(--clr1) 0%, var(--clr2) 100%);
+    transform: translateX(-100%) scaleX(1.5);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-dual-fill:hover .btn-text {
+    color: #fff;
+}
+
+.btn-dual-fill:hover .btn-decor {
+    transform: translate(0) scaleX(1);
+}
+
+.btn-dual-fill:hover .btn-icon {
+    background: linear-gradient(90deg, var(--clr1) 0%, var(--clr2) 100%);
+}
+
+/* Template 60 - Bounce Fill */
+.btn-bounce-fill .btn-decor {
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.btn-bounce-fill:hover .btn-text {
+    color: #fff;
+}
+
+.btn-bounce-fill:hover .btn-decor {
+    transform: translate(0);
+}
+
+.btn-bounce-fill:hover {
+    animation: bounceButton 0.5s ease;
+}
+
+@keyframes bounceButton {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Template 61 - Wave Fill */
+.btn-wave-fill .btn-decor {
+    transform: translateX(-100%) skewX(-15deg);
+    transition: transform 0.4s ease;
+}
+
+.btn-wave-fill:hover .btn-text {
+    color: #fff;
+}
+
+.btn-wave-fill:hover .btn-decor {
+    transform: translate(0) skewX(-15deg);
+}
+
+.btn-wave-fill:hover .btn-icon {
+    animation: waveIcon 0.6s ease;
+}
+
+@keyframes waveIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+/* Template 62 - Diagonal Slide */
+.btn-diagonal-slide .btn-decor {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    transform-origin: top left;
+    transition: transform 0.4s ease;
+}
+
+.btn-diagonal-slide:hover .btn-text {
+    color: #fff;
+}
+
+.btn-diagonal-slide:hover .btn-decor {
+    transform: translate(0) rotate(45deg);
+}
+
+/* Template 63 - Circular Expand */
+.btn-circular-expand .btn-decor {
+    transform: scale(0);
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+    transform-origin: center;
+}
+
+.btn-circular-expand:hover .btn-text {
+    color: #fff;
+}
+
+.btn-circular-expand:hover .btn-decor {
+    transform: scale(2);
+}
+
+/* Template 64 - Double Slide */
+.btn-double-slide {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-double-slide .btn-decor-top,
+.btn-double-slide .btn-decor-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: var(--clr1);
+    transition: transform 0.4s ease;
+    z-index: 0;
+}
+
+.btn-double-slide .btn-decor-top {
+    top: 0;
+    background: var(--clr1);
+    transform: translateX(-100%);
+}
+
+.btn-double-slide .btn-decor-bottom {
+    bottom: 0;
+    background: var(--clr2);
+    transform: translateX(100%);
+}
+
+.btn-double-slide:hover .btn-text {
+    color: #fff;
+}
+
+.btn-double-slide:hover .btn-decor-top {
+    transform: translateX(0);
+}
+
+.btn-double-slide:hover .btn-decor-bottom {
+    transform: translateX(0);
+}
+
+.btn-double-slide:hover .btn-icon {
+    background: linear-gradient(135deg, var(--clr1), var(--clr2));
+}
+
+/* Template 65 - Neon Slide */
+.btn-neon-slide {
+    background: #000;
+    color: var(--clr);
+    box-shadow: 
+        0 0 10px var(--clr),
+        inset 0 0 5px var(--clr);
+}
+
+.btn-neon-slide .btn-decor {
+    background: var(--clr);
+    transform: translateX(-100%);
+}
+
+.btn-neon-slide .btn-icon {
+    background: var(--clr);
+}
+
+.btn-neon-slide:hover .btn-text {
+    color: #000;
+    text-shadow: none;
+}
+
+.btn-neon-slide:hover .btn-decor {
+    transform: translate(0);
+}
+
+.btn-neon-slide:hover {
+    box-shadow: 
+        0 0 20px var(--clr),
+        inset 0 0 10px var(--clr);
+}
+
+/* Template 66 - 3D Slide Fill */
+.btn-3d-slide {
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.btn-3d-slide .btn-decor {
+    transform: translateX(-100%) rotateY(45deg);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-3d-slide:hover .btn-text {
+    color: #fff;
+}
+
+.btn-3d-slide:hover .btn-decor {
+    transform: translate(0) rotateY(0);
+}
+
+.btn-3d-slide:hover {
+    transform: translateY(-2px) rotateX(5deg);
+    box-shadow: 
+        0 8px 20px rgba(6, 182, 212, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Template 77 - Dark Neon Glow */
+.btn-dark-neon {
+    background: transparent;
+    color: #00ff88;
+    border: 2px solid #00ff88;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px #00ff88;
+    box-shadow: 
+        0 0 5px #00ff88,
+        inset 0 0 5px #00ff88;
+}
+
+.btn-dark-neon:hover {
+    background: #00ff88;
+    color: #000;
+    text-shadow: none;
+    box-shadow: 
+        0 0 20px #00ff88,
+        0 0 40px #00ff88,
+        inset 0 0 10px #00ff88;
+    transform: translateY(-2px);
+}
+
+/* Template 78 - Cyberpunk Button */
+.btn-cyberpunk {
+    background: linear-gradient(45deg, #ff0080, #8000ff);
+    color: #00ffff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 900;
+    cursor: pointer;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00ffff;
+    clip-path: polygon(
+        0 0, 
+        calc(100% - 10px) 0, 
+        100% 10px, 
+        100% 100%, 
+        10px 100%, 
+        0 calc(100% - 10px)
+    );
+    transition: all 0.3s ease;
+}
+
+.btn-cyberpunk::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: #000;
+    clip-path: polygon(
+        0 0, 
+        calc(100% - 10px) 0, 
+        100% 10px, 
+        100% 100%, 
+        10px 100%, 
+        0 calc(100% - 10px)
+    );
+    z-index: -1;
+}
+
+.btn-cyberpunk:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 0 20px #ff0080,
+        0 0 40px #8000ff;
+}
+
+/* Template 79 - Matrix Rain */
+.btn-matrix {
+    background: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.btn-matrix::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom,
+        transparent 30%,
+        rgba(0, 255, 0, 0.1) 50%,
+        transparent 70%
+    );
+    animation: matrixRain 2s linear infinite;
+    transform: rotate(30deg);
+}
+
+@keyframes matrixRain {
+    0% { transform: translateY(-100%) rotate(30deg); }
+    100% { transform: translateY(100%) rotate(30deg); }
+}
+
+.btn-matrix:hover {
+    box-shadow: 
+        0 0 10px #00ff00,
+        0 0 20px #00ff00;
+    background: #001100;
+}
+
+/* Template 80 - Hologram Button */
+.btn-hologram {
+    background: rgba(0, 255, 255, 0.1);
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px #00ffff;
+    backdrop-filter: blur(10px);
+}
+
+.btn-hologram::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.btn-hologram:hover::before {
+    left: 100%;
+}
+
+.btn-hologram:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 
+        0 0 15px #00ffff,
+        inset 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+/* Template 81 - Dark Gradient Pulse */
+.btn-gradient-pulse {
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+    background-size: 300% 300%;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.btn-gradient-pulse::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-gradient-pulse:hover::before {
+    left: 100%;
+}
+
+.btn-gradient-pulse:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Template 82 - Dark Glass Morphism */
+.btn-dark-glass {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-dark-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-dark-glass:hover::before {
+    left: 100%;
+}
+
+.btn-dark-glass:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Template 83 - Dark Particle Effect */
+.btn-particle {
+    background: #1a1a1a;
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-particle::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    animation: particleFloat 3s infinite linear;
+    opacity: 0;
+}
+
+.btn-particle::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #4ecdc4;
+    border-radius: 50%;
+    animation: particleFloat 2s infinite linear 1s;
+    opacity: 0;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100%) translateX(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100%) translateX(10px);
+        opacity: 0;
+    }
+}
+
+.btn-particle:hover::before,
+.btn-particle:hover::after {
+    animation-play-state: running;
+}
+
+.btn-particle:hover {
+    box-shadow: 
+        0 0 10px #ff6b6b,
+        inset 0 0 10px rgba(255, 107, 107, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Template 84 - Dark Liquid Fill */
+.btn-liquid-dark {
+    background: transparent;
+    color: #8b5cf6;
+    border: 2px solid #8b5cf6;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.btn-liquid-dark::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(45deg, #8b5cf6, #6366f1);
+    transition: height 0.5s ease;
+    z-index: -1;
+    border-radius: 0 0 50% 50%;
+}
+
+.btn-liquid-dark:hover::before {
+    height: 100%;
+    border-radius: 0;
+}
+
+.btn-liquid-dark:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Template 85 - Dark Glitch Text */
+.btn-glitch {
+    background: #000;
+    color: #fff;
+    border: 2px solid #ff0080;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 900;
+    cursor: pointer;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn-glitch:hover {
+    animation: glitch 0.3s linear;
+    background: #ff0080;
+    color: #000;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Template 86 - Dark Space Theme */
+.btn-space {
+    background: #000;
+    color: #fff;
+    border: 1px solid #6366f1;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-space::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
+    animation: spaceTwinkle 4s infinite;
+}
+
+@keyframes spaceTwinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.btn-space:hover {
+    background: #111;
+    box-shadow: 
+        0 0 20px #6366f1,
+        inset 0 0 20px rgba(99, 102, 241, 0.1);
+    transform: translateY(-2px);
+}
+/* Template 87 - Dark Cyber Grid */
+.btn-cyber-grid {
+    background: #000;
+    color: #00ff88;
+    border: 1px solid #00ff88;
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 900;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Courier New', monospace;
+}
+
+.btn-cyber-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, transparent 49%, #00ff88 50%, transparent 51%),
+        linear-gradient(0deg, transparent 49%, #00ff88 50%, transparent 51%);
+    background-size: 10px 10px;
+    opacity: 0.3;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+
+.btn-cyber-grid:hover {
+    background: #001100;
+    box-shadow: 
+        0 0 15px #00ff88,
+        inset 0 0 10px #00ff88;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+/* Template 88 - Dark Binary Rain */
+.btn-binary {
+    background: #000;
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-binary::before {
+    content: '0101010101010101';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    color: #00ffff;
+    font-size: 8px;
+    opacity: 0.3;
+    animation: binaryFall 3s linear infinite;
+}
+
+@keyframes binaryFall {
+    0% { top: -100%; }
+    100% { top: 100%; }
+}
+
+.btn-binary:hover::before {
+    animation-duration: 1s;
+    opacity: 0.6;
+}
+
+.btn-binary:hover {
+    background: #001133;
+    box-shadow: 0 0 20px #00ffff;
+}
+
+/* Template 89 - Dark Plasma Ball */
+.btn-plasma {
+    background: radial-gradient(circle at center, #8b5cf6, #000);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-plasma::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6, #8b5cf6);
+    animation: plasmaRotate 4s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes plasmaRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.btn-plasma:hover {
+    transform: scale(1.1);
+    box-shadow: 
+        0 0 30px #8b5cf6,
+        0 0 60px #ec4899;
+}
+
+/* Template 90 - Dark Data Stream */
+.btn-data-stream {
+    background: #000;
+    color: #ff0080;
+    border: 1px solid #ff0080;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Courier New', monospace;
+}
+
+.btn-data-stream::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff0080, transparent);
+    animation: dataStream 2s linear infinite;
+}
+
+@keyframes dataStream {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.btn-data-stream:hover {
+    background: #1a001a;
+    box-shadow: 
+        0 0 15px #ff0080,
+        inset 0 0 10px rgba(255, 0, 128, 0.2);
+}
+
+/* Template 91 - Dark Neon Sign */
+.btn-neon-sign {
+    background: #000;
+    color: #ff0080;
+    border: 2px solid #ff0080;
+    padding: 8px 20px;
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Arial Black', sans-serif;
+    animation: neonFlicker 2s infinite alternate;
+}
+
+@keyframes neonFlicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow: 
+            0 0 5px #ff0080,
+            0 0 10px #ff0080,
+            0 0 15px #ff0080;
+        box-shadow: 
+            0 0 5px #ff0080,
+            inset 0 0 5px #ff0080;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+        box-shadow: none;
+    }
+}
+
+.btn-neon-sign:hover {
+    animation-duration: 0.5s;
+    background: #ff0080;
+    color: #000;
+}
+
+/* Template 92 - Dark Circuit Board */
+.btn-circuit {
+    background: #000;
+    color: #00ff88;
+    border: 1px solid #00ff88;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-circuit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 30%, #00ff88 1px, transparent 1px),
+        radial-gradient(circle at 70% 70%, #00ff88 1px, transparent 1px);
+    background-size: 10px 10px;
+    opacity: 0.3;
+    animation: circuitPulse 2s infinite;
+}
+
+@keyframes circuitPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+}
+
+.btn-circuit:hover {
+    background: #001100;
+    box-shadow: 0 0 20px #00ff88;
+}
+
+/* Template 93 - Dark Digital Clock */
+.btn-digital-clock {
+    background: #000;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px #00ffff;
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.btn-digital-clock:hover {
+    background: #001133;
+    box-shadow: 
+        0 0 15px #00ffff,
+        inset 0 0 15px rgba(0, 255, 255, 0.3);
+    animation: digitalBlink 0.5s infinite alternate;
+}
+
+@keyframes digitalBlink {
+    0% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+/* Template 94 - Dark Wormhole */
+.btn-wormhole {
+    background: radial-gradient(circle at center, #000 0%, #4a00e0 50%, #000 100%);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-wormhole::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, #8b5cf6, transparent, #ec4899, transparent);
+    animation: wormholeSpin 3s linear infinite;
+}
+
+@keyframes wormholeSpin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.btn-wormhole:hover::before {
+    animation-duration: 1s;
+}
+
+.btn-wormhole:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px #8b5cf6;
+}
+
+/* Template 95 - Dark Laser Grid */
+.btn-laser-grid {
+    background: #000;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 900;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Arial Black', sans-serif;
+}
+
+.btn-laser-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, transparent 49%, #ff0000 50%, transparent 51%) 0 0 / 10px 10px,
+        linear-gradient(0deg, transparent 49%, #ff0000 50%, transparent 51%) 0 0 / 10px 10px;
+    animation: laserScan 1s linear infinite;
+}
+
+@keyframes laserScan {
+    0% { background-position: 0 0; }
+    100% { background-position: 10px 10px; }
+}
+
+.btn-laser-grid:hover {
+    background: #330000;
+    box-shadow: 
+        0 0 20px #ff0000,
+        inset 0 0 10px #ff0000;
+}
+
+/* Template 96 - Dark Quantum */
+.btn-quantum {
+    background: #000;
+    color: #bb86fc;
+    border: 1px solid #bb86fc;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-quantum::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(187, 134, 252, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-quantum:hover::before {
+    left: 100%;
+}
+
+.btn-quantum:hover {
+    background: #1a1a1a;
+    box-shadow: 
+        0 0 20px #bb86fc,
+        0 0 40px rgba(187, 134, 252, 0.3);
+    animation: quantumSuperposition 0.5s infinite alternate;
+}
+
+@keyframes quantumSuperposition {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(2px); }
+}
+/* Template 97 - Dark Morse Code */
+.btn-morse-code {
+    background: #000;
+    color: #00ff88;
+    border: 1px solid #00ff88;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 3px;
+    animation: morseBlink 2s infinite;
+}
+
+@keyframes morseBlink {
+    0%, 20% { opacity: 1; }
+    21%, 40% { opacity: 0.3; }
+    41%, 60% { opacity: 1; }
+    61%, 80% { opacity: 0.3; }
+    81%, 100% { opacity: 1; }
+}
+
+.btn-morse-code:hover {
+    background: #001100;
+    box-shadow: 0 0 20px #00ff88;
+    animation-duration: 1s;
+}
+
+/* Template 98 - Dark DNA Helix */
+.btn-dna-helix {
+    background: #000;
+    color: #ff6b6b;
+    border: 1px solid #ff6b6b;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-dna-helix::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, transparent 45%, #ff6b6b 50%, transparent 55%),
+        linear-gradient(-45deg, transparent 45%, #4ecdc4 50%, transparent 55%);
+    background-size: 20px 20px;
+    animation: dnaRotate 3s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes dnaRotate {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 20px; }
+}
+
+.btn-dna-helix:hover {
+    background: #1a0000;
+    box-shadow: 0 0 20px #ff6b6b;
+}
+
+/* Template 99 - Dark Solar System */
+.btn-solar-system {
+    background: #000;
+    color: #ffd700;
+    border: 1px solid #ffd700;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-solar-system::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: #ffd700;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 
+        15px 0 0 2px #ff6b6b,
+        30px 0 0 1px #4ecdc4,
+        -15px 0 0 2px #ff6b6b,
+        -30px 0 0 1px #4ecdc4;
+    animation: planetOrbit 4s linear infinite;
+}
+
+@keyframes planetOrbit {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.btn-solar-system:hover::before {
+    animation-duration: 2s;
+}
+
+.btn-solar-system:hover {
+    background: #1a1a00;
+    box-shadow: 0 0 20px #ffd700;
+}
+
+/* Template 100 - Dark Chess Board */
+.btn-chess-board {
+    background: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Times New Roman', serif;
+}
+
+.btn-chess-board::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, transparent 49%, #fff 50%, transparent 51%),
+        linear-gradient(0deg, transparent 49%, #fff 50%, transparent 51%);
+    background-size: 10px 10px;
+    opacity: 0.2;
+    animation: chessMove 10s linear infinite;
+}
+
+@keyframes chessMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 10px 10px; }
+}
+
+.btn-chess-board:hover {
+    background: #1a1a1a;
+    box-shadow: 0 0 20px #fff;
+}
+
+/* Template 101 - Dark Audio Wave */
+.btn-audio-wave {
+    background: #000;
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-audio-wave::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, 
+            transparent 10%, #00ffff 12%, transparent 14%,
+            transparent 20%, #00ffff 22%, transparent 24%,
+            transparent 30%, #00ffff 32%, transparent 34%,
+            transparent 40%, #00ffff 42%, transparent 44%,
+            transparent 50%, #00ffff 52%, transparent 54%,
+            transparent 60%, #00ffff 62%, transparent 64%,
+            transparent 70%, #00ffff 72%, transparent 74%,
+            transparent 80%, #00ffff 82%, transparent 84%,
+            transparent 90%, #00ffff 92%, transparent 94%
+        );
+    animation: audioPulse 0.5s ease-in-out infinite alternate;
+    opacity: 0.3;
+}
+
+@keyframes audioPulse {
+    0% { height: 30%; }
+    100% { height: 80%; }
+}
+
+.btn-audio-wave:hover {
+    background: #001133;
+    box-shadow: 0 0 20px #00ffff;
+}
+
+/* Template 102 - Dark Radar Scan */
+.btn-radar-scan {
+    background: #000;
+    color: #00ff88;
+    border: 1px solid #00ff88;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-radar-scan::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(from 0deg, transparent, #00ff88, transparent);
+    animation: radarRotate 2s linear infinite;
+    border-radius: 50px;
+}
+
+@keyframes radarRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.btn-radar-scan:hover::before {
+    animation-duration: 1s;
+}
+
+.btn-radar-scan:hover {
+    background: #001100;
+    box-shadow: 0 0 20px #00ff88;
+}
+
+/* Template 103 - Dark Barcode */
+.btn-barcode {
+    background: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-size: 8px;
+    font-weight: 900;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+.btn-barcode::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+    animation: barcodeScan 2s linear infinite;
+}
+
+@keyframes barcodeScan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.btn-barcode:hover {
+    background: #1a1a1a;
+    box-shadow: 0 0 20px #fff;
+}
+
+/* Template 104 - Dark Fractal */
+.btn-fractal {
+    background: #000;
+    color: #bb86fc;
+    border: 1px solid #bb86fc;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-fractal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 30%, #bb86fc 1px, transparent 1px),
+        radial-gradient(circle at 70% 70%, #bb86fc 1px, transparent 1px),
+        radial-gradient(circle at 30% 70%, #bb86fc 1px, transparent 1px),
+        radial-gradient(circle at 70% 30%, #bb86fc 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: fractalGrow 3s ease-in-out infinite alternate;
+    opacity: 0.3;
+}
+
+@keyframes fractalGrow {
+    0% { background-size: 20px 20px; }
+    100% { background-size: 25px 25px; }
+}
+
+.btn-fractal:hover {
+    background: #1a1a1a;
+    box-shadow: 0 0 20px #bb86fc;
+}
+
+/* Template 105 - Dark QR Code */
+.btn-qr-code {
+    background: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+}
+
+.btn-qr-code::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, 
+            #fff 10%, transparent 12%, #fff 14%, transparent 16%,
+            #fff 20%, transparent 22%, #fff 24%, transparent 26%,
+            #fff 30%, transparent 32%, #fff 34%, transparent 36%,
+            #fff 40%, transparent 42%, #fff 44%, transparent 46%,
+            #fff 50%, transparent 52%, #fff 54%, transparent 56%,
+            #fff 60%, transparent 62%, #fff 64%, transparent 66%,
+            #fff 70%, transparent 72%, #fff 74%, transparent 76%,
+            #fff 80%, transparent 82%, #fff 84%, transparent 86%,
+            #fff 90%, transparent 92%, #fff 94%, transparent 96%
+        ),
+        linear-gradient(0deg, 
+            #fff 10%, transparent 12%, #fff 14%, transparent 16%,
+            #fff 20%, transparent 22%, #fff 24%, transparent 26%,
+            #fff 30%, transparent 32%, #fff 34%, transparent 36%,
+            #fff 40%, transparent 42%, #fff 44%, transparent 46%,
+            #fff 50%, transparent 52%, #fff 54%, transparent 56%,
+            #fff 60%, transparent 62%, #fff 64%, transparent 66%,
+            #fff 70%, transparent 72%, #fff 74%, transparent 76%,
+            #fff 80%, transparent 82%, #fff 84%, transparent 86%,
+            #fff 90%, transparent 92%, #fff 94%, transparent 96%
+        );
+    opacity: 0.2;
+    animation: qrScan 3s linear infinite;
+}
+
+@keyframes qrScan {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 20px; }
+}
+
+.btn-qr-code:hover {
+    background: #1a1a1a;
+    box-shadow: 0 0 20px #fff;
+}
+
+/* Template 106 - Dark Pixel Art */
+.btn-pixel-art {
+    background: #000;
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    padding: 8px 20px;
+    border-radius: 0;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    image-rendering: pixelated;
+}
+
+.btn-pixel-art::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, transparent 49%, #ff6b6b 50%, transparent 51%) 0 0 / 5px 5px,
+        linear-gradient(0deg, transparent 49%, #ff6b6b 50%, transparent 51%) 0 0 / 5px 5px;
+    opacity: 0.3;
+    animation: pixelGlitch 0.5s steps(2) infinite;
+}
+
+@keyframes pixelGlitch {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(1px, 1px); }
+    50% { transform: translate(-1px, -1px); }
+    75% { transform: translate(1px, -1px); }
+}
+
+.btn-pixel-art:hover {
+    background: #1a0000;
+    box-shadow: 
+        0 0 10px #ff6b6b,
+        inset 0 0 10px rgba(255, 107, 107, 0.2);
+}
+/* Dark Twitter Button */
+.btn-dark-twitter {
+    background: #1da1f2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 15px rgba(29, 161, 242, 0.3);
+}
+
+.btn-dark-twitter:hover {
+    background: #1a91da;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(29, 161, 242, 0.5);
+}
+
+.btn-dark-twitter i {
+    font-size: 10px;
+}
+
+/* Dark Instagram Button */
+.btn-dark-instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-dark-instagram::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-dark-instagram:hover::before {
+    left: 100%;
+}
+
+.btn-dark-instagram:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(220, 39, 67, 0.4);
+}
+
+/* Dark Facebook Button */
+.btn-dark-facebook {
+    background: #1877f2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-dark-facebook:hover {
+    background: #166fe5;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
+}
+
+.btn-dark-facebook::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.btn-dark-facebook:active::after {
+    width: 100px;
+    height: 100px;
+}
+
+/* Dark LinkedIn Button */
+.btn-dark-linkedin {
+    background: #0077b5;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-dark-linkedin:hover {
+    background: #00669c;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+}
+
+/* Dark GitHub Button */
+.btn-dark-github {
+    background: #6e5494;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-dark-github:hover {
+    background: #5d447c;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(110, 84, 148, 0.5);
+}
+
+/* Dark YouTube Button */
+.btn-dark-youtube {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-dark-youtube:hover {
+    background: #e60000;
+    animation: youtubePulse 1.5s infinite;
+}
+
+@keyframes youtubePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(255, 0, 0, 0); }
+}
+
+/* Dark Discord Button */
+.btn-dark-discord {
+    background: #5865f2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-dark-discord:hover {
+    background: #4752c4;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+}
+
+/* Dark TikTok Button */
+.btn-dark-tiktok {
+    background: #000000;
+    color: #00f2ea;
+    border: 2px solid #00f2ea;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-dark-tiktok::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 242, 234, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-dark-tiktok:hover::before {
+    left: 100%;
+}
+
+.btn-dark-tiktok:hover {
+    background: #00f2ea;
+    color: #000000;
+    box-shadow: 0 0 15px #00f2ea;
+}
+
+/* Dark Reddit Button */
+.btn-dark-reddit {
+    background: #ff4500;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-dark-reddit:hover {
+    background: #e63e00;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 69, 0, 0.4);
+}
+
+/* Dark WhatsApp Button */
+.btn-dark-whatsapp {
+    background: #25d366;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-dark-whatsapp:hover {
+    background: #20bd5c;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+/* 3D Hover Button */
+.btn-3d-hover {
+    background: linear-gradient(145deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 8px 0 #5a67d8,
+        0 12px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    top: 0;
+}
+
+.btn-3d-hover:hover {
+    top: 4px;
+    box-shadow: 
+        0 4px 0 #5a67d8,
+        0 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-3d-hover:active {
+    top: 8px;
+    box-shadow: 
+        0 0 0 #5a67d8,
+        0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Liquid Fill Button */
+.btn-liquid-fill {
+    background: transparent;
+    color: #3b82f6;
+    border: 2px solid #3b82f6;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-liquid-fill::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #3b82f6;
+    transition: height 0.4s ease;
+    z-index: -1;
+    border-radius: 0 0 6px 6px;
+}
+
+.btn-liquid-fill:hover::before {
+    height: 100%;
+}
+
+.btn-liquid-fill:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Magnetic Cursor Button */
+.btn-magnetic {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-magnetic:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+/* Particle Explosion Button */
+.btn-particle {
+    background: #ec4899;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-particle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-particle:active::before {
+    width: 200px;
+    height: 200px;
+}
+
+/* Glitch Effect Button */
+.btn-glitch {
+    background: #000;
+    color: #00ff88;
+    border: 2px solid #00ff88;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: 'Courier New', monospace;
+}
+
+.btn-glitch:hover {
+    animation: glitch 0.3s linear;
+    text-shadow: 
+        2px 0 #ff0080,
+        -2px 0 #0080ff;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Neon Sign Button */
+.btn-neon-sign {
+    background: transparent;
+    color: #ff0080;
+    border: 3px solid #ff0080;
+    padding: 8px 20px;
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 0 0 5px #ff0080;
+    box-shadow: 
+        0 0 10px #ff0080,
+        inset 0 0 10px rgba(255, 0, 128, 0.1);
+}
+
+.btn-neon-sign:hover {
+    animation: neonFlicker 1s infinite alternate;
+    background: #ff0080;
+    color: #000;
+}
+
+@keyframes neonFlicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        box-shadow: 
+            0 0 10px #ff0080,
+            0 0 20px #ff0080,
+            inset 0 0 10px rgba(255, 0, 128, 0.1);
+    }
+    20%, 24%, 55% {
+        box-shadow: 
+            0 0 5px #ff0080,
+            0 0 10px #ff0080,
+            inset 0 0 5px rgba(255, 0, 128, 0.1);
+    }
+}
+
+/* Morphing Gradient Button */
+.btn-morph-gradient {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    animation: gradientShift 3s ease infinite;
+    transition: all 0.3s ease;
+}
+
+.btn-morph-gradient:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(35, 166, 213, 0.4);
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Glass Reflection Button */
+.btn-glass-reflection {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #7c3aed;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-glass-reflection::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+}
+
+.btn-glass-reflection:hover::before {
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+.btn-glass-reflection:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Holographic Button */
+.btn-holographic {
+    background: linear-gradient(45deg, 
+        #ff0000, #ff8000, #ffff00, #00ff00, 
+        #00ffff, #0000ff, #8000ff, #ff0080
+    );
+    background-size: 800% 800%;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    animation: holographic 4s linear infinite;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+@keyframes holographic {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 400% 50%; }
+}
+
+.btn-holographic:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 0, 128, 0.4);
+}
+
+/* Binary Code Button */
+.btn-binary {
+    background: #000;
+    color: #00ff41;
+    border: 1px solid #00ff41;
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-binary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+    animation: binaryScan 2s linear infinite;
+}
+
+@keyframes binaryScan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.btn-binary:hover {
+    background: #00ff41;
+    color: #000;
+    box-shadow: 0 0 20px #00ff41;
+}
+/* Outline Double Border */
+.btn-outline-double {
+    background: transparent;
+    color: #8b5cf6;
+    border: 2px solid #8b5cf6;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline-double::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid #ec4899;
+    border-radius: 12px;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.btn-outline-double:hover::before {
+    opacity: 1;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+}
+
+.btn-outline-double:hover {
+    background: linear-gradient(45deg, #8b5cf6, #ec4899);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Outline Corner Grow */
+.btn-outline-corner {
+    background: transparent;
+    color: #10b981;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.btn-outline-corner::before,
+.btn-outline-corner::after {
+    content: '';
+    position: absolute;
+    background: #10b981;
+    transition: all 0.4s ease;
+}
+
+.btn-outline-corner::before {
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0;
+}
+
+.btn-outline-corner::after {
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 0;
+}
+
+.btn-outline-corner:hover::before,
+.btn-outline-corner:hover::after {
+    height: 100%;
+}
+
+.btn-outline-corner span::before,
+.btn-outline-corner span::after {
+    content: '';
+    position: absolute;
+    background: #10b981;
+    transition: all 0.4s ease;
+}
+
+.btn-outline-corner span::before {
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+}
+
+.btn-outline-corner span::after {
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+}
+
+.btn-outline-corner:hover span::before,
+.btn-outline-corner:hover span::after {
+    width: 100%;
+}
+
+.btn-outline-corner:hover {
+    color: #10b981;
+    transform: translateY(-2px);
+}
+
+/* Outline Dotted Spin */
+.btn-outline-dotted {
+    background: transparent;
+    color: #f59e0b;
+    border: 2px dotted #f59e0b;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline-dotted:hover {
+    border-style: solid;
+    border-color: #d97706;
+    color: #d97706;
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+}
+
+/* Outline Shake */
+.btn-outline-shake {
+    background: transparent;
+    color: #ef4444;
+    border: 2px solid #ef4444;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-shake:hover {
+    animation: outlineShake 0.5s ease;
+    background: #ef4444;
+    color: white;
+}
+
+@keyframes outlineShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-2px); }
+}
+
+/* Outline Gradient Border */
+.btn-outline-gradient-border {
+    background: transparent;
+    color: #6366f1;
+    border: 2px solid transparent;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    background-clip: padding-box;
+}
+
+.btn-outline-gradient-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #6366f1, #ec4899, #f59e0b, #10b981);
+    background-size: 400% 400%;
+    border-radius: 10px;
+    z-index: -1;
+    animation: gradientRotate 3s linear infinite;
+}
+
+.btn-outline-gradient-border:hover {
+    color: white;
+    background: #6366f1;
+}
+
+@keyframes gradientRotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Outline Split */
+.btn-outline-split {
+    background: transparent;
+    color: #8b5cf6;
+    border: 2px solid #8b5cf6;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline-split::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-outline-split:hover::before {
+    left: 100%;
+}
+
+.btn-outline-split:hover {
+    border-color: #7c3aed;
+    color: #7c3aed;
+    box-shadow: 
+        0 0 0 1px #8b5cf6,
+        0 0 0 3px #7c3aed;
+}
+
+/* Outline Bounce */
+.btn-outline-bounce {
+    background: transparent;
+    color: #06b6d4;
+    border: 2px solid #06b6d4;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.btn-outline-bounce:hover {
+    animation: outlineBounce 0.6s ease;
+    background: #06b6d4;
+    color: white;
+    transform: translateY(-4px);
+}
+
+@keyframes outlineBounce {
+    0%, 20%, 60%, 100% { transform: translateY(-4px); }
+    40% { transform: translateY(-8px); }
+    80% { transform: translateY(-6px); }
+}
+
+/* Outline Wave */
+.btn-outline-wave {
+    background: transparent;
+    color: #ec4899;
+    border: 2px solid #ec4899;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline-wave::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-outline-wave:hover::before {
+    left: 100%;
+}
+
+.btn-outline-wave:hover {
+    border-color: #db2777;
+    color: #db2777;
+    box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
+}
+
+/* Outline Neon Pulse */
+.btn-outline-neon-pulse {
+    background: transparent;
+    color: #00ff88;
+    border: 2px solid #00ff88;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-shadow: 0 0 5px #00ff88;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.btn-outline-neon-pulse:hover {
+    animation: neonPulse 1s infinite alternate;
+    background: #00ff88;
+    color: #000;
+    border-color: #00ff88;
+}
+
+@keyframes neonPulse {
+    0% {
+        box-shadow: 
+            0 0 10px #00ff88,
+            0 0 20px #00ff88,
+            0 0 30px #00ff88;
+    }
+    100% {
+        box-shadow: 
+            0 0 5px #00ff88,
+            0 0 10px #00ff88,
+            0 0 15px #00ff88;
+    }
+}
+
+/* Outline Reveal */
+.btn-outline-reveal {
+    background: transparent;
+    color: #3b82f6;
+    border: 2px solid transparent;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.btn-outline-reveal::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid #3b82f6;
+    border-radius: 10px;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    transition: clip-path 0.6s ease;
+}
+
+.btn-outline-reveal:hover::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.btn-outline-reveal:hover {
+    color: #3b82f6;
+    transform: translateY(-2px);
+}
