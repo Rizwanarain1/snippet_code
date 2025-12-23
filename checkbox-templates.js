@@ -22389,6 +22389,674 @@ document.querySelectorAll('.checkbox-hologram input').forEach(checkbox => {
     });
 });`
 },
+// Add these to your templateCodes object
+checkbox110: {
+    name: "Particle Wave Checkbox",
+    category: "animated",
+    html: `<div class="checkbox-container">
+    <label class="checkbox-particle">
+        <input type="checkbox">
+        <span class="particle-field">
+            <span class="particle-dot particle-1"></span>
+            <span class="particle-dot particle-2"></span>
+            <span class="particle-dot particle-3"></span>
+            <span class="particle-dot particle-4"></span>
+        </span>
+        <span class="label-text">Option 1</span>
+    </label>
+    <label class="checkbox-particle">
+        <input type="checkbox" checked>
+        <span class="particle-field">
+            <span class="particle-dot particle-1"></span>
+            <span class="particle-dot particle-2"></span>
+            <span class="particle-dot particle-3"></span>
+            <span class="particle-dot particle-4"></span>
+        </span>
+        <span class="label-text">Option 2</span>
+    </label>
+</div>`,
+    css: `.checkbox-particle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #1e293b;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.checkbox-particle input {
+    display: none;
+}
+
+.particle-field {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    position: relative;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border: 2px solid #38bdf8;
+    overflow: hidden;
+}
+
+.particle-dot {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #38bdf8;
+    border-radius: 50%;
+    animation: floatParticle 3s infinite ease-in-out;
+}
+
+.particle-1 { top: 20%; left: 20%; animation-delay: 0s; }
+.particle-2 { top: 60%; left: 70%; animation-delay: 0.5s; }
+.particle-3 { top: 30%; left: 80%; animation-delay: 1s; }
+.particle-4 { top: 70%; left: 30%; animation-delay: 1.5s; }
+
+@keyframes floatParticle {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+    25% { transform: translate(3px, -3px) scale(1.2); opacity: 1; }
+    50% { transform: translate(-2px, 2px) scale(0.8); opacity: 0.5; }
+    75% { transform: translate(-3px, -2px) scale(1.1); opacity: 0.9; }
+}
+
+.checkbox-particle input:checked + .particle-field {
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+    border-color: #0284c7;
+    animation: particleWave 0.6s ease;
+}
+
+.checkbox-particle input:checked + .particle-field .particle-dot {
+    animation: attractParticle 0.8s forwards ease-out;
+}
+
+.checkbox-particle input:checked + .particle-field::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+@keyframes particleWave {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes attractParticle {
+    0% { transform: translate(var(--x, 0), var(--y, 0)) scale(1); opacity: 1; }
+    100% { transform: translate(0, 0) scale(0); opacity: 0; }
+}`,
+    js: `// Particle wave functionality
+document.querySelectorAll('.checkbox-particle input').forEach((checkbox, index) => {
+    checkbox.addEventListener('change', function() {
+        const dots = this.parentElement.querySelectorAll('.particle-dot');
+        dots.forEach(dot => {
+            dot.style.setProperty('--x', (Math.random() * 10 - 5) + 'px');
+            dot.style.setProperty('--y', (Math.random() * 10 - 5) + 'px');
+        });
+        console.log('Particle checkbox changed:', this.checked);
+    });
+});`
+},
+
+checkbox111: {
+    name: "Cyberpunk Grid Checkbox",
+    category: "dark",
+    html: `<div class="checkbox-container dark-bg">
+    <label class="checkbox-cyberpunk">
+        <input type="checkbox">
+        <span class="cyber-grid">
+            <span class="grid-line grid-h"></span>
+            <span class="grid-line grid-v"></span>
+            <span class="cyber-glitch"></span>
+        </span>
+        <span class="label-text">Grid Option 1</span>
+    </label>
+    <label class="checkbox-cyberpunk">
+        <input type="checkbox" checked>
+        <span class="cyber-grid">
+            <span class="grid-line grid-h"></span>
+            <span class="grid-line grid-v"></span>
+            <span class="cyber-glitch"></span>
+        </span>
+        <span class="label-text">Grid Option 2</span>
+    </label>
+</div>`,
+    css: `.checkbox-container.dark-bg {
+    background: #0a0a0a;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.checkbox-cyberpunk {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.checkbox-cyberpunk input {
+    display: none;
+}
+
+.cyber-grid {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    position: relative;
+    background: 
+        linear-gradient(90deg, #00ffea 1px, transparent 1px) 0 0 / 8px 100%,
+        linear-gradient(0deg, #00ffea 1px, transparent 1px) 0 0 / 100% 8px;
+    border: 1px solid #00ffea;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.grid-line {
+    position: absolute;
+    background: #00ffea;
+}
+
+.grid-h {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    animation: scanHorizontal 2s linear infinite;
+}
+
+.grid-v {
+    width: 1px;
+    height: 100%;
+    left: 50%;
+    animation: scanVertical 2s linear infinite;
+    animation-delay: 1s;
+}
+
+.cyber-glitch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 49%, rgba(0, 255, 234, 0.3) 50%, transparent 51%);
+    opacity: 0;
+    animation: glitchEffect 3s infinite;
+}
+
+@keyframes scanHorizontal {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes scanVertical {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes glitchEffect {
+    0%, 100% { opacity: 0; transform: translate(0, 0); }
+    2% { opacity: 1; transform: translate(-1px, 1px); }
+    4% { opacity: 0; transform: translate(1px, -1px); }
+    96% { opacity: 0; }
+    98% { opacity: 1; transform: translate(2px, -1px); }
+}
+
+.checkbox-cyberpunk input:checked + .cyber-grid {
+    background: 
+        linear-gradient(90deg, #ff00ff 1px, transparent 1px) 0 0 / 8px 100%,
+        linear-gradient(0deg, #ff00ff 1px, transparent 1px) 0 0 / 100% 8px;
+    border-color: #ff00ff;
+    box-shadow: 
+        0 0 15px #ff00ff,
+        inset 0 0 10px rgba(255, 0, 255, 0.3);
+}
+
+.checkbox-cyberpunk input:checked + .cyber-grid .grid-line {
+    background: #ff00ff;
+}
+
+.checkbox-cyberpunk input:checked + .cyber-grid::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff00ff;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff00ff;
+    z-index: 2;
+    animation: textGlitch 0.3s linear 3;
+}
+
+@keyframes textGlitch {
+    0%, 100% { transform: translate(-50%, -50%); }
+    25% { transform: translate(-51%, -49%); }
+    50% { transform: translate(-49%, -51%); }
+    75% { transform: translate(-52%, -48%); }
+}`,
+    js: `// Cyberpunk checkbox functionality
+document.querySelectorAll('.checkbox-cyberpunk input').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        // Add glitch effect on change
+        const grid = this.parentElement.querySelector('.cyber-grid');
+        grid.style.animation = 'none';
+        setTimeout(() => {
+            grid.style.animation = '';
+        }, 50);
+        console.log('Cyberpunk checkbox changed:', this.checked);
+    });
+});`
+},
+
+checkbox112: {
+    name: "Crystal Prism Checkbox",
+    category: "glassmorphism",
+    html: `<div class="checkbox-container">
+    <label class="checkbox-crystal">
+        <input type="checkbox">
+        <span class="crystal-prism">
+            <span class="crystal-facet f1"></span>
+            <span class="crystal-facet f2"></span>
+            <span class="crystal-facet f3"></span>
+            <span class="crystal-facet f4"></span>
+            <span class="crystal-sparkle"></span>
+        </span>
+        <span class="label-text">Crystal Option 1</span>
+    </label>
+    <label class="checkbox-crystal">
+        <input type="checkbox" checked>
+        <span class="crystal-prism">
+            <span class="crystal-facet f1"></span>
+            <span class="crystal-facet f2"></span>
+            <span class="crystal-facet f3"></span>
+            <span class="crystal-facet f4"></span>
+            <span class="crystal-sparkle"></span>
+        </span>
+        <span class="label-text">Crystal Option 2</span>
+    </label>
+</div>`,
+    css: `.checkbox-crystal {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.checkbox-crystal input {
+    display: none;
+}
+
+.crystal-prism {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    position: relative;
+    transform: rotate(45deg);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.9), 
+        rgba(255, 255, 255, 0.3));
+    backdrop-filter: blur(5px);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.crystal-facet {
+    position: absolute;
+    background: linear-gradient(45deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.8), 
+        transparent);
+    animation: crystalRefract 4s infinite linear;
+}
+
+.f1 { top: 0; left: 0; width: 100%; height: 2px; animation-delay: 0s; }
+.f2 { top: 0; right: 0; width: 2px; height: 100%; animation-delay: 1s; }
+.f3 { bottom: 0; left: 0; width: 100%; height: 2px; animation-delay: 2s; }
+.f4 { top: 0; left: 0; width: 2px; height: 100%; animation-delay: 3s; }
+
+.crystal-sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    top: 30%;
+    left: 30%;
+    animation: crystalSparkle 2s infinite;
+    opacity: 0;
+}
+
+@keyframes crystalRefract {
+    0% { transform: translateX(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes crystalSparkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px white; }
+}
+
+.checkbox-crystal input:checked + .crystal-prism {
+    background: linear-gradient(135deg, 
+        rgba(124, 58, 237, 0.9), 
+        rgba(236, 72, 153, 0.9));
+    animation: crystalRotate 1s ease;
+}
+
+.checkbox-crystal input:checked + .crystal-prism .crystal-sparkle {
+    animation: crystalSparkle 0.5s ease 3;
+}
+
+.checkbox-crystal input:checked + .crystal-prism::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes crystalRotate {
+    0% { transform: rotate(45deg) scale(1); }
+    50% { transform: rotate(90deg) scale(1.1); }
+    100% { transform: rotate(45deg) scale(1); }
+}`,
+    js: `// Crystal prism functionality
+document.querySelectorAll('.checkbox-crystal input').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        const sparkle = this.parentElement.querySelector('.crystal-sparkle');
+        sparkle.style.top = Math.random() * 60 + 20 + '%';
+        sparkle.style.left = Math.random() * 60 + 20 + '%';
+        console.log('Crystal checkbox changed:', this.checked);
+    });
+});`
+},
+
+checkbox113: {
+    name: "Magnetic Field Checkbox",
+    category: "animated",
+    html: `<div class="checkbox-container">
+    <label class="checkbox-magnetic">
+        <input type="checkbox">
+        <span class="magnetic-field">
+            <span class="magnetic-core"></span>
+            <span class="field-line line-1"></span>
+            <span class="field-line line-2"></span>
+            <span class="field-line line-3"></span>
+        </span>
+        <span class="label-text">Magnetic Option 1</span>
+    </label>
+    <label class="checkbox-magnetic">
+        <input type="checkbox" checked>
+        <span class="magnetic-field">
+            <span class="magnetic-core"></span>
+            <span class="field-line line-1"></span>
+            <span class="field-line line-2"></span>
+            <span class="field-line line-3"></span>
+        </span>
+        <span class="label-text">Magnetic Option 2</span>
+    </label>
+</div>`,
+    css: `.checkbox-magnetic {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.checkbox-magnetic input {
+    display: none;
+}
+
+.magnetic-field {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    position: relative;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #f8fafc, #e2e8f0);
+    border: 2px solid #64748b;
+}
+
+.magnetic-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: #64748b;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+}
+
+.field-line {
+    position: absolute;
+    background: #64748b;
+    transform-origin: center;
+    transition: all 0.4s ease;
+}
+
+.line-1 { width: 100%; height: 2px; top: 50%; left: 0; transform: translateY(-50%); }
+.line-2 { width: 100%; height: 2px; top: 50%; left: 0; transform: translateY(-50%) rotate(45deg); }
+.line-3 { width: 100%; height: 2px; top: 50%; left: 0; transform: translateY(-50%) rotate(90deg); }
+
+@keyframes magneticPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+}
+
+.checkbox-magnetic input:checked + .magnetic-field {
+    background: radial-gradient(circle at 30% 30%, #fef3c7, #fbbf24);
+    border-color: #f59e0b;
+    animation: fieldPulse 2s infinite;
+}
+
+.checkbox-magnetic input:checked + .magnetic-field .magnetic-core {
+    background: #f59e0b;
+    animation: magneticPulse 1.5s infinite;
+}
+
+.checkbox-magnetic input:checked + .magnetic-field .field-line {
+    background: #f59e0b;
+    animation: fieldRotate 4s infinite linear;
+}
+
+.checkbox-magnetic input:checked + .magnetic-field::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #92400e;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+@keyframes fieldPulse {
+    0%, 100% { box-shadow: 0 0 0 rgba(245, 158, 11, 0.4); }
+    50% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.6); }
+}
+
+@keyframes fieldRotate {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}`,
+    js: `// Magnetic field functionality
+document.querySelectorAll('.checkbox-magnetic input').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        const lines = this.parentElement.querySelectorAll('.field-line');
+        lines.forEach(line => {
+            line.style.animation = 'none';
+            setTimeout(() => {
+                line.style.animation = '';
+            }, 10);
+        });
+        console.log('Magnetic checkbox changed:', this.checked);
+    });
+});`
+},
+
+checkbox114: {
+    name: "Quantum Dot Checkbox",
+    category: "modern",
+    html: `<div class="checkbox-container dark-bg">
+    <label class="checkbox-quantum">
+        <input type="checkbox">
+        <span class="quantum-orbital">
+            <span class="quantum-dot electron-1"></span>
+            <span class="quantum-dot electron-2"></span>
+            <span class="quantum-dot electron-3"></span>
+            <span class="quantum-nucleus"></span>
+        </span>
+        <span class="label-text">Quantum Option 1</span>
+    </label>
+    <label class="checkbox-quantum">
+        <input type="checkbox" checked>
+        <span class="quantum-orbital">
+            <span class="quantum-dot electron-1"></span>
+            <span class="quantum-dot electron-2"></span>
+            <span class="quantum-dot electron-3"></span>
+            <span class="quantum-nucleus"></span>
+        </span>
+        <span class="label-text">Quantum Option 2</span>
+    </label>
+</div>`,
+    css: `.checkbox-container.dark-bg {
+    background: #0f172a;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.checkbox-quantum {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.checkbox-quantum input {
+    display: none;
+}
+
+.quantum-orbital {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    position: relative;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #1e40af, #1e1b4b);
+    border: 1px solid #3b82f6;
+}
+
+.quantum-nucleus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: #60a5fa;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #60a5fa;
+    transition: all 0.4s ease;
+}
+
+.quantum-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #93c5fd;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #93c5fd;
+    animation: quantumOrbit 3s infinite linear;
+}
+
+.electron-1 { top: 0; left: 50%; animation-delay: 0s; }
+.electron-2 { top: 50%; right: 0; animation-delay: 1s; }
+.electron-3 { bottom: 0; left: 50%; animation-delay: 2s; }
+
+@keyframes quantumOrbit {
+    0% { transform: rotate(0deg) translateX(8px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(8px) rotate(-360deg); }
+}
+
+@keyframes quantumJump {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+.checkbox-quantum input:checked + .quantum-orbital {
+    background: radial-gradient(circle at 30% 30%, #3b82f6, #1d4ed8);
+    border-color: #60a5fa;
+    box-shadow: 
+        0 0 15px #3b82f6,
+        inset 0 0 10px rgba(96, 165, 250, 0.3);
+}
+
+.checkbox-quantum input:checked + .quantum-orbital .quantum-nucleus {
+    background: #bfdbfe;
+    box-shadow: 0 0 12px #bfdbfe;
+    animation: quantumPulse 2s infinite;
+}
+
+.checkbox-quantum input:checked + .quantum-orbital .quantum-dot {
+    animation: quantumOrbit 1.5s infinite linear, quantumJump 0.5s infinite alternate;
+}
+
+.checkbox-quantum input:checked + .quantum-orbital::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #bfdbfe;
+    font-size: 10px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #3b82f6;
+    z-index: 2;
+}
+
+@keyframes quantumPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.3); }
+}`,
+    js: `// Quantum dot functionality
+document.querySelectorAll('.checkbox-quantum input').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        const dots = this.parentElement.querySelectorAll('.quantum-dot');
+        dots.forEach(dot => {
+            dot.style.animation = 'none';
+            setTimeout(() => {
+                dot.style.animation = '';
+            }, 10);
+        });
+        console.log('Quantum checkbox changed:', this.checked);
+    });
+});`
+},
 
 
 
