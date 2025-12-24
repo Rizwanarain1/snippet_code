@@ -1,0 +1,3223 @@
+/* ==============================================
+   LOADER PREVIEW STYLES - Same Design System
+   ============================================== */
+
+/* Loader Preview Container - Same as Checkbox Preview */
+.live-preview-mini {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f8fafc;
+}
+
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 150px;
+}
+
+.loader-container.dark-bg {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Template 1: Classic Spinner - Same Animation Style */
+.spinner-classic {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(124, 58, 237, 0.2);
+    border-top: 4px solid #7c3aed;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Template 2: Dots Wave - Gradient Colors Same */
+.dots-wave {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dots-wave .dot {
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    border-radius: 50%;
+    animation: wave 1.2s ease-in-out infinite;
+}
+
+.dots-wave .dot:nth-child(2) { animation-delay: -0.1s; }
+.dots-wave .dot:nth-child(3) { animation-delay: -0.2s; }
+.dots-wave .dot:nth-child(4) { animation-delay: -0.3s; }
+.dots-wave .dot:nth-child(5) { animation-delay: -0.4s; }
+
+@keyframes wave {
+    0%, 60%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Template 3: Progress Bar - Same Gradient as Modal */
+.progress-bar-loader {
+    width: 200px;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    background: linear-gradient(90deg, #7c3aed, #ec4899, #f59e0b);
+    border-radius: 4px;
+    animation: progress 2s ease-in-out infinite;
+}
+
+@keyframes progress {
+    0% {
+        left: -30%;
+        width: 30%;
+    }
+    50% {
+        width: 40%;
+    }
+    100% {
+        left: 100%;
+        width: 30%;
+    }
+}
+
+/* Template 4: Pulse Loader - Same Pulse Effect */
+.pulse-loader {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+}
+
+/* Template 5: Ring Spinner - Same Ring Colors */
+.ring-spinner {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.ring-spinner::before,
+.ring-spinner::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    border: 4px solid transparent;
+}
+
+.ring-spinner::before {
+    width: 100%;
+    height: 100%;
+    border-top: 4px solid #7c3aed;
+    border-right: 4px solid #7c3aed;
+    animation: spin 1s linear infinite;
+}
+
+.ring-spinner::after {
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    border-bottom: 4px solid #ec4899;
+    border-left: 4px solid #ec4899;
+    animation: spinReverse 0.8s linear infinite;
+}
+
+@keyframes spinReverse {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+/* Template 6: Bouncing Bars - Same Gradient Colors */
+.bouncing-bars {
+    display: flex;
+    align-items: flex-end;
+    height: 40px;
+    gap: 4px;
+}
+
+.bouncing-bars .bar {
+    width: 8px;
+    background: linear-gradient(to top, #7c3aed, #ec4899);
+    border-radius: 4px 4px 0 0;
+    animation: bounce 1.2s ease-in-out infinite;
+}
+
+.bouncing-bars .bar:nth-child(1) { height: 20px; animation-delay: -0.1s; }
+.bouncing-bars .bar:nth-child(2) { height: 30px; animation-delay: -0.2s; }
+.bouncing-bars .bar:nth-child(3) { height: 40px; animation-delay: -0.3s; }
+.bouncing-bars .bar:nth-child(4) { height: 30px; animation-delay: -0.4s; }
+.bouncing-bars .bar:nth-child(5) { height: 20px; animation-delay: -0.5s; }
+
+@keyframes bounce {
+    0%, 60%, 100% {
+        transform: scaleY(1);
+    }
+    30% {
+        transform: scaleY(0.3);
+    }
+}
+
+/* ==============================================
+   SAME AS CHECKBOX PAGE CSS CONTINUES...
+   ============================================== */
+
+/* Template Preview Base Styles - Same as Checkbox */
+.template-preview {
+    height: 220px; /* Slightly taller for loaders */
+    background-color: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Categories - Same Styling */
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+.category-btn {
+    padding: 0.8rem 1.8rem;
+    background-color: var(--card-bg);
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-btn.active, .category-btn:hover {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 15px 0 rgba(124, 58, 237, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Template Grid - Same Grid System */
+.template-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    padding: 0 1rem;
+}
+
+.template-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #f1f5f9;
+    position: relative;
+}
+
+.template-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.template-info {
+    padding: 1.8rem;
+}
+
+.template-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.template-info p {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.template-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+}
+
+.template-actions .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Modal Styles - Exactly Same as Checkbox */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    z-index: 10000;
+    overflow: hidden;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(12px);
+    }
+}
+
+.modal-content {
+    position: relative;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    margin: 2% auto;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 24px;
+    box-shadow: 
+        0 32px 64px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-60px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        #7c3aed, 
+        #ec4899, 
+        #f59e0b, 
+        #10b981,
+        #3b82f6,
+        #7c3aed
+    );
+    background-size: 400% 100%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.modal-header {
+    padding: 1.8rem 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.modal-header h3 {
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header h3::before {
+    content: '💎';
+    font-size: 1.4rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.close-modal {
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #94a3b8;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.close-modal:hover {
+    color: #fbbf24;
+    background: rgba(251, 191, 36, 0.2);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+}
+
+.modal-body {
+    padding: 0;
+    position: relative;
+}
+
+/* Beautiful Code Tabs - Same */
+.code-tabs {
+    display: flex;
+    background: rgba(15, 23, 42, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 2rem;
+    gap: 0.5rem;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.code-tabs::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent
+    );
+}
+
+.code-tab {
+    padding: 1.2rem 1.8rem;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    overflow: hidden;
+}
+
+.code-tab::before {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.code-tab[data-tab="html"]::before {
+    content: '🌐';
+}
+
+.code-tab[data-tab="css"]::before {
+    content: '🎨';
+}
+
+.code-tab[data-tab="js"]::before {
+    content: '⚡';
+}
+
+.code-tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #7c3aed, #ec4899);
+    border-radius: 3px 3px 0 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+}
+
+.code-tab.active {
+    color: white;
+    background: rgba(124, 58, 237, 0.15);
+}
+
+.code-tab.active::after {
+    width: 80%;
+}
+
+.code-tab.active::before {
+    transform: scale(1.2);
+}
+
+.code-tab:hover:not(.active) {
+    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+/* Beautiful Code Content - Same */
+.code-content {
+    background: #0f172a;
+    padding: 2.5rem;
+    position: relative;
+    min-height: 500px;
+    max-height: 65vh;
+    overflow-y: auto;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(124, 58, 237, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+}
+
+.code-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.code-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin: 4px;
+}
+
+.code-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    border-radius: 10px;
+    border: 2px solid #0f172a;
+}
+
+.code-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #6d28d9, #db2777);
+}
+
+.code-content pre {
+    margin: 0;
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+.code-content code {
+    font-family: 'Fira Code', 'Cascadia Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+    background: transparent !important;
+    padding: 0 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Beautiful Syntax Highlighting - Same */
+.language-html .tag {
+    color: #7c3aed;
+    font-weight: 600;
+}
+
+.language-html .attr-name {
+    color: #fbbf24;
+}
+
+.language-html .attr-value {
+    color: #10b981;
+}
+
+.language-html .comment {
+    color: #64748b;
+    font-style: italic;
+}
+
+.language-css .selector {
+    color: #7c3aed;
+    font-weight: 600;
+}
+
+.language-css .property {
+    color: #fbbf24;
+}
+
+.language-css .value {
+    color: #10b981;
+}
+
+.language-css .punctuation {
+    color: #94a3b8;
+}
+
+.language-js .keyword {
+    color: #7c3aed;
+    font-weight: 600;
+}
+
+.language-js .function {
+    color: #fbbf24;
+}
+
+.language-js .string {
+    color: #10b981;
+}
+
+.language-js .number {
+    color: #ec4899;
+}
+
+/* Beautiful Copy Button - Same */
+.copy-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    border: none;
+    color: white;
+    padding: 1rem 1.8rem;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 
+        0 8px 25px rgba(124, 58, 237, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.copy-btn::before {
+    content: '📋';
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.copy-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 12px 35px rgba(124, 58, 237, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #6d28d9, #db2777);
+}
+
+.copy-btn:hover::before {
+    transform: scale(1.2);
+}
+
+.copy-btn:active {
+    transform: translateY(-1px);
+}
+
+.copy-btn.copied {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 
+        0 8px 25px rgba(16, 185, 129, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.copy-btn.copied::before {
+    content: '✅';
+    transform: scale(1.2);
+}
+
+/* Beautiful Copy Notification - Same */
+.copy-notification {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 1.2rem 2rem;
+    border-radius: 16px;
+    box-shadow: 
+        0 12px 35px -5px rgba(16, 185, 129, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    z-index: 10001;
+    display: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    animation: notificationSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+               notificationSlideOut 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 1s forwards;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.copy-notification::before {
+    content: '✨';
+    font-size: 1.2rem;
+    animation: bounce 0.6s ease infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: scale(1); }
+    to { transform: scale(1.3); }
+}
+
+@keyframes notificationSlideIn {
+    from {
+        transform: translateX(100%) translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes notificationSlideOut {
+    from {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%) translateY(-20px);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design - Same as Checkbox */
+@media (max-width: 768px) {
+    .template-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .template-preview {
+        height: 200px;
+    }
+    
+    .loader-container {
+        height: 130px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        border-radius: 20px;
+    }
+    
+    .modal-header {
+        padding: 1.5rem 1.5rem;
+    }
+    
+    .code-tabs {
+        padding: 0 1.5rem;
+        gap: 0.25rem;
+    }
+    
+    .code-tab {
+        padding: 1rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .code-content {
+        padding: 1.5rem;
+        min-height: 350px;
+        max-height: 55vh;
+    }
+    
+    .copy-btn {
+        top: 1.5rem;
+        right: 1.5rem;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.85rem;
+    }
+    
+    .progress-bar-loader {
+        width: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .template-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .template-preview {
+        height: 180px;
+    }
+    
+    .loader-container {
+        height: 110px;
+    }
+
+    .modal-content {
+        width: 98%;
+        margin: 2% auto;
+        border-radius: 16px;
+    }
+    
+    .modal-header {
+        padding: 1.2rem 1.2rem;
+    }
+    
+    .code-tabs {
+        padding: 0 1rem;
+    }
+    
+    .code-tab {
+        padding: 0.8rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .code-content {
+        padding: 1.2rem;
+        min-height: 300px;
+        max-height: 50vh;
+    }
+    
+    .copy-btn {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
+    }
+    
+    .progress-bar-loader {
+        width: 120px;
+    }
+}
+/* ==============================================
+   10 PROFESSIONAL SPINNER TEMPLATES
+   ============================================== */
+
+/* Template 7: Neon Ring Spinner */
+.neon-ring-spinner {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.neon-ring-spinner::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid #00f3ff;
+    border-right: 4px solid #ff00ff;
+    filter: drop-shadow(0 0 8px #00f3ff) drop-shadow(0 0 12px #ff00ff);
+    animation: neonSpin 1.2s linear infinite;
+}
+
+.neon-ring-spinner::after {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 243, 255, 0.3);
+    filter: blur(2px);
+    animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes neonPulse {
+    0% { opacity: 0.3; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Template 8: DNA Helix Spinner */
+.dna-helix-spinner {
+    width: 60px;
+    height: 80px;
+    position: relative;
+    animation: helixRotate 4s linear infinite;
+}
+
+.helix-strand {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.helix-strand:nth-child(1) {
+    background: radial-gradient(circle at 30% 30%, #7c3aed, transparent);
+    animation: helixFloat 2s ease-in-out infinite alternate;
+}
+
+.helix-strand:nth-child(2) {
+    background: radial-gradient(circle at 70% 70%, #ec4899, transparent);
+    animation: helixFloat 2s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes helixRotate {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+@keyframes helixFloat {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(20px); }
+}
+
+/* Template 9: Quantum Dot Spinner */
+.quantum-dot-spinner {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.quantum-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #7c3aed, #3b82f6);
+    filter: drop-shadow(0 0 6px #7c3aed);
+    animation: quantumOrbit 2s linear infinite;
+}
+
+.quantum-dot:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.quantum-dot:nth-child(2) {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: -0.66s;
+}
+
+.quantum-dot:nth-child(3) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: -1.33s;
+}
+
+@keyframes quantumOrbit {
+    0% {
+        transform: rotate(0deg) translate(35px) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+        filter: drop-shadow(0 0 10px #3b82f6);
+    }
+    100% {
+        transform: rotate(360deg) translate(35px) rotate(-360deg);
+        opacity: 1;
+    }
+}
+
+/* Template 10: Gradient Orbital Spinner */
+.gradient-orbital-spinner {
+    width: 70px;
+    height: 70px;
+    position: relative;
+}
+
+.orbital-ring {
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7c3aed, #ec4899, #f59e0b) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: orbitalSpin 3s linear infinite;
+}
+
+.orbital-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, #10b981, #3b82f6);
+    border-radius: 50%;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 0 8px #3b82f6);
+    animation: orbitalDot 3s linear infinite;
+}
+
+@keyframes orbitalSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes orbitalDot {
+    0% { transform: translateX(-50%) rotate(0deg) translateY(35px); }
+    100% { transform: translateX(-50%) rotate(360deg) translateY(35px); }
+}
+
+/* Template 11: Infinity Loop Spinner */
+.infinity-loop-spinner {
+    width: 70px;
+    height: 40px;
+    position: relative;
+}
+
+.infinity-loop-spinner::before,
+.infinity-loop-spinner::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    border-top: 4px solid #7c3aed;
+    border-left: 4px solid #ec4899;
+    animation: infinityLoop 2s ease-in-out infinite;
+}
+
+.infinity-loop-spinner::before {
+    left: 0;
+    animation-delay: 0s;
+}
+
+.infinity-loop-spinner::after {
+    right: 0;
+    border-top: 4px solid #ec4899;
+    border-left: 4px solid #7c3aed;
+    animation-delay: -1s;
+}
+
+@keyframes infinityLoop {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.1) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* Template 12: Cyberpunk Spinner */
+.cyberpunk-spinner {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    animation: cyberRotate 2s linear infinite;
+}
+
+.cyber-line {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #00ff88, transparent);
+    filter: drop-shadow(0 0 6px #00ff88);
+    border-radius: 2px;
+}
+
+.cyber-line:nth-child(1) {
+    top: 20%;
+    animation: cyberScan 1.5s ease-in-out infinite;
+}
+
+.cyber-line:nth-child(2) {
+    top: 50%;
+    animation: cyberScan 1.5s ease-in-out infinite -0.5s;
+}
+
+.cyber-line:nth-child(3) {
+    top: 80%;
+    animation: cyberScan 1.5s ease-in-out infinite -1s;
+}
+
+@keyframes cyberRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes cyberScan {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Template 13: Liquid Mercury Spinner */
+.liquid-mercury-spinner {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, 
+        rgba(124, 58, 237, 0.8), 
+        rgba(59, 130, 246, 0.8),
+        rgba(16, 185, 129, 0.8));
+    border-radius: 50% 30% 50% 30%;
+    position: relative;
+    animation: mercuryFloat 3s ease-in-out infinite;
+    filter: blur(1px);
+    box-shadow: 
+        inset 0 0 20px rgba(255, 255, 255, 0.5),
+        0 0 20px rgba(124, 58, 237, 0.3);
+}
+
+.liquid-mercury-spinner::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    top: 10px;
+    left: 10px;
+    filter: blur(2px);
+    animation: mercuryReflect 3s ease-in-out infinite;
+}
+
+@keyframes mercuryFloat {
+    0%, 100% { 
+        border-radius: 50% 30% 50% 30%;
+        transform: rotate(0deg) scale(1);
+    }
+    25% { 
+        border-radius: 30% 50% 30% 50%;
+        transform: rotate(90deg) scale(1.05);
+    }
+    50% { 
+        border-radius: 50% 30% 50% 30%;
+        transform: rotate(180deg) scale(1);
+    }
+    75% { 
+        border-radius: 30% 50% 30% 50%;
+        transform: rotate(270deg) scale(0.95);
+    }
+}
+
+@keyframes mercuryReflect {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(15px, 5px); }
+    50% { transform: translate(5px, 15px); }
+    75% { transform: translate(10px, 10px); }
+}
+
+/* Template 14: Crystal Spinner */
+.crystal-spinner {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: crystalRotate 4s linear infinite;
+}
+
+.crystal-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(124, 58, 237, 0.3), 
+        rgba(236, 72, 153, 0.3));
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.5));
+}
+
+.crystal-face:nth-child(1) { transform: rotateY(0deg); }
+.crystal-face:nth-child(2) { transform: rotateY(120deg); }
+.crystal-face:nth-child(3) { transform: rotateY(240deg); }
+
+@keyframes crystalRotate {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Template 15: Solar Flare Spinner */
+.solar-flare-spinner {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    animation: solarPulse 2s ease-in-out infinite;
+}
+
+.solar-core {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, 
+        #f59e0b 0%, 
+        #fbbf24 30%, 
+        transparent 70%);
+    border-radius: 50%;
+    position: relative;
+    filter: drop-shadow(0 0 15px #f59e0b);
+}
+
+.solar-core::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    background: radial-gradient(circle at center, 
+        rgba(245, 158, 11, 0.3) 0%, 
+        transparent 70%);
+    border-radius: 50%;
+    animation: solarFlare 3s linear infinite;
+}
+
+.solar-core::after {
+    content: '';
+    position: absolute;
+    width: 140%;
+    height: 140%;
+    top: -20%;
+    left: -20%;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(251, 191, 36, 0.2),
+        rgba(245, 158, 11, 0.1),
+        transparent
+    );
+    border-radius: 50%;
+    animation: solarRing 4s linear infinite;
+}
+
+@keyframes solarPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes solarFlare {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes solarRing {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Template 16: Vortex Spinner */
+.vortex-spinner {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    animation: vortexSpin 2s linear infinite;
+}
+
+.vortex-spinner::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+        from 0deg,
+        #000000,
+        #1e293b,
+        #334155,
+        #475569,
+        #64748b,
+        #94a3b8,
+        #cbd5e1,
+        #ffffff,
+        #000000
+    );
+    border-radius: 50%;
+    mask: radial-gradient(circle at center, transparent 40%, black 41%);
+    -webkit-mask: radial-gradient(circle at center, transparent 40%, black 41%);
+}
+
+.vortex-spinner::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle at center, 
+        #1e293b 0%, 
+        #000000 50%, 
+        transparent 70%);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 20px #000000,
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+@keyframes vortexSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Dark mode adjustments */
+.live-preview-mini.dark-bg .neon-ring-spinner::before {
+    filter: drop-shadow(0 0 12px #00f3ff) drop-shadow(0 0 18px #ff00ff);
+}
+
+.live-preview-mini.dark-bg .cyber-line {
+    filter: drop-shadow(0 0 10px #00ff88);
+}
+/* ==============================================
+   ADVANCED PROFESSIONAL SPINNER TEMPLATES
+   ============================================== */
+
+/* Template 17: Holographic Spinner */
+.holographic-spinner {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    perspective: 500px;
+}
+
+.holo-ring {
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    background: linear-gradient(135deg, 
+        rgba(124, 58, 237, 0.7),
+        rgba(59, 130, 246, 0.7),
+        rgba(16, 185, 129, 0.7),
+        rgba(124, 58, 237, 0.7));
+    background-size: 400% 400%;
+    animation: holographicRotate 4s linear infinite,
+               holographicGradient 3s ease infinite;
+    box-shadow: 
+        0 0 30px rgba(124, 58, 237, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    filter: brightness(1.2);
+}
+
+.holo-core {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle at center,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%);
+    border-radius: 50%;
+    animation: holographicPulse 2s ease-in-out infinite;
+}
+
+@keyframes holographicRotate {
+    0% { transform: rotateX(60deg) rotateY(0deg); }
+    100% { transform: rotateX(60deg) rotateY(360deg); }
+}
+
+@keyframes holographicGradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes holographicPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+}
+
+/* Template 18: Magnetic Field Spinner */
+.magnetic-field-spinner {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    animation: magneticRotate 6s linear infinite;
+}
+
+.field-line {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    border-top: 2px solid #3b82f6;
+    border-bottom: 2px solid #ef4444;
+    animation: magneticPulse 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 5px currentColor);
+}
+
+.field-line:nth-child(1) {
+    animation-delay: 0s;
+    transform: rotateX(70deg);
+}
+
+.field-line:nth-child(2) {
+    animation-delay: -1s;
+    transform: rotateX(70deg) rotateY(120deg);
+}
+
+.field-line:nth-child(3) {
+    animation-delay: -2s;
+    transform: rotateX(70deg) rotateY(240deg);
+}
+
+@keyframes magneticRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes magneticPulse {
+    0%, 100% { 
+        opacity: 0.3;
+        filter: drop-shadow(0 0 2px currentColor);
+    }
+    50% { 
+        opacity: 1;
+        filter: drop-shadow(0 0 10px currentColor);
+    }
+}
+
+/* Template 19: Neural Network Spinner */
+.neural-network-spinner {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.neuron {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(45deg, #7c3aed, #ec4899);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px #7c3aed);
+    animation: neuronPulse 1.5s ease-in-out infinite;
+}
+
+.neuron:nth-child(1) { top: 20%; left: 50%; transform: translateX(-50%); }
+.neuron:nth-child(2) { top: 50%; right: 20%; transform: translateY(-50%); }
+.neuron:nth-child(3) { bottom: 20%; left: 50%; transform: translateX(-50%); }
+
+.connection {
+    position: absolute;
+    background: linear-gradient(to right, 
+        rgba(124, 58, 237, 0.8), 
+        rgba(236, 72, 153, 0.8));
+    height: 2px;
+    border-radius: 1px;
+    filter: drop-shadow(0 0 3px #7c3aed);
+    animation: signalTravel 2s linear infinite;
+}
+
+.connection:nth-child(4) {
+    width: 40px;
+    top: 25%;
+    left: 30%;
+    transform: rotate(45deg);
+    animation-delay: 0s;
+}
+
+.connection:nth-child(5) {
+    width: 40px;
+    top: 45%;
+    left: 30%;
+    transform: rotate(-45deg);
+    animation-delay: -0.66s;
+}
+
+.connection:nth-child(6) {
+    width: 40px;
+    top: 65%;
+    left: 30%;
+    transform: rotate(45deg);
+    animation-delay: -1.33s;
+}
+
+@keyframes neuronPulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.3); opacity: 1; }
+}
+
+@keyframes signalTravel {
+    0% { 
+        background-position: -40px 0;
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { 
+        background-position: 40px 0;
+        opacity: 0;
+    }
+}
+
+/* Template 20: Plasma Orb Spinner */
+.plasma-orb-spinner {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at center,
+        rgba(59, 130, 246, 0.9) 0%,
+        rgba(124, 58, 237, 0.7) 30%,
+        transparent 70%);
+    border-radius: 50%;
+    position: relative;
+    animation: plasmaGlow 2s ease-in-out infinite;
+    box-shadow: 
+        0 0 40px rgba(59, 130, 246, 0.6),
+        inset 0 0 30px rgba(255, 255, 255, 0.3);
+    filter: brightness(1.2);
+}
+
+.plasma-orb-spinner::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(59, 130, 246, 0.4),
+        rgba(124, 58, 237, 0.6),
+        rgba(239, 68, 68, 0.4),
+        transparent
+    );
+    border-radius: 50%;
+    animation: plasmaDischarge 3s linear infinite;
+    filter: blur(5px);
+}
+
+.plasma-orb-spinner::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at center,
+        rgba(255, 255, 255, 0.9) 0%,
+        transparent 70%);
+    border-radius: 50%;
+    top: 20%;
+    left: 20%;
+    animation: plasmaSpark 1.5s ease-in-out infinite;
+}
+
+@keyframes plasmaGlow {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes plasmaDischarge {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes plasmaSpark {
+    0%, 100% { transform: translate(0, 0); opacity: 0.5; }
+    50% { transform: translate(10px, -10px); opacity: 1; }
+}
+
+/* Template 21: Fibonacci Spiral Spinner */
+.fibonacci-spiral-spinner {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    animation: fibonacciRotate 8s linear infinite;
+}
+
+.fibonacci-spiral-spinner::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    border-top: 2px solid #f59e0b;
+    border-right: 2px solid #10b981;
+    box-shadow: 
+        0 0 15px rgba(245, 158, 11, 0.5),
+        inset 0 0 10px rgba(16, 185, 129, 0.3);
+    animation: fibonacciSpiral 4s ease-in-out infinite;
+}
+
+.fibonacci-spiral-spinner::after {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.3), transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(16, 185, 129, 0.3), transparent 50%);
+    border-radius: 50%;
+    animation: fibonacciPulse 3s ease-in-out infinite;
+}
+
+@keyframes fibonacciRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fibonacciSpiral {
+    0% { 
+        border-radius: 50% 30% 50% 30%;
+        transform: scale(1) rotate(0deg);
+    }
+    50% { 
+        border-radius: 30% 50% 30% 50%;
+        transform: scale(1.1) rotate(180deg);
+    }
+    100% { 
+        border-radius: 50% 30% 50% 30%;
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+@keyframes fibonacciPulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.05); opacity: 1; }
+}
+
+/* Template 22: Tesseract Spinner */
+.tesseract-spinner {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    animation: tesseractRotate 6s linear infinite;
+}
+
+.tesseract-spinner .cube {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: cubeRotate 4s linear infinite reverse;
+}
+
+.tesseract-spinner .cube:nth-child(1) {
+    transform: translateZ(35px);
+    animation-delay: 0s;
+}
+
+.tesseract-spinner .cube:nth-child(2) {
+    transform: translateZ(-35px);
+    animation-delay: -2s;
+}
+
+.tesseract-spinner .cube::before,
+.tesseract-spinner .cube::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(124, 58, 237, 0.6);
+    background: rgba(124, 58, 237, 0.1);
+}
+
+.tesseract-spinner .cube::before {
+    transform: rotateX(90deg);
+    border-color: rgba(236, 72, 153, 0.6);
+}
+
+.tesseract-spinner .cube::after {
+    transform: rotateY(90deg);
+    border-color: rgba(59, 130, 246, 0.6);
+}
+
+@keyframes tesseractRotate {
+    0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+@keyframes cubeRotate {
+    0% { transform: translateZ(var(--z)) rotateX(0deg) rotateY(0deg); }
+    100% { transform: translateZ(var(--z)) rotateX(360deg) rotateY(360deg); }
+}
+
+/* Template 23: Quantum Entanglement Spinner */
+.quantum-entanglement-spinner {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    animation: entanglementOrbit 4s linear infinite;
+}
+
+.entangled-particle {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(45deg, #7c3aed, #3b82f6);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 8px #7c3aed);
+    animation: quantumState 2s ease-in-out infinite;
+}
+
+.entangled-particle:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.entangled-particle:nth-child(2) {
+    bottom: 20%;
+    right: 20%;
+    animation-delay: -1s;
+}
+
+.quantum-link {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px dashed rgba(124, 58, 237, 0.4);
+    border-radius: 50%;
+    animation: quantumLink 3s linear infinite;
+}
+
+@keyframes entanglementOrbit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes quantumState {
+    0%, 100% { 
+        transform: scale(1); 
+        background: linear-gradient(45deg, #7c3aed, #3b82f6);
+    }
+    50% { 
+        transform: scale(1.3); 
+        background: linear-gradient(45deg, #ec4899, #10b981);
+        filter: drop-shadow(0 0 12px #ec4899);
+    }
+}
+
+@keyframes quantumLink {
+    0% { 
+        border-color: rgba(124, 58, 237, 0.4);
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% { 
+        border-color: rgba(236, 72, 153, 0.6);
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% { 
+        border-color: rgba(124, 58, 237, 0.4);
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Template 24: Lissajous Curve Spinner */
+.lissajous-curve-spinner {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    animation: lissajousRotate 6s linear infinite;
+}
+
+.lissajous-curve-spinner::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 50%;
+    box-shadow: 
+        inset 0 0 20px rgba(124, 58, 237, 0.2),
+        0 0 10px rgba(124, 58, 237, 0.1);
+}
+
+.curve-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(45deg, #7c3aed, #ec4899);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px #7c3aed);
+    animation: lissajousPath 4s ease-in-out infinite;
+}
+
+@keyframes lissajousRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes lissajousPath {
+    0% { 
+        transform: translate(
+            calc(40px * sin(0deg)),
+            calc(40px * cos(0deg))
+        );
+    }
+    25% { 
+        transform: translate(
+            calc(40px * sin(90deg)),
+            calc(40px * cos(180deg))
+        );
+    }
+    50% { 
+        transform: translate(
+            calc(40px * sin(180deg)),
+            calc(40px * cos(0deg))
+        );
+    }
+    75% { 
+        transform: translate(
+            calc(40px * sin(270deg)),
+            calc(40px * cos(180deg))
+        );
+    }
+    100% { 
+        transform: translate(
+            calc(40px * sin(360deg)),
+            calc(40px * cos(0deg))
+        );
+    }
+}
+
+/* Template 25: Particle Accelerator Spinner */
+.particle-accelerator-spinner {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.accelerator-ring {
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    background: 
+        radial-gradient(circle at center, transparent 60%, rgba(59, 130, 246, 0.1) 100%),
+        conic-gradient(from 0deg, 
+            transparent,
+            rgba(59, 130, 246, 0.8),
+            rgba(124, 58, 237, 0.8),
+            rgba(236, 72, 153, 0.8),
+            transparent
+        );
+    animation: acceleratorSpin 3s linear infinite;
+    box-shadow: 
+        inset 0 0 30px rgba(59, 130, 246, 0.3),
+        0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.particle-beam {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(45deg, #00ff88, #00f3ff);
+    border-radius: 50%;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 0 10px #00ff88);
+    animation: particleTravel 2s linear infinite;
+}
+
+@keyframes acceleratorSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes particleTravel {
+    0% { 
+        transform: translateX(-50%) rotate(0deg) translateY(40px);
+        opacity: 1;
+    }
+    50% { 
+        opacity: 0.8;
+        filter: drop-shadow(0 0 15px #00f3ff);
+    }
+    100% { 
+        transform: translateX(-50%) rotate(360deg) translateY(40px);
+        opacity: 1;
+    }
+}
+
+/* Template 26: Gravitational Wave Spinner */
+.gravitational-wave-spinner {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    animation: gravityPulse 4s ease-in-out infinite;
+}
+
+.wave-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(124, 58, 237, 0.3);
+    border-radius: 50%;
+    animation: wavePropagate 3s ease-out infinite;
+}
+
+.wave-ring:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.wave-ring:nth-child(2) {
+    animation-delay: -1s;
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+}
+
+.wave-ring:nth-child(3) {
+    animation-delay: -2s;
+    width: 40%;
+    height: 40%;
+    top: 30%;
+    left: 30%;
+}
+
+@keyframes gravityPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes wavePropagate {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+        border-width: 2px;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+        border-width: 0.5px;
+    }
+}
+
+/* Dark mode enhancements */
+.live-preview-mini.dark-bg .holographic-spinner {
+    filter: brightness(1.5);
+}
+
+.live-preview-mini.dark-bg .plasma-orb-spinner {
+    box-shadow: 
+        0 0 50px rgba(59, 130, 246, 0.8),
+        inset 0 0 40px rgba(255, 255, 255, 0.4);
+}
+/* ==============================================
+   5 PROFESSIONAL PROGRESS BAR LOADERS
+   ============================================== */
+
+/* Template 27: Gradient Wave Progress */
+.gradient-wave-progress {
+    width: 200px;
+    height: 30px;
+    background: linear-gradient(45deg, 
+        rgba(15, 23, 42, 0.1), 
+        rgba(30, 41, 59, 0.2));
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid rgba(124, 58, 237, 0.2);
+    box-shadow: 
+        inset 0 2px 10px rgba(0, 0, 0, 0.1),
+        0 4px 20px rgba(124, 58, 237, 0.1);
+}
+
+.wave-fill {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(90deg, 
+        #7c3aed, 
+        #ec4899, 
+        #f59e0b,
+        #10b981,
+        #3b82f6);
+    background-size: 400% 100%;
+    border-radius: 15px;
+    animation: waveFill 3s ease-in-out infinite;
+}
+
+.wave-fill:nth-child(1) {
+    animation: waveMotion 4s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.wave-fill:nth-child(2) {
+    animation: waveMotion 4s ease-in-out infinite -2s;
+    opacity: 0.6;
+    filter: blur(2px);
+}
+
+@keyframes waveFill {
+    0%, 100% { 
+        width: 30%;
+        background-position: 0% 50%;
+    }
+    50% { 
+        width: 70%;
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes waveMotion {
+    0% { 
+        transform: translateX(-100%);
+        background-position: 0% 50%;
+    }
+    50% { 
+        background-position: 100% 50%;
+    }
+    100% { 
+        transform: translateX(200%);
+        background-position: 0% 50%;
+    }
+}
+
+/* Template 28: Glitch Progress Bar */
+.glitch-progress-bar {
+    width: 200px;
+    height: 25px;
+    background: linear-gradient(45deg, 
+        #0f172a, 
+        #1e293b);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.glitch-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(59, 130, 246, 0.1) 2px,
+        rgba(59, 130, 246, 0.1) 4px
+    );
+    animation: glitchScan 2s linear infinite;
+}
+
+.glitch-fill {
+    position: absolute;
+    height: 100%;
+    width: 60%;
+    background: linear-gradient(90deg, 
+        #00f3ff,
+        #3b82f6,
+        #7c3aed);
+    border-radius: 12px;
+    animation: glitchProgress 3s ease-in-out infinite,
+               glitchDistortion 0.3s steps(2) infinite;
+    filter: drop-shadow(0 0 10px #00f3ff);
+}
+
+.glitch-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 0, 255, 0.1),
+        rgba(0, 255, 255, 0.1),
+        transparent);
+    animation: glitchEffect 1s steps(1) infinite;
+    mix-blend-mode: screen;
+}
+
+@keyframes glitchProgress {
+    0%, 100% { width: 20%; }
+    50% { width: 80%; }
+}
+
+@keyframes glitchScan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes glitchDistortion {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(2px); }
+}
+
+@keyframes glitchEffect {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+}
+
+/* Template 29: Liquid Metal Progress */
+.liquid-metal-progress {
+    width: 200px;
+    height: 20px;
+    background: linear-gradient(to bottom,
+        #334155,
+        #1e293b,
+        #0f172a);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        inset 0 2px 4px rgba(255, 255, 255, 0.1),
+        0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metal-fill {
+    position: absolute;
+    height: 100%;
+    width: 65%;
+    background: linear-gradient(90deg,
+        #cbd5e1,
+        #94a3b8,
+        #64748b,
+        #475569);
+    border-radius: 10px;
+    animation: metalFlow 4s ease-in-out infinite;
+    box-shadow: 
+        inset 0 0 20px rgba(255, 255, 255, 0.3),
+        0 0 15px rgba(255, 255, 255, 0.2);
+    filter: brightness(1.2);
+}
+
+.metal-reflection {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.1),
+        transparent);
+    border-radius: 10px 10px 0 0;
+    animation: reflectionMove 3s ease-in-out infinite;
+}
+
+@keyframes metalFlow {
+    0%, 100% { 
+        width: 35%;
+        background-position: 0% 50%;
+    }
+    25% { 
+        width: 55%;
+        background-position: 25% 50%;
+    }
+    50% { 
+        width: 75%;
+        background-position: 50% 50%;
+    }
+    75% { 
+        width: 55%;
+        background-position: 75% 50%;
+    }
+}
+
+@keyframes reflectionMove {
+    0%, 100% { transform: translateX(-50%); }
+    50% { transform: translateX(50%); }
+}
+
+/* Template 30: Particle Flow Progress */
+.particle-flow-progress {
+    width: 200px;
+    height: 15px;
+    background: rgba(15, 23, 42, 0.3);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.flow-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(124, 58, 237, 0.1),
+        transparent);
+    animation: trackGlow 3s ease-in-out infinite;
+}
+
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(45deg, #7c3aed, #ec4899);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px #7c3aed);
+    animation: particleFlow 2s linear infinite;
+}
+
+.particle:nth-child(2) {
+    animation-delay: -0.66s;
+    background: linear-gradient(45deg, #ec4899, #f59e0b);
+}
+
+.particle:nth-child(3) {
+    animation-delay: -1.33s;
+    background: linear-gradient(45deg, #10b981, #3b82f6);
+}
+
+.particle:nth-child(4) {
+    animation-delay: -2s;
+    background: linear-gradient(45deg, #3b82f6, #7c3aed);
+}
+
+@keyframes trackGlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes particleFlow {
+    0% { 
+        transform: translateX(-10px) translateY(0);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { 
+        transform: translateX(210px) translateY(0);
+        opacity: 0;
+    }
+}
+
+/* Template 31: Neon Scan Progress */
+.neon-scan-progress {
+    width: 200px;
+    height: 25px;
+    background: rgba(0, 0, 20, 0.8);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    box-shadow: 
+        inset 0 0 20px rgba(0, 243, 255, 0.1),
+        0 0 30px rgba(0, 243, 255, 0.2);
+}
+
+.scan-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 243, 255, 0.1) 3px,
+        rgba(0, 243, 255, 0.1) 6px
+    );
+    animation: scanTrack 4s linear infinite;
+}
+
+.scan-beam {
+    position: absolute;
+    width: 70px;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        #00f3ff,
+        #ff00ff,
+        transparent);
+    border-radius: 12px;
+    filter: blur(2px);
+    animation: scanBeam 3s ease-in-out infinite;
+    mix-blend-mode: screen;
+}
+
+.scan-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(0, 243, 255, 0.1),
+        rgba(255, 0, 255, 0.1),
+        transparent);
+    animation: scanGlow 2s ease-in-out infinite;
+}
+
+@keyframes scanTrack {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes scanBeam {
+    0%, 100% { 
+        transform: translateX(-100%);
+        opacity: 0.5;
+    }
+    50% { 
+        transform: translateX(150%);
+        opacity: 1;
+    }
+}
+
+@keyframes scanGlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+/* Responsive adjustments for progress bars */
+@media (max-width: 768px) {
+    .gradient-wave-progress,
+    .glitch-progress-bar,
+    .liquid-metal-progress,
+    .particle-flow-progress,
+    .neon-scan-progress {
+        width: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gradient-wave-progress,
+    .glitch-progress-bar,
+    .liquid-metal-progress,
+    .particle-flow-progress,
+    .neon-scan-progress {
+        width: 120px;
+        height: 20px;
+    }
+    
+    .gradient-wave-progress {
+        height: 25px;
+    }
+    
+    .neon-scan-progress {
+        height: 20px;
+    }
+}
+/* ==============================================
+   5 ADVANCED ANIMATED LOADERS
+   ============================================== */
+
+/* Template 32: Quantum Field Spinner */
+.quantum-field-spinner {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    animation: quantumFieldRotate 8s linear infinite;
+}
+
+.field-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle at center,
+        rgba(124, 58, 237, 0.9) 0%,
+        rgba(236, 72, 153, 0.7) 50%,
+        transparent 70%);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 8px #7c3aed);
+    animation: quantumProbability 3s ease-in-out infinite;
+}
+
+.field-particle:nth-child(1) {
+    top: 10%;
+    left: 25%;
+    animation-delay: 0s;
+}
+
+.field-particle:nth-child(2) {
+    top: 60%;
+    left: 10%;
+    animation-delay: -1s;
+}
+
+.field-particle:nth-child(3) {
+    top: 30%;
+    right: 20%;
+    animation-delay: -2s;
+}
+
+.field-wave {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    border-top: 2px solid rgba(59, 130, 246, 0.4);
+    border-bottom: 2px solid rgba(16, 185, 129, 0.4);
+    animation: quantumWave 4s ease-in-out infinite;
+    filter: blur(1px);
+}
+
+.field-wave::before,
+.field-wave::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 50%;
+    animation: quantumRipple 3s ease-out infinite;
+}
+
+.field-wave::after {
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+    animation-delay: -1.5s;
+}
+
+@keyframes quantumFieldRotate {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes quantumProbability {
+    0%, 100% { 
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+    }
+    25% { 
+        transform: translate(10px, -10px) scale(1.3);
+        opacity: 1;
+    }
+    50% { 
+        transform: translate(-5px, 15px) scale(0.9);
+        opacity: 0.5;
+    }
+    75% { 
+        transform: translate(-15px, -5px) scale(1.2);
+        opacity: 0.9;
+    }
+}
+
+@keyframes quantumWave {
+    0%, 100% { 
+        transform: rotate(0deg) scale(1);
+        opacity: 0.3;
+    }
+    50% { 
+        transform: rotate(180deg) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes quantumRipple {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Template 33: Cosmic String Spinner */
+.cosmic-string-spinner {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    animation: cosmicRotate 6s linear infinite;
+}
+
+.string-segment {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent,
+        #f59e0b,
+        #ec4899,
+        #7c3aed,
+        transparent);
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    filter: drop-shadow(0 0 5px #f59e0b);
+    animation: cosmicVibrate 2s ease-in-out infinite;
+}
+
+.string-segment:nth-child(1) {
+    transform: translateY(-50%) rotate(0deg);
+    animation-delay: 0s;
+}
+
+.string-segment:nth-child(2) {
+    transform: translateY(-50%) rotate(120deg);
+    animation-delay: -0.66s;
+}
+
+.string-segment:nth-child(3) {
+    transform: translateY(-50%) rotate(240deg);
+    animation-delay: -1.33s;
+}
+
+.string-segment::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle at center,
+        #f59e0b 0%,
+        #ec4899 50%,
+        transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 10px #f59e0b);
+    animation: cosmicPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes cosmicRotate {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes cosmicVibrate {
+    0%, 100% { 
+        opacity: 0.7;
+        filter: drop-shadow(0 0 3px #f59e0b);
+    }
+    50% { 
+        opacity: 1;
+        filter: drop-shadow(0 0 10px #ec4899);
+    }
+}
+
+@keyframes cosmicPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.3); }
+}
+
+/* Template 34: Holographic Matrix Spinner */
+.holographic-matrix-spinner {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    perspective: 1000px;
+    animation: matrixRotate 10s linear infinite;
+}
+
+.matrix-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 9px,
+            rgba(0, 255, 255, 0.1) 9px,
+            rgba(0, 255, 255, 0.1) 10px),
+        repeating-linear-gradient(90deg,
+            transparent,
+            transparent 9px,
+            rgba(0, 255, 255, 0.1) 9px,
+            rgba(0, 255, 255, 0.1) 10px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    animation: gridPulse 3s ease-in-out infinite;
+}
+
+.data-stream {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg,
+        transparent 0%,
+        rgba(0, 255, 255, 0.3) 10%,
+        transparent 20%,
+        transparent 80%,
+        rgba(255, 0, 255, 0.3) 90%,
+        transparent 100%);
+    animation: dataFlow 4s linear infinite;
+    mix-blend-mode: screen;
+}
+
+.hologram-core {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(60deg);
+    background: radial-gradient(circle at center,
+        rgba(0, 255, 255, 0.8) 0%,
+        rgba(255, 0, 255, 0.6) 30%,
+        transparent 70%);
+    border-radius: 50%;
+    animation: hologramPulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
+}
+
+@keyframes matrixRotate {
+    0% { transform: rotateX(60deg) rotateY(0deg) rotateZ(0deg); }
+    100% { transform: rotateX(60deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@keyframes dataFlow {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes hologramPulse {
+    0%, 100% { 
+        transform: translate(-50%, -50%) rotateX(60deg) scale(1);
+        opacity: 0.7;
+    }
+    50% { 
+        transform: translate(-50%, -50%) rotateX(60deg) scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Template 35: Temporal Vortex Spinner */
+.temporal-vortex-spinner {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    animation: temporalDistortion 5s ease-in-out infinite;
+}
+
+.time-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    border-top: 2px solid rgba(124, 58, 237, 0.6);
+    border-bottom: 2px solid rgba(16, 185, 129, 0.6);
+    animation: timeDilation 3s linear infinite;
+    filter: blur(1px);
+}
+
+.time-ring:nth-child(1) {
+    animation-delay: 0s;
+    transform: rotateX(70deg);
+}
+
+.time-ring:nth-child(2) {
+    animation-delay: -1.5s;
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    transform: rotateX(70deg) rotateY(45deg);
+}
+
+.chrono-particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle at center,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(124, 58, 237, 0.7) 50%,
+        transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 10px #7c3aed);
+    animation: temporalOrbit 4s linear infinite;
+}
+
+@keyframes temporalDistortion {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg);
+        filter: blur(0px);
+    }
+    25% { 
+        transform: scale(1.05) rotate(90deg);
+        filter: blur(1px);
+    }
+    50% { 
+        transform: scale(0.95) rotate(180deg);
+        filter: blur(2px);
+    }
+    75% { 
+        transform: scale(1.1) rotate(270deg);
+        filter: blur(1px);
+    }
+}
+
+@keyframes timeDilation {
+    0% { 
+        transform: rotateX(var(--angle)) rotate(0deg) scale(1);
+        opacity: 0.7;
+    }
+    50% { 
+        transform: rotateX(var(--angle)) rotate(180deg) scale(1.1);
+        opacity: 1;
+    }
+    100% { 
+        transform: rotateX(var(--angle)) rotate(360deg) scale(1);
+        opacity: 0.7;
+    }
+}
+
+@keyframes temporalOrbit {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(30px) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(30px) rotate(-360deg);
+    }
+}
+
+/* Template 36: Bio-Luminescent Spinner */
+.bio-luminescent-spinner {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    animation: bioPulse 4s ease-in-out infinite;
+}
+
+.bio-cell {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at center,
+        rgba(16, 185, 129, 0.9) 0%,
+        rgba(34, 197, 94, 0.7) 40%,
+        transparent 70%);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px #10b981);
+    animation: bioFloat 3s ease-in-out infinite;
+}
+
+.bio-cell:nth-child(1) {
+    top: 20%;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.bio-cell:nth-child(2) {
+    top: 60%;
+    left: 20%;
+    animation-delay: -1s;
+}
+
+.bio-cell:nth-child(3) {
+    top: 40%;
+    right: 25%;
+    animation-delay: -2s;
+}
+
+.neural-connection {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(34, 197, 94, 0.2), transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(16, 185, 129, 0.2), transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(101, 163, 13, 0.1), transparent 60%);
+    border-radius: 50%;
+    animation: neuralPulse 2s ease-in-out infinite;
+}
+
+.neural-connection::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        conic-gradient(from 0deg,
+            transparent,
+            rgba(34, 197, 94, 0.3),
+            rgba(16, 185, 129, 0.4),
+            rgba(101, 163, 13, 0.3),
+            transparent);
+    border-radius: 50%;
+    animation: neuralRotate 6s linear infinite;
+    filter: blur(3px);
+    mix-blend-mode: screen;
+}
+
+@keyframes bioPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes bioFloat {
+    0%, 100% { 
+        transform: translate(0, 0) scale(1);
+        filter: drop-shadow(0 0 8px #10b981);
+    }
+    25% { 
+        transform: translate(5px, -8px) scale(1.2);
+        filter: drop-shadow(0 0 12px #34d399);
+    }
+    50% { 
+        transform: translate(-8px, 5px) scale(0.9);
+        filter: drop-shadow(0 0 6px #10b981);
+    }
+    75% { 
+        transform: translate(8px, 8px) scale(1.1);
+        filter: drop-shadow(0 0 10px #34d399);
+    }
+}
+
+@keyframes neuralPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes neuralRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Dark mode enhancements */
+.live-preview-mini.dark-bg .quantum-field-spinner {
+    filter: brightness(1.3);
+}
+
+.live-preview-mini.dark-bg .holographic-matrix-spinner {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+}
+
+.live-preview-mini.dark-bg .bio-luminescent-spinner {
+    filter: brightness(1.5) contrast(1.2);
+}
+/* ==============================================
+   5 MORE PROFESSIONAL WEBSITE LOADERS
+   ============================================== */
+
+/* Template 37: Morphing Blob Loader */
+.morphing-blob-loader {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, 
+        #7c3aed, 
+        #ec4899, 
+        #f59e0b);
+    border-radius: 50%;
+    position: relative;
+    animation: morphBlob 4s ease-in-out infinite;
+    filter: blur(1px);
+    box-shadow: 
+        0 0 40px rgba(124, 58, 237, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.morphing-blob-loader::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(124, 58, 237, 0.3), 
+        rgba(236, 72, 153, 0.3), 
+        rgba(245, 158, 11, 0.3));
+    border-radius: 50%;
+    animation: blobShadow 4s ease-in-out infinite;
+    filter: blur(15px);
+    z-index: -1;
+}
+
+@keyframes morphBlob {
+    0%, 100% {
+        border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        transform: scale(1.1) rotate(90deg);
+    }
+    50% {
+        border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+        transform: scale(0.95) rotate(180deg);
+    }
+    75% {
+        border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+        transform: scale(1.05) rotate(270deg);
+    }
+}
+
+@keyframes blobShadow {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.4;
+    }
+}
+
+/* Template 38: Geometric Pattern Loader */
+.geometric-pattern-loader {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    animation: patternRotate 6s linear infinite;
+}
+
+.shape {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 3px solid;
+    animation: shapeMorph 3s ease-in-out infinite;
+}
+
+.shape:nth-child(1) {
+    top: 0;
+    left: 0;
+    border-color: #7c3aed;
+    border-radius: 50% 0 0 0;
+    animation-delay: 0s;
+}
+
+.shape:nth-child(2) {
+    top: 0;
+    right: 0;
+    border-color: #ec4899;
+    border-radius: 0 50% 0 0;
+    animation-delay: -1s;
+}
+
+.shape:nth-child(3) {
+    bottom: 0;
+    left: 20px;
+    border-color: #3b82f6;
+    border-radius: 0 0 50% 50%;
+    width: 40px;
+    animation-delay: -2s;
+}
+
+@keyframes patternRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes shapeMorph {
+    0%, 100% {
+        border-radius: 50% 0 0 0;
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        border-radius: 0 50% 0 0;
+        transform: scale(0.8) rotate(90deg);
+    }
+    50% {
+        border-radius: 0 0 50% 0;
+        transform: scale(1.2) rotate(180deg);
+    }
+    75% {
+        border-radius: 0 0 0 50%;
+        transform: scale(0.9) rotate(270deg);
+    }
+}
+
+/* Template 39: Text Reveal Loader */
+.text-reveal-loader {
+    display: flex;
+    gap: 8px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Arial', sans-serif;
+}
+
+.letter {
+    position: relative;
+    color: #7c3aed;
+    animation: letterReveal 2s ease-in-out infinite;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.letter:nth-child(1) { animation-delay: 0s; }
+.letter:nth-child(2) { animation-delay: 0.1s; }
+.letter:nth-child(3) { animation-delay: 0.2s; }
+.letter:nth-child(4) { animation-delay: 0.3s; }
+.letter:nth-child(5) { animation-delay: 0.4s; }
+.letter:nth-child(6) { animation-delay: 0.5s; }
+.letter:nth-child(7) { animation-delay: 0.6s; }
+
+.letter::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #7c3aed, #ec4899);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    animation: textFill 2s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes letterReveal {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes textFill {
+    0%, 100% {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    50% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+/* Template 40: Floating Islands Loader */
+.floating-islands-loader {
+    width: 100px;
+    height: 60px;
+    position: relative;
+    animation: islandsFloat 6s ease-in-out infinite;
+}
+
+.island {
+    position: absolute;
+    background: linear-gradient(to bottom, 
+        #10b981, 
+        #059669, 
+        #047857);
+    border-radius: 50%;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    animation: islandBob 3s ease-in-out infinite;
+}
+
+.island:nth-child(1) {
+    width: 40px;
+    height: 20px;
+    top: 10px;
+    left: 10px;
+    animation-delay: 0s;
+}
+
+.island:nth-child(2) {
+    width: 30px;
+    height: 15px;
+    top: 30px;
+    left: 50px;
+    background: linear-gradient(to bottom, 
+        #3b82f6, 
+        #2563eb, 
+        #1d4ed8);
+    animation-delay: -1s;
+}
+
+.island:nth-child(3) {
+    width: 25px;
+    height: 12px;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(to bottom, 
+        #f59e0b, 
+        #d97706, 
+        #b45309);
+    animation-delay: -2s;
+}
+
+.island::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.3), 
+        rgba(255, 255, 255, 0.1));
+    border-radius: 50% 50% 0 0;
+    top: 0;
+    left: 0;
+}
+
+@keyframes islandsFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-5px) rotate(2deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(5px) rotate(-2deg);
+    }
+}
+
+@keyframes islandBob {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-8px) scale(1.05);
+    }
+}
+
+/* Template 41: Gradient Orb Loader */
+.gradient-orb-loader {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    animation: orbRotate 4s linear infinite;
+}
+
+.orb-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: orbPulse 3s ease-in-out infinite;
+}
+
+.orb-layer:nth-child(1) {
+    background: radial-gradient(circle at 30% 30%,
+        rgba(124, 58, 237, 0.9) 0%,
+        rgba(124, 58, 237, 0.5) 50%,
+        transparent 70%);
+    animation-delay: 0s;
+    filter: blur(5px);
+}
+
+.orb-layer:nth-child(2) {
+    background: radial-gradient(circle at 70% 70%,
+        rgba(236, 72, 153, 0.7) 0%,
+        rgba(236, 72, 153, 0.3) 50%,
+        transparent 70%);
+    animation-delay: -1s;
+    filter: blur(8px);
+}
+
+.orb-layer:nth-child(3) {
+    background: radial-gradient(circle at 50% 50%,
+        rgba(59, 130, 246, 0.5) 0%,
+        rgba(59, 130, 246, 0.2) 50%,
+        transparent 70%);
+    animation-delay: -2s;
+    filter: blur(12px);
+}
+
+@keyframes orbRotate {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes orbPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .text-reveal-loader {
+        font-size: 20px;
+        gap: 6px;
+    }
+    
+    .floating-islands-loader {
+        width: 80px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-reveal-loader {
+        font-size: 18px;
+        gap: 4px;
+    }
+    
+    .floating-islands-loader {
+        width: 60px;
+        height: 40px;
+    }
+    
+    .morphing-blob-loader,
+    .geometric-pattern-loader,
+    .gradient-orb-loader {
+        width: 60px;
+        height: 60px;
+    }
+}
