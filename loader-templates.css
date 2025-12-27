@@ -3221,3 +3221,673 @@
         height: 60px;
     }
 }
+/* ==============================================
+   5 SLEEK HORIZONTAL LOADING BARS
+   ============================================== */
+
+/* Template 42: Simple Gradient Bar */
+.simple-gradient-bar {
+    width: 200px;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gradient-fill {
+    position: absolute;
+    height: 100%;
+    width: 40%;
+    background: linear-gradient(90deg, 
+        #3b82f6, 
+        #8b5cf6, 
+        #ec4899);
+    border-radius: 3px;
+    animation: simpleFlow 2s ease-in-out infinite;
+}
+
+@keyframes simpleFlow {
+    0% {
+        left: -40%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Template 43: Shimmer Bar */
+.shimmer-bar {
+    width: 200px;
+    height: 8px;
+    background: #f3f4f6;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.shimmer-fill {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, 
+        #f3f4f6 0%, 
+        #e5e7eb 20%, 
+        #d1d5db 50%, 
+        #e5e7eb 80%, 
+        #f3f4f6 100%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    animation: shimmerSlide 2s linear infinite;
+}
+
+@keyframes shimmerSlide {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Template 44: Pulse Bar */
+.pulse-bar {
+    width: 200px;
+    height: 4px;
+    background: #e5e7eb;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.pulse-fill {
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background: #10b981;
+    border-radius: 2px;
+    animation: pulseExpand 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseExpand {
+    0%, 100% {
+        width: 10%;
+        left: 0%;
+        opacity: 0.7;
+    }
+    50% {
+        width: 100%;
+        left: 0%;
+        opacity: 1;
+    }
+}
+
+/* Template 45: Striped Bar */
+.striped-bar {
+    width: 200px;
+    height: 10px;
+    background: #f3f4f6;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.striped-fill {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        #3b82f6,
+        #3b82f6 10px,
+        #2563eb 10px,
+        #2563eb 20px
+    );
+    background-size: 28px 28px;
+    border-radius: 5px;
+    animation: stripeMove 1s linear infinite;
+}
+
+@keyframes stripeMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 28px 0;
+    }
+}
+
+/* Template 46: Dual Flow Bar */
+.dual-flow-bar {
+    width: 200px;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.flow-left, .flow-right {
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    background: #f59e0b;
+    border-radius: 3px;
+}
+
+.flow-left {
+    animation: flowFromLeft 2s ease-in-out infinite;
+}
+
+.flow-right {
+    animation: flowFromRight 2s ease-in-out infinite;
+}
+
+@keyframes flowFromLeft {
+    0% {
+        left: -30%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+
+@keyframes flowFromRight {
+    0% {
+        right: -30%;
+    }
+    100% {
+        right: 50%;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .simple-gradient-bar,
+    .shimmer-bar,
+    .pulse-bar,
+    .striped-bar,
+    .dual-flow-bar {
+        width: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .simple-gradient-bar,
+    .shimmer-bar,
+    .pulse-bar,
+    .striped-bar,
+    .dual-flow-bar {
+        width: 120px;
+    }
+    
+    .simple-gradient-bar,
+    .dual-flow-bar {
+        height: 4px;
+    }
+    
+    .shimmer-bar {
+        height: 6px;
+    }
+    
+    .striped-bar {
+        height: 8px;
+    }
+}
+/* ==============================================
+   ENTERPRISE-GADE PRELOADERS
+   ============================================== */
+
+/* Enterprise container styling */
+.enterprise-container {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 10px 15px -3px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.enterprise-container.dark-bg {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.2),
+        0 10px 15px -3px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+/* ==============================================
+   ENTERPRISE-GRADE LOADING SYSTEM
+   ============================================== */
+
+/* Performance optimizations */
+.enterprise-loader {
+    will-change: transform, opacity;
+    contain: layout style paint;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Template 47: Progressive Skeleton Loader */
+.progressive-skeleton-loader {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.skeleton-row {
+    height: 12px;
+    background: linear-gradient(90deg,
+        rgba(229, 231, 235, 0.4) 25%,
+        rgba(209, 213, 219, 0.6) 50%,
+        rgba(229, 231, 235, 0.4) 75%);
+    background-size: 200% 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    transform: translateY(4px);
+    animation: skeletonFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.skeleton-row:nth-child(1) { animation-delay: 0.1s; }
+.skeleton-row:nth-child(2) { animation-delay: 0.3s; }
+.skeleton-row:nth-child(3) { animation-delay: 0.5s; }
+.skeleton-row:nth-child(4) { animation-delay: 0.7s; }
+
+.skeleton-row::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent);
+    animation: skeletonShimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes skeletonFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes skeletonShimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Template 48: Intelligent Progress Ring */
+.intelligent-progress-ring {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.progress-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1.5px solid rgba(209, 213, 219, 0.3);
+    border-radius: 50%;
+}
+
+.progress-fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1.5px solid transparent;
+    border-top: 1.5px solid #3b82f6;
+    border-right: 1.5px solid #3b82f6;
+    border-radius: 50%;
+    clip-path: inset(0 0 0 50%);
+    transform: rotate(45deg);
+    animation: progressFill 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    transition: stroke-dashoffset 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.status-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #3b82f6;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg) translateY(-40px);
+    animation: statusOrbit 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: 500;
+    color: #4b5563;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    opacity: 0.9;
+}
+
+@keyframes progressFill {
+    0% {
+        transform: rotate(45deg);
+        clip-path: inset(0 0 0 50%);
+    }
+    50% {
+        transform: rotate(225deg);
+        clip-path: inset(0 50% 0 0);
+    }
+    100% {
+        transform: rotate(405deg);
+        clip-path: inset(0 0 0 50%);
+    }
+}
+
+@keyframes statusOrbit {
+    0% {
+        transform: translate(-50%, -50%) rotate(45deg) translateY(-40px);
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(405deg) translateY(-40px);
+        opacity: 0.6;
+    }
+}
+
+/* Template 49: Phased Content Reveal */
+.phased-content-reveal {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.phase {
+    width: 60px;
+    height: 4px;
+    background: rgba(229, 231, 235, 0.8);
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: left center;
+}
+
+.phase.active {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    transform: scaleX(1.2);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.phase-2.active {
+    transition-delay: 0.1s;
+}
+
+.phase-3.active {
+    transition-delay: 0.2s;
+}
+
+.phase-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    letter-spacing: 0.02em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    opacity: 0.9;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.phase-label.active {
+    color: #3b82f6;
+    transform: translateY(-1px);
+}
+
+/* Template 50: Minimal Progress Wave */
+.minimal-progress-wave {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.wave-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 30px;
+}
+
+.wave {
+    width: 4px;
+    background: linear-gradient(to top, #3b82f6, #60a5fa);
+    border-radius: 2px;
+    animation: wavePulse 1.6s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.wave:nth-child(1) {
+    height: 10px;
+    animation-delay: 0s;
+}
+
+.wave:nth-child(2) {
+    height: 20px;
+    animation-delay: 0.2s;
+}
+
+.wave:nth-child(3) {
+    height: 15px;
+    animation-delay: 0.4s;
+}
+
+.progress-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    letter-spacing: 0.02em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    opacity: 0.9;
+    animation: textFade 3s ease-in-out infinite;
+}
+
+@keyframes wavePulse {
+    0%, 100% {
+        transform: scaleY(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scaleY(0.7);
+        opacity: 1;
+    }
+}
+
+@keyframes textFade {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Template 51: Geometric Sequence Loader */
+.geometric-sequence-loader {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.shape {
+    width: 8px;
+    height: 8px;
+    background: #3b82f6;
+    border-radius: 50%;
+    opacity: 0.3;
+    transform: scale(0.8);
+    animation: shapeSequence 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.shape:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.shape:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.shape:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+.status-indicator {
+    font-size: 12px;
+    font-weight: 500;
+    color: #6b7280;
+    letter-spacing: 0.03em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+@keyframes shapeSequence {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    20%, 80% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Loading overlay for seamless transitions */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity;
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Responsive optimizations */
+@media (max-width: 768px) {
+    .progressive-skeleton-loader,
+    .phased-content-reveal,
+    .minimal-progress-wave,
+    .geometric-sequence-loader {
+        width: 200px;
+        padding: 16px;
+    }
+    
+    .intelligent-progress-ring {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .percentage {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .progressive-skeleton-loader,
+    .phased-content-reveal,
+    .minimal-progress-wave,
+    .geometric-sequence-loader {
+        width: 160px;
+        padding: 12px;
+    }
+    
+    .skeleton-row {
+        height: 10px;
+    }
+    
+    .progress-text,
+    .phase-label,
+    .status-indicator {
+        font-size: 11px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .progressive-skeleton-loader,
+    .intelligent-progress-ring,
+    .phased-content-reveal,
+    .minimal-progress-wave,
+    .geometric-sequence-loader {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .skeleton-row::after,
+    .wave,
+    .shape {
+        animation: none !important;
+    }
+    
+    .progress-fill,
+    .status-dot {
+        animation: progressFillReduced 4s linear infinite;
+    }
+    
+    @keyframes progressFillReduced {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+}

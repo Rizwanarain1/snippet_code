@@ -4570,6 +4570,1958 @@ function addParticles() {
     }
 }`
     },
+    // ====================================================================
+    // TEMPLATE 42: Simple Gradient Bar
+    // ====================================================================
+    loader42: {
+        name: "Simple Gradient Bar",
+        category: "progress",
+        html: `<div class="loader-container">
+    <div class="simple-gradient-bar">
+        <div class="gradient-fill"></div>
+    </div>
+</div>`,
+        css: `.simple-gradient-bar {
+    width: 200px;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gradient-fill {
+    position: absolute;
+    height: 100%;
+    width: 40%;
+    background: linear-gradient(90deg, 
+        #3b82f6, 
+        #8b5cf6, 
+        #ec4899);
+    border-radius: 3px;
+    animation: simpleFlow 2s ease-in-out infinite;
+}
+
+@keyframes simpleFlow {
+    0% {
+        left: -40%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control simple gradient bar
+const simpleBar = document.querySelector('.simple-gradient-bar');
+
+// Change gradient colors
+function setGradientColors(colors) {
+    const fill = simpleBar.querySelector('.gradient-fill');
+    fill.style.background = \`linear-gradient(90deg, \${colors.join(', ')})\`;
+}
+
+// Adjust animation speed
+function setFlowSpeed(speed) {
+    const fill = simpleBar.querySelector('.gradient-fill');
+    fill.style.animationDuration = speed + 's';
+}
+
+// Set bar height
+function setBarHeight(height) {
+    simpleBar.style.height = height + 'px';
+    simpleBar.style.borderRadius = height / 2 + 'px';
+    const fill = simpleBar.querySelector('.gradient-fill');
+    fill.style.borderRadius = height / 2 + 'px';
+}
+
+// Set background color
+function setBackgroundColor(color) {
+    simpleBar.style.background = color;
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 43: Shimmer Bar
+    // ====================================================================
+    loader43: {
+        name: "Shimmer Bar",
+        category: "progress",
+        html: `<div class="loader-container">
+    <div class="shimmer-bar">
+        <div class="shimmer-fill"></div>
+    </div>
+</div>`,
+        css: `.shimmer-bar {
+    width: 200px;
+    height: 8px;
+    background: #f3f4f6;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.shimmer-fill {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, 
+        #f3f4f6 0%, 
+        #e5e7eb 20%, 
+        #d1d5db 50%, 
+        #e5e7eb 80%, 
+        #f3f4f6 100%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    animation: shimmerSlide 2s linear infinite;
+}
+
+@keyframes shimmerSlide {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control shimmer bar
+const shimmerBar = document.querySelector('.shimmer-bar');
+
+// Change shimmer colors
+function setShimmerColors(baseColor, highlightColor) {
+    const fill = shimmerBar.querySelector('.shimmer-fill');
+    fill.style.background = \`linear-gradient(90deg, 
+        \${baseColor}80 0%, 
+        \${highlightColor} 20%, 
+        \${baseColor} 50%, 
+        \${highlightColor} 80%, 
+        \${baseColor}80 100%)\`;
+}
+
+// Adjust shimmer speed
+function setShimmerSpeed(speed) {
+    const fill = shimmerBar.querySelector('.shimmer-fill');
+    fill.style.animationDuration = speed + 's';
+}
+
+// Set shimmer intensity
+function setShimmerIntensity(intensity) {
+    const fill = shimmerBar.querySelector('.shimmer-fill');
+    fill.style.backgroundSize = \`\${intensity}% 100%\`;
+}
+
+// Toggle shimmer effect
+function toggleShimmer() {
+    const fill = shimmerBar.querySelector('.shimmer-fill');
+    const isPaused = fill.style.animationPlayState === 'paused';
+    fill.style.animationPlayState = isPaused ? 'running' : 'paused';
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 44: Pulse Bar
+    // ====================================================================
+    loader44: {
+        name: "Pulse Bar",
+        category: "progress",
+        html: `<div class="loader-container">
+    <div class="pulse-bar">
+        <div class="pulse-fill"></div>
+    </div>
+</div>`,
+        css: `.pulse-bar {
+    width: 200px;
+    height: 4px;
+    background: #e5e7eb;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.pulse-fill {
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background: #10b981;
+    border-radius: 2px;
+    animation: pulseExpand 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseExpand {
+    0%, 100% {
+        width: 10%;
+        left: 0%;
+        opacity: 0.7;
+    }
+    50% {
+        width: 100%;
+        left: 0%;
+        opacity: 1;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control pulse bar
+const pulseBar = document.querySelector('.pulse-bar');
+
+// Change pulse color
+function setPulseColor(color) {
+    const fill = pulseBar.querySelector('.pulse-fill');
+    fill.style.background = color;
+}
+
+// Adjust pulse speed
+function setPulseSpeed(speed) {
+    const fill = pulseBar.querySelector('.pulse-fill');
+    fill.style.animationDuration = speed + 's';
+}
+
+// Set pulse width range
+function setPulseWidth(minWidth, maxWidth) {
+    const fill = pulseBar.querySelector('.pulse-fill');
+    const keyframes = \`
+        @keyframes pulseExpand {
+            0%, 100% {
+                width: \${minWidth}%;
+                left: 0%;
+                opacity: 0.7;
+            }
+            50% {
+                width: \${maxWidth}%;
+                left: 0%;
+                opacity: 1;
+            }
+        }
+    \`;
+    
+    // Add the new keyframes
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = keyframes;
+    document.head.appendChild(styleSheet);
+}
+
+// Set background color
+function setPulseBackground(color) {
+    pulseBar.style.background = color;
+}
+
+// Simulate progress completion
+function simulateProgress(duration) {
+    const fill = pulseBar.querySelector('.pulse-fill');
+    fill.style.animation = 'none';
+    
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += 100 / (duration * 10);
+        fill.style.width = progress + '%';
+        
+        if (progress >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                fill.style.animation = 'pulseExpand 1.5s ease-in-out infinite';
+            }, 500);
+        }
+    }, 100);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 45: Striped Bar
+    // ====================================================================
+    loader45: {
+        name: "Striped Bar",
+        category: "progress",
+        html: `<div class="loader-container">
+    <div class="striped-bar">
+        <div class="striped-fill"></div>
+    </div>
+</div>`,
+        css: `.striped-bar {
+    width: 200px;
+    height: 10px;
+    background: #f3f4f6;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.striped-fill {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        #3b82f6,
+        #3b82f6 10px,
+        #2563eb 10px,
+        #2563eb 20px
+    );
+    background-size: 28px 28px;
+    border-radius: 5px;
+    animation: stripeMove 1s linear infinite;
+}
+
+@keyframes stripeMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 28px 0;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control striped bar
+const stripedBar = document.querySelector('.striped-bar');
+
+// Change stripe colors
+function setStripeColors(color1, color2) {
+    const fill = stripedBar.querySelector('.striped-fill');
+    fill.style.background = \`repeating-linear-gradient(
+        45deg,
+        \${color1},
+        \${color1} 10px,
+        \${color2} 10px,
+        \${color2} 20px
+    )\`;
+}
+
+// Adjust stripe size
+function setStripeSize(size) {
+    const fill = stripedBar.querySelector('.striped-fill');
+    const stripeWidth = size;
+    const backgroundSize = stripeWidth * 2 * 1.414; // diagonal calculation
+    
+    fill.style.background = \`repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent \${stripeWidth}px,
+        var(--stripe-color) \${stripeWidth}px,
+        var(--stripe-color) \${stripeWidth * 2}px
+    )\`;
+    fill.style.backgroundSize = \`\${backgroundSize}px \${backgroundSize}px\`;
+}
+
+// Adjust animation speed
+function setStripeSpeed(speed) {
+    const fill = stripedBar.querySelector('.striped-fill');
+    fill.style.animationDuration = speed + 's';
+}
+
+// Change stripe angle
+function setStripeAngle(angle) {
+    const fill = stripedBar.querySelector('.striped-fill');
+    const currentBg = fill.style.background;
+    const newBg = currentBg.replace('45deg', \`\${angle}deg\`);
+    fill.style.background = newBg;
+}
+
+// Set background color
+function setStripeBackground(color) {
+    stripedBar.style.background = color;
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 46: Dual Flow Bar
+    // ====================================================================
+    loader46: {
+        name: "Dual Flow Bar",
+        category: "progress",
+        html: `<div class="loader-container">
+    <div class="dual-flow-bar">
+        <div class="flow-left"></div>
+        <div class="flow-right"></div>
+    </div>
+</div>`,
+        css: `.dual-flow-bar {
+    width: 200px;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.flow-left, .flow-right {
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    background: #f59e0b;
+    border-radius: 3px;
+}
+
+.flow-left {
+    animation: flowFromLeft 2s ease-in-out infinite;
+}
+
+.flow-right {
+    animation: flowFromRight 2s ease-in-out infinite;
+}
+
+@keyframes flowFromLeft {
+    0% {
+        left: -30%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+
+@keyframes flowFromRight {
+    0% {
+        right: -30%;
+    }
+    100% {
+        right: 50%;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control dual flow bar
+const dualFlowBar = document.querySelector('.dual-flow-bar');
+
+// Change flow colors
+function setFlowColors(leftColor, rightColor) {
+    const leftFlow = dualFlowBar.querySelector('.flow-left');
+    const rightFlow = dualFlowBar.querySelector('.flow-right');
+    
+    leftFlow.style.background = leftColor;
+    rightFlow.style.background = rightColor;
+}
+
+// Adjust flow speed
+function setFlowSpeed(speed) {
+    const leftFlow = dualFlowBar.querySelector('.flow-left');
+    const rightFlow = dualFlowBar.querySelector('.flow-right');
+    
+    leftFlow.style.animationDuration = speed + 's';
+    rightFlow.style.animationDuration = speed + 's';
+}
+
+// Set meeting point
+function setMeetingPoint(percentage) {
+    const leftFlow = dualFlowBar.querySelector('.flow-left');
+    const rightFlow = dualFlowBar.querySelector('.flow-right');
+    
+    // Update keyframes for new meeting point
+    const keyframes = \`
+        @keyframes flowFromLeft {
+            0% { left: -30%; }
+            100% { left: \${percentage}%; }
+        }
+        @keyframes flowFromRight {
+            0% { right: -30%; }
+            100% { right: \${100 - percentage}%; }
+        }
+    \`;
+    
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = keyframes;
+    document.head.appendChild(styleSheet);
+}
+
+// Set flow width
+function setFlowWidth(width) {
+    const flows = dualFlowBar.querySelectorAll('.flow-left, .flow-right');
+    flows.forEach(flow => {
+        flow.style.width = width + '%';
+    });
+}
+
+// Toggle sync mode
+function toggleSyncMode() {
+    const leftFlow = dualFlowBar.querySelector('.flow-left');
+    const rightFlow = dualFlowBar.querySelector('.flow-right');
+    
+    if (leftFlow.style.animationDelay === '0s') {
+        leftFlow.style.animationDelay = '-1s';
+        rightFlow.style.animationDelay = '0s';
+    } else {
+        leftFlow.style.animationDelay = '0s';
+        rightFlow.style.animationDelay = '-1s';
+    }
+}
+
+// Set background color
+function setDualBackground(color) {
+    dualFlowBar.style.background = color;
+}`
+    },
+        // ====================================================================
+    // TEMPLATE 47: Progressive Skeleton Loader
+    // ====================================================================
+    loader47: {
+        name: "Progressive Skeleton Loader",
+        category: "minimal",
+        html: `<div class="loader-container">
+    <div class="progressive-skeleton-loader">
+        <div class="skeleton-row" style="width: 70%"></div>
+        <div class="skeleton-row" style="width: 85%"></div>
+        <div class="skeleton-row" style="width: 60%"></div>
+        <div class="skeleton-row" style="width: 90%"></div>
+    </div>
+</div>`,
+        css: `.progressive-skeleton-loader {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.skeleton-row {
+    height: 12px;
+    background: linear-gradient(90deg,
+        rgba(229, 231, 235, 0.4) 25%,
+        rgba(209, 213, 219, 0.6) 50%,
+        rgba(229, 231, 235, 0.4) 75%);
+    background-size: 200% 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    transform: translateY(4px);
+    animation: skeletonFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.skeleton-row:nth-child(1) { animation-delay: 0.1s; }
+.skeleton-row:nth-child(2) { animation-delay: 0.3s; }
+.skeleton-row:nth-child(3) { animation-delay: 0.5s; }
+.skeleton-row:nth-child(4) { animation-delay: 0.7s; }
+
+.skeleton-row::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent);
+    animation: skeletonShimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes skeletonFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes skeletonShimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Enterprise Progressive Skeleton Loader
+class ProgressiveSkeletonLoader {
+    constructor(container) {
+        this.container = container;
+        this.rows = container.querySelectorAll('.skeleton-row');
+        this.progress = 0;
+        this.initialize();
+    }
+    
+    initialize() {
+        // Performance optimization
+        this.container.style.willChange = 'contents';
+        this.container.style.contain = 'layout style paint';
+        
+        // Initialize rows with staggered animation
+        this.rows.forEach((row, index) => {
+            row.style.animationDelay = \`\${index * 0.2}s\`;
+        });
+    }
+    
+    // Simulate loading progress (0-100)
+    updateProgress(percent) {
+        this.progress = Math.min(100, Math.max(0, percent));
+        
+        // Calculate which rows should be active based on progress
+        const activeRows = Math.ceil((this.progress / 100) * this.rows.length);
+        
+        this.rows.forEach((row, index) => {
+            if (index < activeRows) {
+                row.style.opacity = '1';
+                row.style.transform = 'translateY(0)';
+            } else {
+                row.style.opacity = '0.3';
+                row.style.transform = 'translateY(4px)';
+            }
+        });
+        
+        return this.progress;
+    }
+    
+    // Complete loading with smooth transition
+    complete() {
+        return new Promise((resolve) => {
+            // Fade out rows sequentially
+            this.rows.forEach((row, index) => {
+                setTimeout(() => {
+                    row.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                    row.style.opacity = '0';
+                    row.style.transform = 'translateY(-4px)';
+                }, index * 50);
+            });
+            
+            // Fade out container
+            setTimeout(() => {
+                this.container.style.transition = 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                this.container.style.opacity = '0';
+                resolve();
+            }, this.rows.length * 50 + 100);
+        });
+    }
+    
+    // Reset loader
+    reset() {
+        this.progress = 0;
+        this.rows.forEach(row => {
+            row.style.transition = 'none';
+            row.style.opacity = '0';
+            row.style.transform = 'translateY(4px)';
+        });
+        
+        // Re-initialize with slight delay
+        setTimeout(() => this.initialize(), 50);
+    }
+}
+
+// Usage example
+const skeletonLoader = new ProgressiveSkeletonLoader(
+    document.querySelector('.progressive-skeleton-loader')
+);
+
+// Simulate real loading progress
+function simulateLoading() {
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.random() * 10;
+        skeletonLoader.updateProgress(progress);
+        
+        if (progress >= 100) {
+            clearInterval(interval);
+            setTimeout(() => skeletonLoader.complete(), 500);
+        }
+    }, 200);
+}
+
+// Integrate with real loading events
+function trackAssetLoading(assets) {
+    let loaded = 0;
+    assets.forEach(asset => {
+        asset.addEventListener('load', () => {
+            loaded++;
+            const progress = (loaded / assets.length) * 100;
+            skeletonLoader.updateProgress(progress);
+            
+            if (loaded === assets.length) {
+                skeletonLoader.complete();
+            }
+        });
+    });
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 48: Intelligent Progress Ring
+    // ====================================================================
+    loader48: {
+        name: "Intelligent Progress Ring",
+        category: "spinner",
+        html: `<div class="loader-container">
+    <div class="intelligent-progress-ring">
+        <div class="progress-track"></div>
+        <div class="progress-fill"></div>
+        <div class="status-dot"></div>
+        <div class="percentage">0%</div>
+    </div>
+</div>`,
+        css: `.intelligent-progress-ring {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.progress-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1.5px solid rgba(209, 213, 219, 0.3);
+    border-radius: 50%;
+}
+
+.progress-fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1.5px solid transparent;
+    border-top: 1.5px solid #3b82f6;
+    border-right: 1.5px solid #3b82f6;
+    border-radius: 50%;
+    clip-path: inset(0 0 0 50%);
+    transform: rotate(45deg);
+    animation: progressFill 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    transition: stroke-dashoffset 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.status-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #3b82f6;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg) translateY(-40px);
+    animation: statusOrbit 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: 500;
+    color: #4b5563;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    opacity: 0.9;
+}
+
+@keyframes progressFill {
+    0% {
+        transform: rotate(45deg);
+        clip-path: inset(0 0 0 50%);
+    }
+    50% {
+        transform: rotate(225deg);
+        clip-path: inset(0 50% 0 0);
+    }
+    100% {
+        transform: rotate(405deg);
+        clip-path: inset(0 0 0 50%);
+    }
+}
+
+@keyframes statusOrbit {
+    0% {
+        transform: translate(-50%, -50%) rotate(45deg) translateY(-40px);
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(405deg) translateY(-40px);
+        opacity: 0.6;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Enterprise Progress Ring Loader
+class IntelligentProgressRing {
+    constructor(container) {
+        this.container = container;
+        this.fill = container.querySelector('.progress-fill');
+        this.percentage = container.querySelector('.percentage');
+        this.dot = container.querySelector('.status-dot');
+        this.progress = 0;
+        this.initialize();
+    }
+    
+    initialize() {
+        // Hardware acceleration
+        this.container.style.willChange = 'transform, opacity';
+        this.fill.style.willChange = 'transform, clip-path';
+        this.dot.style.willChange = 'transform';
+        
+        // Initialize with 0%
+        this.updatePercentage(0);
+    }
+    
+    // Update progress percentage (0-100)
+    updatePercentage(percent) {
+        this.progress = Math.min(100, Math.max(0, percent));
+        
+        // Update percentage text with smooth transition
+        this.percentage.style.transition = 'opacity 0.2s ease';
+        this.percentage.style.opacity = '0.7';
+        
+        requestAnimationFrame(() => {
+            this.percentage.textContent = \`\${Math.round(this.progress)}%\`;
+            this.percentage.style.opacity = '0.9';
+        });
+        
+        // Calculate rotation based on progress
+        const rotation = (this.progress / 100) * 360;
+        const clipPath = this.progress === 100 
+            ? 'inset(0 0 0 0)' 
+            : \`inset(0 0 0 \${50 - (this.progress / 2)}%)\`;
+        
+        // Apply smooth transformations
+        this.fill.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        this.fill.style.transform = \`rotate(\${45 + rotation}deg)\`;
+        this.fill.style.clipPath = clipPath;
+        
+        // Update dot position
+        const dotRotation = 45 + rotation;
+        const dotY = -40 * (1 - (this.progress / 100));
+        this.dot.style.transform = \`translate(-50%, -50%) rotate(\${dotRotation}deg) translateY(\${dotY}px)\`;
+        
+        return this.progress;
+    }
+    
+    // Complete loading with celebration animation
+    complete() {
+        return new Promise((resolve) => {
+            // First, fill to 100%
+            this.updatePercentage(100);
+            
+            // Celebration animation
+            setTimeout(() => {
+                // Pulse animation
+                this.container.style.animation = 'pulse 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                this.fill.style.borderTopColor = '#10b981';
+                this.fill.style.borderRightColor = '#10b981';
+                this.dot.style.background = '#10b981';
+                
+                // Update text
+                this.percentage.textContent = '✓';
+                this.percentage.style.color = '#10b981';
+                this.percentage.style.fontSize = '16px';
+                
+                // Fade out
+                setTimeout(() => {
+                    this.container.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                    this.container.style.opacity = '0';
+                    this.container.style.transform = 'scale(0.9)';
+                    resolve();
+                }, 600);
+            }, 300);
+        });
+    }
+    
+    // Handle loading errors
+    showError() {
+        this.fill.style.borderTopColor = '#ef4444';
+        this.fill.style.borderRightColor = '#ef4444';
+        this.dot.style.background = '#ef4444';
+        this.percentage.textContent = '!';
+        this.percentage.style.color = '#ef4444';
+    }
+    
+    // Reset to initial state
+    reset() {
+        this.progress = 0;
+        this.fill.style.transition = 'none';
+        this.fill.style.borderTopColor = '#3b82f6';
+        this.fill.style.borderRightColor = '#3b82f6';
+        this.dot.style.background = '#3b82f6';
+        this.percentage.textContent = '0%';
+        this.percentage.style.color = '#4b5563';
+        this.percentage.style.fontSize = '14px';
+        this.container.style.animation = '';
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'scale(1)';
+        
+        this.initialize();
+    }
+}
+
+// Real-time integration with loading events
+function createProgressRing() {
+    const ring = new IntelligentProgressRing(
+        document.querySelector('.intelligent-progress-ring')
+    );
+    
+    // Simulate file upload progress
+    function simulateFileUpload(fileSize) {
+        let uploaded = 0;
+        const chunkSize = fileSize / 20;
+        
+        const interval = setInterval(() => {
+            uploaded += chunkSize;
+            const progress = (uploaded / fileSize) * 100;
+            ring.updatePercentage(progress);
+            
+            if (uploaded >= fileSize) {
+                clearInterval(interval);
+                setTimeout(() => ring.complete(), 500);
+            }
+        }, 200);
+    }
+    
+    // API request progress
+    function trackApiRequest(request) {
+        request.onprogress = (event) => {
+            if (event.lengthComputable) {
+                const progress = (event.loaded / event.total) * 100;
+                ring.updatePercentage(progress);
+            }
+        };
+        
+        request.onload = () => {
+            ring.complete();
+        };
+        
+        request.onerror = () => {
+            ring.showError();
+        };
+    }
+    
+    return {
+        ring,
+        simulateFileUpload,
+        trackApiRequest
+    };
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 49: Phased Content Reveal
+    // ====================================================================
+    loader49: {
+        name: "Phased Content Reveal",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="phased-content-reveal">
+        <div class="phase phase-1 active"></div>
+        <div class="phase phase-2"></div>
+        <div class="phase phase-3"></div>
+        <div class="phase-label">Initializing</div>
+    </div>
+</div>`,
+        css: `.phased-content-reveal {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.phase {
+    width: 60px;
+    height: 4px;
+    background: rgba(229, 231, 235, 0.8);
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: left center;
+}
+
+.phase.active {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    transform: scaleX(1.2);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.phase-2.active {
+    transition-delay: 0.1s;
+}
+
+.phase-3.active {
+    transition-delay: 0.2s;
+}
+
+.phase-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    letter-spacing: 0.02em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    opacity: 0.9;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.phase-label.active {
+    color: #3b82f6;
+    transform: translateY(-1px);
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Enterprise Phased Content Loader
+class PhasedContentLoader {
+    constructor(container) {
+        this.container = container;
+        this.phases = container.querySelectorAll('.phase');
+        this.label = container.querySelector('.phase-label');
+        this.currentPhase = 0;
+        this.totalPhases = this.phases.length;
+        this.initialize();
+    }
+    
+    initialize() {
+        // Set up phase transitions
+        this.phases.forEach((phase, index) => {
+            phase.style.transition = \`all 0.4s cubic-bezier(0.4, 0, 0.2, 1) \${index * 0.1}s\`;
+        });
+        
+        // Start with first phase
+        this.setPhase(0);
+    }
+    
+    // Set active phase (0-indexed)
+    setPhase(phaseIndex) {
+        if (phaseIndex < 0 || phaseIndex >= this.totalPhases) return;
+        
+        // Update all phases
+        this.phases.forEach((phase, index) => {
+            if (index === phaseIndex) {
+                phase.classList.add('active');
+            } else if (index < phaseIndex) {
+                phase.classList.add('active');
+                phase.style.opacity = '0.6';
+            } else {
+                phase.classList.remove('active');
+                phase.style.opacity = '1';
+            }
+        });
+        
+        // Update label based on phase
+        const labels = [
+            'Initializing',
+            'Loading assets',
+            'Processing data',
+            'Finalizing'
+        ];
+        
+        if (labels[phaseIndex]) {
+            this.label.textContent = labels[phaseIndex];
+            this.label.classList.add('active');
+            
+            setTimeout(() => {
+                this.label.classList.remove('active');
+            }, 300);
+        }
+        
+        this.currentPhase = phaseIndex;
+    }
+    
+    // Move to next phase
+    nextPhase() {
+        if (this.currentPhase < this.totalPhases - 1) {
+            this.setPhase(this.currentPhase + 1);
+            return true;
+        }
+        return false;
+    }
+    
+    // Complete all phases with smooth transition
+    complete() {
+        return new Promise((resolve) => {
+            // First, activate all phases
+            for (let i = 0; i < this.totalPhases; i++) {
+                setTimeout(() => {
+                    this.setPhase(i);
+                }, i * 200);
+            }
+            
+            // Wait for all phases to complete
+            setTimeout(() => {
+                // Change all phases to success color
+                this.phases.forEach(phase => {
+                    phase.style.background = 'linear-gradient(90deg, #10b981, #34d399)';
+                    phase.style.boxShadow = '0 2px 8px rgba(16, 185, 129, 0.2)';
+                });
+                
+                // Update label
+                this.label.textContent = 'Ready';
+                this.label.style.color = '#10b981';
+                this.label.classList.add('active');
+                
+                // Fade out
+                setTimeout(() => {
+                    this.container.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                    this.container.style.opacity = '0';
+                    this.container.style.transform = 'translateY(-10px)';
+                    resolve();
+                }, 600);
+            }, this.totalPhases * 200);
+        });
+    }
+    
+    // Handle specific loading tasks
+    async loadWithTasks(tasks) {
+        const taskPromises = tasks.map(async (task, index) => {
+            this.setPhase(index);
+            
+            try {
+                await task();
+                return true;
+            } catch (error) {
+                console.error('Task failed:', error);
+                return false;
+            }
+        });
+        
+        const results = await Promise.all(taskPromises);
+        const allSuccess = results.every(result => result);
+        
+        if (allSuccess) {
+            await this.complete();
+        } else {
+            this.showError();
+        }
+        
+        return allSuccess;
+    }
+    
+    // Show error state
+    showError() {
+        this.phases.forEach(phase => {
+            phase.style.background = 'linear-gradient(90deg, #ef4444, #f87171)';
+            phase.style.boxShadow = '0 2px 8px rgba(239, 68, 68, 0.2)';
+        });
+        
+        this.label.textContent = 'Error loading';
+        this.label.style.color = '#ef4444';
+        this.label.classList.add('active');
+    }
+    
+    // Reset loader
+    reset() {
+        this.currentPhase = 0;
+        this.phases.forEach(phase => {
+            phase.classList.remove('active');
+            phase.style.background = '';
+            phase.style.boxShadow = '';
+            phase.style.opacity = '1';
+        });
+        
+        this.label.textContent = 'Initializing';
+        this.label.style.color = '#6b7280';
+        this.label.classList.remove('active');
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'translateY(0)';
+    }
+}
+
+// Real-world usage with complex loading scenarios
+function createPhasedLoader() {
+    const loader = new PhasedContentLoader(
+        document.querySelector('.phased-content-reveal')
+    );
+    
+    // Example: Load dashboard with multiple dependencies
+    async function loadDashboard() {
+        const tasks = [
+            async () => {
+                // Phase 1: Load user data
+                const userData = await fetch('/api/user');
+                return userData.json();
+            },
+            async () => {
+                // Phase 2: Load dashboard config
+                const config = await fetch('/api/dashboard/config');
+                return config.json();
+            },
+            async () => {
+                // Phase 3: Load analytics data
+                const analytics = await fetch('/api/analytics');
+                return analytics.json();
+            },
+            async () => {
+                // Phase 4: Initialize components
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        // Simulate component initialization
+                        resolve();
+                    }, 500);
+                });
+            }
+        ];
+        
+        return await loader.loadWithTasks(tasks);
+    }
+    
+    return {
+        loader,
+        loadDashboard
+    };
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 50: Minimal Progress Wave
+    // ====================================================================
+    loader50: {
+        name: "Minimal Progress Wave",
+        category: "progress",
+        html: `<div class="loader-container">
+    <div class="minimal-progress-wave">
+        <div class="wave-container">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        <div class="progress-text">Loading content...</div>
+    </div>
+</div>`,
+        css: `.minimal-progress-wave {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.wave-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 30px;
+}
+
+.wave {
+    width: 4px;
+    background: linear-gradient(to top, #3b82f6, #60a5fa);
+    border-radius: 2px;
+    animation: wavePulse 1.6s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.wave:nth-child(1) {
+    height: 10px;
+    animation-delay: 0s;
+}
+
+.wave:nth-child(2) {
+    height: 20px;
+    animation-delay: 0.2s;
+}
+
+.wave:nth-child(3) {
+    height: 15px;
+    animation-delay: 0.4s;
+}
+
+.progress-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    letter-spacing: 0.02em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    opacity: 0.9;
+    animation: textFade 3s ease-in-out infinite;
+}
+
+@keyframes wavePulse {
+    0%, 100% {
+        transform: scaleY(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scaleY(0.7);
+        opacity: 1;
+    }
+}
+
+@keyframes textFade {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Enterprise Minimal Wave Loader
+class MinimalWaveLoader {
+    constructor(container) {
+        this.container = container;
+        this.waves = container.querySelectorAll('.wave');
+        this.text = container.querySelector('.progress-text');
+        this.isActive = false;
+        this.initialize();
+    }
+    
+    initialize() {
+        // Optimize for performance
+        this.container.style.willChange = 'opacity';
+        this.waves.forEach(wave => {
+            wave.style.willChange = 'transform, opacity';
+        });
+        
+        // Set initial states
+        this.setText('Loading...');
+    }
+    
+    // Update loading text
+    setText(message) {
+        if (this.text) {
+            this.text.textContent = message;
+            this.text.style.opacity = '0.7';
+            
+            requestAnimationFrame(() => {
+                this.text.style.transition = 'opacity 0.2s ease';
+                this.text.style.opacity = '0.9';
+            });
+        }
+    }
+    
+    // Start loading animation
+    start() {
+        this.isActive = true;
+        this.container.style.opacity = '1';
+        this.container.style.display = 'flex';
+        
+        // Reset wave animations
+        this.waves.forEach((wave, index) => {
+            wave.style.animation = \`wavePulse 1.6s ease-in-out infinite \${index * 0.2}s\`;
+            wave.style.opacity = '0.6';
+        });
+        
+        // Update text with loading indicator
+        let dots = 0;
+        this.textInterval = setInterval(() => {
+            dots = (dots + 1) % 4;
+            this.setText(\`Loading\${'.'.repeat(dots)}\`);
+        }, 500);
+    }
+    
+    // Update progress with custom messages
+    updateProgress(progress, message) {
+        if (!this.isActive) this.start();
+        
+        if (message) {
+            this.setText(message);
+        }
+        
+        // Adjust wave intensity based on progress
+        const intensity = 0.6 + (progress / 100) * 0.4;
+        this.waves.forEach((wave, index) => {
+            wave.style.opacity = intensity - (index * 0.1);
+            wave.style.animationDuration = \`\${1.6 - (progress / 100) * 0.6}s\`;
+        });
+        
+        return progress;
+    }
+    
+    // Complete loading with success animation
+    complete(message = 'Complete') {
+        return new Promise((resolve) => {
+            if (!this.isActive) return resolve();
+            
+            clearInterval(this.textInterval);
+            
+            // Success animation
+            this.waves.forEach((wave, index) => {
+                setTimeout(() => {
+                    wave.style.animation = 'none';
+                    wave.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                    wave.style.background = 'linear-gradient(to top, #10b981, #34d399)';
+                    wave.style.transform = 'scaleY(1.2)';
+                    wave.style.opacity = '1';
+                }, index * 100);
+            });
+            
+            // Update text
+            this.setText(message);
+            this.text.style.color = '#10b981';
+            
+            // Fade out
+            setTimeout(() => {
+                this.container.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                this.container.style.opacity = '0';
+                this.container.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    this.reset();
+                    resolve();
+                }, 400);
+            }, 600);
+        });
+    }
+    
+    // Show error state
+    showError(message = 'Failed to load') {
+        clearInterval(this.textInterval);
+        
+        this.waves.forEach(wave => {
+            wave.style.animation = 'none';
+            wave.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            wave.style.background = 'linear-gradient(to top, #ef4444, #f87171)';
+            wave.style.opacity = '0.8';
+        });
+        
+        this.setText(message);
+        this.text.style.color = '#ef4444';
+    }
+    
+    // Reset to initial state
+    reset() {
+        this.isActive = false;
+        clearInterval(this.textInterval);
+        
+        this.waves.forEach(wave => {
+            wave.style.animation = '';
+            wave.style.transition = '';
+            wave.style.background = 'linear-gradient(to top, #3b82f6, #60a5fa)';
+            wave.style.transform = 'scaleY(1)';
+            wave.style.opacity = '0.6';
+        });
+        
+        this.setText('Loading...');
+        this.text.style.color = '#6b7280';
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'scale(1)';
+        this.container.style.display = 'flex';
+    }
+    
+    // Handle real-time data streaming
+    handleDataStream(stream, onChunk, onComplete) {
+        this.start();
+        this.setText('Receiving data...');
+        
+        let receivedBytes = 0;
+        let totalBytes = 0;
+        
+        stream.on('progress', (progress) => {
+            this.updateProgress(progress.percent, \`Receiving data: \${Math.round(progress.percent)}%\`);
+        });
+        
+        stream.on('data', (chunk) => {
+            receivedBytes += chunk.length;
+            if (totalBytes > 0) {
+                const percent = (receivedBytes / totalBytes) * 100;
+                this.updateProgress(percent);
+            }
+            onChunk(chunk);
+        });
+        
+        stream.on('complete', () => {
+            this.complete('Data received');
+            onComplete();
+        });
+        
+        stream.on('error', (error) => {
+            this.showError('Data stream error');
+            console.error('Stream error:', error);
+        });
+    }
+}
+
+// Create and export loader instance
+const waveLoader = new MinimalWaveLoader(
+    document.querySelector('.minimal-progress-wave')
+);
+
+// Example: Load image with progress
+function loadImageWithProgress(imageUrl) {
+    waveLoader.start();
+    waveLoader.setText('Loading image...');
+    
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        let loaded = false;
+        
+        img.onloadstart = () => {
+            waveLoader.setText('Starting download...');
+        };
+        
+        img.onprogress = (event) => {
+            if (event.lengthComputable) {
+                const percent = (event.loaded / event.total) * 100;
+                waveLoader.updateProgress(percent, \`Downloading: \${Math.round(percent)}%\`);
+            }
+        };
+        
+        img.onload = () => {
+            loaded = true;
+            waveLoader.complete('Image loaded').then(() => {
+                resolve(img);
+            });
+        };
+        
+        img.onerror = () => {
+            waveLoader.showError('Failed to load image');
+            reject(new Error('Image load failed'));
+        };
+        
+        img.src = imageUrl;
+    });
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 51: Geometric Sequence Loader
+    // ====================================================================
+    loader51: {
+        name: "Geometric Sequence Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="geometric-sequence-loader">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="status-indicator">Processing</div>
+    </div>
+</div>`,
+        css: `.geometric-sequence-loader {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.shape {
+    width: 8px;
+    height: 8px;
+    background: #3b82f6;
+    border-radius: 50%;
+    opacity: 0.3;
+    transform: scale(0.8);
+    animation: shapeSequence 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.shape:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.shape:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.shape:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+.status-indicator {
+    font-size: 12px;
+    font-weight: 500;
+    color: #6b7280;
+    letter-spacing: 0.03em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+@keyframes shapeSequence {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    20%, 80% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Enterprise Geometric Sequence Loader
+class GeometricSequenceLoader {
+    constructor(container) {
+        this.container = container;
+        this.shapes = container.querySelectorAll('.shape');
+        this.status = container.querySelector('.status-indicator');
+        this.sequence = 0;
+        this.totalSequences = this.shapes.length;
+        this.isActive = false;
+        this.initialize();
+    }
+    
+    initialize() {
+        // Performance optimizations
+        this.container.style.willChange = 'opacity';
+        this.shapes.forEach(shape => {
+            shape.style.willChange = 'transform, opacity';
+        });
+        
+        // Set initial status
+        this.setStatus('Ready');
+    }
+    
+    // Set current status message
+    setStatus(message) {
+        if (this.status) {
+            this.status.textContent = message.toUpperCase();
+            this.status.style.opacity = '0.6';
+            
+            requestAnimationFrame(() => {
+                this.status.style.transition = 'all 0.2s ease';
+                this.status.style.opacity = '0.9';
+            });
+        }
+    }
+    
+    // Start loading sequence
+    start(message = 'Processing') {
+        this.isActive = true;
+        this.sequence = 0;
+        this.setStatus(message);
+        
+        // Reset shapes
+        this.shapes.forEach((shape, index) => {
+            shape.style.animation = \`shapeSequence 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite \${index * 0.8}s\`;
+            shape.style.opacity = '0.3';
+            shape.style.transform = 'scale(0.8)';
+            shape.style.background = '#3b82f6';
+        });
+        
+        // Start sequence tracking
+        this.sequenceInterval = setInterval(() => {
+            this.sequence = (this.sequence + 1) % (this.totalSequences * 2);
+            this.updateSequence();
+        }, 400);
+    }
+    
+    // Update current sequence
+    updateSequence() {
+        const activeIndex = this.sequence % this.totalSequences;
+        
+        this.shapes.forEach((shape, index) => {
+            if (index === activeIndex) {
+                shape.style.opacity = '1';
+                shape.style.transform = 'scale(1.2)';
+            } else if (index < activeIndex) {
+                shape.style.opacity = '0.6';
+                shape.style.transform = 'scale(1)';
+            } else {
+                shape.style.opacity = '0.3';
+                shape.style.transform = 'scale(0.8)';
+            }
+        });
+        
+        // Update status based on sequence
+        const statuses = [
+            'Processing',
+            'Analyzing',
+            'Validating',
+            'Finalizing'
+        ];
+        
+        const statusIndex = Math.floor(this.sequence / 2) % statuses.length;
+        this.setStatus(statuses[statusIndex]);
+    }
+    
+    // Complete loading with success
+    complete(message = 'Complete') {
+        return new Promise((resolve) => {
+            if (!this.isActive) return resolve();
+            
+            clearInterval(this.sequenceInterval);
+            
+            // Success animation sequence
+            this.shapes.forEach((shape, index) => {
+                setTimeout(() => {
+                    shape.style.animation = 'none';
+                    shape.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                    shape.style.background = '#10b981';
+                    shape.style.opacity = '1';
+                    shape.style.transform = 'scale(1.5)';
+                    
+                    setTimeout(() => {
+                        shape.style.transform = 'scale(1)';
+                    }, 150);
+                }, index * 100);
+            });
+            
+            // Update status
+            this.setStatus(message);
+            this.status.style.color = '#10b981';
+            
+            // Fade out
+            setTimeout(() => {
+                this.container.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                this.container.style.opacity = '0';
+                this.container.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    this.reset();
+                    resolve();
+                }, 400);
+            }, 600);
+        });
+    }
+    
+    // Show error in sequence
+    showError(message = 'Error') {
+        clearInterval(this.sequenceInterval);
+        
+        this.shapes.forEach((shape, index) => {
+            setTimeout(() => {
+                shape.style.animation = 'none';
+                shape.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                shape.style.background = '#ef4444';
+                shape.style.opacity = '0.8';
+                shape.style.transform = 'scale(1.2)';
+            }, index * 50);
+        });
+        
+        this.setStatus(message);
+        this.status.style.color = '#ef4444';
+    }
+    
+    // Reset loader
+    reset() {
+        this.isActive = false;
+        this.sequence = 0;
+        clearInterval(this.sequenceInterval);
+        
+        this.shapes.forEach(shape => {
+            shape.style.animation = '';
+            shape.style.transition = '';
+            shape.style.background = '#3b82f6';
+            shape.style.opacity = '0.3';
+            shape.style.transform = 'scale(0.8)';
+        });
+        
+        this.setStatus('Ready');
+        this.status.style.color = '#6b7280';
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'scale(1)';
+    }
+    
+    // Handle complex multi-step operations
+    async executeOperations(operations) {
+        this.start('Starting operations');
+        
+        for (let i = 0; i < operations.length; i++) {
+            const operation = operations[i];
+            
+            try {
+                this.setStatus(\`Step \${i + 1} of \${operations.length}\`);
+                await operation();
+                
+                // Update sequence to show progress
+                const progress = ((i + 1) / operations.length) * 100;
+                this.updateProgress(progress);
+                
+            } catch (error) {
+                this.showError(\`Step \${i + 1} failed\`);
+                throw error;
+            }
+        }
+        
+        await this.complete('All operations complete');
+        return true;
+    }
+    
+    // Update progress based on percentage
+    updateProgress(percent) {
+        const activeShapes = Math.ceil((percent / 100) * this.totalSequences);
+        
+        this.shapes.forEach((shape, index) => {
+            if (index < activeShapes) {
+                shape.style.opacity = '1';
+                shape.style.transform = 'scale(1.2)';
+            } else {
+                shape.style.opacity = '0.3';
+                shape.style.transform = 'scale(0.8)';
+            }
+        });
+        
+        return percent;
+    }
+}
+
+// Create loader instance
+const geometricLoader = new GeometricSequenceLoader(
+    document.querySelector('.geometric-sequence-loader')
+);
+
+// Integration with complex workflows
+function setupWorkflowLoader() {
+    // Example: Data processing workflow
+    async function processDataWorkflow(data) {
+        const operations = [
+            async () => {
+                geometricLoader.setStatus('Validating data');
+                await validateData(data);
+            },
+            async () => {
+                geometricLoader.setStatus('Transforming');
+                await transformData(data);
+            },
+            async () => {
+                geometricLoader.setStatus('Analyzing');
+                await analyzeData(data);
+            },
+            async () => {
+                geometricLoader.setStatus('Generating report');
+                await generateReport(data);
+            }
+        ];
+        
+        return await geometricLoader.executeOperations(operations);
+    }
+    
+    // Example: API call with retry logic
+    async function fetchWithRetry(url, options, maxRetries = 3) {
+        geometricLoader.start('Connecting to server');
+        
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+            try {
+                geometricLoader.setStatus(\`Attempt \${attempt} of \${maxRetries}\`);
+                
+                const response = await fetch(url, options);
+                
+                if (!response.ok) throw new Error(\`HTTP \${response.status}\`);
+                
+                geometricLoader.setStatus('Processing response');
+                const data = await response.json();
+                
+                await geometricLoader.complete('Data loaded');
+                return data;
+                
+            } catch (error) {
+                geometricLoader.setStatus(\`Retry \${attempt} failed\`);
+                
+                if (attempt === maxRetries) {
+                    geometricLoader.showError('Connection failed');
+                    throw error;
+                }
+                
+                // Exponential backoff
+                await new Promise(resolve => 
+                    setTimeout(resolve, Math.pow(2, attempt) * 1000)
+                );
+            }
+        }
+    }
+    
+    return {
+        geometricLoader,
+        processDataWorkflow,
+        fetchWithRetry
+    };
+}
+
+// Real-time progress tracking example
+function trackRealTimeProgress(progressEmitter) {
+    geometricLoader.start('Tracking progress');
+    
+    progressEmitter.on('progress', (progress) => {
+        geometricLoader.updateProgress(progress.percent);
+        geometricLoader.setStatus(progress.message);
+    });
+    
+    progressEmitter.on('complete', () => {
+        geometricLoader.complete('Process complete');
+    });
+    
+    progressEmitter.on('error', (error) => {
+        geometricLoader.showError('Process failed');
+        console.error('Progress error:', error);
+    });
+}`
+    },
 };
 
 // Main functionality for loader templates
