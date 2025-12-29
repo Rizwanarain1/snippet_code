@@ -6522,6 +6522,3914 @@ function trackRealTimeProgress(progressEmitter) {
     });
 }`
     },
+        // ====================================================================
+    // TEMPLATE 52: Real-time File Upload Loader
+    // ====================================================================
+    loader52: {
+        name: "Real-time File Upload Loader",
+        category: "progress",
+        html: `<div class="loader-container">
+    <div class="file-upload-loader">
+        <div class="upload-progress">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="file-info">
+            <div class="file-name">document.pdf</div>
+            <div class="file-size">2.5 MB</div>
+        </div>
+        <div class="upload-stats">
+            <div class="speed">1.2 MB/s</div>
+            <div class="time">2s remaining</div>
+        </div>
+    </div>
+</div>`,
+        css: `.file-upload-loader {
+    width: 280px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.upload-progress {
+    width: 100%;
+    height: 8px;
+    background: #f3f4f6;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 65%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent);
+    animation: uploadShimmer 1.5s ease-in-out infinite;
+}
+
+.file-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.file-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f2937;
+    max-width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-size {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.upload-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.speed, .time {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: #f9fafb;
+    color: #374151;
+}
+
+@keyframes uploadShimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// File Upload Loader with Real-time Progress
+class FileUploadLoader {
+    constructor(container) {
+        this.container = container;
+        this.progressBar = container.querySelector('.progress-bar');
+        this.fileName = container.querySelector('.file-name');
+        this.fileSize = container.querySelector('.file-size');
+        this.speed = container.querySelector('.speed');
+        this.time = container.querySelector('.time');
+        this.startTime = null;
+        this.loadedBytes = 0;
+        this.totalBytes = 0;
+        this.uploadSpeed = 0;
+        this.speedHistory = [];
+        this.initialize();
+    }
+    
+    initialize() {
+        // Set initial state
+        this.updateProgress(0);
+        this.updateSpeed(0);
+        this.updateTimeRemaining(0);
+    }
+    
+    // Start upload with file
+    startUpload(file) {
+        this.startTime = Date.now();
+        this.totalBytes = file.size;
+        this.loadedBytes = 0;
+        
+        // Update file info
+        this.fileName.textContent = file.name;
+        this.fileSize.textContent = this.formatFileSize(file.size);
+        
+        // Reset progress
+        this.updateProgress(0);
+        this.speedHistory = [];
+        
+        // Start animation
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'translateY(0)';
+        
+        return this;
+    }
+    
+    // Update upload progress
+    updateUploadProgress(loaded, total) {
+        this.loadedBytes = loaded;
+        this.totalBytes = total;
+        
+        const percent = (loaded / total) * 100;
+        this.updateProgress(percent);
+        
+        // Calculate speed
+        const elapsedTime = (Date.now() - this.startTime) / 1000; // seconds
+        const speed = loaded / elapsedTime; // bytes per second
+        
+        this.speedHistory.push(speed);
+        if (this.speedHistory.length > 5) {
+            this.speedHistory.shift();
+        }
+        
+        // Average speed over last 5 updates
+        const avgSpeed = this.speedHistory.reduce((a, b) => a + b, 0) / this.speedHistory.length;
+        this.updateSpeed(avgSpeed);
+        
+        // Calculate time remaining
+        const remainingBytes = total - loaded;
+        const timeRemaining = remainingBytes / avgSpeed;
+        this.updateTimeRemaining(timeRemaining);
+        
+        return percent;
+    }
+    
+    // Update progress bar
+    updateProgress(percent) {
+        this.progressBar.style.width = percent + '%';
+        
+        // Change color based on progress
+        if (percent < 30) {
+            this.progressBar.style.background = 'linear-gradient(90deg, #ef4444, #f87171)';
+        } else if (percent < 70) {
+            this.progressBar.style.background = 'linear-gradient(90deg, #f59e0b, #fbbf24)';
+        } else if (percent < 100) {
+            this.progressBar.style.background = 'linear-gradient(90deg, #3b82f6, #60a5fa)';
+        } else {
+            this.progressBar.style.background = 'linear-gradient(90deg, #10b981, #34d399)';
+        }
+        
+        return percent;
+    }
+    
+    // Update upload speed display
+    updateSpeed(speedBytes) {
+        const speedMB = speedBytes / (1024 * 1024);
+        this.speed.textContent = speedMB > 0.1 
+            ? \`\${speedMB.toFixed(1)} MB/s\`
+            : \`\${(speedBytes / 1024).toFixed(1)} KB/s\`;
+    }
+    
+    // Update time remaining
+    updateTimeRemaining(seconds) {
+        if (seconds <= 0 || !isFinite(seconds)) {
+            this.time.textContent = 'Finishing up...';
+            return;
+        }
+        
+        if (seconds < 60) {
+            this.time.textContent = \`\${Math.ceil(seconds)}s remaining\`;
+        } else if (seconds < 3600) {
+            const minutes = Math.ceil(seconds / 60);
+            this.time.textContent = \`\${minutes}m remaining\`;
+        } else {
+            const hours = (seconds / 3600).toFixed(1);
+            this.time.textContent = \`\${hours}h remaining\`;
+        }
+    }
+    
+    // Format file size
+    formatFileSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        if (bytes < 1024 * 1024 * 1024) return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+        return (bytes / (1024 * 1024 * 1024)).toFixed(1) + ' GB';
+    }
+    
+    // Complete upload
+    complete() {
+        return new Promise((resolve) => {
+            // Show completion state
+            this.updateProgress(100);
+            this.speed.textContent = 'Complete';
+            this.time.textContent = 'Upload finished';
+            
+            // Change to success color
+            this.progressBar.style.background = 'linear-gradient(90deg, #10b981, #34d399)';
+            this.progressBar.style.animation = 'none';
+            
+            // Add checkmark animation
+            const checkmark = document.createElement('div');
+            checkmark.style.cssText = \`
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                width: 20px;
+                height: 20px;
+                background: #10b981;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: bold;
+                font-size: 12px;
+                animation: scaleIn 0.3s ease;
+            \`;
+            checkmark.textContent = '✓';
+            
+            this.container.appendChild(checkmark);
+            
+            // Fade out after delay
+            setTimeout(() => {
+                this.container.style.transition = 'all 0.3s ease';
+                this.container.style.opacity = '0';
+                this.container.style.transform = 'translateY(-10px)';
+                
+                setTimeout(() => {
+                    this.reset();
+                    checkmark.remove();
+                    resolve();
+                }, 300);
+            }, 1000);
+        });
+    }
+    
+    // Show upload error
+    showError(message = 'Upload failed') {
+        this.progressBar.style.background = 'linear-gradient(90deg, #ef4444, #f87171)';
+        this.progressBar.style.animation = 'none';
+        this.speed.textContent = 'Error';
+        this.time.textContent = message;
+        this.time.style.color = '#ef4444';
+    }
+    
+    // Reset loader
+    reset() {
+        this.progressBar.style.width = '0%';
+        this.progressBar.style.background = 'linear-gradient(90deg, #3b82f6, #60a5fa)';
+        this.progressBar.style.animation = 'uploadShimmer 1.5s ease-in-out infinite';
+        this.fileName.textContent = 'document.pdf';
+        this.fileSize.textContent = '2.5 MB';
+        this.speed.textContent = '1.2 MB/s';
+        this.time.textContent = '2s remaining';
+        this.time.style.color = '';
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'translateY(0)';
+    }
+    
+    // Simulate file upload (for demo)
+    simulateUpload(fileSizeMB = 10) {
+        const totalBytes = fileSizeMB * 1024 * 1024;
+        const file = {
+            name: 'document_' + Date.now() + '.pdf',
+            size: totalBytes
+        };
+        
+        this.startUpload(file);
+        
+        let loaded = 0;
+        const chunkSize = totalBytes / 100; // 100 updates
+        
+        const interval = setInterval(() => {
+            loaded += chunkSize;
+            const progress = this.updateUploadProgress(loaded, totalBytes);
+            
+            if (loaded >= totalBytes) {
+                clearInterval(interval);
+                setTimeout(() => this.complete(), 500);
+            }
+        }, 100);
+    }
+    
+    // Real file upload with XMLHttpRequest
+    uploadFile(file, uploadUrl, options = {}) {
+        return new Promise((resolve, reject) => {
+            this.startUpload(file);
+            
+            const xhr = new XMLHttpRequest();
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            // Add additional form data if provided
+            if (options.formData) {
+                Object.entries(options.formData).forEach(([key, value]) => {
+                    formData.append(key, value);
+                });
+            }
+            
+            xhr.upload.addEventListener('progress', (event) => {
+                if (event.lengthComputable) {
+                    this.updateUploadProgress(event.loaded, event.total);
+                }
+            });
+            
+            xhr.addEventListener('load', () => {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    this.complete().then(() => {
+                        resolve(JSON.parse(xhr.responseText));
+                    });
+                } else {
+                    this.showError(\`Upload failed: \${xhr.status}\`);
+                    reject(new Error(\`HTTP \${xhr.status}\`));
+                }
+            });
+            
+            xhr.addEventListener('error', () => {
+                this.showError('Network error');
+                reject(new Error('Network error'));
+            });
+            
+            xhr.open('POST', uploadUrl);
+            
+            // Set headers if provided
+            if (options.headers) {
+                Object.entries(options.headers).forEach(([key, value]) => {
+                    xhr.setRequestHeader(key, value);
+                });
+            }
+            
+            xhr.send(formData);
+        });
+    }
+}
+
+// Create and export loader instance
+const uploadLoader = new FileUploadLoader(
+    document.querySelector('.file-upload-loader')
+);
+
+// Usage examples
+window.fileUploadLoader = {
+    // Demo simulation
+    demoUpload: () => uploadLoader.simulateUpload(5),
+    
+    // Real file upload
+    uploadFile: (file, url, options) => uploadLoader.uploadFile(file, url, options),
+    
+    // Direct control
+    startUpload: (file) => uploadLoader.startUpload(file),
+    updateProgress: (loaded, total) => uploadLoader.updateUploadProgress(loaded, total),
+    complete: () => uploadLoader.complete(),
+    showError: (message) => uploadLoader.showError(message)
+};`
+    },
+
+    // ====================================================================
+    // TEMPLATE 53: API Request Loader
+    // ====================================================================
+    loader53: {
+        name: "API Request Loader",
+        category: "spinner",
+        html: `<div class="loader-container">
+    <div class="api-request-loader">
+        <div class="request-status">
+            <div class="spinner"></div>
+            <div class="status-text">Sending request...</div>
+        </div>
+        <div class="request-details">
+            <div class="endpoint">POST /api/data</div>
+            <div class="status-code">Status: 200</div>
+        </div>
+    </div>
+</div>`,
+        css: `.api-request-loader {
+    width: 240px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.request-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #e5e7eb;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    animation: apiSpin 1s linear infinite;
+}
+
+.status-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f2937;
+    animation: textPulse 2s ease-in-out infinite;
+}
+
+.request-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.endpoint {
+    font-size: 12px;
+    font-family: 'Monaco', 'Consolas', monospace;
+    color: #6b7280;
+    background: #f9fafb;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.status-code {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: #d1fae5;
+    color: #065f46;
+}
+
+@keyframes apiSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes textPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// API Request Loader with Status Tracking
+class ApiRequestLoader {
+    constructor(container) {
+        this.container = container;
+        this.spinner = container.querySelector('.spinner');
+        this.statusText = container.querySelector('.status-text');
+        this.endpoint = container.querySelector('.endpoint');
+        this.statusCode = container.querySelector('.status-code');
+        this.requestStartTime = null;
+        this.requestDuration = 0;
+        this.currentRequest = null;
+        this.initialize();
+    }
+    
+    initialize() {
+        this.reset();
+    }
+    
+    // Start API request
+    startRequest(method, endpoint, data = null) {
+        this.requestStartTime = Date.now();
+        this.endpoint.textContent = \`\${method.toUpperCase()} \${endpoint}\`;
+        this.statusText.textContent = 'Sending request...';
+        this.statusCode.textContent = 'Status: --';
+        this.statusCode.style.background = '#f9fafb';
+        this.statusCode.style.color = '#6b7280';
+        
+        // Show loader
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'translateY(0)';
+        
+        // Start spinner
+        this.spinner.style.display = 'block';
+        
+        return this;
+    }
+    
+    // Update request status
+    updateStatus(status, message = null) {
+        const statusMessages = {
+            'sending': 'Sending request...',
+            'receiving': 'Receiving response...',
+            'processing': 'Processing data...',
+            'parsing': 'Parsing JSON...',
+            'complete': 'Request complete'
+        };
+        
+        this.statusText.textContent = message || statusMessages[status] || status;
+        
+        // Update spinner color based on status
+        if (status === 'complete') {
+            this.spinner.style.borderTopColor = '#10b981';
+        } else if (status === 'error') {
+            this.spinner.style.borderTopColor = '#ef4444';
+        } else {
+            this.spinner.style.borderTopColor = '#3b82f6';
+        }
+    }
+    
+    // Update HTTP status code
+    updateStatusCode(code) {
+        this.statusCode.textContent = \`Status: \${code}\`;
+        
+        // Color code based on HTTP status
+        if (code >= 200 && code < 300) {
+            this.statusCode.style.background = '#d1fae5';
+            this.statusCode.style.color = '#065f46';
+        } else if (code >= 300 && code < 400) {
+            this.statusCode.style.background = '#fef3c7';
+            this.statusCode.style.color = '#92400e';
+        } else if (code >= 400 && code < 500) {
+            this.statusCode.style.background = '#fee2e2';
+            this.statusCode.style.color = '#991b1b';
+        } else if (code >= 500) {
+            this.statusCode.style.background = '#f3f4f6';
+            this.statusCode.style.color = '#6b7280';
+        }
+    }
+    
+    // Complete request successfully
+    complete(responseTime = null) {
+        if (!responseTime && this.requestStartTime) {
+            responseTime = Date.now() - this.requestStartTime;
+        }
+        
+        this.updateStatus('complete');
+        this.updateStatusCode(200);
+        
+        return new Promise((resolve) => {
+            // Stop spinner
+            setTimeout(() => {
+                this.spinner.style.display = 'none';
+                
+                // Show success checkmark
+                const checkmark = document.createElement('div');
+                checkmark.style.cssText = \`
+                    width: 24px;
+                    height: 24px;
+                    background: #10b981;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 14px;
+                    animation: scaleIn 0.3s ease;
+                \`;
+                checkmark.textContent = '✓';
+                
+                this.spinner.parentNode.replaceChild(checkmark, this.spinner);
+                this.spinner = checkmark;
+                
+                // Update text with response time
+                if (responseTime) {
+                    this.statusText.textContent = \`Completed in \${responseTime}ms\`;
+                }
+                
+                // Fade out after delay
+                setTimeout(() => {
+                    this.container.style.transition = 'all 0.3s ease';
+                    this.container.style.opacity = '0';
+                    this.container.style.transform = 'translateY(-10px)';
+                    
+                    setTimeout(() => {
+                        this.reset();
+                        resolve();
+                    }, 300);
+                }, 1500);
+            }, 500);
+        });
+    }
+    
+    // Show request error
+    showError(statusCode, message = 'Request failed') {
+        this.updateStatus('error');
+        this.updateStatusCode(statusCode);
+        this.statusText.textContent = message;
+        
+        // Change spinner to error symbol
+        setTimeout(() => {
+            this.spinner.style.display = 'none';
+            
+            const errorSymbol = document.createElement('div');
+            errorSymbol.style.cssText = \`
+                width: 24px;
+                height: 24px;
+                background: #ef4444;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: bold;
+                font-size: 14px;
+                animation: scaleIn 0.3s ease;
+            \`;
+            errorSymbol.textContent = '!';
+            
+            this.spinner.parentNode.replaceChild(errorSymbol, this.spinner);
+            this.spinner = errorSymbol;
+        }, 500);
+    }
+    
+    // Reset loader
+    reset() {
+        // Remove any custom spinner
+        if (this.spinner && !this.spinner.classList.contains('spinner')) {
+            const newSpinner = document.createElement('div');
+            newSpinner.className = 'spinner';
+            this.spinner.parentNode.replaceChild(newSpinner, this.spinner);
+            this.spinner = newSpinner;
+        }
+        
+        // Reset all fields
+        this.spinner.style.display = 'block';
+        this.spinner.style.borderTopColor = '#3b82f6';
+        this.statusText.textContent = 'Sending request...';
+        this.endpoint.textContent = 'POST /api/data';
+        this.statusCode.textContent = 'Status: 200';
+        this.statusCode.style.background = '#d1fae5';
+        this.statusCode.style.color = '#065f46';
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'translateY(0)';
+    }
+    
+    // Make API request with automatic tracking
+    makeRequest(url, options = {}) {
+        const method = options.method || 'GET';
+        const headers = options.headers || { 'Content-Type': 'application/json' };
+        const body = options.body ? JSON.stringify(options.body) : null;
+        
+        this.startRequest(method, url);
+        
+        return new Promise((resolve, reject) => {
+            const startTime = Date.now();
+            
+            fetch(url, {
+                method,
+                headers,
+                body,
+                ...options
+            })
+            .then(async (response) => {
+                this.updateStatusCode(response.status);
+                
+                // Track loading progress for large responses
+                if (response.body) {
+                    const reader = response.body.getReader();
+                    let receivedLength = 0;
+                    
+                    while(true) {
+                        const {done, value} = await reader.read();
+                        
+                        if (done) break;
+                        
+                        receivedLength += value.length;
+                        this.updateStatus('receiving', \`Receiving data: \${this.formatBytes(receivedLength)}\`);
+                    }
+                }
+                
+                if (!response.ok) {
+                    throw new Error(\`HTTP \${response.status}\`);
+                }
+                
+                const data = await response.json();
+                const responseTime = Date.now() - startTime;
+                
+                this.complete(responseTime).then(() => {
+                    resolve(data);
+                });
+            })
+            .catch((error) => {
+                const responseTime = Date.now() - startTime;
+                this.showError(0, error.message);
+                
+                setTimeout(() => {
+                    reject(error);
+                }, 1000);
+            });
+        });
+    }
+    
+    // Format bytes for display
+    formatBytes(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+    
+    // Monitor multiple concurrent requests
+    monitorRequests(requests) {
+        const total = requests.length;
+        let completed = 0;
+        let successful = 0;
+        
+        this.startRequest('BATCH', 'Multiple endpoints');
+        this.statusText.textContent = \`Processing \${total} requests...\`;
+        
+        const updateProgress = () => {
+            completed++;
+            const percent = (completed / total) * 100;
+            this.statusText.textContent = \`\${completed} of \${total} requests completed\`;
+            
+            if (completed === total) {
+                if (successful === total) {
+                    this.complete();
+                } else {
+                    this.showError(0, \`\${total - successful} requests failed\`);
+                }
+            }
+        };
+        
+        return Promise.allSettled(requests.map(request => 
+            request.then(() => {
+                successful++;
+                updateProgress();
+            }).catch(() => {
+                updateProgress();
+            })
+        ));
+    }
+}
+
+// Create and export loader instance
+const apiLoader = new ApiRequestLoader(
+    document.querySelector('.api-request-loader')
+);
+
+// Enhanced fetch wrapper with loader
+window.apiRequest = {
+    // Make request with loader
+    fetch: (url, options) => apiLoader.makeRequest(url, options),
+    
+    // GET request
+    get: (url, options = {}) => apiLoader.makeRequest(url, { ...options, method: 'GET' }),
+    
+    // POST request
+    post: (url, data, options = {}) => apiLoader.makeRequest(url, { 
+        ...options, 
+        method: 'POST', 
+        body: data 
+    }),
+    
+    // PUT request
+    put: (url, data, options = {}) => apiLoader.makeRequest(url, { 
+        ...options, 
+        method: 'PUT', 
+        body: data 
+    }),
+    
+    // DELETE request
+    delete: (url, options = {}) => apiLoader.makeRequest(url, { ...options, method: 'DELETE' }),
+    
+    // Monitor multiple requests
+    monitor: (requests) => apiLoader.monitorRequests(requests),
+    
+    // Direct control
+    startRequest: (method, endpoint) => apiLoader.startRequest(method, endpoint),
+    updateStatus: (status, message) => apiLoader.updateStatus(status, message),
+    updateStatusCode: (code) => apiLoader.updateStatusCode(code),
+    complete: () => apiLoader.complete(),
+    showError: (code, message) => apiLoader.showError(code, message)
+};`
+    },
+
+    // ====================================================================
+    // TEMPLATE 54: Multi-step Form Loader
+    // ====================================================================
+    loader54: {
+        name: "Multi-step Form Loader",
+        category: "progress",
+        html: `<div class="loader-container">
+    <div class="multi-step-loader">
+        <div class="steps">
+            <div class="step active">1</div>
+            <div class="step">2</div>
+            <div class="step">3</div>
+            <div class="step">4</div>
+        </div>
+        <div class="step-content">
+            <div class="step-title">Processing Payment</div>
+            <div class="step-description">Verifying payment details...</div>
+        </div>
+    </div>
+</div>`,
+        css: `.multi-step-loader {
+    width: 260px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.steps::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: #e5e7eb;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.step {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    border: 2px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #9ca3af;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.step.active {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.step.completed {
+    background: #10b981;
+    border-color: #10b981;
+    color: white;
+}
+
+.step-content {
+    text-align: center;
+}
+
+.step-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.step-description {
+    font-size: 14px;
+    color: #6b7280;
+    animation: stepPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes stepPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Multi-step Form Loader with Progress Tracking
+class MultiStepLoader {
+    constructor(container) {
+        this.container = container;
+        this.steps = container.querySelectorAll('.step');
+        this.stepTitle = container.querySelector('.step-title');
+        this.stepDescription = container.querySelector('.step-description');
+        this.currentStep = 0;
+        this.totalSteps = this.steps.length;
+        this.stepData = [];
+        this.isProcessing = false;
+        this.initialize();
+    }
+    
+    initialize() {
+        this.reset();
+    }
+    
+    // Define steps for the process
+    defineSteps(steps) {
+        this.stepData = steps;
+        this.totalSteps = steps.length;
+        
+        // Update step numbers
+        this.steps.forEach((step, index) => {
+            if (index < steps.length) {
+                step.textContent = index + 1;
+                step.style.display = 'flex';
+            } else {
+                step.style.display = 'none';
+            }
+        });
+        
+        return this;
+    }
+    
+    // Start the multi-step process
+    startProcess(title = 'Processing...') {
+        this.currentStep = 0;
+        this.isProcessing = true;
+        this.stepTitle.textContent = title;
+        
+        // Show loader
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'translateY(0)';
+        
+        // Activate first step
+        this.activateStep(0);
+        
+        return this;
+    }
+    
+    // Activate a specific step
+    activateStep(stepIndex) {
+        if (stepIndex < 0 || stepIndex >= this.totalSteps) return;
+        
+        // Update all steps
+        this.steps.forEach((step, index) => {
+            step.classList.remove('active', 'completed');
+            
+            if (index < stepIndex) {
+                step.classList.add('completed');
+            } else if (index === stepIndex) {
+                step.classList.add('active');
+            }
+        });
+        
+        // Update step content if step data exists
+        if (this.stepData[stepIndex]) {
+            const step = this.stepData[stepIndex];
+            this.stepTitle.textContent = step.title || \`Step \${stepIndex + 1}\`;
+            this.stepDescription.textContent = step.description || '';
+            
+            if (step.icon) {
+                // Add icon to step if provided
+                const stepElement = this.steps[stepIndex];
+                stepElement.textContent = step.icon;
+            }
+        }
+        
+        this.currentStep = stepIndex;
+        
+        return stepIndex;
+    }
+    
+    // Move to next step
+    nextStep() {
+        if (this.currentStep < this.totalSteps - 1) {
+            return this.activateStep(this.currentStep + 1);
+        }
+        return null;
+    }
+    
+    // Move to previous step
+    previousStep() {
+        if (this.currentStep > 0) {
+            return this.activateStep(this.currentStep - 1);
+        }
+        return null;
+    }
+    
+    // Execute step function with loading state
+    async executeStep(stepIndex, stepFunction) {
+        this.activateStep(stepIndex);
+        
+        try {
+            // Show processing state
+            const stepElement = this.steps[stepIndex];
+            const originalContent = stepElement.textContent;
+            stepElement.textContent = '⏳';
+            stepElement.style.animation = 'pulse 1s ease-in-out infinite';
+            
+            // Execute step function
+            const result = await stepFunction();
+            
+            // Mark step as completed
+            stepElement.textContent = originalContent;
+            stepElement.classList.remove('active');
+            stepElement.classList.add('completed');
+            stepElement.style.animation = '';
+            
+            return result;
+            
+        } catch (error) {
+            // Mark step as error
+            const stepElement = this.steps[stepIndex];
+            stepElement.textContent = '!';
+            stepElement.style.background = '#ef4444';
+            stepElement.style.borderColor = '#ef4444';
+            stepElement.style.animation = '';
+            
+            this.stepDescription.textContent = 'Error: ' + error.message;
+            this.stepDescription.style.color = '#ef4444';
+            
+            throw error;
+        }
+    }
+    
+    // Execute all steps sequentially
+    async executeAllSteps() {
+        this.startProcess('Processing steps...');
+        
+        const results = [];
+        
+        for (let i = 0; i < this.stepData.length; i++) {
+            const step = this.stepData[i];
+            
+            try {
+                if (step.execute) {
+                    const result = await this.executeStep(i, step.execute);
+                    results.push(result);
+                } else {
+                    this.activateStep(i);
+                    await new Promise(resolve => setTimeout(resolve, 500)); // Default delay
+                    results.push(null);
+                }
+                
+                // Auto-progress to next step
+                if (i < this.stepData.length - 1) {
+                    await new Promise(resolve => setTimeout(resolve, 300));
+                }
+                
+            } catch (error) {
+                // Stop execution on error
+                this.showStepError(i, error.message);
+                throw error;
+            }
+        }
+        
+        await this.completeProcess();
+        return results;
+    }
+    
+    // Show error for a specific step
+    showStepError(stepIndex, message) {
+        const stepElement = this.steps[stepIndex];
+        stepElement.style.background = '#ef4444';
+        stepElement.style.borderColor = '#ef4444';
+        stepElement.textContent = '!';
+        
+        this.stepTitle.textContent = 'Error occurred';
+        this.stepDescription.textContent = message;
+        this.stepDescription.style.color = '#ef4444';
+    }
+    
+    // Complete the entire process
+    completeProcess() {
+        return new Promise((resolve) => {
+            this.isProcessing = false;
+            
+            // Mark all steps as completed
+            this.steps.forEach(step => {
+                if (step.style.display !== 'none') {
+                    step.classList.remove('active');
+                    step.classList.add('completed');
+                    step.style.background = '#10b981';
+                    step.style.borderColor = '#10b981';
+                }
+            });
+            
+            // Update content
+            this.stepTitle.textContent = 'Process complete';
+            this.stepDescription.textContent = 'All steps completed successfully';
+            this.stepDescription.style.color = '#10b981';
+            this.stepDescription.style.animation = '';
+            
+            // Add success animation
+            const successIcon = document.createElement('div');
+            successIcon.style.cssText = \`
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 24px;
+                height: 24px;
+                background: #10b981;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: bold;
+                font-size: 14px;
+                animation: scaleIn 0.3s ease;
+            \`;
+            successIcon.textContent = '✓';
+            this.container.appendChild(successIcon);
+            
+            // Fade out after delay
+            setTimeout(() => {
+                this.container.style.transition = 'all 0.3s ease';
+                this.container.style.opacity = '0';
+                this.container.style.transform = 'translateY(-10px)';
+                
+                setTimeout(() => {
+                    this.reset();
+                    successIcon.remove();
+                    resolve();
+                }, 300);
+            }, 1500);
+        });
+    }
+    
+    // Reset to initial state
+    reset() {
+        this.currentStep = 0;
+        this.isProcessing = false;
+        
+        // Reset all steps
+        this.steps.forEach((step, index) => {
+            step.classList.remove('active', 'completed');
+            step.style.background = '';
+            step.style.borderColor = '';
+            step.style.animation = '';
+            step.textContent = index + 1;
+            step.style.display = 'flex';
+        });
+        
+        // Activate first step
+        if (this.steps.length > 0) {
+            this.steps[0].classList.add('active');
+        }
+        
+        // Reset content
+        this.stepTitle.textContent = 'Processing Payment';
+        this.stepDescription.textContent = 'Verifying payment details...';
+        this.stepDescription.style.color = '';
+        this.stepDescription.style.animation = 'stepPulse 1.5s ease-in-out infinite';
+        
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'translateY(0)';
+    }
+    
+    // Example: Payment processing workflow
+    async simulatePaymentProcessing() {
+        const steps = [
+            {
+                title: 'Validating card',
+                description: 'Checking card details...',
+                execute: async () => {
+                    await new Promise(resolve => setTimeout(resolve, 800));
+                    return { valid: true };
+                }
+            },
+            {
+                title: 'Processing payment',
+                description: 'Connecting to payment gateway...',
+                execute: async () => {
+                    await new Promise(resolve => setTimeout(resolve, 1200));
+                    return { transactionId: 'TXN_' + Date.now() };
+                }
+            },
+            {
+                title: 'Verifying funds',
+                description: 'Checking account balance...',
+                execute: async () => {
+                    await new Promise(resolve => setTimeout(resolve, 600));
+                    return { sufficient: true };
+                }
+            },
+            {
+                title: 'Completing transaction',
+                description: 'Finalizing payment...',
+                execute: async () => {
+                    await new Promise(resolve => setTimeout(resolve, 800));
+                    return { completed: true };
+                }
+            }
+        ];
+        
+        this.defineSteps(steps);
+        return await this.executeAllSteps();
+    }
+    
+    // Example: Form submission workflow
+    async submitForm(formData) {
+        const steps = [
+            {
+                title: 'Validating form',
+                description: 'Checking required fields...',
+                execute: async () => this.validateForm(formData)
+            },
+            {
+                title: 'Uploading files',
+                description: 'Processing attachments...',
+                execute: async () => this.uploadFiles(formData.files)
+            },
+            {
+                title: 'Saving data',
+                description: 'Storing in database...',
+                execute: async () => this.saveToDatabase(formData)
+            },
+            {
+                title: 'Sending notifications',
+                description: 'Notifying relevant parties...',
+                execute: async () => this.sendNotifications(formData)
+            }
+        ];
+        
+        this.defineSteps(steps);
+        return await this.executeAllSteps();
+    }
+}
+
+// Create and export loader instance
+const multiStepLoader = new MultiStepLoader(
+    document.querySelector('.multi-step-loader')
+);
+
+// Usage examples
+window.formLoader = {
+    // Define custom steps
+    defineSteps: (steps) => multiStepLoader.defineSteps(steps),
+    
+    // Start process
+    start: (title) => multiStepLoader.startProcess(title),
+    
+    // Control steps
+    nextStep: () => multiStepLoader.nextStep(),
+    previousStep: () => multiStepLoader.previousStep(),
+    goToStep: (index) => multiStepLoader.activateStep(index),
+    
+    // Execute steps
+    executeStep: (index, func) => multiStepLoader.executeStep(index, func),
+    executeAll: () => multiStepLoader.executeAllSteps(),
+    
+    // Complete process
+    complete: () => multiStepLoader.completeProcess(),
+    
+    // Examples
+    simulatePayment: () => multiStepLoader.simulatePaymentProcessing(),
+    submitForm: (formData) => multiStepLoader.submitForm(formData),
+    
+    // Direct access
+    loader: multiStepLoader
+};`
+    },
+
+    // ====================================================================
+    // TEMPLATE 55: Data Table Loading
+    // ====================================================================
+    loader55: {
+        name: "Data Table Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="data-table-loader">
+        <div class="table-header">
+            <div class="header-cell"></div>
+            <div class="header-cell"></div>
+            <div class="header-cell"></div>
+        </div>
+        <div class="table-rows">
+            <div class="table-row"></div>
+            <div class="table-row"></div>
+            <div class="table-row"></div>
+            <div class="table-row"></div>
+        </div>
+        <div class="loading-info">
+            <span class="rows-loaded">Loading 50 rows...</span>
+        </div>
+    </div>
+</div>`,
+        css: `.data-table-loader {
+    width: 300px;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.table-header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+.header-cell {
+    height: 16px;
+    background: #f3f4f6;
+    border-radius: 4px;
+    animation: headerPulse 2s ease-in-out infinite;
+}
+
+.header-cell:nth-child(1) { width: 30%; }
+.header-cell:nth-child(2) { width: 40%; }
+.header-cell:nth-child(3) { width: 30%; }
+
+.table-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.table-row {
+    height: 12px;
+    background: linear-gradient(90deg,
+        #f9fafb 25%,
+        #f3f4f6 50%,
+        #f9fafb 75%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    animation: rowShimmer 1.5s ease-in-out infinite;
+}
+
+.table-row:nth-child(1) { width: 95%; animation-delay: 0s; }
+.table-row:nth-child(2) { width: 90%; animation-delay: 0.1s; }
+.table-row:nth-child(3) { width: 85%; animation-delay: 0.2s; }
+.table-row:nth-child(4) { width: 80%; animation-delay: 0.3s; }
+
+.loading-info {
+    text-align: center;
+    padding-top: 12px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.rows-loaded {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    animation: rowsPulse 2s ease-in-out infinite;
+}
+
+@keyframes headerPulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+@keyframes rowShimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes rowsPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Data Table Loader with Row-by-Row Animation
+class DataTableLoader {
+    constructor(container) {
+        this.container = container;
+        this.tableRows = container.querySelector('.table-rows');
+        this.rowsLoaded = container.querySelector('.rows-loaded');
+        this.headerCells = container.querySelectorAll('.header-cell');
+        this.totalRows = 0;
+        this.loadedRows = 0;
+        this.columns = 3;
+        this.isLoading = false;
+        this.initialize();
+    }
+    
+    initialize() {
+        // Set initial column widths
+        this.setColumnWidths([30, 40, 30]);
+        this.updateRowCount(4);
+        return this;
+    }
+    
+    // Set column configuration
+    setColumns(columnCount, widths = null) {
+        this.columns = columnCount;
+        
+        // Clear existing header cells
+        const header = this.container.querySelector('.table-header');
+        header.innerHTML = '';
+        
+        // Create new header cells
+        for (let i = 0; i < columnCount; i++) {
+            const cell = document.createElement('div');
+            cell.className = 'header-cell';
+            cell.style.width = widths ? widths[i] + '%' : (100 / columnCount) + '%';
+            header.appendChild(cell);
+        }
+        
+        return this;
+    }
+    
+    // Set specific column widths
+    setColumnWidths(widths) {
+        this.headerCells.forEach((cell, index) => {
+            if (widths[index] !== undefined) {
+                cell.style.width = widths[index] + '%';
+            }
+        });
+        return this;
+    }
+    
+    // Update row count
+    updateRowCount(count) {
+        this.totalRows = count;
+        this.tableRows.innerHTML = '';
+        
+        for (let i = 0; i < count; i++) {
+            const row = document.createElement('div');
+            row.className = 'table-row';
+            
+            // Staggered width for visual interest
+            const width = 95 - (i * 5);
+            row.style.width = width + '%';
+            row.style.animationDelay = (i * 0.1) + 's';
+            
+            this.tableRows.appendChild(row);
+        }
+        
+        this.updateLoadingText();
+        return this;
+    }
+    
+    // Start loading data
+    startLoading(totalRows, message = 'Loading data...') {
+        this.isLoading = true;
+        this.totalRows = totalRows;
+        this.loadedRows = 0;
+        
+        this.updateRowCount(Math.min(totalRows, 10)); // Show first 10 rows as skeleton
+        
+        // Update loading text
+        this.rowsLoaded.textContent = message;
+        this.rowsLoaded.style.animation = 'rowsPulse 2s ease-in-out infinite';
+        
+        // Show container
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'translateY(0)';
+        
+        return this;
+    }
+    
+    // Update loading progress
+    updateProgress(loaded, total) {
+        this.loadedRows = loaded;
+        this.totalRows = total;
+        
+        const percent = (loaded / total) * 100;
+        
+        // Update text
+        if (loaded < total) {
+            this.rowsLoaded.textContent = \`Loading \${loaded} of \${total} rows (\${Math.round(percent)}%)\`;
+        } else {
+            this.rowsLoaded.textContent = \`Loaded \${total} rows\`;
+        }
+        
+        // Animate rows as they load
+        const visibleRows = this.tableRows.querySelectorAll('.table-row');
+        const rowsToAnimate = Math.min(loaded, visibleRows.length);
+        
+        visibleRows.forEach((row, index) => {
+            if (index < rowsToAnimate) {
+                // Fade in loaded rows
+                row.style.opacity = '1';
+                row.style.animation = 'none';
+                row.style.background = '#f3f4f6';
+            } else {
+                // Keep shimmer for loading rows
+                row.style.opacity = '0.6';
+                row.style.animation = 'rowShimmer 1.5s ease-in-out infinite';
+            }
+        });
+        
+        return percent;
+    }
+    
+    // Load row with data (simulated)
+    loadRow(rowIndex, rowData = null) {
+        const rows = this.tableRows.querySelectorAll('.table-row');
+        
+        if (rowIndex < rows.length) {
+            const row = rows[rowIndex];
+            
+            // If row data provided, simulate content
+            if (rowData) {
+                // Replace skeleton with content
+                row.innerHTML = '';
+                row.style.animation = 'none';
+                row.style.background = 'none';
+                row.style.height = 'auto';
+                row.style.padding = '8px 0';
+                
+                // Create row content based on data
+                const content = document.createElement('div');
+                content.style.cssText = \`
+                    display: flex;
+                    gap: 12px;
+                    align-items: center;
+                \`;
+                
+                // Add cells based on data
+                Object.values(rowData).forEach((value, cellIndex) => {
+                    const cell = document.createElement('div');
+                    cell.textContent = value;
+                    cell.style.cssText = \`
+                        font-size: 13px;
+                        color: #4b5563;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    \`;
+                    cell.style.width = this.headerCells[cellIndex]?.style.width || 'auto';
+                    content.appendChild(cell);
+                });
+                
+                row.appendChild(content);
+                row.style.animation = 'fadeIn 0.3s ease';
+            }
+            
+            // Update loaded count
+            this.loadedRows++;
+            this.updateProgress(this.loadedRows, this.totalRows);
+        }
+        
+        return rowIndex;
+    }
+    
+    // Load batch of rows
+    async loadRowsBatch(data, batchSize = 5, delay = 200) {
+        this.startLoading(data.length, \`Loading \${data.length} rows...\`);
+        
+        for (let i = 0; i < data.length; i += batchSize) {
+            const batch = data.slice(i, i + batchSize);
+            
+            // Load each row in batch
+            batch.forEach((rowData, index) => {
+                setTimeout(() => {
+                    this.loadRow(i + index, rowData);
+                }, index * 50); // Stagger row loading
+            });
+            
+            // Wait before next batch
+            await new Promise(resolve => setTimeout(resolve, delay));
+        }
+        
+        return data;
+    }
+    
+    // Complete loading
+    complete() {
+        return new Promise((resolve) => {
+            this.isLoading = false;
+            
+            // Update text
+            this.rowsLoaded.textContent = \`✓ Loaded \${this.totalRows} rows\`;
+            this.rowsLoaded.style.color = '#10b981';
+            this.rowsLoaded.style.animation = 'none';
+            
+            // Fade out skeleton rows
+            const rows = this.tableRows.querySelectorAll('.table-row');
+            rows.forEach(row => {
+                if (row.innerHTML === '') {
+                    // Empty skeleton rows fade out
+                    row.style.transition = 'opacity 0.3s ease';
+                    row.style.opacity = '0';
+                }
+            });
+            
+            // Show success animation
+            const successBadge = document.createElement('div');
+            successBadge.style.cssText = \`
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                background: #10b981;
+                color: white;
+                font-size: 11px;
+                font-weight: 600;
+                padding: 4px 8px;
+                border-radius: 12px;
+                animation: scaleIn 0.3s ease;
+            \`;
+            successBadge.textContent = 'READY';
+            this.container.appendChild(successBadge);
+            
+            // Fade out loader
+            setTimeout(() => {
+                this.container.style.transition = 'all 0.3s ease';
+                this.container.style.opacity = '0';
+                this.container.style.transform = 'translateY(-10px)';
+                
+                setTimeout(() => {
+                    this.reset();
+                    successBadge.remove();
+                    resolve();
+                }, 300);
+            }, 1500);
+        });
+    }
+    
+    // Show error state
+    showError(message = 'Failed to load data') {
+        this.rowsLoaded.textContent = message;
+        this.rowsLoaded.style.color = '#ef4444';
+        this.rowsLoaded.style.animation = 'none';
+        
+        // Change header color to indicate error
+        this.headerCells.forEach(cell => {
+            cell.style.background = '#fee2e2';
+        });
+    }
+    
+    // Update loading text
+    updateLoadingText() {
+        if (this.totalRows > 0) {
+            this.rowsLoaded.textContent = \`Loading \${this.totalRows} rows...\`;
+        } else {
+            this.rowsLoaded.textContent = 'Loading data...';
+        }
+    }
+    
+    // Reset to initial state
+    reset() {
+        this.isLoading = false;
+        this.loadedRows = 0;
+        this.totalRows = 4;
+        
+        // Reset header
+        this.headerCells.forEach(cell => {
+            cell.style.background = '#f3f4f6';
+            cell.style.animation = 'headerPulse 2s ease-in-out infinite';
+        });
+        
+        // Reset rows
+        this.updateRowCount(4);
+        
+        // Reset text
+        this.rowsLoaded.textContent = 'Loading 50 rows...';
+        this.rowsLoaded.style.color = '#6b7280';
+        this.rowsLoaded.style.animation = 'rowsPulse 2s ease-in-out infinite';
+        
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'translateY(0)';
+    }
+    
+    // Simulate API data loading
+    simulateApiData(apiUrl, params = {}) {
+        this.startLoading(0, 'Fetching data from API...');
+        
+        // Simulate API call
+        setTimeout(() => {
+            this.updateProgress(0, 50);
+            
+            // Simulate streaming data
+            let loaded = 0;
+            const total = 50;
+            
+            const interval = setInterval(() => {
+                loaded += 5;
+                this.updateProgress(loaded, total);
+                
+                // Simulate loading actual row data
+                if (loaded % 10 === 0) {
+                    const rowIndex = Math.floor(loaded / 10) - 1;
+                    this.loadRow(rowIndex, {
+                        id: rowIndex + 1,
+                        name: \`Item \${rowIndex + 1}\`,
+                        value: \`$\${(Math.random() * 100).toFixed(2)}\`
+                    });
+                }
+                
+                if (loaded >= total) {
+                    clearInterval(interval);
+                    setTimeout(() => this.complete(), 500);
+                }
+            }, 200);
+        }, 1000);
+    }
+    
+    // Load from JSON data
+    async loadFromJson(jsonData, options = {}) {
+        const {
+            batchSize = 10,
+            delay = 300,
+            columns = ['ID', 'Name', 'Value']
+        } = options;
+        
+        // Set columns based on data
+        if (jsonData.length > 0) {
+            const sampleKeys = Object.keys(jsonData[0]);
+            this.setColumns(sampleKeys.length, Array(sampleKeys.length).fill(100 / sampleKeys.length));
+        }
+        
+        return await this.loadRowsBatch(jsonData, batchSize, delay);
+    }
+}
+
+// Create and export loader instance
+const tableLoader = new DataTableLoader(
+    document.querySelector('.data-table-loader')
+);
+
+// Usage examples
+window.dataTableLoader = {
+    // Configuration
+    setColumns: (count, widths) => tableLoader.setColumns(count, widths),
+    setColumnWidths: (widths) => tableLoader.setColumnWidths(widths),
+    
+    // Loading control
+    startLoading: (totalRows, message) => tableLoader.startLoading(totalRows, message),
+    updateProgress: (loaded, total) => tableLoader.updateProgress(loaded, total),
+    loadRow: (index, data) => tableLoader.loadRow(index, data),
+    
+    // Batch operations
+    loadBatch: (data, batchSize, delay) => tableLoader.loadRowsBatch(data, batchSize, delay),
+    loadJson: (jsonData, options) => tableLoader.loadFromJson(jsonData, options),
+    
+    // Completion
+    complete: () => tableLoader.complete(),
+    showError: (message) => tableLoader.showError(message),
+    
+    // Simulation
+    simulate: (apiUrl) => tableLoader.simulateApiData(apiUrl),
+    
+    // Example: Load user data
+    loadUsers: async () => {
+        // Simulate user data
+        const users = Array.from({ length: 25 }, (_, i) => ({
+            id: i + 1,
+            name: \`User \${i + 1}\`,
+            email: \`user\${i + 1}@example.com\`,
+            role: i % 3 === 0 ? 'Admin' : i % 3 === 1 ? 'Editor' : 'Viewer',
+            status: i % 4 === 0 ? 'Active' : 'Inactive'
+        }));
+        
+        tableLoader.setColumns(5, [10, 25, 35, 20, 10]);
+        return await tableLoader.loadBatch(users, 5, 400);
+    },
+    
+    // Example: Load product data
+    loadProducts: async () => {
+        const products = Array.from({ length: 40 }, (_, i) => ({
+            id: \`PROD-\${String(i + 1).padStart(4, '0')}\`,
+            name: \`Product \${i + 1}\`,
+            category: ['Electronics', 'Clothing', 'Home', 'Books'][i % 4],
+            price: \`$\{(Math.random() * 1000).toFixed(2)}\`,
+            stock: Math.floor(Math.random() * 100)
+        }));
+        
+        tableLoader.setColumns(5, [15, 30, 20, 15, 20]);
+        return await tableLoader.loadBatch(products, 8, 300);
+    },
+    
+    // Direct access
+    loader: tableLoader
+};`
+    },
+
+    // ====================================================================
+    // TEMPLATE 56: Video Buffer Loader
+    // ====================================================================
+    loader56: {
+        name: "Video Buffer Loader",
+        category: "progress",
+        html: `<div class="loader-container">
+    <div class="video-buffer-loader">
+        <div class="player-placeholder">
+            <div class="play-button">▶</div>
+        </div>
+        <div class="buffer-progress">
+            <div class="buffer-fill"></div>
+        </div>
+        <div class="buffer-stats">
+            <div class="quality">HD • 720p</div>
+            <div class="buffer-percent">45% buffered</div>
+        </div>
+    </div>
+</div>`,
+        css: `.video-buffer-loader {
+    width: 260px;
+    padding: 16px;
+    background: #1f2937;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid #374151;
+}
+
+.player-placeholder {
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(135deg, #374151, #1f2937);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.player-placeholder::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%);
+    animation: videoShimmer 2s linear infinite;
+}
+
+.play-button {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #1f2937;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 2;
+}
+
+.play-button:hover {
+    transform: scale(1.05);
+    background: white;
+}
+
+.buffer-progress {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.buffer-fill {
+    height: 100%;
+    width: 45%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.buffer-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent);
+    animation: bufferShimmer 1.5s ease-in-out infinite;
+}
+
+.buffer-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quality {
+    font-size: 12px;
+    font-weight: 500;
+    color: #9ca3af;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.buffer-percent {
+    font-size: 12px;
+    font-weight: 500;
+    color: #60a5fa;
+}
+
+@keyframes videoShimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes bufferShimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Video Buffer Loader with Streaming Progress
+class VideoBufferLoader {
+    constructor(container) {
+        this.container = container;
+        this.playerPlaceholder = container.querySelector('.player-placeholder');
+        this.playButton = container.querySelector('.play-button');
+        this.bufferFill = container.querySelector('.buffer-fill');
+        this.quality = container.querySelector('.quality');
+        this.bufferPercent = container.querySelector('.buffer-percent');
+        this.videoElement = null;
+        this.isBuffering = false;
+        this.bufferInterval = null;
+        this.initialize();
+    }
+    
+    initialize() {
+        this.reset();
+        
+        // Make play button interactive
+        this.playButton.addEventListener('click', () => {
+            if (this.videoElement) {
+                if (this.videoElement.paused) {
+                    this.videoElement.play();
+                    this.playButton.textContent = '⏸';
+                } else {
+                    this.videoElement.pause();
+                    this.playButton.textContent = '▶';
+                }
+            }
+        });
+        
+        return this;
+    }
+    
+    // Load video with URL
+    loadVideo(videoUrl, options = {}) {
+        // Create video element if not exists
+        if (!this.videoElement) {
+            this.videoElement = document.createElement('video');
+            this.videoElement.style.cssText = \`
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 8px;
+                display: none;
+            \`;
+            this.playerPlaceholder.appendChild(this.videoElement);
+        }
+        
+        // Set video source
+        this.videoElement.src = videoUrl;
+        
+        // Set options
+        if (options.autoplay) this.videoElement.autoplay = true;
+        if (options.controls) this.videoElement.controls = true;
+        if (options.muted) this.videoElement.muted = true;
+        if (options.loop) this.videoElement.loop = true;
+        
+        // Set quality display
+        this.setQuality(options.quality || 'HD • 720p');
+        
+        // Show loader
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'translateY(0)';
+        
+        // Start monitoring buffer
+        this.startBuffering();
+        
+        // Set up video event listeners
+        this.setupVideoEvents();
+        
+        return this;
+    }
+    
+    // Set video quality display
+    setQuality(qualityText) {
+        this.quality.textContent = qualityText;
+        
+        // Color code based on quality
+        if (qualityText.includes('4K')) {
+            this.quality.style.background = 'rgba(139, 92, 246, 0.3)';
+            this.quality.style.color = '#a78bfa';
+        } else if (qualityText.includes('HD') || qualityText.includes('1080')) {
+            this.quality.style.background = 'rgba(59, 130, 246, 0.3)';
+            this.quality.style.color = '#60a5fa';
+        } else if (qualityText.includes('720')) {
+            this.quality.style.background = 'rgba(34, 197, 94, 0.3)';
+            this.quality.style.color = '#4ade80';
+        } else {
+            this.quality.style.background = 'rgba(255, 255, 255, 0.1)';
+            this.quality.style.color = '#9ca3af';
+        }
+    }
+    
+    // Start buffering monitoring
+    startBuffering() {
+        this.isBuffering = true;
+        
+        // Clear any existing interval
+        if (this.bufferInterval) {
+            clearInterval(this.bufferInterval);
+        }
+        
+        // Start monitoring buffer
+        this.bufferInterval = setInterval(() => {
+            this.updateBufferProgress();
+        }, 500);
+        
+        // Initial update
+        this.updateBufferProgress();
+    }
+    
+    // Update buffer progress
+    updateBufferProgress() {
+        if (!this.videoElement) return;
+        
+        try {
+            // Calculate buffered percentage
+            if (this.videoElement.buffered.length > 0) {
+                const bufferedEnd = this.videoElement.buffered.end(this.videoElement.buffered.length - 1);
+                const duration = this.videoElement.duration || 1;
+                const percent = (bufferedEnd / duration) * 100;
+                
+                this.updateBufferPercent(percent);
+                
+                // Check if enough buffered to play
+                if (percent > 10 && this.videoElement.paused && !this.videoElement.autoplay) {
+                    this.playButton.style.display = 'flex';
+                }
+            }
+        } catch (error) {
+            console.warn('Error calculating buffer:', error);
+        }
+    }
+    
+    // Update buffer percentage display
+    updateBufferPercent(percent) {
+        const roundedPercent = Math.round(percent);
+        this.bufferFill.style.width = percent + '%';
+        this.bufferPercent.textContent = \`\${roundedPercent}% buffered\`;
+        
+        // Update color based on buffer level
+        if (percent < 20) {
+            this.bufferFill.style.background = 'linear-gradient(90deg, #ef4444, #f87171)';
+            this.bufferPercent.style.color = '#f87171';
+        } else if (percent < 50) {
+            this.bufferFill.style.background = 'linear-gradient(90deg, #f59e0b, #fbbf24)';
+            this.bufferPercent.style.color = '#fbbf24';
+        } else if (percent < 80) {
+            this.bufferFill.style.background = 'linear-gradient(90deg, #3b82f6, #60a5fa)';
+            this.bufferPercent.style.color = '#60a5fa';
+        } else {
+            this.bufferFill.style.background = 'linear-gradient(90deg, #10b981, #34d399)';
+            this.bufferPercent.style.color = '#34d399';
+        }
+        
+        return percent;
+    }
+    
+    // Set up video event listeners
+    setupVideoEvents() {
+        if (!this.videoElement) return;
+        
+        // Clear existing listeners
+        this.videoElement.replaceWith(this.videoElement.cloneNode(true));
+        this.videoElement = this.playerPlaceholder.querySelector('video');
+        
+        // Add event listeners
+        this.videoElement.addEventListener('loadedmetadata', () => {
+            this.updateBufferProgress();
+        });
+        
+        this.videoElement.addEventListener('progress', () => {
+            this.updateBufferProgress();
+        });
+        
+        this.videoElement.addEventListener('waiting', () => {
+            this.showBuffering(true);
+        });
+        
+        this.videoElement.addEventListener('playing', () => {
+            this.showBuffering(false);
+        });
+        
+        this.videoElement.addEventListener('canplay', () => {
+            this.showBuffering(false);
+            
+            // Replace placeholder with video
+            this.playerPlaceholder.style.background = 'none';
+            this.playerPlaceholder.querySelector('.player-placeholder::before').style.animation = 'none';
+            this.videoElement.style.display = 'block';
+            this.playButton.style.display = 'flex';
+        });
+        
+        this.videoElement.addEventListener('ended', () => {
+            this.playButton.textContent = '↻';
+            this.playButton.title = 'Replay';
+        });
+        
+        this.videoElement.addEventListener('error', (e) => {
+            this.showError('Video load failed');
+            console.error('Video error:', e);
+        });
+    }
+    
+    // Show/hide buffering state
+    showBuffering(isBuffering) {
+        if (isBuffering) {
+            this.playButton.style.display = 'none';
+            this.bufferFill.style.animation = 'bufferShimmer 0.8s ease-in-out infinite';
+        } else {
+            this.playButton.style.display = 'flex';
+            this.bufferFill.style.animation = '';
+        }
+    }
+    
+    // Show error state
+    showError(message = 'Failed to load video') {
+        this.bufferPercent.textContent = message;
+        this.bufferPercent.style.color = '#ef4444';
+        this.bufferFill.style.background = 'linear-gradient(90deg, #ef4444, #f87171)';
+        this.bufferFill.style.animation = 'none';
+        this.playButton.style.display = 'none';
+    }
+    
+    // Complete loading (video ready)
+    complete() {
+        return new Promise((resolve) => {
+            this.isBuffering = false;
+            
+            if (this.bufferInterval) {
+                clearInterval(this.bufferInterval);
+                this.bufferInterval = null;
+            }
+            
+            // Update to ready state
+            this.bufferFill.style.width = '100%';
+            this.bufferFill.style.background = 'linear-gradient(90deg, #10b981, #34d399)';
+            this.bufferFill.style.animation = 'none';
+            this.bufferPercent.textContent = 'Ready to play';
+            this.bufferPercent.style.color = '#34d399';
+            
+            // Show play button
+            this.playButton.style.display = 'flex';
+            this.playButton.textContent = '▶';
+            
+            // Fade out progress bar after delay
+            setTimeout(() => {
+                this.bufferFill.style.transition = 'opacity 0.5s ease';
+                this.bufferFill.style.opacity = '0';
+                
+                setTimeout(() => {
+                    this.bufferFill.style.display = 'none';
+                    this.quality.style.display = 'none';
+                    this.bufferPercent.style.display = 'none';
+                    resolve();
+                }, 500);
+            }, 2000);
+        });
+    }
+    
+    // Reset loader
+    reset() {
+        this.isBuffering = false;
+        
+        if (this.bufferInterval) {
+            clearInterval(this.bufferInterval);
+            this.bufferInterval = null;
+        }
+        
+        // Remove video element if exists
+        if (this.videoElement) {
+            this.videoElement.remove();
+            this.videoElement = null;
+        }
+        
+        // Reset UI
+        this.playerPlaceholder.style.background = 'linear-gradient(135deg, #374151, #1f2937)';
+        this.playerPlaceholder.querySelector('.player-placeholder::before').style.animation = 'videoShimmer 2s linear infinite';
+        this.bufferFill.style.width = '45%';
+        this.bufferFill.style.background = 'linear-gradient(90deg, #3b82f6, #60a5fa)';
+        this.bufferFill.style.animation = 'bufferShimmer 1.5s ease-in-out infinite';
+        this.bufferFill.style.opacity = '1';
+        this.bufferFill.style.display = 'block';
+        this.quality.textContent = 'HD • 720p';
+        this.quality.style.background = 'rgba(255, 255, 255, 0.1)';
+        this.quality.style.color = '#9ca3af';
+        this.quality.style.display = 'block';
+        this.bufferPercent.textContent = '45% buffered';
+        this.bufferPercent.style.color = '#60a5fa';
+        this.bufferPercent.style.display = 'block';
+        this.playButton.textContent = '▶';
+        this.playButton.style.display = 'flex';
+        this.container.style.opacity = '1';
+        this.container.style.transform = 'translateY(0)';
+    }
+    
+    // Simulate video streaming
+    simulateStreaming(videoDuration = 120) {
+        // Create fake video element for simulation
+        const fakeVideo = {
+            buffered: {
+                length: 1,
+                end: () => 0
+            },
+            duration: videoDuration
+        };
+        
+        this.videoElement = fakeVideo;
+        this.setQuality('HD • 1080p');
+        this.startBuffering();
+        
+        // Simulate buffer progress
+        let buffered = 0;
+        const interval = setInterval(() => {
+            buffered += Math.random() * 10;
+            
+            if (buffered >= videoDuration) {
+                buffered = videoDuration;
+                clearInterval(interval);
+                
+                // Show video is ready
+                setTimeout(() => {
+                    this.complete();
+                }, 1000);
+            }
+            
+            // Update fake buffered data
+            fakeVideo.buffered.end = () => buffered;
+            this.updateBufferProgress();
+        }, 500);
+        
+        return this;
+    }
+    
+    // Load YouTube video (requires embed)
+    loadYouTube(videoId, options = {}) {
+        // Create YouTube iframe
+        const iframe = document.createElement('iframe');
+        iframe.style.cssText = \`
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            border: none;
+        \`;
+        iframe.src = \`https://www.youtube.com/embed/\${videoId}?autoplay=\${options.autoplay ? 1 : 0}\`;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        
+        // Remove existing content
+        this.playerPlaceholder.innerHTML = '';
+        this.playerPlaceholder.appendChild(iframe);
+        this.playButton.style.display = 'none';
+        
+        // Show buffering
+        this.setQuality('YouTube • HD');
+        this.startBuffering();
+        
+        // Simulate YouTube buffering (can't get real buffer data)
+        let bufferPercent = 0;
+        const bufferInterval = setInterval(() => {
+            bufferPercent += Math.random() * 15;
+            if (bufferPercent > 100) {
+                bufferPercent = 100;
+                clearInterval(bufferInterval);
+                setTimeout(() => {
+                    this.bufferFill.style.width = '100%';
+                    this.bufferPercent.textContent = 'Ready';
+                }, 1000);
+            }
+            this.updateBufferPercent(bufferPercent);
+        }, 800);
+        
+        return this;
+    }
+    
+    // Get video statistics
+    getStats() {
+        if (!this.videoElement || typeof this.videoElement.currentTime !== 'number') {
+            return null;
+        }
+        
+        return {
+            buffered: this.bufferFill.style.width,
+            quality: this.quality.textContent,
+            duration: this.videoElement.duration,
+            currentTime: this.videoElement.currentTime,
+            isPlaying: !this.videoElement.paused,
+            volume: this.videoElement.volume
+        };
+    }
+    
+    // Control methods
+    play() {
+        if (this.videoElement && this.videoElement.play) {
+            this.videoElement.play();
+            this.playButton.textContent = '⏸';
+        }
+    }
+    
+    pause() {
+        if (this.videoElement && this.videoElement.pause) {
+            this.videoElement.pause();
+            this.playButton.textContent = '▶';
+        }
+    }
+    
+    seekTo(time) {
+        if (this.videoElement) {
+            this.videoElement.currentTime = time;
+        }
+    }
+    
+    setVolume(volume) {
+        if (this.videoElement) {
+            this.videoElement.volume = Math.max(0, Math.min(1, volume));
+        }
+    }
+}
+
+// Create and export loader instance
+const videoLoader = new VideoBufferLoader(
+    document.querySelector('.video-buffer-loader')
+);
+
+// Usage examples
+window.videoLoader = {
+    // Load video
+    load: (url, options) => videoLoader.loadVideo(url, options),
+    loadYouTube: (videoId, options) => videoLoader.loadYouTube(videoId, options),
+    
+    // Control
+    play: () => videoLoader.play(),
+    pause: () => videoLoader.pause(),
+    seekTo: (time) => videoLoader.seekTo(time),
+    setVolume: (volume) => videoLoader.setVolume(volume),
+    
+    // Quality
+    setQuality: (quality) => videoLoader.setQuality(quality),
+    
+    // Progress
+    updateBuffer: (percent) => videoLoader.updateBufferPercent(percent),
+    
+    // Completion
+    complete: () => videoLoader.complete(),
+    showError: (message) => videoLoader.showError(message),
+    
+    // Simulation
+    simulate: (duration) => videoLoader.simulateStreaming(duration),
+    
+    // Stats
+    getStats: () => videoLoader.getStats(),
+    
+    // Example: Load sample video
+    loadSample: () => {
+        // Use a sample video URL
+        const sampleUrl = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
+        return videoLoader.loadVideo(sampleUrl, {
+            autoplay: false,
+            controls: true,
+            quality: 'HD • 1080p'
+        });
+    },
+    
+    // Direct access
+    loader: videoLoader
+};`
+    },
+        // ====================================================================
+    // TEMPLATE 57: Uiverse Radial Bars Spinner
+    // ====================================================================
+    loader57: {
+        name: "Radial Bars Spinner",
+        category: "spinner",
+        html: `<div class="loader-container">
+    <div class="spinner-57 spinner-radial-bars">
+        <div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div>
+        <div></div><div></div>
+    </div>
+</div>`,
+        css: `.spinner-57.spinner-radial-bars {
+    position: relative;
+    width: 70px;
+    height: 70px;
+}
+
+.spinner-57.spinner-radial-bars div {
+    position: absolute;
+    width: 8%;
+    height: 30%;
+    background: linear-gradient(to bottom, #7c3aed, #ec4899);
+    border-radius: 4px;
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+    animation: radial-bars-bounce 1s calc(var(--delay) * 1s) infinite ease;
+    filter: drop-shadow(0 0 3px #7c3aed);
+}
+
+.spinner-57.spinner-radial-bars div:nth-child(1) {
+    --delay: 0.1;
+    --rotation: 36;
+    --translation: 140;
+}
+
+.spinner-57.spinner-radial-bars div:nth-child(2) {
+    --delay: 0.2;
+    --rotation: 72;
+    --translation: 140;
+}
+
+.spinner-57.spinner-radial-bars div:nth-child(3) {
+    --delay: 0.3;
+    --rotation: 108;
+    --translation: 140;
+}
+
+.spinner-57.spinner-radial-bars div:nth-child(4) {
+    --delay: 0.4;
+    --rotation: 144;
+    --translation: 140;
+}
+
+.spinner-57.spinner-radial-bars div:nth-child(5) {
+    --delay: 0.5;
+    --rotation: 180;
+    --translation: 140;
+}
+
+.spinner-57.spinner-radial-bars div:nth-child(6) {
+    --delay: 0.6;
+    --rotation: 216;
+    --translation: 140;
+}
+
+.spinner-57.spinner-radial-bars div:nth-child(7) {
+    --delay: 0.7;
+    --rotation: 252;
+    --translation: 140;
+}
+
+.spinner-57.spinner-radial-bars div:nth-child(8) {
+    --delay: 0.8;
+    --rotation: 288;
+    --translation: 140;
+}
+
+.spinner-57.spinner-radial-bars div:nth-child(9) {
+    --delay: 0.9;
+    --rotation: 324;
+    --translation: 140;
+}
+
+.spinner-57.spinner-radial-bars div:nth-child(10) {
+    --delay: 1;
+    --rotation: 360;
+    --translation: 140;
+}
+
+@keyframes radial-bars-bounce {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+        opacity: 0.7;
+    }
+    50% {
+        transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1.3%));
+        opacity: 1;
+        filter: drop-shadow(0 0 6px #ec4899);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control radial bars spinner
+const radialSpinner = document.querySelector('.spinner-radial-bars');
+
+// Change number of bars
+function setBarCount(count) {
+    radialSpinner.innerHTML = '';
+    for (let i = 1; i <= count; i++) {
+        const bar = document.createElement('div');
+        bar.style.setProperty('--delay', (i * 0.1).toFixed(1));
+        bar.style.setProperty('--rotation', (360 / count) * i);
+        bar.style.setProperty('--translation', '140');
+        radialSpinner.appendChild(bar);
+    }
+}
+
+// Change bar colors
+function setBarColors(color1, color2) {
+    document.querySelectorAll('.spinner-radial-bars div').forEach(bar => {
+        bar.style.background = \`linear-gradient(to bottom, \${color1}, \${color2})\`;
+    });
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 58: Uiverse Circle Pulse Spinner
+    // ====================================================================
+    loader58: {
+        name: "Circle Pulse Spinner",
+        category: "spinner",
+        html: `<div class="loader-container">
+    <div class="loader-circle-9">
+        <span></span>
+        Loading
+    </div>
+</div>`,
+        css: `.loader-circle-9 {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    background: transparent;
+    border: 3px solid rgba(124, 58, 237, 0.2);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 70px;
+    font-family: sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #7c3aed;
+    text-transform: uppercase;
+    box-shadow: 
+        0 0 20px rgba(124, 58, 237, 0.3),
+        inset 0 0 15px rgba(124, 58, 237, 0.1);
+}
+
+.loader-circle-9:before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top: 3px solid #7c3aed;
+    border-right: 3px solid #ec4899;
+    border-radius: 50%;
+    animation: animateC 2s linear infinite;
+    filter: drop-shadow(0 0 8px #7c3aed);
+}
+
+.loader-circle-9 span {
+    display: block;
+    position: absolute;
+    top: calc(50% - 2px);
+    left: 50%;
+    width: 50%;
+    height: 4px;
+    background: transparent;
+    transform-origin: left;
+    animation: animateCircle9 2s linear infinite;
+}
+
+.loader-circle-9 span:before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #7c3aed, #ec4899);
+    top: -5px;
+    right: -7px;
+    box-shadow: 
+        0 0 15px #7c3aed,
+        0 0 25px rgba(236, 72, 153, 0.5);
+}
+
+@keyframes animateC {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animateCircle9 {
+    0% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(405deg);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control circle pulse spinner
+const circlePulse = document.querySelector('.loader-circle-9');
+
+// Change loading text
+function setLoadingText(text) {
+    circlePulse.textContent = text;
+    // Re-add the span element
+    const span = document.createElement('span');
+    circlePulse.appendChild(span);
+}
+
+// Change dot speed
+function setDotSpeed(speed) {
+    const dot = circlePulse.querySelector('span');
+    dot.style.animationDuration = speed + 's';
+    circlePulse.style.animationDuration = speed + 's';
+}
+
+// Change colors
+function setPulseColors(borderColor, dotColor) {
+    circlePulse.style.borderColor = \`rgba(\${borderColor}, 0.2)\`;
+    circlePulse.style.color = borderColor;
+    circlePulse.querySelector('span:before').style.background = \`linear-gradient(45deg, \${borderColor}, \${dotColor})\`;
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 59: Uiverse Dot Orbit Spinner
+    // ====================================================================
+    loader59: {
+        name: "Dot Orbit Spinner",
+        category: "spinner",
+        html: `<div class="loader-container">
+    <div class="dot-spinner-59">
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+    </div>
+</div>`,
+        css: `.dot-spinner-59 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --uib-speed: 0.9s;
+    height: 70px;
+    width: 70px;
+}
+
+.dot-spinner-59 .dot-spinner__dot::before {
+    content: '';
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #7c3aed, #ec4899);
+    filter: drop-shadow(0 0 8px #7c3aed);
+    box-shadow: 
+        0 0 15px rgba(124, 58, 237, 0.5),
+        inset 0 0 5px rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    opacity: 0.5;
+    animation: pulse-dot-orbit calc(var(--uib-speed) * 1.111) ease-in-out infinite;
+}
+
+.dot-spinner-59 .dot-spinner__dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(1) {
+    transform: rotate(0deg);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(1)::before {
+    animation-delay: calc(var(--uib-speed) * -0.875);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(2)::before {
+    animation-delay: calc(var(--uib-speed) * -0.75);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(3) {
+    transform: rotate(90deg);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(3)::before {
+    animation-delay: calc(var(--uib-speed) * -0.625);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(4) {
+    transform: rotate(135deg);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(4)::before {
+    animation-delay: calc(var(--uib-speed) * -0.5);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(5) {
+    transform: rotate(180deg);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(5)::before {
+    animation-delay: calc(var(--uib-speed) * -0.375);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(6) {
+    transform: rotate(225deg);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(6)::before {
+    animation-delay: calc(var(--uib-speed) * -0.25);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(7) {
+    transform: rotate(270deg);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(7)::before {
+    animation-delay: calc(var(--uib-speed) * -0.125);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(8) {
+    transform: rotate(315deg);
+}
+
+.dot-spinner-59 .dot-spinner__dot:nth-child(8)::before {
+    animation-delay: calc(var(--uib-speed) * 0);
+}
+
+@keyframes pulse-dot-orbit {
+    0%, 100% {
+        transform: scale(0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control dot orbit spinner
+const dotOrbitSpinner = document.querySelector('.dot-spinner-59');
+
+// Change number of dots
+function setDotCount(count) {
+    dotOrbitSpinner.innerHTML = '';
+    for (let i = 0; i < count; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'dot-spinner__dot';
+        dot.style.transform = \`rotate(\${(360 / count) * i}deg)\`;
+        dot.style.setProperty('--delay', \`calc(var(--uib-speed) * -\${(i / count)})\`);
+        dotOrbitSpinner.appendChild(dot);
+    }
+}
+
+// Change animation speed
+function setOrbitSpeed(speed) {
+    dotOrbitSpinner.style.setProperty('--uib-speed', speed + 's');
+}
+
+// Change dot size
+function setDotSize(size) {
+    document.querySelectorAll('.dot-spinner__dot::before').forEach(dot => {
+        dot.style.height = size + 'px';
+        dot.style.width = size + 'px';
+    });
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 60: Uiverse Neon Rings Spinner
+    // ====================================================================
+    loader60: {
+        name: "Neon Rings Spinner",
+        category: "spinner",
+        html: `<div class="loader-container">
+    <div class="neon-rings-spinner">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+    </div>
+</div>`,
+        css: `.neon-rings-spinner {
+    position: relative;
+    width: 70px;
+    height: 70px;
+}
+
+.neon-rings-spinner .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+
+.neon-rings-spinner .ring-1 {
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid #00f3ff;
+    border-right: 2px solid #ff00ff;
+    animation: neon-ring-rotate 2s linear infinite;
+    filter: drop-shadow(0 0 8px #00f3ff) drop-shadow(0 0 8px #ff00ff);
+}
+
+.neon-rings-spinner .ring-2 {
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    border-top: 2px solid #00ff88;
+    border-right: 2px solid #ffaa00;
+    animation: neon-ring-rotate 1.5s linear infinite reverse;
+    filter: drop-shadow(0 0 6px #00ff88) drop-shadow(0 0 6px #ffaa00);
+}
+
+.neon-rings-spinner .ring-3 {
+    width: 40%;
+    height: 40%;
+    top: 30%;
+    left: 30%;
+    border-top: 2px solid #ff0080;
+    border-right: 2px solid #8000ff;
+    animation: neon-ring-rotate 1s linear infinite;
+    filter: drop-shadow(0 0 4px #ff0080) drop-shadow(0 0 4px #8000ff);
+}
+
+@keyframes neon-ring-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control neon rings spinner
+const neonRingsSpinner = document.querySelector('.neon-rings-spinner');
+
+// Change number of rings
+function setRingCount(count) {
+    neonRingsSpinner.innerHTML = '';
+    for (let i = 0; i < count; i++) {
+        const ring = document.createElement('div');
+        ring.className = \`ring ring-\${i + 1}\`;
+        const size = 100 - (i * 20);
+        ring.style.width = size + '%';
+        ring.style.height = size + '%';
+        ring.style.top = (100 - size) / 2 + '%';
+        ring.style.left = (100 - size) / 2 + '%';
+        
+        // Generate random neon colors
+        const colors = ['#00f3ff', '#ff00ff', '#00ff88', '#ffaa00', '#ff0080', '#8000ff'];
+        ring.style.borderTopColor = colors[i % colors.length];
+        ring.style.borderRightColor = colors[(i + 1) % colors.length];
+        ring.style.animationDuration = (2 - i * 0.5) + 's';
+        
+        neonRingsSpinner.appendChild(ring);
+    }
+}
+
+// Change glow intensity
+function setNeonGlow(intensity) {
+    document.querySelectorAll('.neon-rings-spinner .ring').forEach(ring => {
+        ring.style.filter = \`drop-shadow(0 0 \${intensity}px currentColor)\`;
+    });
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 61: Uiverse Particle Wave Spinner
+    // ====================================================================
+    loader61: {
+        name: "Particle Wave Spinner",
+        category: "spinner",
+        html: `<div class="loader-container">
+    <div class="particle-wave-spinner">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+</div>`,
+        css: `.particle-wave-spinner {
+    position: relative;
+    width: 70px;
+    height: 70px;
+}
+
+.particle-wave-spinner .particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 5px #3b82f6);
+    animation: particle-wave 1.5s ease-in-out infinite;
+}
+
+.particle-wave-spinner .particle:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.particle-wave-spinner .particle:nth-child(2) {
+    top: 20%;
+    right: 20%;
+    animation-delay: -0.1s;
+}
+
+.particle-wave-spinner .particle:nth-child(3) {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    animation-delay: -0.2s;
+}
+
+.particle-wave-spinner .particle:nth-child(4) {
+    bottom: 20%;
+    right: 20%;
+    animation-delay: -0.3s;
+}
+
+.particle-wave-spinner .particle:nth-child(5) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: -0.4s;
+}
+
+@keyframes particle-wave {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+    }
+    25% {
+        transform: translateY(-15px) scale(1.2);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translateY(15px) scale(0.8);
+        opacity: 0.3;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control particle wave spinner
+const particleWaveSpinner = document.querySelector('.particle-wave-spinner');
+
+// Change number of particles
+function setParticleCount(count) {
+    particleWaveSpinner.innerHTML = '';
+    for (let i = 0; i < count; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Position particles in a circle
+        const angle = (360 / count) * i;
+        const radius = 35;
+        const x = 50 + radius * Math.cos(angle * Math.PI / 180);
+        const y = 50 + radius * Math.sin(angle * Math.PI / 180);
+        
+        particle.style.left = x + '%';
+        particle.style.top = y + '%';
+        particle.style.animationDelay = \`-\${i * 0.1}s\`;
+        
+        particleWaveSpinner.appendChild(particle);
+    }
+}
+
+// Change wave pattern
+function setWavePattern(pattern) {
+    const keyframes = \`
+        @keyframes particle-wave {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+            25% { transform: translateY(-\${pattern.height}px) scale(\${pattern.scale}); opacity: 1; }
+            50% { transform: translateY(0) scale(1); opacity: 0.5; }
+            75% { transform: translateY(\${pattern.height}px) scale(\${0.8}); opacity: 0.3; }
+        }
+    \`;
+    
+    // Add or update the keyframes
+    const styleSheet = document.styleSheets[0];
+    const existingRule = Array.from(styleSheet.cssRules).find(rule => 
+        rule.name === 'particle-wave'
+    );
+    
+    if (existingRule) {
+        styleSheet.deleteRule(Array.from(styleSheet.cssRules).indexOf(existingRule));
+    }
+    
+    styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+}
+
+// Change particle colors
+function setParticleColors(color1, color2) {
+    document.querySelectorAll('.particle-wave-spinner .particle').forEach(particle => {
+        particle.style.background = \`linear-gradient(45deg, \${color1}, \${color2})\`;
+    });
+}`
+    },
+        // ====================================================================
+    // TEMPLATE 62: Morphing Blob Loader
+    // ====================================================================
+    loader62: {
+        name: "Morphing Blob Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="morphing-blob-loader">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <svg>
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                    <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+                </filter>
+            </defs>
+        </svg>
+    </div>
+</div>`,
+        css: `.morphing-blob-loader {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    filter: url(#goo);
+}
+
+.morphing-blob-loader .blob {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #7c3aed, #ec4899);
+    animation: morphBlob 3s ease-in-out infinite;
+}
+
+.morphing-blob-loader .blob:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.morphing-blob-loader .blob:nth-child(2) {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    animation-delay: -1s;
+}
+
+.morphing-blob-loader .blob:nth-child(3) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: -2s;
+}
+
+@keyframes morphBlob {
+    0%, 100% {
+        border-radius: 50%;
+        transform: scale(1) translate(var(--tx, 0), var(--ty, 0));
+    }
+    33% {
+        border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
+        transform: scale(1.1) translate(calc(var(--tx, 0) + 10px), calc(var(--ty, 0) + 10px));
+    }
+    66% {
+        border-radius: 60% 40% 40% 60% / 40% 60% 40% 60%;
+        transform: scale(0.9) translate(calc(var(--tx, 0) - 10px), calc(var(--ty, 0) - 10px));
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control morphing blob loader
+const morphingBlobLoader = document.querySelector('.morphing-blob-loader');
+
+// Change blob count
+function setBlobCount(count) {
+    // Remove existing blobs
+    const existingBlobs = morphingBlobLoader.querySelectorAll('.blob');
+    existingBlobs.forEach(blob => blob.remove());
+    
+    // Add new blobs
+    for (let i = 0; i < count; i++) {
+        const blob = document.createElement('div');
+        blob.className = 'blob';
+        
+        // Position blobs in a circle
+        const angle = (360 / count) * i;
+        const radius = 25;
+        const x = 50 + radius * Math.cos(angle * Math.PI / 180);
+        const y = 50 + radius * Math.sin(angle * Math.PI / 180);
+        
+        blob.style.left = x + '%';
+        blob.style.top = y + '%';
+        blob.style.setProperty('--tx', \`calc(50% - \${x}%)\`);
+        blob.style.setProperty('--ty', \`calc(50% - \${y}%)\`);
+        blob.style.animationDelay = \`-\${i}s\`;
+        
+        morphingBlobLoader.appendChild(blob);
+    }
+}
+
+// Change blob viscosity (blur amount)
+function setBlobViscosity(blur) {
+    const filter = morphingBlobLoader.querySelector('feGaussianBlur');
+    if (filter) {
+        filter.setAttribute('stdDeviation', blur);
+    }
+}
+
+// Change blob colors
+function setBlobColors(color1, color2) {
+    document.querySelectorAll('.morphing-blob-loader .blob').forEach(blob => {
+        blob.style.background = \`linear-gradient(45deg, \${color1}, \${color2})\`;
+    });
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 63: Hexagonal Grid Loader
+    // ====================================================================
+    loader63: {
+        name: "Hexagonal Grid Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="hexagonal-grid-loader">
+        <div class="hex-row">
+            <div class="hex"></div>
+            <div class="hex"></div>
+            <div class="hex"></div>
+        </div>
+        <div class="hex-row">
+            <div class="hex"></div>
+            <div class="hex"></div>
+            <div class="hex"></div>
+            <div class="hex"></div>
+        </div>
+        <div class="hex-row">
+            <div class="hex"></div>
+            <div class="hex"></div>
+            <div class="hex"></div>
+        </div>
+    </div>
+</div>`,
+        css: `.hexagonal-grid-loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4px;
+    justify-content: center;
+}
+
+.hex-row {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+}
+
+.hex-row:nth-child(1) .hex:nth-child(2),
+.hex-row:nth-child(3) .hex:nth-child(2) {
+    margin-left: 22px;
+}
+
+.hex {
+    width: 20px;
+    height: 23px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(236, 72, 153, 0.3));
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    animation: hexPulse 1.5s ease-in-out infinite;
+}
+
+.hex-row:nth-child(1) .hex:nth-child(1) { animation-delay: 0s; }
+.hex-row:nth-child(1) .hex:nth-child(2) { animation-delay: 0.1s; }
+.hex-row:nth-child(1) .hex:nth-child(3) { animation-delay: 0.2s; }
+
+.hex-row:nth-child(2) .hex:nth-child(1) { animation-delay: 0.3s; }
+.hex-row:nth-child(2) .hex:nth-child(2) { animation-delay: 0.4s; }
+.hex-row:nth-child(2) .hex:nth-child(3) { animation-delay: 0.5s; }
+.hex-row:nth-child(2) .hex:nth-child(4) { animation-delay: 0.6s; }
+
+.hex-row:nth-child(3) .hex:nth-child(1) { animation-delay: 0.7s; }
+.hex-row:nth-child(3) .hex:nth-child(2) { animation-delay: 0.8s; }
+.hex-row:nth-child(3) .hex:nth-child(3) { animation-delay: 0.9s; }
+
+@keyframes hexPulse {
+    0%, 100% {
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(236, 72, 153, 0.3));
+        transform: scale(1);
+    }
+    50% {
+        background: linear-gradient(135deg, #7c3aed, #ec4899);
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 6px #7c3aed);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control hexagonal grid loader
+const hexGridLoader = document.querySelector('.hexagonal-grid-loader');
+
+// Change grid size
+function setGridSize(rows, cols) {
+    hexGridLoader.innerHTML = '';
+    hexGridLoader.style.gridTemplateRows = \`repeat(\${rows}, 1fr)\`;
+    
+    for (let r = 0; r < rows; r++) {
+        const hexRow = document.createElement('div');
+        hexRow.className = 'hex-row';
+        
+        // Alternate row lengths for honeycomb pattern
+        const hexCount = r % 2 === 0 ? cols : cols - 1;
+        
+        for (let h = 0; h < hexCount; h++) {
+            const hex = document.createElement('div');
+            hex.className = 'hex';
+            hex.style.animationDelay = \`\${(r * cols + h) * 0.1}s\`;
+            hexRow.appendChild(hex);
+        }
+        
+        if (r % 2 === 0 && cols > 1) {
+            hexRow.style.marginLeft = '22px';
+        }
+        
+        hexGridLoader.appendChild(hexRow);
+    }
+}
+
+// Change pulse pattern
+function setPulsePattern(pattern) {
+    const keyframes = \`
+        @keyframes hexPulse {
+            0%, 100% {
+                background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(236, 72, 153, 0.3));
+                transform: scale(1);
+            }
+            50% {
+                background: linear-gradient(135deg, #7c3aed, #ec4899);
+                transform: scale(\${pattern.scale});
+                filter: drop-shadow(0 0 \${pattern.glow}px #7c3aed);
+            }
+        }
+    \`;
+    
+    const styleSheet = document.styleSheets[0];
+    const existingRule = Array.from(styleSheet.cssRules).find(rule => 
+        rule.name === 'hexPulse'
+    );
+    
+    if (existingRule) {
+        styleSheet.deleteRule(Array.from(styleSheet.cssRules).indexOf(existingRule));
+    }
+    
+    styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 64: Kinetic Typography Loader
+    // ====================================================================
+    loader64: {
+        name: "Kinetic Typography Loader",
+        category: "modern",
+        html: `<div class="loader-container">
+    <div class="kinetic-typography-loader">
+        <span class="letter">L</span>
+        <span class="letter">O</span>
+        <span class="letter">A</span>
+        <span class="letter">D</span>
+        <span class="letter">I</span>
+        <span class="letter">N</span>
+        <span class="letter">G</span>
+    </div>
+</div>`,
+        css: `.kinetic-typography-loader {
+    display: flex;
+    gap: 8px;
+    height: 60px;
+    align-items: center;
+}
+
+.kinetic-typography-loader .letter {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #7c3aed;
+    display: inline-block;
+    animation: kineticLetter 2s ease-in-out infinite;
+    text-shadow: 0 2px 4px rgba(124, 58, 237, 0.3);
+}
+
+.kinetic-typography-loader .letter:nth-child(1) { animation-delay: 0s; }
+.kinetic-typography-loader .letter:nth-child(2) { animation-delay: -0.15s; }
+.kinetic-typography-loader .letter:nth-child(3) { animation-delay: -0.3s; }
+.kinetic-typography-loader .letter:nth-child(4) { animation-delay: -0.45s; }
+.kinetic-typography-loader .letter:nth-child(5) { animation-delay: -0.6s; }
+.kinetic-typography-loader .letter:nth-child(6) { animation-delay: -0.75s; }
+.kinetic-typography-loader .letter:nth-child(7) { animation-delay: -0.9s; }
+
+@keyframes kineticLetter {
+    0%, 40%, 100% {
+        transform: translateY(0) scale(1);
+        color: #7c3aed;
+    }
+    20% {
+        transform: translateY(-20px) scale(1.2);
+        color: #ec4899;
+        text-shadow: 0 5px 15px rgba(236, 72, 153, 0.5);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control kinetic typography loader
+const kineticLoader = document.querySelector('.kinetic-typography-loader');
+
+// Change loading text
+function setLoadingText(text) {
+    kineticLoader.innerHTML = '';
+    text.split('').forEach((char, index) => {
+        const letter = document.createElement('span');
+        letter.className = 'letter';
+        letter.textContent = char;
+        letter.style.animationDelay = \`-\${index * 0.15}s\`;
+        kineticLoader.appendChild(letter);
+    });
+}
+
+// Change animation style
+function setAnimationStyle(style) {
+    const keyframes = \`
+        @keyframes kineticLetter {
+            0%, 40%, 100% {
+                transform: translateY(0) scale(1);
+                color: var(--primary-color);
+            }
+            20% {
+                transform: translateY(\${style.height}px) scale(\${style.scale});
+                color: var(--secondary-color);
+                text-shadow: 0 5px 15px rgba(var(--secondary-rgb), 0.5);
+            }
+        }
+    \`;
+    
+    const styleSheet = document.styleSheets[0];
+    const existingRule = Array.from(styleSheet.cssRules).find(rule => 
+        rule.name === 'kineticLetter'
+    );
+    
+    if (existingRule) {
+        styleSheet.deleteRule(Array.from(styleSheet.cssRules).indexOf(existingRule));
+    }
+    
+    styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+}
+
+// Change font properties
+function setFontProperties(fontFamily, fontSize, fontWeight) {
+    document.querySelectorAll('.kinetic-typography-loader .letter').forEach(letter => {
+        letter.style.fontFamily = fontFamily;
+        letter.style.fontSize = fontSize + 'px';
+        letter.style.fontWeight = fontWeight;
+    });
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 65: Circuit Board Loader
+    // ====================================================================
+    loader65: {
+        name: "Circuit Board Loader",
+        category: "modern",
+        html: `<div class="loader-container">
+    <div class="circuit-board-loader">
+        <div class="circuit-path"></div>
+        <div class="circuit-node"></div>
+        <div class="circuit-node"></div>
+        <div class="circuit-node"></div>
+        <div class="electron"></div>
+    </div>
+</div>`,
+        css: `.circuit-board-loader {
+    position: relative;
+    width: 100px;
+    height: 80px;
+}
+
+.circuit-path {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, transparent 49%, rgba(124, 58, 237, 0.3) 50%, transparent 51%) 0 0/20px 20px,
+        linear-gradient(0deg, transparent 49%, rgba(124, 58, 237, 0.3) 50%, transparent 51%) 0 0/20px 20px;
+    border: 2px solid rgba(124, 58, 237, 0.2);
+    border-radius: 8px;
+    box-shadow: 
+        inset 0 0 20px rgba(124, 58, 237, 0.1),
+        0 0 15px rgba(124, 58, 237, 0.2);
+}
+
+.circuit-node {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(45deg, #7c3aed, #3b82f6);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 5px #7c3aed);
+    animation: circuitNodeGlow 2s ease-in-out infinite;
+}
+
+.circuit-node:nth-child(2) {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.circuit-node:nth-child(3) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -0.66s;
+}
+
+.circuit-node:nth-child(4) {
+    bottom: 20%;
+    right: 20%;
+    animation-delay: -1.33s;
+}
+
+.electron {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(45deg, #00ff88, #00f3ff);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 8px #00ff88);
+    animation: electronTravel 3s linear infinite;
+}
+
+@keyframes circuitNodeGlow {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px #7c3aed);
+    }
+    50% {
+        transform: scale(1.3);
+        filter: drop-shadow(0 0 12px #ec4899);
+    }
+}
+
+@keyframes electronTravel {
+    0% {
+        top: 20%;
+        left: 20%;
+        opacity: 1;
+    }
+    25% {
+        top: 20%;
+        left: 80%;
+    }
+    50% {
+        top: 80%;
+        left: 80%;
+        opacity: 0.8;
+    }
+    75% {
+        top: 80%;
+        left: 20%;
+    }
+    100% {
+        top: 20%;
+        left: 20%;
+        opacity: 1;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control circuit board loader
+const circuitLoader = document.querySelector('.circuit-board-loader');
+
+// Change grid density
+function setGridDensity(density) {
+    const path = circuitLoader.querySelector('.circuit-path');
+    path.style.background = \`
+        linear-gradient(90deg, transparent 49%, rgba(124, 58, 237, 0.3) 50%, transparent 51%) 0 0/\${density}px \${density}px,
+        linear-gradient(0deg, transparent 49%, rgba(124, 58, 237, 0.3) 50%, transparent 51%) 0 0/\${density}px \${density}px
+    \`;
+}
+
+// Change node positions
+function setNodePositions(positions) {
+    const nodes = circuitLoader.querySelectorAll('.circuit-node');
+    positions.forEach((pos, index) => {
+        if (nodes[index]) {
+            nodes[index].style.top = pos.y + '%';
+            nodes[index].style.left = pos.x + '%';
+        }
+    });
+    
+    // Update electron path
+    const electron = circuitLoader.querySelector('.electron');
+    if (electron && positions.length > 0) {
+        const keyframes = \`
+            @keyframes electronTravel {
+                \${positions.map((pos, i) => \`
+                    \${(i / positions.length) * 100}% {
+                        top: \${pos.y}%;
+                        left: \${pos.x}%;
+                        opacity: \${i === 0 || i === positions.length - 1 ? 1 : 0.8};
+                    }
+                \`).join('')}
+            }
+        \`;
+        
+        const styleSheet = document.styleSheets[0];
+        const existingRule = Array.from(styleSheet.cssRules).find(rule => 
+            rule.name === 'electronTravel'
+        );
+        
+        if (existingRule) {
+            styleSheet.deleteRule(Array.from(styleSheet.cssRules).indexOf(existingRule));
+        }
+        
+        styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+    }
+}
+
+// Change electron speed
+function setElectronSpeed(speed) {
+    const electron = circuitLoader.querySelector('.electron');
+    electron.style.animationDuration = speed + 's';
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 66: Fluid Simulation Loader
+    // ====================================================================
+    loader66: {
+        name: "Fluid Simulation Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="fluid-simulation-loader">
+        <div class="fluid-wave"></div>
+        <div class="fluid-wave"></div>
+        <div class="fluid-wave"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+</div>`,
+        css: `.fluid-simulation-loader {
+    position: relative;
+    width: 100px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: linear-gradient(180deg, 
+        rgba(59, 130, 246, 0.1) 0%, 
+        rgba(124, 58, 237, 0.2) 100%);
+    box-shadow: 
+        inset 0 0 30px rgba(59, 130, 246, 0.3),
+        0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.fluid-wave {
+    position: absolute;
+    width: 200%;
+    height: 30px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(59, 130, 246, 0.4), 
+        rgba(124, 58, 237, 0.6), 
+        rgba(59, 130, 246, 0.4), 
+        transparent);
+    border-radius: 50% 50% 0 0;
+    animation: fluidWave 4s ease-in-out infinite;
+}
+
+.fluid-wave:nth-child(1) {
+    top: 40%;
+    animation-delay: 0s;
+    height: 25px;
+}
+
+.fluid-wave:nth-child(2) {
+    top: 50%;
+    animation-delay: -1s;
+    height: 20px;
+    opacity: 0.7;
+}
+
+.fluid-wave:nth-child(3) {
+    top: 60%;
+    animation-delay: -2s;
+    height: 15px;
+    opacity: 0.5;
+}
+
+.bubble {
+    position: absolute;
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(255, 255, 255, 0.9), 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+    border-radius: 50%;
+    animation: bubbleRise 3s ease-in infinite;
+    filter: blur(1px);
+}
+
+.bubble:nth-child(4) {
+    width: 12px;
+    height: 12px;
+    left: 20%;
+    bottom: -10px;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(5) {
+    width: 8px;
+    height: 8px;
+    left: 50%;
+    bottom: -10px;
+    animation-delay: -1s;
+}
+
+.bubble:nth-child(6) {
+    width: 10px;
+    height: 10px;
+    left: 80%;
+    bottom: -10px;
+    animation-delay: -2s;
+}
+
+@keyframes fluidWave {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(0) translateY(-5px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes bubbleRise {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-70px) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control fluid simulation loader
+const fluidLoader = document.querySelector('.fluid-simulation-loader');
+
+// Change fluid color
+function setFluidColor(color) {
+    const rgb = hexToRgb(color);
+    fluidLoader.style.background = \`linear-gradient(180deg, 
+        rgba(\${rgb.r}, \${rgb.g}, \${rgb.b}, 0.1) 0%, 
+        rgba(\${rgb.r}, \${rgb.g}, \${rgb.b}, 0.2) 100%)\`;
+    
+    // Update waves
+    document.querySelectorAll('.fluid-wave').forEach(wave => {
+        wave.style.background = \`linear-gradient(90deg, 
+            transparent, 
+            rgba(\${rgb.r}, \${rgb.g}, \${rgb.b}, 0.4), 
+            rgba(\${rgb.r}, \${rgb.g}, \${rgb.b}, 0.6), 
+            rgba(\${rgb.r}, \${rgb.g}, \${rgb.b}, 0.4), 
+            transparent)\`;
+    });
+}
+
+// Change wave count
+function setWaveCount(count) {
+    // Remove existing waves
+    const existingWaves = fluidLoader.querySelectorAll('.fluid-wave');
+    existingWaves.forEach(wave => wave.remove());
+    
+    // Add new waves
+    for (let i = 0; i < count; i++) {
+        const wave = document.createElement('div');
+        wave.className = 'fluid-wave';
+        wave.style.top = \`\${40 + (i * 10)}%\`;
+        wave.style.height = \`\${25 - (i * 5)}px\`;
+        wave.style.opacity = \`\${1 - (i * 0.3)}\`;
+        wave.style.animationDelay = \`-\${i}s\`;
+        fluidLoader.appendChild(wave);
+    }
+}
+
+// Change bubble count
+function setBubbleCount(count) {
+    // Remove existing bubbles
+    const existingBubbles = fluidLoader.querySelectorAll('.bubble');
+    existingBubbles.forEach(bubble => bubble.remove());
+    
+    // Add new bubbles
+    for (let i = 0; i < count; i++) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        const size = 8 + Math.random() * 8;
+        bubble.style.width = size + 'px';
+        bubble.style.height = size + 'px';
+        bubble.style.left = \`\${i * (80 / (count - 1)) + 10}%\`;
+        bubble.style.animationDelay = \`-\${i}s\`;
+        fluidLoader.appendChild(bubble);
+    }
+}
+
+// Helper function to convert hex to rgb
+function hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : { r: 124, g: 58, b: 237 };
+}`
+    },
 };
 
 // Main functionality for loader templates
