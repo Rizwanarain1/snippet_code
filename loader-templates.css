@@ -5191,3 +5191,557 @@
         inset 0 0 35px rgba(251, 191, 36, 0.4),
         0 0 25px rgba(251, 191, 36, 0.3);
 }
+/* ==============================================
+   ADVANCED WEBSITE LOADERS
+   ============================================== */
+
+/* Template 67: Parallax Layers Loader */
+.parallax-layers-loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    perspective: 500px;
+    transform-style: preserve-3d;
+}
+
+.parallax-layers-loader .layer {
+    position: absolute;
+    border: 2px solid;
+    border-radius: 50%;
+    animation: parallaxFloat 4s ease-in-out infinite;
+}
+
+.parallax-layers-loader .layer-1 {
+    width: 100%;
+    height: 100%;
+    border-color: rgba(124, 58, 237, 0.8);
+    box-shadow: 
+        0 0 30px rgba(124, 58, 237, 0.4),
+        inset 0 0 20px rgba(124, 58, 237, 0.2);
+    transform: translateZ(-100px);
+    animation-delay: 0s;
+}
+
+.parallax-layers-loader .layer-2 {
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    border-color: rgba(236, 72, 153, 0.7);
+    box-shadow: 
+        0 0 25px rgba(236, 72, 153, 0.3),
+        inset 0 0 15px rgba(236, 72, 153, 0.15);
+    transform: translateZ(-50px);
+    animation-delay: -1s;
+}
+
+.parallax-layers-loader .layer-3 {
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 
+        0 0 20px rgba(59, 130, 246, 0.25),
+        inset 0 0 10px rgba(59, 130, 246, 0.1);
+    transform: translateZ(0px);
+    animation-delay: -2s;
+}
+
+.parallax-layers-loader .layer-4 {
+    width: 40%;
+    height: 40%;
+    top: 30%;
+    left: 30%;
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 
+        0 0 15px rgba(16, 185, 129, 0.2),
+        inset 0 0 5px rgba(16, 185, 129, 0.05);
+    transform: translateZ(50px);
+    animation-delay: -3s;
+}
+
+@keyframes parallaxFloat {
+    0%, 100% {
+        transform: 
+            translateZ(var(--z, 0px))
+            rotateX(0deg)
+            rotateY(0deg);
+    }
+    25% {
+        transform: 
+            translateZ(calc(var(--z, 0px) + 20px))
+            rotateX(15deg)
+            rotateY(15deg);
+    }
+    50% {
+        transform: 
+            translateZ(var(--z, 0px))
+            rotateX(0deg)
+            rotateY(30deg);
+    }
+    75% {
+        transform: 
+            translateZ(calc(var(--z, 0px) - 20px))
+            rotateX(-15deg)
+            rotateY(15deg);
+    }
+}
+
+/* Template 68: Glassmorphism Morph Loader */
+.glassmorphism-morph-loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.glassmorphism-morph-loader::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(124, 58, 237, 0.3),
+        rgba(236, 72, 153, 0.3),
+        rgba(59, 130, 246, 0.3),
+        transparent
+    );
+    animation: glassRotate 4s linear infinite;
+}
+
+.glassmorphism-morph-loader .glass-shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: glassMorph 3s ease-in-out infinite;
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.glassmorphism-morph-loader .shape-1 {
+    width: 40px;
+    height: 40px;
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.glassmorphism-morph-loader .shape-2 {
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -1s;
+}
+
+.glassmorphism-morph-loader .shape-3 {
+    width: 35px;
+    height: 35px;
+    bottom: 20%;
+    right: 20%;
+    animation-delay: -2s;
+}
+
+@keyframes glassRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes glassMorph {
+    0%, 100% {
+        border-radius: 50% 30% 50% 30%;
+        transform: scale(1) translate(var(--tx, 0), var(--ty, 0));
+    }
+    33% {
+        border-radius: 30% 50% 30% 50%;
+        transform: scale(1.2) translate(calc(var(--tx, 0) + 5px), calc(var(--ty, 0) + 5px));
+    }
+    66% {
+        border-radius: 40% 40% 60% 60%;
+        transform: scale(0.9) translate(calc(var(--tx, 0) - 5px), calc(var(--ty, 0) - 5px));
+    }
+}
+
+/* Template 69: Isometric Grid Loader */
+.isometric-grid-loader {
+    position: relative;
+    width: 120px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transform: rotateX(60deg) rotateZ(45deg);
+    animation: gridRotate 8s linear infinite;
+}
+
+.isometric-grid-loader .grid-plane {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, rgba(124, 58, 237, 0.1) 1px, transparent 1px) 0 0/20px 20px,
+        linear-gradient(0deg, rgba(124, 58, 237, 0.1) 1px, transparent 1px) 0 0/20px 20px;
+    transform: translateZ(-20px);
+}
+
+.isometric-grid-loader .cube {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    transform-style: preserve-3d;
+    animation: cubeFloat 3s ease-in-out infinite;
+    box-shadow: 
+        0 0 10px rgba(124, 58, 237, 0.5),
+        inset 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.isometric-grid-loader .cube::before,
+.isometric-grid-loader .cube::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+}
+
+.isometric-grid-loader .cube::before {
+    transform: rotateX(90deg) translateZ(10px);
+    opacity: 0.6;
+}
+
+.isometric-grid-loader .cube::after {
+    transform: rotateY(90deg) translateZ(10px);
+    opacity: 0.4;
+}
+
+.isometric-grid-loader .cube:nth-child(2) {
+    top: 40px;
+    left: 40px;
+    animation-delay: -1s;
+}
+
+.isometric-grid-loader .cube:nth-child(3) {
+    top: 20px;
+    left: 80px;
+    animation-delay: -2s;
+}
+
+.isometric-grid-loader .cube:nth-child(4) {
+    top: 60px;
+    left: 60px;
+    animation-delay: -3s;
+}
+
+@keyframes gridRotate {
+    0% { transform: rotateX(60deg) rotateZ(45deg); }
+    100% { transform: rotateX(60deg) rotateZ(405deg); }
+}
+
+@keyframes cubeFloat {
+    0%, 100% {
+        transform: translateZ(0);
+    }
+    50% {
+        transform: translateZ(30px);
+        box-shadow: 
+            0 0 20px rgba(124, 58, 237, 0.8),
+            inset 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* Template 70: Data Stream Loader */
+.data-stream-loader {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    background: rgba(15, 23, 42, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(124, 58, 237, 0.1);
+}
+
+.data-stream-loader::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(124, 58, 237, 0.05) 50%,
+        transparent
+    );
+    animation: dataScan 2s linear infinite;
+}
+
+.data-stream-loader .stream-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #7c3aed,
+        #ec4899,
+        transparent
+    );
+    filter: drop-shadow(0 0 3px #7c3aed);
+    animation: streamFlow 1.5s linear infinite;
+}
+
+.data-stream-loader .stream-line:nth-child(1) {
+    top: 20%;
+    width: 80%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.data-stream-loader .stream-line:nth-child(2) {
+    top: 50%;
+    width: 90%;
+    left: 5%;
+    animation-delay: -0.5s;
+}
+
+.data-stream-loader .stream-line:nth-child(3) {
+    top: 80%;
+    width: 70%;
+    left: 15%;
+    animation-delay: -1s;
+}
+
+.data-stream-loader .data-node {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle at center, #3b82f6, #1d4ed8);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px #3b82f6);
+    animation: nodePulse 2s ease-in-out infinite;
+}
+
+.data-stream-loader .data-node:nth-child(4) {
+    top: 20%;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.data-stream-loader .data-node:nth-child(5) {
+    top: 50%;
+    left: 60%;
+    animation-delay: -0.66s;
+}
+
+.data-stream-loader .data-node:nth-child(6) {
+    top: 80%;
+    left: 40%;
+    animation-delay: -1.33s;
+}
+
+@keyframes dataScan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes streamFlow {
+    0% {
+        background-position: -100% 0;
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    100% {
+        background-position: 200% 0;
+        opacity: 0;
+    }
+}
+
+@keyframes nodePulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 6px #3b82f6);
+    }
+    50% {
+        transform: scale(1.3);
+        filter: drop-shadow(0 0 12px #60a5fa);
+    }
+}
+
+/* Template 71: Holographic Interface Loader */
+.holographic-interface-loader {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    background: 
+        linear-gradient(135deg, 
+            rgba(0, 243, 255, 0.05) 0%, 
+            rgba(255, 0, 255, 0.05) 100%);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    box-shadow: 
+        0 0 30px rgba(0, 243, 255, 0.3),
+        inset 0 0 20px rgba(255, 0, 255, 0.1);
+}
+
+.holographic-interface-loader::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 243, 255, 0.05) 2px,
+            rgba(0, 243, 255, 0.05) 4px
+        );
+    animation: hologramScan 1s linear infinite;
+}
+
+.holographic-interface-loader::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 0, 255, 0.1),
+        transparent
+    );
+    animation: hologramGlow 2s ease-in-out infinite;
+}
+
+.holographic-interface-loader .hologram-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #00f3ff,
+        #ff00ff,
+        transparent
+    );
+    filter: drop-shadow(0 0 3px #00f3ff);
+    animation: lineScan 3s linear infinite;
+}
+
+.holographic-interface-loader .hologram-line:nth-child(1) {
+    top: 25%;
+    width: 100%;
+    animation-delay: 0s;
+}
+
+.holographic-interface-loader .hologram-line:nth-child(2) {
+    top: 50%;
+    width: 100%;
+    animation-delay: -1s;
+}
+
+.holographic-interface-loader .hologram-line:nth-child(3) {
+    top: 75%;
+    width: 100%;
+    animation-delay: -2s;
+}
+
+.holographic-interface-loader .interface-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle at center, #00f3ff, #ff00ff);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 8px #00f3ff);
+    animation: interfaceDot 2s ease-in-out infinite;
+}
+
+.holographic-interface-loader .interface-dot:nth-child(4) {
+    top: 25%;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.holographic-interface-loader .interface-dot:nth-child(5) {
+    top: 50%;
+    left: 60%;
+    animation-delay: -0.66s;
+}
+
+.holographic-interface-loader .interface-dot:nth-child(6) {
+    top: 75%;
+    left: 40%;
+    animation-delay: -1.33s;
+}
+
+@keyframes hologramScan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes hologramGlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes lineScan {
+    0% {
+        background-position: -100% 0;
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    100% {
+        background-position: 200% 0;
+        opacity: 0;
+    }
+}
+
+@keyframes interfaceDot {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 0 8px #00f3ff);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.3);
+        filter: drop-shadow(0 0 15px #ff00ff);
+    }
+}
+
+/* Dark mode enhancements */
+.live-preview-mini.dark-bg .parallax-layers-loader .layer-1 {
+    border-color: rgba(251, 191, 36, 0.8);
+    box-shadow: 
+        0 0 35px rgba(251, 191, 36, 0.5),
+        inset 0 0 25px rgba(251, 191, 36, 0.3);
+}
+
+.live-preview-mini.dark-bg .data-stream-loader {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(251, 191, 36, 0.2);
+}
+
+.live-preview-mini.dark-bg .holographic-interface-loader {
+    background: 
+        linear-gradient(135deg, 
+            rgba(251, 191, 36, 0.05) 0%, 
+            rgba(245, 158, 11, 0.05) 100%);
+    border-color: rgba(251, 191, 36, 0.3);
+    box-shadow: 
+        0 0 35px rgba(251, 191, 36, 0.4),
+        inset 0 0 25px rgba(245, 158, 11, 0.2);
+}

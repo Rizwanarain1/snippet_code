@@ -10430,6 +10430,1073 @@ function hexToRgb(hex) {
     } : { r: 124, g: 58, b: 237 };
 }`
     },
+        // ====================================================================
+    // TEMPLATE 67: Parallax Layers Loader
+    // ====================================================================
+    loader67: {
+        name: "Parallax Layers Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="parallax-layers-loader">
+        <div class="layer layer-1"></div>
+        <div class="layer layer-2"></div>
+        <div class="layer layer-3"></div>
+        <div class="layer layer-4"></div>
+    </div>
+</div>`,
+        css: `.parallax-layers-loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    perspective: 500px;
+    transform-style: preserve-3d;
+}
+
+.parallax-layers-loader .layer {
+    position: absolute;
+    border: 2px solid;
+    border-radius: 50%;
+    animation: parallaxFloat 4s ease-in-out infinite;
+}
+
+.parallax-layers-loader .layer-1 {
+    width: 100%;
+    height: 100%;
+    border-color: rgba(124, 58, 237, 0.8);
+    box-shadow: 
+        0 0 30px rgba(124, 58, 237, 0.4),
+        inset 0 0 20px rgba(124, 58, 237, 0.2);
+    transform: translateZ(-100px);
+    animation-delay: 0s;
+}
+
+.parallax-layers-loader .layer-2 {
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    border-color: rgba(236, 72, 153, 0.7);
+    box-shadow: 
+        0 0 25px rgba(236, 72, 153, 0.3),
+        inset 0 0 15px rgba(236, 72, 153, 0.15);
+    transform: translateZ(-50px);
+    animation-delay: -1s;
+}
+
+.parallax-layers-loader .layer-3 {
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 
+        0 0 20px rgba(59, 130, 246, 0.25),
+        inset 0 0 10px rgba(59, 130, 246, 0.1);
+    transform: translateZ(0px);
+    animation-delay: -2s;
+}
+
+.parallax-layers-loader .layer-4 {
+    width: 40%;
+    height: 40%;
+    top: 30%;
+    left: 30%;
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 
+        0 0 15px rgba(16, 185, 129, 0.2),
+        inset 0 0 5px rgba(16, 185, 129, 0.05);
+    transform: translateZ(50px);
+    animation-delay: -3s;
+}
+
+@keyframes parallaxFloat {
+    0%, 100% {
+        transform: 
+            translateZ(var(--z, 0px))
+            rotateX(0deg)
+            rotateY(0deg);
+    }
+    25% {
+        transform: 
+            translateZ(calc(var(--z, 0px) + 20px))
+            rotateX(15deg)
+            rotateY(15deg);
+    }
+    50% {
+        transform: 
+            translateZ(var(--z, 0px))
+            rotateX(0deg)
+            rotateY(30deg);
+    }
+    75% {
+        transform: 
+            translateZ(calc(var(--z, 0px) - 20px))
+            rotateX(-15deg)
+            rotateY(15deg);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control parallax layers loader
+const parallaxLoader = document.querySelector('.parallax-layers-loader');
+
+// Change number of layers
+function setLayerCount(count) {
+    parallaxLoader.innerHTML = '';
+    for (let i = 0; i < count; i++) {
+        const layer = document.createElement('div');
+        layer.className = \`layer layer-\${i + 1}\`;
+        
+        const size = 100 - (i * (60 / (count - 1)));
+        const zDepth = -100 + (i * (150 / (count - 1)));
+        
+        layer.style.width = size + '%';
+        layer.style.height = size + '%';
+        layer.style.top = (100 - size) / 2 + '%';
+        layer.style.left = (100 - size) / 2 + '%';
+        layer.style.transform = \`translateZ(\${zDepth}px)\`;
+        layer.style.animationDelay = \`-\${i}s\`;
+        
+        // Generate gradient colors
+        const colors = [
+            'rgba(124, 58, 237, 0.8)',
+            'rgba(236, 72, 153, 0.7)',
+            'rgba(59, 130, 246, 0.6)',
+            'rgba(16, 185, 129, 0.5)',
+            'rgba(245, 158, 11, 0.4)',
+            'rgba(239, 68, 68, 0.3)'
+        ];
+        
+        layer.style.borderColor = colors[i % colors.length];
+        
+        parallaxLoader.appendChild(layer);
+    }
+}
+
+// Change perspective depth
+function setPerspectiveDepth(depth) {
+    parallaxLoader.style.perspective = depth + 'px';
+}
+
+// Adjust animation speed
+function setParallaxSpeed(speed) {
+    document.querySelectorAll('.parallax-layers-loader .layer').forEach(layer => {
+        layer.style.animationDuration = speed + 's';
+    });
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 68: Glassmorphism Morph Loader
+    // ====================================================================
+    loader68: {
+        name: "Glassmorphism Morph Loader",
+        category: "modern",
+        html: `<div class="loader-container">
+    <div class="glassmorphism-morph-loader">
+        <div class="glass-shape shape-1"></div>
+        <div class="glass-shape shape-2"></div>
+        <div class="glass-shape shape-3"></div>
+    </div>
+</div>`,
+        css: `.glassmorphism-morph-loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.glassmorphism-morph-loader::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(124, 58, 237, 0.3),
+        rgba(236, 72, 153, 0.3),
+        rgba(59, 130, 246, 0.3),
+        transparent
+    );
+    animation: glassRotate 4s linear infinite;
+}
+
+.glassmorphism-morph-loader .glass-shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: glassMorph 3s ease-in-out infinite;
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.glassmorphism-morph-loader .shape-1 {
+    width: 40px;
+    height: 40px;
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.glassmorphism-morph-loader .shape-2 {
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -1s;
+}
+
+.glassmorphism-morph-loader .shape-3 {
+    width: 35px;
+    height: 35px;
+    bottom: 20%;
+    right: 20%;
+    animation-delay: -2s;
+}
+
+@keyframes glassRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes glassMorph {
+    0%, 100% {
+        border-radius: 50% 30% 50% 30%;
+        transform: scale(1) translate(var(--tx, 0), var(--ty, 0));
+    }
+    33% {
+        border-radius: 30% 50% 30% 50%;
+        transform: scale(1.2) translate(calc(var(--tx, 0) + 5px), calc(var(--ty, 0) + 5px));
+    }
+    66% {
+        border-radius: 40% 40% 60% 60%;
+        transform: scale(0.9) translate(calc(var(--tx, 0) - 5px), calc(var(--ty, 0) - 5px));
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control glassmorphism loader
+const glassLoader = document.querySelector('.glassmorphism-morph-loader');
+
+// Change glass properties
+function setGlassProperties(blur, opacity, border) {
+    glassLoader.style.backdropFilter = \`blur(\${blur}px)\`;
+    glassLoader.style.background = \`rgba(255, 255, 255, \${opacity})\`;
+    glassLoader.style.border = \`1px solid rgba(255, 255, 255, \${border})\`;
+    
+    // Update shapes
+    document.querySelectorAll('.glass-shape').forEach(shape => {
+        shape.style.backdropFilter = \`blur(\${blur / 4}px)\`;
+        shape.style.background = \`rgba(255, 255, 255, \${opacity * 3})\`;
+        shape.style.border = \`1px solid rgba(255, 255, 255, \${border * 2})\`;
+    });
+}
+
+// Change shape count and pattern
+function setShapePattern(count, pattern) {
+    // Remove existing shapes
+    const existingShapes = glassLoader.querySelectorAll('.glass-shape');
+    existingShapes.forEach(shape => shape.remove());
+    
+    // Add new shapes based on pattern
+    for (let i = 0; i < count; i++) {
+        const shape = document.createElement('div');
+        shape.className = \`glass-shape shape-\${i + 1}\`;
+        
+        // Different patterns
+        let size, top, left;
+        switch(pattern) {
+            case 'random':
+                size = 25 + Math.random() * 25;
+                top = Math.random() * 70 + 15;
+                left = Math.random() * 70 + 15;
+                break;
+            case 'circle':
+                const angle = (360 / count) * i;
+                const radius = 30;
+                top = 50 + radius * Math.sin(angle * Math.PI / 180);
+                left = 50 + radius * Math.cos(angle * Math.PI / 180);
+                size = 20 + (i % 3) * 10;
+                break;
+            case 'grid':
+                const row = Math.floor(i / 3);
+                const col = i % 3;
+                top = 20 + row * 30;
+                left = 20 + col * 30;
+                size = 25;
+                break;
+        }
+        
+        shape.style.width = size + 'px';
+        shape.style.height = size + 'px';
+        shape.style.top = top + '%';
+        shape.style.left = left + '%';
+        shape.style.animationDelay = \`-\${i}s\`;
+        
+        glassLoader.appendChild(shape);
+    }
+}
+
+// Change conic gradient colors
+function setGradientColors(colors) {
+    const gradient = colors.map((color, i) => 
+        \`rgba(\${color}, 0.3) \${(i / colors.length) * 100}%\`
+    ).join(', ');
+    
+    glassLoader.style.background = \`conic-gradient(from 0deg, transparent, \${gradient}, transparent)\`;
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 69: Isometric Grid Loader
+    // ====================================================================
+    loader69: {
+        name: "Isometric Grid Loader",
+        category: "modern",
+        html: `<div class="loader-container">
+    <div class="isometric-grid-loader">
+        <div class="grid-plane"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+    </div>
+</div>`,
+        css: `.isometric-grid-loader {
+    position: relative;
+    width: 120px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transform: rotateX(60deg) rotateZ(45deg);
+    animation: gridRotate 8s linear infinite;
+}
+
+.isometric-grid-loader .grid-plane {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, rgba(124, 58, 237, 0.1) 1px, transparent 1px) 0 0/20px 20px,
+        linear-gradient(0deg, rgba(124, 58, 237, 0.1) 1px, transparent 1px) 0 0/20px 20px;
+    transform: translateZ(-20px);
+}
+
+.isometric-grid-loader .cube {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    transform-style: preserve-3d;
+    animation: cubeFloat 3s ease-in-out infinite;
+    box-shadow: 
+        0 0 10px rgba(124, 58, 237, 0.5),
+        inset 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.isometric-grid-loader .cube::before,
+.isometric-grid-loader .cube::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+}
+
+.isometric-grid-loader .cube::before {
+    transform: rotateX(90deg) translateZ(10px);
+    opacity: 0.6;
+}
+
+.isometric-grid-loader .cube::after {
+    transform: rotateY(90deg) translateZ(10px);
+    opacity: 0.4;
+}
+
+.isometric-grid-loader .cube:nth-child(2) {
+    top: 40px;
+    left: 40px;
+    animation-delay: -1s;
+}
+
+.isometric-grid-loader .cube:nth-child(3) {
+    top: 20px;
+    left: 80px;
+    animation-delay: -2s;
+}
+
+.isometric-grid-loader .cube:nth-child(4) {
+    top: 60px;
+    left: 60px;
+    animation-delay: -3s;
+}
+
+@keyframes gridRotate {
+    0% { transform: rotateX(60deg) rotateZ(45deg); }
+    100% { transform: rotateX(60deg) rotateZ(405deg); }
+}
+
+@keyframes cubeFloat {
+    0%, 100% {
+        transform: translateZ(0);
+    }
+    50% {
+        transform: translateZ(30px);
+        box-shadow: 
+            0 0 20px rgba(124, 58, 237, 0.8),
+            inset 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control isometric grid loader
+const isoLoader = document.querySelector('.isometric-grid-loader');
+
+// Change grid density
+function setGridDensity(cellSize) {
+    const plane = isoLoader.querySelector('.grid-plane');
+    plane.style.background = \`
+        linear-gradient(90deg, rgba(124, 58, 237, 0.1) 1px, transparent 1px) 0 0/\${cellSize}px \${cellSize}px,
+        linear-gradient(0deg, rgba(124, 58, 237, 0.1) 1px, transparent 1px) 0 0/\${cellSize}px \${cellSize}px
+    \`;
+    
+    // Update cube size to match grid
+    document.querySelectorAll('.cube').forEach(cube => {
+        cube.style.width = cellSize + 'px';
+        cube.style.height = cellSize + 'px';
+    });
+}
+
+// Change cube arrangement
+function setCubeArrangement(arrangement) {
+    // Remove existing cubes (keep grid plane)
+    const existingCubes = isoLoader.querySelectorAll('.cube');
+    existingCubes.forEach(cube => cube.remove());
+    
+    // Add new cubes based on arrangement
+    arrangement.forEach((pos, i) => {
+        const cube = document.createElement('div');
+        cube.className = 'cube';
+        cube.style.top = pos.y + 'px';
+        cube.style.left = pos.x + 'px';
+        cube.style.animationDelay = \`-\${i}s\`;
+        
+        // Custom colors for each cube
+        const colors = [
+            ['#7c3aed', '#ec4899'],
+            ['#3b82f6', '#8b5cf6'],
+            ['#10b981', '#059669'],
+            ['#f59e0b', '#fbbf24'],
+            ['#ef4444', '#f97316']
+        ];
+        
+        cube.style.background = \`linear-gradient(135deg, \${colors[i % colors.length][0]}, \${colors[i % colors.length][1]})\`;
+        
+        isoLoader.appendChild(cube);
+    });
+}
+
+// Change view angle
+function setViewAngle(xAngle, zAngle) {
+    isoLoader.style.transform = \`rotateX(\${xAngle}deg) rotateZ(\${zAngle}deg)\`;
+}
+
+// Add more cubes dynamically
+function addCube(x, y, color1, color2) {
+    const cube = document.createElement('div');
+    cube.className = 'cube';
+    cube.style.top = y + 'px';
+    cube.style.left = x + 'px';
+    cube.style.background = \`linear-gradient(135deg, \${color1}, \${color2})\`;
+    cube.style.animationDelay = \`-\${document.querySelectorAll('.cube').length}s\`;
+    
+    isoLoader.appendChild(cube);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 70: Data Stream Loader
+    // ====================================================================
+    loader70: {
+        name: "Data Stream Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="data-stream-loader">
+        <div class="stream-line"></div>
+        <div class="stream-line"></div>
+        <div class="stream-line"></div>
+        <div class="data-node"></div>
+        <div class="data-node"></div>
+        <div class="data-node"></div>
+    </div>
+</div>`,
+        css: `.data-stream-loader {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    background: rgba(15, 23, 42, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(124, 58, 237, 0.1);
+}
+
+.data-stream-loader::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(124, 58, 237, 0.05) 50%,
+        transparent
+    );
+    animation: dataScan 2s linear infinite;
+}
+
+.data-stream-loader .stream-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #7c3aed,
+        #ec4899,
+        transparent
+    );
+    filter: drop-shadow(0 0 3px #7c3aed);
+    animation: streamFlow 1.5s linear infinite;
+}
+
+.data-stream-loader .stream-line:nth-child(1) {
+    top: 20%;
+    width: 80%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.data-stream-loader .stream-line:nth-child(2) {
+    top: 50%;
+    width: 90%;
+    left: 5%;
+    animation-delay: -0.5s;
+}
+
+.data-stream-loader .stream-line:nth-child(3) {
+    top: 80%;
+    width: 70%;
+    left: 15%;
+    animation-delay: -1s;
+}
+
+.data-stream-loader .data-node {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle at center, #3b82f6, #1d4ed8);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px #3b82f6);
+    animation: nodePulse 2s ease-in-out infinite;
+}
+
+.data-stream-loader .data-node:nth-child(4) {
+    top: 20%;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.data-stream-loader .data-node:nth-child(5) {
+    top: 50%;
+    left: 60%;
+    animation-delay: -0.66s;
+}
+
+.data-stream-loader .data-node:nth-child(6) {
+    top: 80%;
+    left: 40%;
+    animation-delay: -1.33s;
+}
+
+@keyframes dataScan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes streamFlow {
+    0% {
+        background-position: -100% 0;
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    100% {
+        background-position: 200% 0;
+        opacity: 0;
+    }
+}
+
+@keyframes nodePulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 6px #3b82f6);
+    }
+    50% {
+        transform: scale(1.3);
+        filter: drop-shadow(0 0 12px #60a5fa);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control data stream loader
+const dataStreamLoader = document.querySelector('.data-stream-loader');
+
+// Simulate real data flow
+function simulateDataFlow(packetCount) {
+    // Clear existing stream lines
+    const existingLines = dataStreamLoader.querySelectorAll('.stream-line');
+    existingLines.forEach(line => line.remove());
+    
+    // Add new stream lines for each data packet
+    for (let i = 0; i < packetCount; i++) {
+        const line = document.createElement('div');
+        line.className = 'stream-line';
+        
+        // Randomize stream properties
+        const top = 10 + Math.random() * 80;
+        const width = 60 + Math.random() * 30;
+        const left = (100 - width) / 2;
+        const speed = 1 + Math.random() * 2;
+        const delay = Math.random() * 2;
+        
+        line.style.top = top + '%';
+        line.style.width = width + '%';
+        line.style.left = left + '%';
+        line.style.animationDuration = speed + 's';
+        line.style.animationDelay = \`-\${delay}s\`;
+        
+        // Random color for each data packet
+        const colors = [
+            ['#7c3aed', '#ec4899'],
+            ['#3b82f6', '#8b5cf6'],
+            ['#10b981', '#059669'],
+            ['#f59e0b', '#fbbf24']
+        ];
+        const colorPair = colors[Math.floor(Math.random() * colors.length)];
+        line.style.background = \`linear-gradient(90deg, transparent, \${colorPair[0]}, \${colorPair[1]}, transparent)\`;
+        
+        dataStreamLoader.appendChild(line);
+    }
+}
+
+// Add data nodes dynamically
+function addDataNode(x, y, size, color) {
+    const node = document.createElement('div');
+    node.className = 'data-node';
+    node.style.left = x + '%';
+    node.style.top = y + '%';
+    node.style.width = size + 'px';
+    node.style.height = size + 'px';
+    node.style.background = \`radial-gradient(circle at center, \${color}, \${darkenColor(color, 0.3)})\`;
+    node.style.animationDelay = \`-\${document.querySelectorAll('.data-node').length}s\`;
+    
+    dataStreamLoader.appendChild(node);
+}
+
+// Change data stream background
+function setStreamBackground(color, intensity) {
+    const rgb = hexToRgb(color);
+    dataStreamLoader.style.background = \`rgba(\${rgb.r}, \${rgb.g}, \${rgb.b}, \${intensity})\`;
+    dataStreamLoader.style.borderColor = \`rgba(\${rgb.r}, \${rgb.g}, \${rgb.b}, \${intensity * 2})\`;
+}
+
+// Helper function to darken color
+function darkenColor(hex, percent) {
+    let r = parseInt(hex.slice(1, 3), 16);
+    let g = parseInt(hex.slice(3, 5), 16);
+    let b = parseInt(hex.slice(5, 7), 16);
+    
+    r = Math.floor(r * (1 - percent));
+    g = Math.floor(g * (1 - percent));
+    b = Math.floor(b * (1 - percent));
+    
+    return \`#\${r.toString(16).padStart(2, '0')}\${g.toString(16).padStart(2, '0')}\${b.toString(16).padStart(2, '0')}\`;
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 71: Holographic Interface Loader
+    // ====================================================================
+    loader71: {
+        name: "Holographic Interface Loader",
+        category: "modern",
+        html: `<div class="loader-container">
+    <div class="holographic-interface-loader">
+        <div class="hologram-line"></div>
+        <div class="hologram-line"></div>
+        <div class="hologram-line"></div>
+        <div class="interface-dot"></div>
+        <div class="interface-dot"></div>
+        <div class="interface-dot"></div>
+    </div>
+</div>`,
+        css: `.holographic-interface-loader {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    background: 
+        linear-gradient(135deg, 
+            rgba(0, 243, 255, 0.05) 0%, 
+            rgba(255, 0, 255, 0.05) 100%);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    box-shadow: 
+        0 0 30px rgba(0, 243, 255, 0.3),
+        inset 0 0 20px rgba(255, 0, 255, 0.1);
+}
+
+.holographic-interface-loader::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 243, 255, 0.05) 2px,
+            rgba(0, 243, 255, 0.05) 4px
+        );
+    animation: hologramScan 1s linear infinite;
+}
+
+.holographic-interface-loader::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 0, 255, 0.1),
+        transparent
+    );
+    animation: hologramGlow 2s ease-in-out infinite;
+}
+
+.holographic-interface-loader .hologram-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #00f3ff,
+        #ff00ff,
+        transparent
+    );
+    filter: drop-shadow(0 0 3px #00f3ff);
+    animation: lineScan 3s linear infinite;
+}
+
+.holographic-interface-loader .hologram-line:nth-child(1) {
+    top: 25%;
+    width: 100%;
+    animation-delay: 0s;
+}
+
+.holographic-interface-loader .hologram-line:nth-child(2) {
+    top: 50%;
+    width: 100%;
+    animation-delay: -1s;
+}
+
+.holographic-interface-loader .hologram-line:nth-child(3) {
+    top: 75%;
+    width: 100%;
+    animation-delay: -2s;
+}
+
+.holographic-interface-loader .interface-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle at center, #00f3ff, #ff00ff);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 8px #00f3ff);
+    animation: interfaceDot 2s ease-in-out infinite;
+}
+
+.holographic-interface-loader .interface-dot:nth-child(4) {
+    top: 25%;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.holographic-interface-loader .interface-dot:nth-child(5) {
+    top: 50%;
+    left: 60%;
+    animation-delay: -0.66s;
+}
+
+.holographic-interface-loader .interface-dot:nth-child(6) {
+    top: 75%;
+    left: 40%;
+    animation-delay: -1.33s;
+}
+
+@keyframes hologramScan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes hologramGlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes lineScan {
+    0% {
+        background-position: -100% 0;
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    100% {
+        background-position: 200% 0;
+        opacity: 0;
+    }
+}
+
+@keyframes interfaceDot {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 0 8px #00f3ff);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.3);
+        filter: drop-shadow(0 0 15px #ff00ff);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control holographic interface loader
+const holographicLoader = document.querySelector('.holographic-interface-loader');
+
+// Create interactive hologram
+function createInteractiveHologram(density) {
+    // Clear existing elements except pseudo-elements
+    const existingLines = holographicLoader.querySelectorAll('.hologram-line');
+    const existingDots = holographicLoader.querySelectorAll('.interface-dot');
+    existingLines.forEach(line => line.remove());
+    existingDots.forEach(dot => dot.remove());
+    
+    // Create scan lines
+    for (let i = 0; i < density; i++) {
+        const line = document.createElement('div');
+        line.className = 'hologram-line';
+        line.style.top = \`\${(i + 1) * (100 / (density + 1))}%\`;
+        line.style.animationDelay = \`-\${i * 0.5}s\`;
+        
+        // Randomize line properties
+        const width = 80 + Math.random() * 20;
+        line.style.width = width + '%';
+        line.style.left = (100 - width) / 2 + '%';
+        
+        holographicLoader.appendChild(line);
+    }
+    
+    // Create interface dots
+    for (let i = 0; i < density * 2; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'interface-dot';
+        
+        // Position dots in grid pattern
+        const row = Math.floor(i / 3);
+        const col = i % 3;
+        const top = 20 + row * 30;
+        const left = 20 + col * 30;
+        const size = 8 + Math.random() * 6;
+        
+        dot.style.top = top + '%';
+        dot.style.left = left + '%';
+        dot.style.width = size + 'px';
+        dot.style.height = size + 'px';
+        dot.style.animationDelay = \`-\${i * 0.33}s\`;
+        
+        // Random neon color
+        const neonColors = [
+            ['#00f3ff', '#ff00ff'],
+            ['#00ff88', '#00f3ff'],
+            ['#ff0080', '#8000ff'],
+            ['#ffaa00', '#ff5500']
+        ];
+        const colors = neonColors[Math.floor(Math.random() * neonColors.length)];
+        dot.style.background = \`radial-gradient(circle at center, \${colors[0]}, \${colors[1]})\`;
+        
+        holographicLoader.appendChild(dot);
+    }
+}
+
+// Change hologram theme
+function setHologramTheme(primaryColor, secondaryColor) {
+    const primaryRGB = hexToRgb(primaryColor);
+    const secondaryRGB = hexToRgb(secondaryColor);
+    
+    // Update background gradient
+    holographicLoader.style.background = \`
+        linear-gradient(135deg, 
+            rgba(\${primaryRGB.r}, \${primaryRGB.g}, \${primaryRGB.b}, 0.05) 0%, 
+            rgba(\${secondaryRGB.r}, \${secondaryRGB.g}, \${secondaryRGB.b}, 0.05) 100%)
+    \`;
+    
+    // Update border and shadow
+    holographicLoader.style.borderColor = \`rgba(\${primaryRGB.r}, \${primaryRGB.g}, \${primaryRGB.b}, 0.2)\`;
+    holographicLoader.style.boxShadow = \`
+        0 0 30px rgba(\${primaryRGB.r}, \${primaryRGB.g}, \${primaryRGB.b}, 0.3),
+        inset 0 0 20px rgba(\${secondaryRGB.r}, \${secondaryRGB.g}, \${secondaryRGB.b}, 0.1)
+    \`;
+    
+    // Update scan lines
+    document.querySelectorAll('.hologram-line').forEach(line => {
+        line.style.background = \`
+            linear-gradient(90deg,
+                transparent,
+                \${primaryColor},
+                \${secondaryColor},
+                transparent)
+        \`;
+    });
+    
+    // Update interface dots
+    document.querySelectorAll('.interface-dot').forEach(dot => {
+        dot.style.background = \`radial-gradient(circle at center, \${primaryColor}, \${secondaryColor})\`;
+    });
+}
+
+// Add real-time data display
+function addDataDisplay(data) {
+    const display = document.createElement('div');
+    display.className = 'hologram-data';
+    display.style.cssText = \`
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        font-family: 'Courier New', monospace;
+        font-size: 10px;
+        color: #00f3ff;
+        text-shadow: 0 0 5px #00f3ff;
+        opacity: 0.8;
+    \`;
+    
+    // Format data for display
+    const lines = [];
+    for (const key in data) {
+        lines.push(\`\${key.padEnd(10)}: \${data[key]}\`);
+    }
+    display.textContent = lines.join('\\n');
+    
+    holographicLoader.appendChild(display);
+}
+
+// Animate data flow between dots
+function animateDataFlow() {
+    const dots = document.querySelectorAll('.interface-dot');
+    
+    dots.forEach((dot, i) => {
+        const nextDot = dots[(i + 1) % dots.length];
+        
+        // Create connection line
+        const line = document.createElement('div');
+        line.className = 'data-connection';
+        line.style.cssText = \`
+            position: absolute;
+            background: linear-gradient(to right, #00f3ff, #ff00ff);
+            height: 1px;
+            border-radius: 1px;
+            filter: drop-shadow(0 0 3px #00f3ff);
+            animation: dataFlow 1s linear infinite;
+            z-index: 1;
+        \`;
+        
+        // Calculate positions
+        const rect1 = dot.getBoundingClientRect();
+        const rect2 = nextDot.getBoundingClientRect();
+        const containerRect = holographicLoader.getBoundingClientRect();
+        
+        const x1 = rect1.left - containerRect.left + rect1.width / 2;
+        const y1 = rect1.top - containerRect.top + rect1.height / 2;
+        const x2 = rect2.left - containerRect.left + rect2.width / 2;
+        const y2 = rect2.top - containerRect.top + rect2.height / 2;
+        
+        // Set line properties
+        const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+        
+        line.style.width = length + 'px';
+        line.style.left = x1 + 'px';
+        line.style.top = y1 + 'px';
+        line.style.transform = \`rotate(\${angle}deg)\`;
+        line.style.transformOrigin = '0 0';
+        line.style.animationDelay = \`-\${i * 0.2}s\`;
+        
+        holographicLoader.appendChild(line);
+    });
+}`
+    }
 };
 
 // Main functionality for loader templates
