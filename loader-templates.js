@@ -11496,7 +11496,5170 @@ function animateDataFlow() {
         holographicLoader.appendChild(line);
     });
 }`
+    },
+    // ====================================================================
+    // TEMPLATE 72: 3D Starfield Loader
+    // ====================================================================
+    loader72: {
+        name: "3D Starfield Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="starfield-loader">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+</div>`,
+        css: `.starfield-loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    perspective: 600px;
+    animation: starfieldRotate 20s linear infinite;
+}
+
+.starfield-loader .star {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(45deg, #7c3aed, #ec4899);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px #7c3aed);
+    animation: starFloat 4s ease-in-out infinite;
+}
+
+.starfield-loader .star:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+    transform: translateZ(-50px);
+}
+
+.starfield-loader .star:nth-child(2) {
+    top: 40%;
+    left: 60%;
+    animation-delay: -1s;
+    transform: translateZ(-30px);
+}
+
+.starfield-loader .star:nth-child(3) {
+    top: 70%;
+    left: 30%;
+    animation-delay: -2s;
+    transform: translateZ(-10px);
+}
+
+.starfield-loader .star:nth-child(4) {
+    top: 30%;
+    left: 70%;
+    animation-delay: -3s;
+    transform: translateZ(10px);
+}
+
+.starfield-loader .star:nth-child(5) {
+    top: 80%;
+    left: 80%;
+    animation-delay: -4s;
+    transform: translateZ(30px);
+}
+
+@keyframes starfieldRotate {
+    0% {
+        transform: rotateX(60deg) rotateY(0deg);
     }
+    100% {
+        transform: rotateX(60deg) rotateY(360deg);
+    }
+}
+
+@keyframes starFloat {
+    0%, 100% {
+        transform: translateZ(var(--z)) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateZ(calc(var(--z) + 40px)) scale(1.3);
+        opacity: 1;
+        filter: drop-shadow(0 0 12px #ec4899);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control 3D starfield loader
+const starfieldLoader = document.querySelector('.starfield-loader');
+
+// Create starfield with dynamic stars
+function createStarfield(starCount) {
+    starfieldLoader.innerHTML = '';
+    
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        // Random positioning
+        const top = Math.random() * 90 + 5;
+        const left = Math.random() * 90 + 5;
+        const zDepth = -50 + Math.random() * 100;
+        const delay = Math.random() * 4;
+        const size = 6 + Math.random() * 6;
+        
+        star.style.top = top + '%';
+        star.style.left = left + '%';
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.setProperty('--z', zDepth + 'px');
+        star.style.animationDelay = -delay + 's';
+        
+        // Random colors
+        const colors = [
+            ['#7c3aed', '#ec4899'],
+            ['#3b82f6', '#8b5cf6'],
+            ['#10b981', '#059669'],
+            ['#f59e0b', '#fbbf24']
+        ];
+        const colorPair = colors[Math.floor(Math.random() * colors.length)];
+        star.style.background = \`linear-gradient(45deg, \${colorPair[0]}, \${colorPair[1]})\`;
+        
+        starfieldLoader.appendChild(star);
+    }
+}
+
+// Change rotation speed
+function setRotationSpeed(speed) {
+    starfieldLoader.style.animationDuration = speed + 's';
+}
+
+// Change perspective
+function setPerspective(depth) {
+    starfieldLoader.style.perspective = depth + 'px';
+}
+
+// Create constellation patterns
+function createConstellation(pattern) {
+    starfieldLoader.innerHTML = '';
+    
+    pattern.forEach((pos, i) => {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        star.style.top = pos.y + '%';
+        star.style.left = pos.x + '%';
+        star.style.transform = \`translateZ(\${pos.z}px)\`;
+        star.style.animationDelay = \`-\${i * 0.8}s\`;
+        
+        starfieldLoader.appendChild(star);
+    });
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 73: Modern Spinner with Text
+    // ====================================================================
+    loader73: {
+        name: "Modern Spinner with Text",
+        category: "modern",
+        html: `<div class="loader-container">
+    <div class="modern-spinner-loader">
+        <svg class="spinner-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2V6M12 18V22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12H6M18 12H22M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" 
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="loading-text">Processing...</span>
+    </div>
+</div>`,
+        css: `.modern-spinner-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    height: 100px;
+}
+
+.modern-spinner-loader .spinner-icon {
+    width: 48px;
+    height: 48px;
+    color: #7c3aed;
+    animation: spinModern 2s linear infinite;
+    filter: drop-shadow(0 2px 4px rgba(124, 58, 237, 0.3));
+}
+
+.modern-spinner-loader .loading-text {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    letter-spacing: 0.5px;
+    animation: textPulse 2s ease-in-out infinite;
+}
+
+@keyframes spinModern {
+    0% {
+        transform: rotate(0deg);
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35;
+    }
+    100% {
+        transform: rotate(360deg);
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124;
+    }
+}
+
+@keyframes textPulse {
+    0%, 100% {
+        opacity: 0.7;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control modern spinner with text
+const modernSpinner = document.querySelector('.modern-spinner-loader');
+
+// Change loading text
+function setLoadingText(text) {
+    const textElement = modernSpinner.querySelector('.loading-text');
+    textElement.textContent = text;
+}
+
+// Change spinner style
+function setSpinnerStyle(style) {
+    const spinner = modernSpinner.querySelector('.spinner-icon');
+    
+    switch(style) {
+        case 'simple':
+            spinner.innerHTML = '<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/>';
+            break;
+        case 'dots':
+            spinner.innerHTML = '<circle cx="4" cy="12" r="3"/><circle cx="12" cy="12" r="3"/><circle cx="20" cy="12" r="3"/>';
+            break;
+        case 'gear':
+            spinner.innerHTML = '<path d="M12 2L14.5 8.5L21 9L16 13.5L17.5 21L12 17L6.5 21L8 13.5L3 9L9.5 8.5L12 2Z"/>';
+            break;
+        default:
+            spinner.innerHTML = '<path d="M12 2V6M12 18V22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12H6M18 12H22M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
+    }
+}
+
+// Change colors
+function setSpinnerColors(iconColor, textColor) {
+    const spinner = modernSpinner.querySelector('.spinner-icon');
+    const text = modernSpinner.querySelector('.loading-text');
+    
+    spinner.style.color = iconColor;
+    text.style.color = textColor;
+    spinner.style.filter = \`drop-shadow(0 2px 4px rgba(\${hexToRgb(iconColor).r}, \${hexToRgb(iconColor).g}, \${hexToRgb(iconColor).b}, 0.3))\`;
+}
+
+// Show progress percentage
+function showProgress(percentage) {
+    const textElement = modernSpinner.querySelector('.loading-text');
+    textElement.textContent = \`\${percentage}%\`;
+    
+    // Change animation speed based on progress
+    const spinner = modernSpinner.querySelector('.spinner-icon');
+    const speed = 2 - (percentage / 100); // Faster as it approaches 100%
+    spinner.style.animationDuration = speed + 's';
+}
+
+// Simulate file upload
+function simulateUpload(fileName) {
+    let progress = 0;
+    const textElement = modernSpinner.querySelector('.loading-text');
+    
+    const interval = setInterval(() => {
+        progress += Math.random() * 5;
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+            textElement.textContent = 'Complete!';
+        } else {
+            textElement.textContent = \`Uploading \${fileName}: \${Math.round(progress)}%\`;
+        }
+    }, 200);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 74: Gradient Path Loader
+    // ====================================================================
+    loader74: {
+        name: "Gradient Path Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="gradient-path-loader">
+        <svg viewBox="0 0 187.3 93.7" class="path-svg">
+            <defs>
+                <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#7c3aed"></stop>
+                    <stop offset="50%" stop-color="#ec4899"></stop>
+                    <stop offset="100%" stop-color="#7c3aed"></stop>
+                </linearGradient>
+            </defs>
+            <path stroke="url(#path-gradient)" 
+                  d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z">
+            </path>
+        </svg>
+    </div>
+</div>`,
+        css: `.gradient-path-loader {
+    width: 150px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gradient-path-loader .path-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.gradient-path-loader .path-svg path {
+    stroke-width: 4;
+    stroke-linecap: round;
+    fill: none;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: drawPath 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(124, 58, 237, 0.4));
+}
+
+@keyframes drawPath {
+    0% {
+        stroke-dashoffset: 300;
+        opacity: 0.3;
+    }
+    50% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: -300;
+        opacity: 0.3;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control gradient path loader
+const pathLoader = document.querySelector('.gradient-path-loader');
+
+// Change SVG path
+function setPath(pathData) {
+    const path = pathLoader.querySelector('path');
+    path.setAttribute('d', pathData);
+    
+    // Recalculate dash array based on path length
+    const length = path.getTotalLength();
+    path.style.strokeDasharray = length;
+    path.style.strokeDashoffset = length;
+}
+
+// Change gradient colors
+function setGradientColors(colors) {
+    const gradient = pathLoader.querySelector('#path-gradient');
+    gradient.innerHTML = '';
+    
+    colors.forEach((color, index) => {
+        const stop = document.createElement('stop');
+        stop.setAttribute('offset', \`\${(index / (colors.length - 1)) * 100}%\`);
+        stop.setAttribute('stop-color', color);
+        gradient.appendChild(stop);
+    });
+}
+
+// Change animation style
+function setAnimationStyle(style) {
+    const path = pathLoader.querySelector('path');
+    
+    switch(style) {
+        case 'bounce':
+            path.style.animation = 'drawPath 1.5s ease-in-out infinite alternate';
+            break;
+        case 'pulse':
+            path.style.animation = 'drawPath 2s cubic-bezier(0.4, 0, 0.6, 1) infinite';
+            break;
+        case 'continuous':
+            path.style.animation = 'drawPath 4s linear infinite';
+            break;
+        default:
+            path.style.animation = 'drawPath 3s ease-in-out infinite';
+    }
+}
+
+// Create custom shape
+function createCustomShape(type) {
+    let pathData;
+    
+    switch(type) {
+        case 'circle':
+            pathData = 'M50,25a25,25 0 1,0 50,0a25,25 0 1,0 -50,0';
+            break;
+        case 'triangle':
+            pathData = 'M50,15 L85,85 L15,85 Z';
+            break;
+        case 'infinity':
+            pathData = 'M30,50 C30,30 50,30 50,50 C50,70 70,70 70,50 C70,30 90,30 90,50 C90,70 70,70 70,50 C70,30 50,30 50,50 C50,70 30,70 30,50 Z';
+            break;
+        default:
+            pathData = 'M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z';
+    }
+    
+    setPath(pathData);
+}
+
+// Control stroke properties
+function setStrokeProperties(width, cap) {
+    const path = pathLoader.querySelector('path');
+    path.style.strokeWidth = width;
+    path.setAttribute('stroke-linecap', cap);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 75: Geometric Wave Loader
+    // ====================================================================
+    loader75: {
+        name: "Geometric Wave Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="geometric-wave-loader">
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+    </div>
+</div>`,
+        css: `.geometric-wave-loader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6px;
+    height: 60px;
+    width: 120px;
+}
+
+.geometric-wave-loader .wave-bar {
+    width: 12px;
+    background: linear-gradient(to top, #7c3aed, #ec4899);
+    border-radius: 6px 6px 0 0;
+    animation: waveMove 1.2s ease-in-out infinite;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);
+}
+
+.geometric-wave-loader .wave-bar:nth-child(1) {
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.geometric-wave-loader .wave-bar:nth-child(2) {
+    height: 35px;
+    animation-delay: -0.1s;
+}
+
+.geometric-wave-loader .wave-bar:nth-child(3) {
+    height: 50px;
+    animation-delay: -0.2s;
+}
+
+.geometric-wave-loader .wave-bar:nth-child(4) {
+    height: 35px;
+    animation-delay: -0.3s;
+}
+
+.geometric-wave-loader .wave-bar:nth-child(5) {
+    height: 20px;
+    animation-delay: -0.4s;
+}
+
+@keyframes waveMove {
+    0%, 100% {
+        transform: scaleY(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scaleY(0.4);
+        opacity: 1;
+        filter: drop-shadow(0 0 8px #ec4899);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control geometric wave loader
+const waveLoader = document.querySelector('.geometric-wave-loader');
+
+// Create wave pattern
+function createWavePattern(bars, pattern) {
+    waveLoader.innerHTML = '';
+    
+    for (let i = 0; i < bars; i++) {
+        const bar = document.createElement('div');
+        bar.className = 'wave-bar';
+        
+        // Different patterns
+        let height;
+        switch(pattern) {
+            case 'sine':
+                height = 25 + 25 * Math.sin((i / bars) * Math.PI * 2);
+                break;
+            case 'random':
+                height = 20 + Math.random() * 40;
+                break;
+            case 'pyramid':
+                const middle = Math.floor(bars / 2);
+                height = 20 + 30 * (1 - Math.abs(i - middle) / middle);
+                break;
+            default:
+                const middleIdx = Math.floor(bars / 2);
+                height = 20 + 30 * (1 - Math.abs(i - middleIdx) / middleIdx);
+        }
+        
+        bar.style.height = height + 'px';
+        bar.style.width = (100 / bars) + 'px';
+        bar.style.animationDelay = \`-\${i * 0.1}s\`;
+        
+        waveLoader.appendChild(bar);
+    }
+}
+
+// Change wave colors
+function setWaveColors(color1, color2) {
+    document.querySelectorAll('.wave-bar').forEach(bar => {
+        bar.style.background = \`linear-gradient(to top, \${color1}, \${color2})\`;
+    });
+}
+
+// Change clip-path shape
+function setWaveShape(shape) {
+    let clipPath;
+    
+    switch(shape) {
+        case 'triangle':
+            clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+            break;
+        case 'trapezoid':
+            clipPath = 'polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)';
+            break;
+        case 'rounded':
+            clipPath = 'polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%)';
+            break;
+        default:
+            clipPath = 'polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%)';
+    }
+    
+    document.querySelectorAll('.wave-bar').forEach(bar => {
+        bar.style.clipPath = clipPath;
+    });
+}
+
+// Control wave animation
+function setWaveAnimation(speed, amplitude) {
+    const keyframes = \`
+        @keyframes waveMove {
+            0%, 100% {
+                transform: scaleY(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scaleY(\${amplitude});
+                opacity: 1;
+                filter: drop-shadow(0 0 8px currentColor);
+            }
+        }
+    \`;
+    
+    const styleSheet = document.styleSheets[0];
+    const existingRule = Array.from(styleSheet.cssRules).find(rule => 
+        rule.name === 'waveMove'
+    );
+    
+    if (existingRule) {
+        styleSheet.deleteRule(Array.from(styleSheet.cssRules).indexOf(existingRule));
+    }
+    
+    styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+    
+    document.querySelectorAll('.wave-bar').forEach(bar => {
+        bar.style.animationDuration = speed + 's';
+    });
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 76: Minimal Dot Sequence
+    // ====================================================================
+    loader76: {
+        name: "Minimal Dot Sequence",
+        category: "minimal",
+        html: `<div class="loader-container">
+    <div class="dot-sequence-loader">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>`,
+        css: `.dot-sequence-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    height: 60px;
+    width: 120px;
+}
+
+.dot-sequence-loader .dot {
+    width: 12px;
+    height: 12px;
+    background: #7c3aed;
+    border-radius: 50%;
+    animation: dotSequence 1.5s ease-in-out infinite;
+    box-shadow: 0 2px 4px rgba(124, 58, 237, 0.3);
+}
+
+.dot-sequence-loader .dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.dot-sequence-loader .dot:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.dot-sequence-loader .dot:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+.dot-sequence-loader .dot:nth-child(4) {
+    animation-delay: -0.6s;
+}
+
+.dot-sequence-loader .dot:nth-child(5) {
+    animation-delay: -0.8s;
+}
+
+@keyframes dotSequence {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        background: #7c3aed;
+        opacity: 0.4;
+    }
+    25% {
+        transform: translateY(-15px) scale(1.2);
+        background: #ec4899;
+        opacity: 1;
+        box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
+    }
+    50% {
+        transform: translateY(0) scale(1);
+        background: #7c3aed;
+        opacity: 0.4;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control minimal dot sequence loader
+const dotSequenceLoader = document.querySelector('.dot-sequence-loader');
+
+// Create dot sequence
+function createDotSequence(count, pattern) {
+    dotSequenceLoader.innerHTML = '';
+    
+    for (let i = 0; i < count; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        
+        // Different patterns
+        let size, delay;
+        switch(pattern) {
+            case 'equal':
+                size = 12;
+                delay = i * 0.2;
+                break;
+            case 'crescendo':
+                size = 8 + (i * 2);
+                delay = i * 0.15;
+                break;
+            case 'decrescendo':
+                size = 16 - (i * 2);
+                delay = i * 0.15;
+                break;
+            case 'random':
+                size = 8 + Math.random() * 8;
+                delay = Math.random() * 1.5;
+                break;
+            default:
+                size = 12;
+                delay = i * 0.2;
+        }
+        
+        dot.style.width = size + 'px';
+        dot.style.height = size + 'px';
+        dot.style.animationDelay = \`-\${delay}s\`;
+        
+        dotSequenceLoader.appendChild(dot);
+    }
+    
+    // Adjust gap based on count
+    dotSequenceLoader.style.gap = \`\${100 / (count * 2)}px\`;
+}
+
+// Change dot colors
+function setDotColors(colors) {
+    document.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.style.background = colors[index % colors.length];
+        
+        // Create shadow color from background
+        const rgb = hexToRgb(colors[index % colors.length]);
+        dot.style.boxShadow = \`0 2px 4px rgba(\${rgb.r}, \${rgb.g}, \${rgb.b}, 0.3)\`;
+    });
+}
+
+// Create traveling dot effect
+function createTravelingDot() {
+    const dots = document.querySelectorAll('.dot');
+    
+    dots.forEach((dot, index) => {
+        dot.style.animation = \`
+            dotTravel 2s ease-in-out infinite,
+            dotPulse 0.5s ease-in-out infinite
+        \`;
+        dot.style.animationDelay = \`-\${index * 0.3}s, -\${index * 0.1}s\`;
+    });
+    
+    // Add custom keyframes
+    const keyframes = \`
+        @keyframes dotTravel {
+            0%, 100% {
+                transform: translateX(-20px) translateY(0) scale(1);
+                opacity: 0.3;
+            }
+            25% {
+                transform: translateX(0) translateY(-15px) scale(1.3);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(20px) translateY(0) scale(1);
+                opacity: 0.3;
+            }
+            75% {
+                transform: translateX(0) translateY(15px) scale(0.8);
+                opacity: 0.5;
+            }
+        }
+        
+        @keyframes dotPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    \`;
+    
+    const styleSheet = document.styleSheets[0];
+    const travelRule = Array.from(styleSheet.cssRules).find(rule => 
+        rule.name === 'dotTravel'
+    );
+    const pulseRule = Array.from(styleSheet.cssRules).find(rule => 
+        rule.name === 'dotPulse'
+    );
+    
+    if (travelRule) styleSheet.deleteRule(Array.from(styleSheet.cssRules).indexOf(travelRule));
+    if (pulseRule) styleSheet.deleteRule(Array.from(styleSheet.cssRules).indexOf(pulseRule));
+    
+    styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+}
+
+// Create loading progress with dots
+function showProgressWithDots(progress) {
+    const dots = document.querySelectorAll('.dot');
+    const activeDots = Math.ceil((progress / 100) * dots.length);
+    
+    dots.forEach((dot, index) => {
+        if (index < activeDots) {
+            dot.style.background = '#10b981';
+            dot.style.opacity = '1';
+            dot.style.animation = 'none';
+            dot.style.transform = 'scale(1.1)';
+        } else {
+            dot.style.background = '#7c3aed';
+            dot.style.opacity = '0.3';
+            dot.style.animation = '';
+            dot.style.transform = '';
+        }
+    });
+}`
+    },
+        // ====================================================================
+    // TEMPLATE 77: Water Droplet Loader
+    // ====================================================================
+    loader77: {
+        name: "Water Droplet Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="water-droplet-loader">
+        <div class="droplet"></div>
+        <div class="ripple"></div>
+        <div class="ripple"></div>
+        <div class="ripple"></div>
+    </div>
+</div>`,
+        css: `.water-droplet-loader {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.water-droplet-loader .droplet {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background: radial-gradient(circle at 30% 40%, 
+        rgba(59, 130, 246, 0.9), 
+        rgba(30, 64, 175, 0.7) 60%, 
+        transparent 70%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: dropletDrip 3s ease-in-out infinite;
+    box-shadow: 
+        inset 0 -5px 10px rgba(255, 255, 255, 0.3),
+        0 5px 15px rgba(59, 130, 246, 0.4);
+    filter: blur(1px);
+}
+
+.water-droplet-loader .ripple {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 50%;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rippleEffect 2s ease-out infinite;
+}
+
+.water-droplet-loader .ripple:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.water-droplet-loader .ripple:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes dropletDrip {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+        height: 40px;
+        width: 30px;
+    }
+    30% {
+        transform: translateX(-50%) translateY(20px);
+        height: 50px;
+        width: 25px;
+    }
+    60% {
+        transform: translateX(-50%) translateY(20px);
+        height: 20px;
+        width: 30px;
+    }
+}
+
+@keyframes rippleEffect {
+    0% {
+        width: 20px;
+        height: 20px;
+        opacity: 1;
+        border-width: 2px;
+    }
+    100% {
+        width: 80px;
+        height: 80px;
+        opacity: 0;
+        border-width: 0.5px;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control water droplet loader
+const dropletLoader = document.querySelector('.water-droplet-loader');
+
+// Create multiple droplets
+function createDroplets(count) {
+    // Clear existing elements
+    const existingElements = dropletLoader.querySelectorAll('*');
+    existingElements.forEach(el => el.remove());
+    
+    for (let i = 0; i < count; i++) {
+        // Create droplet
+        const droplet = document.createElement('div');
+        droplet.className = 'droplet';
+        
+        const left = 10 + (i * (80 / (count + 1)));
+        const delay = i * 0.5;
+        
+        droplet.style.left = left + '%';
+        droplet.style.animationDelay = -delay + 's';
+        
+        // Create color based on index
+        const hue = 200 + (i * 20);
+        droplet.style.background = \`radial-gradient(circle at 30% 40%, 
+            hsla(\${hue}, 80%, 60%, 0.9), 
+            hsla(\${hue}, 90%, 40%, 0.7) 60%, 
+            transparent 70%)\`;
+        
+        dropletLoader.appendChild(droplet);
+        
+        // Create ripples for each droplet
+        for (let j = 0; j < 3; j++) {
+            const ripple = document.createElement('div');
+            ripple.className = 'ripple';
+            ripple.style.left = left + '%';
+            ripple.style.animationDelay = \`-\${delay + j * 0.5}s\`;
+            dropletLoader.appendChild(ripple);
+        }
+    }
+}
+
+// Change water properties
+function setWaterProperties(viscosity, surfaceTension) {
+    const droplets = dropletLoader.querySelectorAll('.droplet');
+    const ripples = dropletLoader.querySelectorAll('.ripple');
+    
+    // Adjust animation based on properties
+    droplets.forEach(droplet => {
+        droplet.style.filter = \`blur(\${viscosity}px)\`;
+        droplet.style.animationDuration = (3 / surfaceTension) + 's';
+    });
+    
+    ripples.forEach(ripple => {
+        ripple.style.animationDuration = (2 / surfaceTension) + 's';
+        ripple.style.borderWidth = surfaceTension + 'px';
+    });
+}
+
+// Simulate rain effect
+function simulateRain(intensity) {
+    // Clear all
+    dropletLoader.innerHTML = '';
+    
+    for (let i = 0; i < intensity * 10; i++) {
+        const droplet = document.createElement('div');
+        droplet.className = 'droplet';
+        
+        const left = Math.random() * 100;
+        const size = 20 + Math.random() * 20;
+        const delay = Math.random() * 3;
+        const speed = 1 + Math.random() * 2;
+        
+        droplet.style.left = left + '%';
+        droplet.style.width = size + 'px';
+        droplet.style.height = (size * 1.3) + 'px';
+        droplet.style.animation = \`dropletDrip \${speed}s ease-in-out infinite\`;
+        droplet.style.animationDelay = -delay + 's';
+        
+        dropletLoader.appendChild(droplet);
+    }
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 78: Clock Spinner Loader
+    // ====================================================================
+    loader78: {
+        name: "Clock Spinner Loader",
+        category: "modern",
+        html: `<div class="loader-container">
+    <div class="clock-spinner-loader">
+        <div class="clock-face">
+            <div class="hour-hand"></div>
+            <div class="minute-hand"></div>
+            <div class="second-hand"></div>
+            <div class="center-dot"></div>
+            <div class="marker-1"></div>
+            <div class="marker-2"></div>
+        </div>
+    </div>
+</div>`,
+        css: `.clock-spinner-loader {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock-spinner-loader .clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #374151;
+    border-radius: 50%;
+    background: #f9fafb;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.1),
+        inset 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.clock-spinner-loader .hour-hand {
+    position: absolute;
+    width: 4px;
+    height: 25px;
+    background: #1f2937;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    transform-origin: bottom center;
+    border-radius: 2px;
+    animation: hourRotation 24s linear infinite;
+}
+
+.clock-spinner-loader .minute-hand {
+    position: absolute;
+    width: 3px;
+    height: 35px;
+    background: #4b5563;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    transform-origin: bottom center;
+    border-radius: 1.5px;
+    animation: minuteRotation 4s linear infinite;
+}
+
+.clock-spinner-loader .second-hand {
+    position: absolute;
+    width: 2px;
+    height: 40px;
+    background: #ef4444;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    transform-origin: bottom center;
+    border-radius: 1px;
+    animation: secondRotation 1s linear infinite;
+}
+
+.clock-spinner-loader .center-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #1f2937;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Clock markers */
+.clock-spinner-loader .marker-1,
+.clock-spinner-loader .marker-2 {
+    position: absolute;
+    background: #6b7280;
+}
+
+.clock-spinner-loader .clock-face::before,
+.clock-spinner-loader .clock-face::after {
+    content: '';
+    position: absolute;
+    background: #6b7280;
+}
+
+.clock-spinner-loader .clock-face::before {
+    width: 3px;
+    height: 12px;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1.5px;
+}
+
+.clock-spinner-loader .clock-face::after {
+    width: 3px;
+    height: 12px;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1.5px;
+}
+
+.clock-spinner-loader .marker-1 {
+    width: 12px;
+    height: 3px;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    border-radius: 1.5px;
+}
+
+.clock-spinner-loader .marker-2 {
+    width: 12px;
+    height: 3px;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    border-radius: 1.5px;
+}
+
+@keyframes hourRotation {
+    0% { transform: translate(-50%, -100%) rotate(0deg); }
+    100% { transform: translate(-50%, -100%) rotate(360deg); }
+}
+
+@keyframes minuteRotation {
+    0% { transform: translate(-50%, -100%) rotate(0deg); }
+    100% { transform: translate(-50%, -100%) rotate(360deg); }
+}
+
+@keyframes secondRotation {
+    0% { transform: translate(-50%, -100%) rotate(0deg); }
+    100% { transform: translate(-50%, -100%) rotate(360deg); }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control clock spinner loader
+const clockLoader = document.querySelector('.clock-spinner-loader');
+
+// Set real time
+function setRealTime() {
+    const now = new Date();
+    const hours = now.getHours() % 12;
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    
+    const hourHand = clockLoader.querySelector('.hour-hand');
+    const minuteHand = clockLoader.querySelector('.minute-hand');
+    const secondHand = clockLoader.querySelector('.second-hand');
+    
+    // Calculate angles
+    const hourAngle = (hours * 30) + (minutes * 0.5);
+    const minuteAngle = minutes * 6;
+    const secondAngle = seconds * 6;
+    
+    // Set initial positions
+    hourHand.style.transform = \`translate(-50%, -100%) rotate(\${hourAngle}deg)\`;
+    minuteHand.style.transform = \`translate(-50%, -100%) rotate(\${minuteAngle}deg)\`;
+    secondHand.style.transform = \`translate(-50%, -100%) rotate(\${secondAngle}deg)\`;
+    
+    // Animate from current time
+    hourHand.style.animation = \`hourRotation 43200s linear infinite\`;
+    hourHand.style.animationDelay = \`-\${(hourAngle / 360) * 43200}s\`;
+    
+    minuteHand.style.animation = \`minuteRotation 3600s linear infinite\`;
+    minuteHand.style.animationDelay = \`-\${(minuteAngle / 360) * 3600}s\`;
+    
+    secondHand.style.animation = \`secondRotation 60s linear infinite\`;
+    secondHand.style.animationDelay = \`-\${secondAngle / 6}s\`;
+}
+
+// Change clock style
+function setClockStyle(style) {
+    const clockFace = clockLoader.querySelector('.clock-face');
+    
+    switch(style) {
+        case 'digital':
+            // Convert to digital display
+            clockLoader.innerHTML = \`
+                <div class="digital-clock">
+                    <div class="digital-display">00:00:00</div>
+                </div>
+            \`;
+            
+            // Add digital clock styles
+            const styleSheet = document.createElement('style');
+            styleSheet.textContent = \`
+                .digital-clock {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #1f2937;
+                    border-radius: 10px;
+                    font-family: 'Courier New', monospace;
+                }
+                .digital-display {
+                    color: #10b981;
+                    font-size: 18px;
+                    font-weight: bold;
+                    text-shadow: 0 0 10px #10b981;
+                    letter-spacing: 2px;
+                    animation: digitalPulse 1s infinite alternate;
+                }
+                @keyframes digitalPulse {
+                    from { opacity: 0.7; }
+                    to { opacity: 1; }
+                }
+            \`;
+            document.head.appendChild(styleSheet);
+            
+            // Update time
+            const display = clockLoader.querySelector('.digital-display');
+            setInterval(() => {
+                const now = new Date();
+                display.textContent = now.toLocaleTimeString();
+            }, 1000);
+            break;
+            
+        case 'roman':
+            // Add Roman numeral markers
+            const markers = ['XII', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];
+            clockFace.querySelectorAll('.marker-1, .marker-2').forEach(m => m.remove());
+            
+            markers.forEach((numeral, i) => {
+                const angle = (i * 30) * Math.PI / 180;
+                const radius = 35;
+                const x = 50 + radius * Math.cos(angle);
+                const y = 50 + radius * Math.sin(angle);
+                
+                const marker = document.createElement('div');
+                marker.className = 'roman-marker';
+                marker.textContent = numeral;
+                marker.style.cssText = \`
+                    position: absolute;
+                    font-size: 10px;
+                    font-weight: bold;
+                    color: #374151;
+                    transform: translate(-50%, -50%);
+                    top: \${y}%;
+                    left: \${x}%;
+                \`;
+                clockFace.appendChild(marker);
+            });
+            break;
+    }
+}
+
+// Add ticking sound simulation
+function simulateTickSound() {
+    const secondHand = clockLoader.querySelector('.second-hand');
+    
+    secondHand.addEventListener('animationiteration', () => {
+        // Visual tick effect
+        secondHand.style.boxShadow = '0 0 10px #ef4444';
+        setTimeout(() => {
+            secondHand.style.boxShadow = 'none';
+        }, 100);
+    });
+}
+
+// Show countdown timer
+function showCountdown(minutes) {
+    const clockFace = clockLoader.querySelector('.clock-face');
+    clockFace.innerHTML = \`
+        <div class="countdown-display">\${minutes}:00</div>
+    \`;
+    
+    // Add countdown styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = \`
+        .countdown-display {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Arial', sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ef4444;
+            text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+    \`;
+    document.head.appendChild(styleSheet);
+    
+    // Start countdown
+    let timeLeft = minutes * 60;
+    const display = clockLoader.querySelector('.countdown-display');
+    
+    const interval = setInterval(() => {
+        timeLeft--;
+        const mins = Math.floor(timeLeft / 60);
+        const secs = timeLeft % 60;
+        display.textContent = \`\${mins.toString().padStart(2, '0')}:\${secs.toString().padStart(2, '0')}\`;
+        
+        // Color changes
+        if (timeLeft < 30) {
+            display.style.color = '#ef4444';
+            display.style.animation = 'pulse 0.5s infinite alternate';
+        } else if (timeLeft < 60) {
+            display.style.color = '#f59e0b';
+        }
+        
+        if (timeLeft <= 0) {
+            clearInterval(interval);
+            display.textContent = 'TIME\'S UP!';
+            display.style.animation = 'none';
+        }
+    }, 1000);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 79: Fire Loader
+    // ====================================================================
+    loader79: {
+        name: "Fire Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="fire-loader">
+        <div class="flame"></div>
+        <div class="flame"></div>
+        <div class="flame"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+    </div>
+</div>`,
+        css: `.fire-loader {
+    position: relative;
+    width: 80px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.fire-loader .flame {
+    position: absolute;
+    background: linear-gradient(to top, 
+        transparent,
+        #f59e0b,
+        #ef4444);
+    border-radius: 50% 50% 20% 20%;
+    animation: flameFlicker 0.8s ease-in-out infinite;
+    filter: blur(2px);
+}
+
+.fire-loader .flame:nth-child(1) {
+    width: 40px;
+    height: 60px;
+    bottom: 0;
+    animation-delay: 0s;
+}
+
+.fire-loader .flame:nth-child(2) {
+    width: 30px;
+    height: 50px;
+    bottom: 5px;
+    left: 45%;
+    animation-delay: -0.2s;
+}
+
+.fire-loader .flame:nth-child(3) {
+    width: 25px;
+    height: 45px;
+    bottom: 10px;
+    right: 20%;
+    animation-delay: -0.4s;
+}
+
+.fire-loader .spark {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle at center, #fbbf24, #f59e0b);
+    border-radius: 50%;
+    animation: sparkFloat 1.5s ease-out infinite;
+    filter: blur(1px);
+}
+
+.fire-loader .spark:nth-child(4) {
+    bottom: 40px;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.fire-loader .spark:nth-child(5) {
+    bottom: 50px;
+    left: 50%;
+    animation-delay: -0.5s;
+}
+
+.fire-loader .spark:nth-child(6) {
+    bottom: 35px;
+    right: 30%;
+    animation-delay: -1s;
+}
+
+@keyframes flameFlicker {
+    0%, 100% {
+        transform: scaleY(1) translateY(0);
+        opacity: 0.8;
+    }
+    25% {
+        transform: scaleY(1.1) translateY(-5px);
+        opacity: 1;
+    }
+    50% {
+        transform: scaleY(0.9) translateY(0);
+        opacity: 0.9;
+    }
+    75% {
+        transform: scaleY(1.05) translateY(-3px);
+        opacity: 1;
+    }
+}
+
+@keyframes sparkFloat {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-60px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control fire loader
+const fireLoader = document.querySelector('.fire-loader');
+
+// Create campfire effect
+function createCampfire(intensity) {
+    fireLoader.innerHTML = '';
+    
+    // Create logs
+    for (let i = 0; i < 3; i++) {
+        const log = document.createElement('div');
+        log.className = 'log';
+        log.style.cssText = \`
+            position: absolute;
+            width: 40px;
+            height: 10px;
+            background: linear-gradient(to right, #78350f, #92400e);
+            border-radius: 5px;
+            bottom: 5px;
+            transform: rotate(\${i * 60}deg);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        \`;
+        fireLoader.appendChild(log);
+    }
+    
+    // Create flames based on intensity
+    for (let i = 0; i < intensity * 3; i++) {
+        const flame = document.createElement('div');
+        flame.className = 'flame';
+        
+        const width = 20 + Math.random() * 30;
+        const height = 30 + Math.random() * 40;
+        const left = 30 + Math.random() * 40;
+        const delay = Math.random() * 2;
+        
+        flame.style.width = width + 'px';
+        flame.style.height = height + 'px';
+        flame.style.left = left + '%';
+        flame.style.bottom = Math.random() * 10 + 'px';
+        flame.style.animationDelay = -delay + 's';
+        flame.style.animationDuration = (0.5 + Math.random() * 0.7) + 's';
+        
+        // Vary colors
+        const hue = 20 + Math.random() * 20;
+        flame.style.background = \`linear-gradient(to top, 
+            transparent,
+            hsl(\${hue}, 100%, 60%),
+            hsl(\${hue + 10}, 100%, 40%))\`;
+        
+        fireLoader.appendChild(flame);
+    }
+    
+    // Create sparks
+    for (let i = 0; i < intensity * 5; i++) {
+        const spark = document.createElement('div');
+        spark.className = 'spark';
+        
+        const left = 20 + Math.random() * 60;
+        const delay = Math.random() * 3;
+        const duration = 1 + Math.random() * 2;
+        
+        spark.style.left = left + '%';
+        spark.style.animationDelay = -delay + 's';
+        spark.style.animationDuration = duration + 's';
+        
+        fireLoader.appendChild(spark);
+    }
+}
+
+// Change fire temperature (color)
+function setFireTemperature(temperature) {
+    const flames = fireLoader.querySelectorAll('.flame');
+    
+    flames.forEach(flame => {
+        let color1, color2;
+        
+        if (temperature === 'cold') {
+            color1 = '#3b82f6'; // Blue
+            color2 = '#8b5cf6'; // Purple
+        } else if (temperature === 'hot') {
+            color1 = '#f59e0b'; // Orange
+            color2 = '#ef4444'; // Red
+        } else if (temperature === 'whitehot') {
+            color1 = '#fbbf24'; // Yellow
+            color2 = '#ffffff'; // White
+        } else {
+            color1 = '#f59e0b';
+            color2 = '#ef4444';
+        }
+        
+        flame.style.background = \`linear-gradient(to top, 
+            transparent,
+            \${color1},
+            \${color2})\`;
+    });
+}
+
+// Simulate wind effect
+function simulateWind(strength, direction) {
+    const flames = fireLoader.querySelectorAll('.flame');
+    const sparks = fireLoader.querySelectorAll('.spark');
+    
+    flames.forEach(flame => {
+        flame.style.transform = \`scaleY(1) translateY(0) skewX(\${direction * strength}deg)\`;
+        flame.style.animation = \`flameFlickerWind 0.8s ease-in-out infinite\`;
+    });
+    
+    sparks.forEach(spark => {
+        spark.style.animation = \`sparkFloatWind 1.5s ease-out infinite\`;
+    });
+    
+    // Add wind keyframes
+    const keyframes = \`
+        @keyframes flameFlickerWind {
+            0%, 100% {
+                transform: scaleY(1) translateY(0) skewX(\${direction * strength}deg);
+                opacity: 0.8;
+            }
+            25% {
+                transform: scaleY(1.1) translateY(-5px) skewX(\${direction * (strength + 5)}deg);
+                opacity: 1;
+            }
+            50% {
+                transform: scaleY(0.9) translateY(0) skewX(\${direction * strength}deg);
+                opacity: 0.9;
+            }
+            75% {
+                transform: scaleY(1.05) translateY(-3px) skewX(\${direction * (strength + 3)}deg);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes sparkFloatWind {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-60px) translateX(\${direction * 30}px) scale(0.5);
+                opacity: 0;
+            }
+        }
+    \`;
+    
+    const styleSheet = document.styleSheets[0];
+    const existingFlameRule = Array.from(styleSheet.cssRules).find(rule => 
+        rule.name === 'flameFlickerWind'
+    );
+    const existingSparkRule = Array.from(styleSheet.cssRules).find(rule => 
+        rule.name === 'sparkFloatWind'
+    );
+    
+    if (existingFlameRule) styleSheet.deleteRule(Array.from(styleSheet.cssRules).indexOf(existingFlameRule));
+    if (existingSparkRule) styleSheet.deleteRule(Array.from(styleSheet.cssRules).indexOf(existingSparkRule));
+    
+    styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 80: Hourglass Loader
+    // ====================================================================
+    loader80: {
+        name: "Hourglass Loader",
+        category: "modern",
+        html: `<div class="loader-container">
+    <div class="hourglass-loader">
+        <div class="glass">
+            <div class="sand-top"></div>
+            <div class="sand-flow"></div>
+            <div class="sand-bottom"></div>
+        </div>
+    </div>
+</div>`,
+        css: `.hourglass-loader {
+    width: 70px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hourglass-loader .glass {
+    position: relative;
+    width: 50px;
+    height: 80px;
+    background: linear-gradient(to bottom, 
+        rgba(156, 163, 175, 0.2),
+        rgba(209, 213, 219, 0.1));
+    clip-path: polygon(0% 0%, 100% 0%, 80% 10%, 20% 10%, 0% 0%, 
+                       20% 10%, 80% 10%, 100% 90%, 80% 90%, 20% 90%, 
+                       0% 90%, 20% 90%, 80% 90%, 100% 100%, 0% 100%);
+    border: 2px solid #9ca3af;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.1),
+        0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hourglass-loader .sand-top {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(to bottom, #d97706, #b45309);
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 40% 40%;
+    animation: sandDeplete 4s linear infinite;
+    box-shadow: 
+        inset 0 -5px 10px rgba(0, 0, 0, 0.3),
+        0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.hourglass-loader .sand-flow {
+    position: absolute;
+    width: 6px;
+    height: 20px;
+    background: linear-gradient(to bottom, #d97706, #92400e);
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: sandFlow 4s linear infinite;
+    filter: blur(1px);
+}
+
+.hourglass-loader .sand-bottom {
+    position: absolute;
+    width: 30px;
+    height: 0;
+    background: linear-gradient(to top, #d97706, #b45309);
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 40% 40% 50% 50%;
+    animation: sandAccumulate 4s linear infinite;
+    box-shadow: 
+        inset 0 5px 10px rgba(0, 0, 0, 0.3),
+        0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes sandDeplete {
+    0% {
+        height: 30px;
+        top: 15px;
+    }
+    100% {
+        height: 0;
+        top: 45px;
+    }
+}
+
+@keyframes sandFlow {
+    0%, 100% {
+        height: 20px;
+        opacity: 1;
+    }
+    50% {
+        height: 25px;
+        opacity: 0.8;
+    }
+}
+
+@keyframes sandAccumulate {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 30px;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control hourglass loader
+const hourglassLoader = document.querySelector('.hourglass-loader');
+
+// Create sand timer with time
+function createSandTimer(seconds) {
+    const glass = hourglassLoader.querySelector('.glass');
+    
+    // Clear existing animations
+    const sandTop = glass.querySelector('.sand-top');
+    const sandFlow = glass.querySelector('.sand-flow');
+    const sandBottom = glass.querySelector('.sand-bottom');
+    
+    // Set animation duration based on seconds
+    sandTop.style.animationDuration = seconds + 's';
+    sandFlow.style.animationDuration = seconds + 's';
+    sandBottom.style.animationDuration = seconds + 's';
+    
+    // Add time display
+    const timeDisplay = document.createElement('div');
+    timeDisplay.className = 'time-display';
+    timeDisplay.textContent = formatTime(seconds);
+    timeDisplay.style.cssText = \`
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Arial', sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        color: #374151;
+        background: white;
+        padding: 2px 6px;
+        border-radius: 3px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    \`;
+    hourglassLoader.appendChild(timeDisplay);
+    
+    // Update time display
+    let timeLeft = seconds;
+    const interval = setInterval(() => {
+        timeLeft--;
+        timeDisplay.textContent = formatTime(timeLeft);
+        
+        if (timeLeft <= 0) {
+            clearInterval(interval);
+            timeDisplay.textContent = 'TIME\'S UP!';
+            timeDisplay.style.color = '#ef4444';
+            
+            // Flip animation
+            setTimeout(() => {
+                sandTop.style.animation = 'sandDeplete 4s linear infinite reverse';
+                sandBottom.style.animation = 'sandAccumulate 4s linear infinite reverse';
+            }, 1000);
+        }
+    }, 1000);
+}
+
+// Helper function to format time
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return \`\${mins.toString().padStart(2, '0')}:\${secs.toString().padStart(2, '0')}\`;
+}
+
+// Change sand color
+function setSandColor(color) {
+    const sandTop = hourglassLoader.querySelector('.sand-top');
+    const sandFlow = hourglassLoader.querySelector('.sand-flow');
+    const sandBottom = hourglassLoader.querySelector('.sand-bottom');
+    
+    const rgb = hexToRgb(color);
+    const darker = darkenColor(color, 0.3);
+    const darkest = darkenColor(color, 0.5);
+    
+    sandTop.style.background = \`linear-gradient(to bottom, \${color}, \${darker})\`;
+    sandFlow.style.background = \`linear-gradient(to bottom, \${color}, \${darkest})\`;
+    sandBottom.style.background = \`linear-gradient(to top, \${color}, \${darker})\`;
+}
+
+// Change sand flow speed
+function setSandFlowSpeed(speed) {
+    const sandTop = hourglassLoader.querySelector('.sand-top');
+    const sandFlow = hourglassLoader.querySelector('.sand-flow');
+    const sandBottom = hourglassLoader.querySelector('.sand-bottom');
+    
+    const duration = 4 / speed;
+    
+    sandTop.style.animationDuration = duration + 's';
+    sandFlow.style.animationDuration = duration + 's';
+    sandBottom.style.animationDuration = duration + 's';
+}
+
+// Add multiple hourglasses
+function createHourglassGrid(rows, cols) {
+    hourglassLoader.innerHTML = '';
+    hourglassLoader.style.display = 'grid';
+    hourglassLoader.style.gridTemplateColumns = \`repeat(\${cols}, 1fr)\`;
+    hourglassLoader.style.gridTemplateRows = \`repeat(\${rows}, 1fr)\`;
+    hourglassLoader.style.gap = '10px';
+    hourglassLoader.style.width = '120px';
+    hourglassLoader.style.height = '120px';
+    
+    for (let i = 0; i < rows * cols; i++) {
+        const singleHourglass = document.createElement('div');
+        singleHourglass.className = 'single-hourglass';
+        singleHourglass.innerHTML = \`
+            <div class="glass">
+                <div class="sand-top"></div>
+                <div class="sand-flow"></div>
+                <div class="sand-bottom"></div>
+            </div>
+        \`;
+        
+        // Add individual styles
+        const style = document.createElement('style');
+        style.textContent = \`
+            .single-hourglass {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+            .single-hourglass .glass {
+                width: 100%;
+                height: 100%;
+                /* Same as main hourglass styles but scaled */
+            }
+        \`;
+        document.head.appendChild(style);
+        
+        hourglassLoader.appendChild(singleHourglass);
+    }
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 81: Plant Growth Loader
+    // ====================================================================
+    loader81: {
+        name: "Plant Growth Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="plant-growth-loader">
+        <div class="pot"></div>
+        <div class="stem"></div>
+        <div class="leaf leaf-1"></div>
+        <div class="leaf leaf-2"></div>
+        <div class="leaf leaf-3"></div>
+        <div class="flower"></div>
+    </div>
+</div>`,
+        css: `.plant-growth-loader {
+    position: relative;
+    width: 100px;
+    height: 120px;
+}
+
+.plant-growth-loader .pot {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    background: linear-gradient(to top, #92400e, #78350f);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px 5px 20px 20px;
+    box-shadow: 
+        inset 0 -5px 10px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.plant-growth-loader .stem {
+    position: absolute;
+    width: 6px;
+    height: 0;
+    background: linear-gradient(to top, #22c55e, #16a34a);
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    animation: stemGrow 3s ease-out infinite;
+}
+
+.plant-growth-loader .leaf {
+    position: absolute;
+    background: linear-gradient(to right, #22c55e, #16a34a);
+    border-radius: 50% 0 50% 0;
+    opacity: 0;
+    animation: leafGrow 3s ease-out infinite;
+}
+
+.plant-growth-loader .leaf-1 {
+    width: 20px;
+    height: 15px;
+    bottom: 50px;
+    left: 40%;
+    transform: rotate(-30deg);
+    animation-delay: 0.5s;
+}
+
+.plant-growth-loader .leaf-2 {
+    width: 25px;
+    height: 18px;
+    bottom: 70px;
+    right: 35%;
+    transform: rotate(30deg);
+    animation-delay: 1s;
+}
+
+.plant-growth-loader .leaf-3 {
+    width: 18px;
+    height: 12px;
+    bottom: 90px;
+    left: 45%;
+    transform: rotate(-45deg);
+    animation-delay: 1.5s;
+}
+
+.plant-growth-loader .flower {
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle at center, 
+        #fbbf24 0%, 
+        #f59e0b 30%, 
+        #dc2626 70%);
+    border-radius: 50%;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: flowerBloom 3s ease-out infinite;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+@keyframes stemGrow {
+    0% {
+        height: 0;
+    }
+    30% {
+        height: 40px;
+    }
+    60% {
+        height: 80px;
+    }
+    100% {
+        height: 80px;
+    }
+}
+
+@keyframes leafGrow {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(var(--rotation));
+    }
+    30% {
+        opacity: 0;
+        transform: scale(0) rotate(var(--rotation));
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1) rotate(var(--rotation));
+    }
+    100% {
+        opacity: 0.8;
+        transform: scale(1) rotate(var(--rotation));
+    }
+}
+
+@keyframes flowerBloom {
+    0%, 70% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    80% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 25px;
+        height: 25px;
+        opacity: 1;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control plant growth loader
+const plantLoader = document.querySelector('.plant-growth-loader');
+
+// Create different plant types
+function createPlantType(type) {
+    const stem = plantLoader.querySelector('.stem');
+    const leaves = plantLoader.querySelectorAll('.leaf');
+    const flower = plantLoader.querySelector('.flower');
+    
+    switch(type) {
+        case 'cactus':
+            stem.style.width = '20px';
+            stem.style.background = 'linear-gradient(to top, #22c55e, #16a34a)';
+            stem.style.borderRadius = '10px';
+            
+            // Remove leaves (cacti don't have traditional leaves)
+            leaves.forEach(leaf => leaf.style.display = 'none');
+            
+            // Add cactus spines
+            for (let i = 0; i < 8; i++) {
+                const spine = document.createElement('div');
+                spine.className = 'spine';
+                spine.style.cssText = \`
+                    position: absolute;
+                    width: 2px;
+                    height: 8px;
+                    background: #374151;
+                    border-radius: 1px;
+                    top: \${30 + i * 10}px;
+                    left: \${i % 2 ? '55%' : '45%'};
+                    transform: rotate(\${i * 45}deg);
+                    animation: spineGrow 3s ease-out infinite;
+                    animation-delay: \${i * 0.2}s;
+                \`;
+                plantLoader.appendChild(spine);
+            }
+            
+            // Change flower to cactus flower
+            flower.style.background = 'radial-gradient(circle at center, #f472b6, #db2777)';
+            break;
+            
+        case 'vine':
+            stem.style.width = '3px';
+            stem.style.background = 'linear-gradient(to top, #16a34a, #059669)';
+            
+            // Create curling vine effect
+            stem.style.animation = 'vineGrow 3s ease-out infinite';
+            
+            // Add keyframes for vine
+            const keyframes = \`
+                @keyframes vineGrow {
+                    0% {
+                        height: 0;
+                        transform: translateX(-50%) rotate(0deg);
+                    }
+                    30% {
+                        height: 40px;
+                        transform: translateX(-50%) rotate(90deg);
+                    }
+                    60% {
+                        height: 80px;
+                        transform: translateX(-50%) rotate(180deg);
+                    }
+                    100% {
+                        height: 80px;
+                        transform: translateX(-50%) rotate(270deg);
+                    }
+                }
+            \`;
+            
+            const styleSheet = document.styleSheets[0];
+            const existingRule = Array.from(styleSheet.cssRules).find(rule => 
+                rule.name === 'vineGrow'
+            );
+            
+            if (existingRule) {
+                styleSheet.deleteRule(Array.from(styleSheet.cssRules).indexOf(existingRule));
+            }
+            
+            styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+            break;
+            
+        case 'tree':
+            // Create multiple branches
+            const branchCount = 3;
+            for (let i = 0; i < branchCount; i++) {
+                const branch = document.createElement('div');
+                branch.className = 'branch';
+                branch.style.cssText = \`
+                    position: absolute;
+                    width: 4px;
+                    height: 30px;
+                    background: linear-gradient(to top, #92400e, #78350f);
+                    bottom: 50px;
+                    left: 50%;
+                    transform: translateX(-50%) rotate(\${-30 + i * 30}deg);
+                    transform-origin: bottom center;
+                    border-radius: 2px;
+                    animation: branchGrow 3s ease-out infinite;
+                    animation-delay: \${i * 0.3}s;
+                \`;
+                plantLoader.appendChild(branch);
+            }
+            
+            // Change stem to trunk
+            stem.style.width = '15px';
+            stem.style.background = 'linear-gradient(to top, #92400e, #78350f)';
+            break;
+    }
+}
+
+// Simulate seasons
+function simulateSeason(season) {
+    const stem = plantLoader.querySelector('.stem');
+    const leaves = plantLoader.querySelectorAll('.leaf');
+    const flower = plantLoader.querySelector('.flower');
+    
+    switch(season) {
+        case 'spring':
+            stem.style.background = 'linear-gradient(to top, #22c55e, #16a34a)';
+            leaves.forEach(leaf => {
+                leaf.style.background = 'linear-gradient(to right, #22c55e, #16a34a)';
+            });
+            flower.style.opacity = '1';
+            break;
+            
+        case 'summer':
+            stem.style.background = 'linear-gradient(to top, #16a34a, #059669)';
+            leaves.forEach(leaf => {
+                leaf.style.background = 'linear-gradient(to right, #16a34a, #059669)';
+            });
+            flower.style.opacity = '0.8';
+            break;
+            
+        case 'autumn':
+            stem.style.background = 'linear-gradient(to top, #d97706, #b45309)';
+            leaves.forEach(leaf => {
+                leaf.style.background = 'linear-gradient(to right, #d97706, #b45309)';
+                leaf.style.animation = 'leafFall 3s ease-out infinite';
+            });
+            flower.style.opacity = '0';
+            break;
+            
+        case 'winter':
+            stem.style.background = 'linear-gradient(to top, #9ca3af, #6b7280)';
+            leaves.forEach(leaf => {
+                leaf.style.opacity = '0';
+            });
+            flower.style.opacity = '0';
+            
+            // Add snow
+            for (let i = 0; i < 5; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.style.cssText = \`
+                    position: absolute;
+                    width: 4px;
+                    height: 4px;
+                    background: white;
+                    border-radius: 50%;
+                    top: \${Math.random() * 80}px;
+                    left: \${Math.random() * 100}%;
+                    animation: snowFall 3s linear infinite;
+                    animation-delay: \${Math.random() * 3}s;
+                    filter: blur(1px);
+                \`;
+                plantLoader.appendChild(snowflake);
+            }
+            break;
+    }
+}
+
+// Create garden with multiple plants
+function createGarden(plantCount) {
+    plantLoader.innerHTML = '';
+    plantLoader.style.display = 'flex';
+    plantLoader.style.justifyContent = 'space-around';
+    plantLoader.style.alignItems = 'flex-end';
+    plantLoader.style.width = '150px';
+    
+    for (let i = 0; i < plantCount; i++) {
+        const singlePlant = document.createElement('div');
+        singlePlant.className = 'single-plant';
+        singlePlant.style.cssText = \`
+            position: relative;
+            width: 30px;
+            height: 100px;
+        \`;
+        
+        // Random plant height
+        const height = 60 + Math.random() * 40;
+        
+        singlePlant.innerHTML = \`
+            <div class="pot" style="
+                position: absolute;
+                width: 20px;
+                height: 15px;
+                background: linear-gradient(to top, #92400e, #78350f);
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                border-radius: 3px 3px 10px 10px;
+            "></div>
+            <div class="stem" style="
+                position: absolute;
+                width: 3px;
+                height: \${height}px;
+                background: linear-gradient(to top, #22c55e, #16a34a);
+                bottom: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-radius: 1.5px;
+                animation: stemGrowSingle 3s ease-out infinite;
+            "></div>
+        \`;
+        
+        plantLoader.appendChild(singlePlant);
+    }
+    
+    // Add keyframes for individual plant growth
+    const keyframes = \`
+        @keyframes stemGrowSingle {
+            0% { height: 0; }
+            100% { height: var(--height); }
+        }
+    \`;
+    
+    const styleSheet = document.styleSheets[0];
+    styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+}
+
+// Add watering effect
+function simulateWatering() {
+    // Create water droplets
+    for (let i = 0; i < 5; i++) {
+        const droplet = document.createElement('div');
+        droplet.className = 'water-droplet';
+        droplet.style.cssText = \`
+            position: absolute;
+            width: 4px;
+            height: 6px;
+            background: radial-gradient(circle at 30% 40%, 
+                rgba(59, 130, 246, 0.9), 
+                rgba(30, 64, 175, 0.7));
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            top: \${-10 - i * 5}px;
+            left: \${40 + i * 5}%;
+            animation: wateringDrip 1s ease-in-out infinite;
+            animation-delay: \${i * 0.2}s;
+            filter: blur(1px);
+        \`;
+        plantLoader.appendChild(droplet);
+    }
+    
+    // Make plant grow faster temporarily
+    const stem = plantLoader.querySelector('.stem');
+    const originalDuration = getComputedStyle(stem).animationDuration;
+    stem.style.animationDuration = '1s';
+    
+    // Reset after watering
+    setTimeout(() => {
+        stem.style.animationDuration = originalDuration;
+    }, 3000);
+}`
+    },
+        // ====================================================================
+    // TEMPLATE 82: Retro CRT Loader
+    // ====================================================================
+    loader82: {
+        name: "Retro CRT Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="retro-crt-loader">
+        <div class="crt-screen">
+            <div class="scan-line"></div>
+            <div class="loading-text">SYSTEM BOOT</div>
+            <div class="progress-bar"></div>
+            <div class="glitch-text">></div>
+        </div>
+    </div>
+</div>`,
+        css: `.retro-crt-loader {
+    width: 140px;
+    height: 100px;
+    background: #1a1a1a;
+    border: 4px solid #333;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 0 20px rgba(0, 255, 0, 0.3),
+        inset 0 0 30px rgba(0, 255, 0, 0.1);
+}
+
+.retro-crt-loader::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 0, 0.05) 0px,
+        rgba(0, 255, 0, 0.05) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    animation: crtFlicker 0.2s infinite;
+}
+
+.retro-crt-loader .crt-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+}
+
+.retro-crt-loader .scan-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(0, 255, 0, 0.8), 
+        transparent);
+    top: 0;
+    animation: scanLine 2s linear infinite;
+    filter: blur(1px);
+}
+
+.retro-crt-loader .loading-text {
+    color: #00ff00;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #00ff00;
+    margin-bottom: 10px;
+    animation: textGlitch 3s infinite;
+}
+
+.retro-crt-loader .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #222;
+    border: 1px solid #00ff00;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.retro-crt-loader .progress-bar::before {
+    content: '';
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        #00ff00, 
+        #00cc00, 
+        #00ff00);
+    animation: progressLoad 2s ease-in-out infinite alternate;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.retro-crt-loader .glitch-text {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    color: #00ff00;
+    font-size: 16px;
+    font-weight: bold;
+    animation: cursorBlink 1s infinite;
+}
+
+@keyframes crtFlicker {
+    0%, 100% { opacity: 0.95; }
+    50% { opacity: 1; }
+}
+
+@keyframes scanLine {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+@keyframes textGlitch {
+    0%, 100% { transform: translateX(0); }
+    95% { transform: translateX(0); }
+    96% { transform: translateX(-2px); }
+    97% { transform: translateX(2px); }
+    98% { transform: translateX(-1px); }
+    99% { transform: translateX(1px); }
+}
+
+@keyframes progressLoad {
+    0% { width: 10%; left: 0; }
+    100% { width: 90%; left: 10%; }
+}
+
+@keyframes cursorBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control retro CRT loader
+const crtLoader = document.querySelector('.retro-crt-loader');
+
+// Simulate boot sequence
+function simulateBootSequence() {
+    const screen = crtLoader.querySelector('.crt-screen');
+    const loadingText = screen.querySelector('.loading-text');
+    const progressBar = screen.querySelector('.progress-bar');
+    const glitchText = screen.querySelector('.glitch-text');
+    
+    // Clear existing content
+    screen.innerHTML = '';
+    
+    // Add scan line
+    const scanLine = document.createElement('div');
+    scanLine.className = 'scan-line';
+    screen.appendChild(scanLine);
+    
+    // Create boot messages
+    const messages = [
+        'BIOS v2.0 INITIALIZING...',
+        'MEMORY TEST: 64KB OK',
+        'CPU: 4.77MHz READY',
+        'DISK DRIVE: SEEKING...',
+        'LOADING SYSTEM...',
+        'READY.'
+    ];
+    
+    let messageIndex = 0;
+    let progress = 0;
+    
+    // Create message container
+    const messageContainer = document.createElement('div');
+    messageContainer.className = 'boot-messages';
+    messageContainer.style.cssText = \`
+        color: #00ff00;
+        font-size: 12px;
+        font-family: 'Courier New', monospace;
+        line-height: 1.4;
+        margin-bottom: 10px;
+        height: 60px;
+        overflow: hidden;
+    \`;
+    screen.appendChild(messageContainer);
+    
+    // Create progress bar
+    const newProgressBar = document.createElement('div');
+    newProgressBar.className = 'progress-bar';
+    newProgressBar.innerHTML = '<div class="progress-fill"></div>';
+    screen.appendChild(newProgressBar);
+    
+    // Create cursor
+    const cursor = document.createElement('div');
+    cursor.className = 'glitch-text';
+    cursor.textContent = '>';
+    screen.appendChild(cursor);
+    
+    // Simulate typing effect
+    function typeMessage(message, callback) {
+        let i = 0;
+        const messageDiv = document.createElement('div');
+        messageContainer.appendChild(messageDiv);
+        
+        function typeChar() {
+            if (i < message.length) {
+                messageDiv.textContent += message.charAt(i);
+                i++;
+                setTimeout(typeChar, 50 + Math.random() * 50);
+            } else {
+                messageDiv.innerHTML += '<br>';
+                if (callback) callback();
+            }
+        }
+        
+        typeChar();
+    }
+    
+    // Simulate boot process
+    function bootStep() {
+        if (messageIndex < messages.length) {
+            typeMessage(messages[messageIndex], () => {
+                messageIndex++;
+                progress = (messageIndex / messages.length) * 100;
+                
+                // Update progress bar
+                const progressFill = newProgressBar.querySelector('.progress-fill');
+                progressFill.style.cssText = \`
+                    width: \${progress}%;
+                    height: 100%;
+                    background: linear-gradient(90deg, 
+                        #00ff00, 
+                        #00cc00, 
+                        #00ff00);
+                    transition: width 0.5s ease;
+                    box-shadow: 0 0 10px #00ff00;
+                \`;
+                
+                // Random glitch effect
+                if (Math.random() > 0.7) {
+                    messageContainer.style.transform = 'translateX(' + (Math.random() > 0.5 ? 2 : -2) + 'px)';
+                    setTimeout(() => {
+                        messageContainer.style.transform = 'translateX(0)';
+                    }, 100);
+                }
+                
+                bootStep();
+            });
+        }
+    }
+    
+    bootStep();
+}
+
+// Change CRT color scheme
+function setCRTColor(scheme) {
+    const colors = {
+        amber: { primary: '#ffaa00', glow: 'rgba(255, 170, 0, 0.3)' },
+        green: { primary: '#00ff00', glow: 'rgba(0, 255, 0, 0.3)' },
+        blue: { primary: '#0088ff', glow: 'rgba(0, 136, 255, 0.3)' },
+        white: { primary: '#ffffff', glow: 'rgba(255, 255, 255, 0.3)' }
+    };
+    
+    const color = colors[scheme] || colors.green;
+    
+    // Update all green elements
+    const elements = crtLoader.querySelectorAll('[style*="00ff00"], [style*="00cc00"]');
+    elements.forEach(el => {
+        el.style.cssText = el.style.cssText
+            .replace(/#00ff00/g, color.primary)
+            .replace(/#00cc00/g, color.primary + 'cc')
+            .replace(/rgba\(0, 255, 0/g, \`rgba(\${color.primary.replace('#', '').match(/.{2}/g).map(c => parseInt(c, 16)).join(', ')}\`)
+            .replace(/rgba\(0, 204, 0/g, \`rgba(\${color.primary.replace('#', '').match(/.{2}/g).map(c => parseInt(c, 16) * 0.8).join(', ')}\`);
+    });
+    
+    // Update box shadows
+    crtLoader.style.boxShadow = \`
+        0 0 20px \${color.glow},
+        inset 0 0 30px \${color.glow.replace('0.3', '0.1')}
+    \`;
+}
+
+// Add screen saver mode
+function enableScreenSaver() {
+    const screen = crtLoader.querySelector('.crt-screen');
+    screen.innerHTML = '';
+    
+    // Create bouncing ball
+    const ball = document.createElement('div');
+    ball.className = 'bouncing-ball';
+    ball.style.cssText = \`
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #00ff00;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #00ff00;
+    \`;
+    screen.appendChild(ball);
+    
+    let x = 50, y = 50;
+    let dx = 2, dy = 2;
+    
+    function animateBall() {
+        x += dx;
+        y += dy;
+        
+        // Bounce off walls
+        if (x <= 5 || x >= 95) dx = -dx;
+        if (y <= 5 || y >= 95) dy = -dy;
+        
+        ball.style.left = x + '%';
+        ball.style.top = y + '%';
+        
+        requestAnimationFrame(animateBall);
+    }
+    
+    animateBall();
+    
+    // Add trail effect
+    setInterval(() => {
+        const trail = document.createElement('div');
+        trail.style.cssText = \`
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(0, 255, 0, 0.3);
+            border-radius: 50%;
+            left: \${x}%;
+            top: \${y}%;
+            transition: opacity 1s;
+        \`;
+        screen.appendChild(trail);
+        
+        setTimeout(() => {
+            trail.style.opacity = '0';
+            setTimeout(() => trail.remove(), 1000);
+        }, 100);
+    }, 100);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 83: Morphing Text Loader
+    // ====================================================================
+    loader83: {
+        name: "Morphing Text Loader",
+        category: "modern",
+        html: `<div class="loader-container">
+    <div class="morphing-text-loader">
+        <span class="text-part" data-text="LOADING">LOADING</span>
+        <span class="text-part" data-text="PLEASE">PLEASE</span>
+        <span class="text-part" data-text="WAIT">WAIT</span>
+    </div>
+</div>`,
+        css: `.morphing-text-loader {
+    width: 180px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.morphing-text-loader .text-part {
+    position: absolute;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #7c3aed;
+    opacity: 0;
+    animation: textMorph 6s infinite;
+    text-shadow: 0 2px 10px rgba(124, 58, 237, 0.3);
+}
+
+.morphing-text-loader .text-part:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.morphing-text-loader .text-part:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.morphing-text-loader .text-part:nth-child(3) {
+    animation-delay: 4s;
+}
+
+@keyframes textMorph {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+        filter: blur(5px);
+    }
+    15% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+    45% {
+        opacity: 0;
+        transform: translateY(-20px) scale(1.2);
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+        filter: blur(5px);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control morphing text loader
+const morphingLoader = document.querySelector('.morphing-text-loader');
+
+// Create custom text sequence
+function createTextSequence(texts) {
+    morphingLoader.innerHTML = '';
+    
+    texts.forEach((text, index) => {
+        const textPart = document.createElement('span');
+        textPart.className = 'text-part';
+        textPart.textContent = text;
+        textPart.dataset.text = text;
+        
+        // Calculate delay based on index
+        const delay = index * (6 / texts.length);
+        textPart.style.animationDelay = \`\${delay}s\`;
+        
+        morphingLoader.appendChild(textPart);
+    });
+    
+    // Adjust animation duration based on number of texts
+    const totalDuration = texts.length * 2;
+    document.querySelectorAll('.text-part').forEach(part => {
+        part.style.animationDuration = \`\${totalDuration}s\`;
+    });
+}
+
+// Change morphing style
+function setMorphingStyle(style) {
+    const keyframes = {
+        wave: \`
+            @keyframes textMorph {
+                0% {
+                    opacity: 0;
+                    transform: translateY(20px) rotateX(90deg);
+                    filter: blur(10px);
+                }
+                20% {
+                    opacity: 1;
+                    transform: translateY(0) rotateX(0);
+                    filter: blur(0);
+                }
+                40% {
+                    opacity: 1;
+                    transform: translateY(0) rotateX(0);
+                    filter: blur(0);
+                }
+                60% {
+                    opacity: 0;
+                    transform: translateY(-20px) rotateX(-90deg);
+                    filter: blur(10px);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(20px) rotateX(90deg);
+                    filter: blur(10px);
+                }
+            }
+        \`,
+        slide: \`
+            @keyframes textMorph {
+                0% {
+                    opacity: 0;
+                    transform: translateX(-100px) scale(0.8);
+                    filter: blur(5px);
+                }
+                20% {
+                    opacity: 1;
+                    transform: translateX(0) scale(1);
+                    filter: blur(0);
+                }
+                40% {
+                    opacity: 1;
+                    transform: translateX(0) scale(1);
+                    filter: blur(0);
+                }
+                60% {
+                    opacity: 0;
+                    transform: translateX(100px) scale(1.2);
+                    filter: blur(5px);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateX(-100px) scale(0.8);
+                    filter: blur(5px);
+                }
+            }
+        \`,
+        zoom: \`
+            @keyframes textMorph {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.5) rotate(-180deg);
+                    filter: blur(10px);
+                }
+                20% {
+                    opacity: 1;
+                    transform: scale(1) rotate(0);
+                    filter: blur(0);
+                }
+                40% {
+                    opacity: 1;
+                    transform: scale(1) rotate(0);
+                    filter: blur(0);
+                }
+                60% {
+                    opacity: 0;
+                    transform: scale(1.5) rotate(180deg);
+                    filter: blur(10px);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(0.5) rotate(-180deg);
+                    filter: blur(10px);
+                }
+            }
+        \`
+    };
+    
+    const styleSheet = document.styleSheets[0];
+    const existingRule = Array.from(styleSheet.cssRules).find(rule => 
+        rule.name === 'textMorph'
+    );
+    
+    if (existingRule) {
+        styleSheet.deleteRule(Array.from(styleSheet.cssRules).indexOf(existingRule));
+    }
+    
+    styleSheet.insertRule(keyframes[style] || keyframes.wave, styleSheet.cssRules.length);
+}
+
+// Create typing effect instead of morphing
+function createTypingEffect(text, speed = 100) {
+    morphingLoader.innerHTML = '';
+    
+    const container = document.createElement('div');
+    container.className = 'typing-container';
+    container.style.cssText = \`
+        position: relative;
+        font-family: 'Courier New', monospace;
+        font-size: 20px;
+        color: #7c3aed;
+        text-shadow: 0 2px 10px rgba(124, 58, 237, 0.3);
+    \`;
+    
+    const textDisplay = document.createElement('span');
+    textDisplay.className = 'typing-text';
+    container.appendChild(textDisplay);
+    
+    const cursor = document.createElement('span');
+    cursor.className = 'typing-cursor';
+    cursor.textContent = '|';
+    cursor.style.cssText = \`
+        animation: cursorBlink 1s infinite;
+        color: #ec4899;
+    \`;
+    container.appendChild(cursor);
+    
+    morphingLoader.appendChild(container);
+    
+    // Typing animation
+    let i = 0;
+    function typeCharacter() {
+        if (i < text.length) {
+            textDisplay.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeCharacter, speed);
+        } else {
+            // Start deleting after a pause
+            setTimeout(deleteText, 1000);
+        }
+    }
+    
+    function deleteText() {
+        if (i > 0) {
+            textDisplay.textContent = text.substring(0, i - 1);
+            i--;
+            setTimeout(deleteText, speed / 2);
+        } else {
+            // Start typing again after a pause
+            setTimeout(() => typeCharacter(), 500);
+        }
+    }
+    
+    typeCharacter();
+}
+
+// Create gradient text effect
+function createGradientText(text, colors) {
+    morphingLoader.innerHTML = '';
+    
+    const gradientText = document.createElement('div');
+    gradientText.className = 'gradient-text';
+    gradientText.textContent = text;
+    gradientText.style.cssText = \`
+        font-size: 24px;
+        font-weight: 800;
+        background: linear-gradient(90deg, \${colors.join(', ')});
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 300% 100%;
+        animation: gradientShift 3s ease infinite;
+    \`;
+    
+    morphingLoader.appendChild(gradientText);
+    
+    // Add gradient shift animation
+    const keyframes = \`
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    \`;
+    
+    const styleSheet = document.styleSheets[0];
+    const existingRule = Array.from(styleSheet.cssRules).find(rule => 
+        rule.name === 'gradientShift'
+    );
+    
+    if (!existingRule) {
+        styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+    }
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 84: Particle Explosion Loader
+    // ====================================================================
+    loader84: {
+        name: "Particle Explosion Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="particle-explosion-loader">
+        <div class="core"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+</div>`,
+        css: `.particle-explosion-loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.particle-explosion-loader .core {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at center, 
+        #7c3aed 0%, 
+        #ec4899 50%, 
+        transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: corePulse 2s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+    filter: blur(1px);
+}
+
+.particle-explosion-loader .particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(45deg, #7c3aed, #ec4899);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: particleExplode 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 4px #7c3aed);
+}
+
+.particle-explosion-loader .particle:nth-child(2) {
+    animation-delay: 0s;
+}
+
+.particle-explosion-loader .particle:nth-child(3) {
+    animation-delay: -0.33s;
+}
+
+.particle-explosion-loader .particle:nth-child(4) {
+    animation-delay: -0.66s;
+}
+
+.particle-explosion-loader .particle:nth-child(5) {
+    animation-delay: -1s;
+}
+
+.particle-explosion-loader .particle:nth-child(6) {
+    animation-delay: -1.33s;
+}
+
+@keyframes corePulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0.3;
+    }
+}
+
+@keyframes particleExplode {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    50% {
+        transform: 
+            translate(
+                calc(-50% + var(--x, 0px)), 
+                calc(-50% + var(--y, 0px))
+            ) 
+            scale(1.5);
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: 
+            translate(
+                calc(-50% + var(--x, 0px)), 
+                calc(-50% + var(--y, 0px))
+            ) 
+            scale(0);
+        opacity: 0;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control particle explosion loader
+const particleLoader = document.querySelector('.particle-explosion-loader');
+
+// Create particle explosion with custom particles
+function createExplosion(particleCount, explosionForce) {
+    particleLoader.innerHTML = '';
+    
+    // Create core
+    const core = document.createElement('div');
+    core.className = 'core';
+    particleLoader.appendChild(core);
+    
+    // Create particles
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Calculate random explosion direction
+        const angle = (i / particleCount) * Math.PI * 2;
+        const distance = 30 + Math.random() * 20 * explosionForce;
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
+        
+        // Random properties
+        const size = 4 + Math.random() * 8;
+        const delay = Math.random() * 2;
+        const duration = 1 + Math.random() * 1.5;
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.setProperty('--x', x + 'px');
+        particle.style.setProperty('--y', y + 'px');
+        particle.style.animationDelay = -delay + 's';
+        particle.style.animationDuration = duration + 's';
+        
+        // Random color
+        const hue = 270 + Math.random() * 60;
+        particle.style.background = \`linear-gradient(45deg, 
+            hsl(\${hue}, 80%, 60%), 
+            hsl(\${hue + 30}, 90%, 50%))\`;
+        
+        particleLoader.appendChild(particle);
+    }
+}
+
+// Create different explosion patterns
+function createExplosionPattern(pattern) {
+    const patterns = {
+        circle: (i, total) => {
+            const angle = (i / total) * Math.PI * 2;
+            const x = Math.cos(angle) * 40;
+            const y = Math.sin(angle) * 40;
+            return { x, y };
+        },
+        spiral: (i, total) => {
+            const angle = (i / total) * Math.PI * 8;
+            const distance = (i / total) * 50;
+            const x = Math.cos(angle) * distance;
+            const y = Math.sin(angle) * distance;
+            return { x, y };
+        },
+        random: () => {
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 20 + Math.random() * 30;
+            const x = Math.cos(angle) * distance;
+            const y = Math.sin(angle) * distance;
+            return { x, y };
+        },
+        flower: (i, total) => {
+            const angle = (i / total) * Math.PI * 2;
+            const petals = 5;
+            const distance = 30 * Math.abs(Math.sin(petals * angle / 2));
+            const x = Math.cos(angle) * distance;
+            const y = Math.sin(angle) * distance;
+            return { x, y };
+        }
+    };
+    
+    const patternFn = patterns[pattern] || patterns.circle;
+    createExplosion(12, 1);
+    
+    // Update particles with pattern
+    const particles = particleLoader.querySelectorAll('.particle');
+    particles.forEach((particle, i) => {
+        const { x, y } = patternFn(i, particles.length);
+        particle.style.setProperty('--x', x + 'px');
+        particle.style.setProperty('--y', y + 'px');
+    });
+}
+
+// Simulate chain reaction
+function simulateChainReaction(stages) {
+    particleLoader.innerHTML = '';
+    
+    let currentStage = 0;
+    
+    function createStage() {
+        if (currentStage >= stages) return;
+        
+        const centerX = Math.random() * 80 - 40;
+        const centerY = Math.random() * 80 - 40;
+        
+        // Create new core for this stage
+        const newCore = document.createElement('div');
+        newCore.className = 'core';
+        newCore.style.cssText = \`
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: calc(50% + \${centerY}px);
+            left: calc(50% + \${centerX}px);
+            transform: translate(-50%, -50%);
+            animation: corePulse 1s ease-in-out infinite;
+        \`;
+        particleLoader.appendChild(newCore);
+        
+        // Create particles for this stage
+        for (let i = 0; i < 6; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            const angle = (i / 6) * Math.PI * 2;
+            const distance = 25;
+            const x = centerX + Math.cos(angle) * distance;
+            const y = centerY + Math.sin(angle) * distance;
+            
+            particle.style.cssText = \`
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                animation: particleExplode 1.5s ease-in-out infinite;
+                animation-delay: \${currentStage * 0.5}s;
+                --x: \${x}px;
+                --y: \${y}px;
+            \`;
+            
+            particleLoader.appendChild(particle);
+        }
+        
+        currentStage++;
+        setTimeout(createStage, 500);
+    }
+    
+    createStage();
+}
+
+// Create gravitational pull effect
+function createGravityEffect() {
+    const core = particleLoader.querySelector('.core');
+    const particles = particleLoader.querySelectorAll('.particle');
+    
+    // Make core larger and pulsing
+    core.style.animation = 'gravityCore 2s ease-in-out infinite';
+    
+    // Update particle animation for gravity
+    particles.forEach(particle => {
+        particle.style.animation = 'gravityParticle 3s ease-in-out infinite';
+    });
+    
+    // Add gravity keyframes
+    const keyframes = \`
+        @keyframes gravityCore {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 40px rgba(124, 58, 237, 0.6);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.3);
+                box-shadow: 0 0 60px rgba(236, 72, 153, 0.8);
+            }
+        }
+        
+        @keyframes gravityParticle {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+                transform: translate(
+                    calc(-50% + var(--x, 0px)), 
+                    calc(-50% + var(--y, 0px))
+                ) scale(1.2);
+            }
+            60% {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+        }
+    \`;
+    
+    const styleSheet = document.styleSheets[0];
+    const existingCoreRule = Array.from(styleSheet.cssRules).find(rule => 
+        rule.name === 'gravityCore'
+    );
+    const existingParticleRule = Array.from(styleSheet.cssRules).find(rule => 
+        rule.name === 'gravityParticle'
+    );
+    
+    if (existingCoreRule) styleSheet.deleteRule(Array.from(styleSheet.cssRules).indexOf(existingCoreRule));
+    if (existingParticleRule) styleSheet.deleteRule(Array.from(styleSheet.cssRules).indexOf(existingParticleRule));
+    
+    styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 85: DNA Strand Loader
+    // ====================================================================
+    loader85: {
+        name: "DNA Strand Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="dna-strand-loader">
+        <div class="backbone"></div>
+        <div class="backbone"></div>
+        <div class="base-pair"></div>
+        <div class="base-pair"></div>
+        <div class="base-pair"></div>
+        <div class="base-pair"></div>
+    </div>
+</div>`,
+        css: `.dna-strand-loader {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    transform-style: preserve-3d;
+    animation: dnaRotate 6s linear infinite;
+}
+
+.dna-strand-loader .backbone {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        transparent, 
+        #3b82f6, 
+        transparent);
+    border-radius: 1px;
+}
+
+.dna-strand-loader .backbone:nth-child(1) {
+    left: 30%;
+    transform: rotateY(0deg);
+}
+
+.dna-strand-loader .backbone:nth-child(2) {
+    right: 30%;
+    transform: rotateY(180deg);
+}
+
+.dna-strand-loader .base-pair {
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, 
+        transparent, 
+        #10b981, 
+        #ec4899, 
+        transparent);
+    left: 30%;
+    top: var(--top, 0%);
+    transform-origin: left center;
+    animation: basePairConnect 2s ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+    filter: drop-shadow(0 0 3px #10b981);
+}
+
+.dna-strand-loader .base-pair:nth-child(3) {
+    --top: 10%;
+    --delay: 0s;
+}
+
+.dna-strand-loader .base-pair:nth-child(4) {
+    --top: 30%;
+    --delay: -0.5s;
+}
+
+.dna-strand-loader .base-pair:nth-child(5) {
+    --top: 50%;
+    --delay: -1s;
+}
+
+.dna-strand-loader .base-pair:nth-child(6) {
+    --top: 70%;
+    --delay: -1.5s;
+}
+
+@keyframes dnaRotate {
+    0% {
+        transform: rotateX(60deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(60deg) rotateY(360deg);
+    }
+}
+
+@keyframes basePairConnect {
+    0%, 100% {
+        transform: rotateZ(0deg);
+        width: 40px;
+        opacity: 0.5;
+    }
+    50% {
+        transform: rotateZ(180deg);
+        width: 60px;
+        opacity: 1;
+        filter: drop-shadow(0 0 6px #ec4899);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control DNA strand loader
+const dnaLoader = document.querySelector('.dna-strand-loader');
+
+// Create DNA strand with custom parameters
+function createDNAStrand(basePairs, twist) {
+    dnaLoader.innerHTML = '';
+    
+    // Create backbones
+    const backbone1 = document.createElement('div');
+    backbone1.className = 'backbone';
+    backbone1.style.left = '30%';
+    dnaLoader.appendChild(backbone1);
+    
+    const backbone2 = document.createElement('div');
+    backbone2.className = 'backbone';
+    backbone2.style.right = '30%';
+    dnaLoader.appendChild(backbone2);
+    
+    // Create base pairs
+    for (let i = 0; i < basePairs; i++) {
+        const basePair = document.createElement('div');
+        basePair.className = 'base-pair';
+        
+        const top = (i / (basePairs - 1)) * 80 + 10;
+        const delay = (i / basePairs) * 2;
+        
+        basePair.style.setProperty('--top', top + '%');
+        basePair.style.setProperty('--delay', -delay + 's');
+        basePair.style.animationDuration = (2 / twist) + 's';
+        
+        // Alternate colors for different base pairs
+        const colors = [
+            ['#10b981', '#ec4899'], // A-T
+            ['#3b82f6', '#8b5cf6'], // G-C
+            ['#f59e0b', '#fbbf24'], // Custom 1
+            ['#ef4444', '#f97316']  // Custom 2
+        ];
+        const colorPair = colors[i % colors.length];
+        basePair.style.background = \`linear-gradient(to right, 
+            transparent, 
+            \${colorPair[0]}, 
+            \${colorPair[1]}, 
+            transparent)\`;
+        
+        dnaLoader.appendChild(basePair);
+    }
+    
+    // Adjust rotation speed based on twist
+    dnaLoader.style.animationDuration = (6 / twist) + 's';
+}
+
+// Create different DNA structures
+function createDNAStructure(structure) {
+    switch(structure) {
+        case 'double-helix':
+            // Standard double helix
+            createDNAStrand(8, 1);
+            break;
+            
+        case 'triple-helix':
+            // Create three backbones
+            dnaLoader.innerHTML = '';
+            
+            for (let b = 0; b < 3; b++) {
+                const backbone = document.createElement('div');
+                backbone.className = 'backbone';
+                backbone.style.cssText = \`
+                    position: absolute;
+                    width: 2px;
+                    height: 100%;
+                    background: linear-gradient(to bottom, 
+                        transparent, 
+                        #3b82f6, 
+                        transparent);
+                    border-radius: 1px;
+                    left: \${30 + b * 20}%;
+                \`;
+                dnaLoader.appendChild(backbone);
+            }
+            
+            // Create connecting lines
+            for (let i = 0; i < 6; i++) {
+                const connector = document.createElement('div');
+                connector.className = 'connector';
+                connector.style.cssText = \`
+                    position: absolute;
+                    height: 2px;
+                    background: linear-gradient(to right, 
+                        #10b981, 
+                        #ec4899);
+                    top: \${10 + i * 15}%;
+                    left: 30%;
+                    right: 30%;
+                    transform-origin: center;
+                    animation: tripleHelix 2s ease-in-out infinite;
+                    animation-delay: \${-i * 0.3}s;
+                    filter: drop-shadow(0 0 3px #10b981);
+                \`;
+                dnaLoader.appendChild(connector);
+            }
+            break;
+            
+        case 'circular':
+            // Circular DNA (plasmid)
+            dnaLoader.innerHTML = '';
+            dnaLoader.style.animation = 'dnaRotate 8s linear infinite';
+            
+            const circle = document.createElement('div');
+            circle.className = 'circular-dna';
+            circle.style.cssText = \`
+                position: absolute;
+                width: 80px;
+                height: 80px;
+                border: 2px solid #3b82f6;
+                border-radius: 50%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                animation: circularPulse 3s ease-in-out infinite;
+            \`;
+            dnaLoader.appendChild(circle);
+            
+            // Add base pairs around the circle
+            for (let i = 0; i < 12; i++) {
+                const base = document.createElement('div');
+                base.className = 'circular-base';
+                const angle = (i / 12) * Math.PI * 2;
+                const x = 40 + 35 * Math.cos(angle);
+                const y = 40 + 35 * Math.sin(angle);
+                
+                base.style.cssText = \`
+                    position: absolute;
+                    width: 6px;
+                    height: 6px;
+                    background: \${i % 2 ? '#10b981' : '#ec4899'};
+                    border-radius: 50%;
+                    top: \${y}px;
+                    left: \${x}px;
+                    transform: translate(-50%, -50%);
+                    animation: circularBase 2s ease-in-out infinite;
+                    animation-delay: \${-i * 0.2}s;
+                    filter: drop-shadow(0 0 3px currentColor);
+                \`;
+                dnaLoader.appendChild(base);
+            }
+            break;
+    }
+}
+
+// Simulate DNA replication
+function simulateReplication() {
+    const originalBackbone = dnaLoader.querySelector('.backbone');
+    const basePairs = dnaLoader.querySelectorAll('.base-pair');
+    
+    // Create new backbone (daughter strand)
+    const newBackbone = document.createElement('div');
+    newBackbone.className = 'backbone new-backbone';
+    newBackbone.style.cssText = \`
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(to bottom, 
+            transparent, 
+            #f59e0b, 
+            transparent);
+        border-radius: 1px;
+        left: 40%;
+        opacity: 0;
+        animation: backboneReplicate 4s ease-out infinite;
+    \`;
+    dnaLoader.appendChild(newBackbone);
+    
+    // Create new base pairs
+    basePairs.forEach((basePair, i) => {
+        setTimeout(() => {
+            const newBasePair = basePair.cloneNode(true);
+            newBasebone.className = 'base-pair new-base-pair';
+            newBasePair.style.cssText += \`
+                left: 40%;
+                background: linear-gradient(to right, 
+                    transparent, 
+                    #f59e0b, 
+                    #fbbf24, 
+                    transparent);
+                animation: basePairReplicate 2s ease-out \${i * 0.5}s;
+            \`;
+            dnaLoader.appendChild(newBasePair);
+        }, i * 500);
+    });
+    
+    // Add replication animations
+    const keyframes = \`
+        @keyframes backboneReplicate {
+            0% {
+                height: 0;
+                opacity: 0;
+            }
+            50% {
+                height: 100%;
+                opacity: 1;
+            }
+            100% {
+                height: 100%;
+                opacity: 1;
+            }
+        }
+        
+        @keyframes basePairReplicate {
+            0% {
+                transform: rotateZ(0deg) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: rotateZ(90deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: rotateZ(180deg) scale(1);
+                opacity: 1;
+            }
+        }
+    \`;
+    
+    const styleSheet = document.styleSheets[0];
+    styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+}
+
+// Create genetic code visualization
+function visualizeGeneticCode(sequence) {
+    dnaLoader.innerHTML = '';
+    
+    // Convert sequence to visual elements
+    const bases = {
+        'A': { color: '#10b981', symbol: 'A' },
+        'T': { color: '#ec4899', symbol: 'T' },
+        'G': { color: '#3b82f6', symbol: 'G' },
+        'C': { color: '#8b5cf6', symbol: 'C' }
+    };
+    
+    // Create visualization
+    for (let i = 0; i < Math.min(sequence.length, 8); i++) {
+        const base = sequence[i];
+        const baseInfo = bases[base] || bases['A'];
+        
+        const baseElement = document.createElement('div');
+        baseElement.className = 'genetic-base';
+        baseElement.textContent = baseInfo.symbol;
+        baseElement.style.cssText = \`
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: \${baseInfo.color};
+            border-radius: 50%;
+            top: 50%;
+            left: \${10 + i * 12}%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            animation: basePulse 1s ease-in-out infinite;
+            animation-delay: \${-i * 0.2}s;
+            box-shadow: 0 0 10px \${baseInfo.color};
+        \`;
+        
+        dnaLoader.appendChild(baseElement);
+    }
+    
+    // Create connecting lines
+    for (let i = 0; i < Math.min(sequence.length, 8) - 1; i++) {
+        const connector = document.createElement('div');
+        connector.className = 'genetic-connector';
+        connector.style.cssText = \`
+            position: absolute;
+            width: 12px;
+            height: 2px;
+            background: linear-gradient(to right, 
+                \${bases[sequence[i]]?.color || '#10b981'}, 
+                \${bases[sequence[i + 1]]?.color || '#ec4899'});
+            top: 50%;
+            left: \${10 + i * 12 + 6}%;
+            transform: translateY(-50%);
+            animation: connectorPulse 1s ease-in-out infinite;
+            animation-delay: \${-i * 0.2}s;
+        \`;
+        dnaLoader.appendChild(connector);
+    }
+}`
+    },
+        // ====================================================================
+    // TEMPLATE 86: Unique Bar Loader
+    // ====================================================================
+    loader86: {
+        name: "Unique Bar Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="unique-bar-loader">
+        <div class="bar-86"></div>
+        <div class="bar-86"></div>
+        <div class="bar-86"></div>
+        <div class="bar-86"></div>
+        <div class="bar-86"></div>
+    </div>
+</div>`,
+        css: `.unique-bar-loader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 50px;
+    gap: 8px;
+}
+
+.bar-86 {
+    width: 12px;
+    height: 40px;
+    background: linear-gradient(to top, #7c3aed, #ec4899);
+    border-radius: 6px 6px 0 0;
+    animation: barWave86 1.5s ease-in-out infinite;
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
+}
+
+.bar-86:nth-child(2) { 
+    animation-delay: 0.1s; 
+    height: 30px; 
+}
+.bar-86:nth-child(3) { 
+    animation-delay: 0.2s; 
+    height: 50px; 
+}
+.bar-86:nth-child(4) { 
+    animation-delay: 0.3s; 
+    height: 30px; 
+}
+.bar-86:nth-child(5) { 
+    animation-delay: 0.4s; 
+    height: 40px; 
+}
+
+@keyframes barWave86 {
+    0%, 100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scaleY(0.3);
+        opacity: 0.7;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control unique bar loader
+const barLoader = document.querySelector('.unique-bar-loader');
+
+// Change bar colors
+function changeBarColors(color1, color2) {
+    document.querySelectorAll('.bar-86').forEach(bar => {
+        bar.style.background = \`linear-gradient(to top, \${color1}, \${color2})\`;
+    });
+}
+
+// Change animation speed
+function setBarSpeed(speed) {
+    document.querySelectorAll('.bar-86').forEach(bar => {
+        bar.style.animationDuration = speed + 's';
+    });
+}
+
+// Change number of bars
+function setBarCount(count) {
+    const container = document.querySelector('.unique-bar-loader');
+    container.innerHTML = '';
+    
+    for (let i = 0; i < count; i++) {
+        const bar = document.createElement('div');
+        bar.className = 'bar-86';
+        bar.style.height = (30 + i * 5) + 'px';
+        bar.style.animationDelay = \`\${i * 0.1}s\`;
+        container.appendChild(bar);
+    }
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 87: Pouring Liquid Loader
+    // ====================================================================
+    loader87: {
+        name: "Pouring Liquid Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="loader-87"></div>
+</div>`,
+        css: `.loader-87 {
+    --c1: #673b14;
+    --c2: #f8b13b;
+    width: 40px;
+    height: 80px;
+    border-top: 4px solid var(--c1);
+    border-bottom: 4px solid var(--c1);
+    background: linear-gradient(90deg, var(--c1) 2px, var(--c2) 0 5px, var(--c1) 0) 50%/7px 8px no-repeat;
+    display: grid;
+    overflow: hidden;
+    animation: l5-0 2s infinite linear;
+}
+
+.loader-87::before,
+.loader-87::after {
+    content: "";
+    grid-area: 1/1;
+    width: 75%;
+    height: calc(50% - 4px);
+    margin: 0 auto;
+    border: 2px solid var(--c1);
+    border-top: 0;
+    box-sizing: content-box;
+    border-radius: 0 0 40% 40%;
+    -webkit-mask: linear-gradient(#000 0 0) bottom/4px 2px no-repeat,
+                  linear-gradient(#000 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    background: linear-gradient(var(--d,0deg), var(--c2) 50%, #0000 0) bottom /100% 205%,
+                linear-gradient(var(--c2) 0 0) center/0 100%;
+    background-repeat: no-repeat;
+    animation: inherit;
+    animation-name: l5-1;
+}
+
+.loader-87::after {
+    transform-origin: 50% calc(100% + 2px);
+    transform: scaleY(-1);
+    --s: 3px;
+    --d: 180deg;
+}
+
+@keyframes l5-0 {
+    80% { transform: rotate(0); }
+    100% { transform: rotate(0.5turn); }
+}
+
+@keyframes l5-1 {
+    10%, 70% {
+        background-size: 100% 205%, var(--s,0) 100%;
+    }
+    70%, 100% {
+        background-position: top, center;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control liquid loader
+const liquidLoader = document.querySelector('.loader-87');
+
+// Change liquid colors
+function changeLiquidColors(color1, color2) {
+    liquidLoader.style.setProperty('--c1', color1);
+    liquidLoader.style.setProperty('--c2', color2);
+}
+
+// Change animation speed
+function setLiquidSpeed(speed) {
+    liquidLoader.style.animationDuration = speed + 's';
+}
+
+// Change size
+function setLiquidSize(width, height) {
+    liquidLoader.style.width = width + 'px';
+    liquidLoader.style.height = height + 'px';
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 88: Percentage Loader
+    // ====================================================================
+    loader88: {
+        name: "Percentage Loader",
+        category: "progress",
+        html: `<div class="loader-container">
+    <div class="loader-88"></div>
+</div>`,
+        css: `.loader-88 {
+    display: block;
+    position: relative;
+    height: 32px;
+    width: 200px;
+    background: #fff;
+    border: 2px solid #fff;
+    color: #7c3aed;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.2);
+}
+
+.loader-88::before {
+    content: '';
+    background: linear-gradient(90deg, #7c3aed, #ec4899);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    animation: loading88 5s linear infinite;
+    border-radius: 6px;
+}
+
+.loader-88::after {
+    content: '0%';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 32px;
+    color: white;
+    font-weight: bold;
+    mix-blend-mode: difference;
+    animation: percentage88 5s linear infinite;
+}
+
+@keyframes loading88 {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+@keyframes percentage88 {
+    0% { content: "0%"; }
+    5% { content: "5%"; }
+    10% { content: "10%"; }
+    20% { content: "20%"; }
+    30% { content: "30%"; }
+    40% { content: "40%"; }
+    50% { content: "50%"; }
+    60% { content: "60%"; }
+    70% { content: "70%"; }
+    80% { content: "80%"; }
+    90% { content: "90%"; }
+    95% { content: "95%"; }
+    96% { content: "96%"; }
+    97% { content: "97%"; }
+    98% { content: "98%"; }
+    99% { content: "99%"; }
+    100% { content: "100%"; }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control percentage loader
+const percentageLoader = document.querySelector('.loader-88');
+
+// Change colors
+function setPercentageColors(color1, color2, bgColor) {
+    percentageLoader.style.setProperty('--loader-color', color1);
+    percentageLoader.style.setProperty('--loader-bg', bgColor);
+    
+    const beforeStyle = window.getComputedStyle(percentageLoader, '::before');
+    percentageLoader.style.setProperty('--loader-gradient', \`linear-gradient(90deg, \${color1}, \${color2})\`);
+}
+
+// Change animation duration
+function setPercentageSpeed(duration) {
+    percentageLoader.style.animationDuration = duration + 's';
+    
+    // Update pseudo-element animation
+    const style = document.createElement('style');
+    style.textContent = \`
+        .loader-88::before {
+            animation: loading88 \${duration}s linear infinite;
+        }
+        .loader-88::after {
+            animation: percentage88 \${duration}s linear infinite;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Set custom percentage values
+function setCustomPercentages(steps) {
+    const style = document.createElement('style');
+    let keyframes = \`@keyframes customPercentage {\`;
+    
+    steps.forEach((step, index) => {
+        const percentage = (index / (steps.length - 1)) * 100;
+        keyframes += \`\${percentage}% { content: "\${step}"; }\`;
+    });
+    
+    keyframes += \`}\`;
+    style.textContent = keyframes;
+    document.head.appendChild(style);
+    
+    percentageLoader.style.animationName = 'customPercentage';
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 89: 3D Interactive Loader
+    // ====================================================================
+    loader89: {
+        name: "3D Interactive Loader",
+        category: "animated",
+        html: `<div class="loader-container loader-container-89">
+    <div class="area-89"></div>
+    <div class="area-89"></div>
+    <div class="area-89"></div>
+    <div class="area-89"></div>
+    <div class="area-89"></div>
+    <div class="area-89"></div>
+    <div class="loader-89">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>`,
+        css: `.loader-container-89 {
+    --color-primary: #7c3aed;
+    --color-neutral: #f8fafc;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+
+.area-89 {
+    position: absolute;
+    width: 16.666%;
+    height: 100%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.area-89:nth-of-type(1) { left: 0; }
+.area-89:nth-of-type(2) { left: 16.666%; }
+.area-89:nth-of-type(3) { left: 33.333%; }
+.area-89:nth-of-type(4) { left: 50%; }
+.area-89:nth-of-type(5) { left: 66.666%; }
+.area-89:nth-of-type(6) { left: 83.333%; }
+
+.loader-89 {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    transition: all 0.15s linear;
+    transform: translate(-50%, -50%) rotateX(-20deg);
+}
+
+.loader-89 span {
+    position: relative;
+    height: 25px;
+    background-color: var(--color-neutral);
+    border-top: 0.2rem solid var(--color-primary);
+    border-bottom: 0.2rem solid var(--color-primary);
+}
+
+.loader-89 span::before {
+    content: "";
+    position: absolute;
+    top: 0.2rem;
+    width: 100%;
+    height: calc(100% - 0.4rem);
+    background: linear-gradient(90deg, var(--color-primary), #ec4899);
+    clip-path: inset(0 100% 0 0);
+    animation: progress89 2s linear infinite;
+}
+
+.loader-89 > span:nth-of-type(1) {
+    width: 80px;
+    border-left: 0.2rem solid var(--color-primary);
+    border-radius: 8px 0 0 8px;
+}
+
+.loader-89 > span:nth-of-type(1)::before {
+    left: 0.2rem;
+    width: calc(100% - 0.2rem + 1px);
+    border-radius: 4px 0 0 4px;
+}
+
+.loader-89 > span:nth-of-type(2) {
+    width: 8px;
+}
+
+.loader-89 > span:nth-of-type(2)::before {
+    left: -1px;
+    width: calc(100% + 2px);
+}
+
+.loader-89 > span:nth-of-type(3) {
+    width: 40px;
+    transform: translateZ(30px);
+}
+
+.loader-89 > span:nth-of-type(3)::before {
+    left: -1px;
+    width: calc(100% + 2px);
+}
+
+.loader-89 > span:nth-of-type(4) {
+    width: 30px;
+    border-right: 0.2rem solid var(--color-primary);
+    border-radius: 0 8px 8px 0;
+}
+
+.loader-89 > span:nth-of-type(4)::before {
+    right: 0.2rem;
+    width: calc(100% - 0.2rem + 1px);
+    border-radius: 0 4px 4px 0;
+}
+
+@keyframes progress89 {
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control 3D interactive loader
+const loader3D = document.querySelector('.loader-89');
+const areas = document.querySelectorAll('.area-89');
+
+// Change 3D perspective
+function setPerspective(value) {
+    document.querySelector('.loader-container-89').style.perspective = value + 'px';
+}
+
+// Change colors
+function set3DColors(primary, neutral) {
+    const container = document.querySelector('.loader-container-89');
+    container.style.setProperty('--color-primary', primary);
+    container.style.setProperty('--color-neutral', neutral);
+}
+
+// Reset rotation
+function reset3DRotation() {
+    loader3D.style.transform = 'translate(-50%, -50%) rotateX(-20deg) rotateY(0deg)';
+}
+
+// Interactive hover effects
+areas.forEach((area, index) => {
+    area.addEventListener('mouseenter', () => {
+        const row = Math.floor(index / 6);
+        const col = index % 6;
+        
+        let rotateX = -20;
+        let rotateY = 0;
+        
+        if (row === 0) rotateX = -20;
+        else if (row === 1) rotateX = -10;
+        else if (row === 2) rotateX = -5;
+        else if (row === 3) rotateX = 5;
+        else if (row === 4) rotateX = 10;
+        else if (row === 5) rotateX = 20;
+        
+        if (col === 0) rotateY = 20;
+        else if (col === 1) rotateY = 10;
+        else if (col === 2) rotateY = 5;
+        else if (col === 3) rotateY = -5;
+        else if (col === 4) rotateY = -10;
+        else if (col === 5) rotateY = -20;
+        
+        loader3D.style.transform = \`translate(-50%, -50%) rotateX(\${rotateX}deg) rotateY(\${rotateY}deg)\`;
+    });
+});`
+    },
+
+    // ====================================================================
+    // TEMPLATE 90: Swinging Bars Loader
+    // ====================================================================
+    loader90: {
+        name: "Swinging Bars Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="bars-loader-90">
+        <div class="bar-90"></div>
+        <div class="bar-90"></div>
+        <div class="bar-90"></div>
+        <div class="bar-90"></div>
+        <div class="bar-90"></div>
+    </div>
+</div>`,
+        css: `.bars-loader-90 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 60px;
+}
+
+.bar-90 {
+    position: relative;
+    display: inline-block;
+    margin: 0 8px;
+    width: 10px;
+    height: 50px;
+    border-radius: 0px;
+    background: linear-gradient(to bottom, #7c3aed, #ec4899);
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
+    animation: swing90 infinite 5s cubic-bezier(0.955, -0.01, 1, 1);
+    transform-origin: 100% 100%;
+}
+
+.bar-90::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    box-shadow: 0 4px rgba(124, 58, 237, 0.3);
+    animation: extend90 infinite 5s cubic-bezier(0.955, -0.01, 1, 1);
+    opacity: 0;
+    transform-origin: 0% 0%;
+}
+
+.bar-90:nth-child(2),
+.bar-90:nth-child(2)::before { 
+    animation-delay: 0.3s; 
+}
+.bar-90:nth-child(3),
+.bar-90:nth-child(3)::before { 
+    animation-delay: 0.6s; 
+}
+.bar-90:nth-child(4),
+.bar-90:nth-child(4)::before { 
+    animation-delay: 0.9s; 
+}
+.bar-90:nth-child(5),
+.bar-90:nth-child(5)::before { 
+    animation-delay: 1.2s; 
+}
+
+.bar-90:last-of-type {
+    animation-name: swing-last90;
+}
+
+.bar-90:last-of-type::before {
+    animation-name: extend-last90;
+}
+
+@keyframes swing90 {
+    10% { transform: rotate(70deg); }
+    60% { transform: rotate(70deg); }
+    70% { transform: rotate(0deg); }
+}
+
+@keyframes swing-last90 {
+    10% { transform: rotate(90deg); }
+    60% { transform: rotate(90deg); }
+    70% { transform: rotate(0deg); }
+}
+
+@keyframes extend90 {
+    10% {
+        transform: rotate(-70deg);
+        width: 20px;
+        opacity: 1;
+        left: 0px;
+        bottom: -1px;
+    }
+    60% {
+        transform: rotate(-70deg);
+        width: 20px;
+        opacity: 1;
+    }
+    70% {
+        width: 10px;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+}
+
+@keyframes extend-last90 {
+    10% {
+        transform: rotate(-90deg);
+        width: 20px;
+        height: 2px;
+        opacity: 0.5;
+        left: 3px;
+        bottom: -1px;
+    }
+    60% {
+        transform: rotate(-90deg);
+        width: 20px;
+        height: 2px;
+        opacity: 0.5;
+    }
+    70% {
+        transform: rotate(0deg);
+        width: 10px;
+        height: 10px;
+        opacity: 0;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control swinging bars loader
+const swingingBars = document.querySelector('.bars-loader-90');
+
+// Change bar colors
+function setSwingingColors(color1, color2) {
+    document.querySelectorAll('.bar-90').forEach(bar => {
+        bar.style.background = \`linear-gradient(to bottom, \${color1}, \${color2})\`;
+    });
+}
+
+// Change animation speed
+function setSwingingSpeed(speed) {
+    document.querySelectorAll('.bar-90').forEach(bar => {
+        bar.style.animationDuration = speed + 's';
+    });
+}
+
+// Change shadow color
+function setShadowColor(color) {
+    document.querySelectorAll('.bar-90').forEach(bar => {
+        bar.style.boxShadow = \`0 4px 10px \${color}\`;
+    });
+    document.querySelectorAll('.bar-90::before').forEach(bar => {
+        bar.style.boxShadow = \`0 4px \${color}\`;
+    });
+}
+
+// Toggle animation
+function toggleSwingingAnimation() {
+    document.querySelectorAll('.bar-90').forEach(bar => {
+        bar.style.animationPlayState = 
+            bar.style.animationPlayState === 'paused' ? 'running' : 'paused';
+    });
+}`
+    },
+        // ====================================================================
+    // TEMPLATE 91: Neon Glow Spinner
+    // ====================================================================
+    loader91: {
+        name: "Neon Glow Spinner",
+        category: "animated",
+        html: `<div class="loader-container dark-bg">
+    <div class="neon-spinner-91"></div>
+</div>`,
+        css: `.neon-spinner-91 {
+    width: 60px;
+    height: 60px;
+    border: 3px solid transparent;
+    border-top: 3px solid #00ff9d;
+    border-radius: 50%;
+    position: relative;
+    animation: neonSpin91 1.5s linear infinite;
+    box-shadow: 
+        0 0 15px #00ff9d,
+        inset 0 0 15px rgba(0, 255, 157, 0.2);
+}
+
+.neon-spinner-91::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 3px solid transparent;
+    border-top: 3px solid #ff00ff;
+    border-radius: 50%;
+    animation: neonSpin91 2s linear infinite reverse;
+    filter: blur(5px);
+    opacity: 0.7;
+}
+
+.neon-spinner-91::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 3px solid transparent;
+    border-top: 3px solid #00ffff;
+    border-radius: 50%;
+    animation: neonSpin91 3s linear infinite;
+    filter: blur(10px);
+    opacity: 0.4;
+}
+
+@keyframes neonSpin91 {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #1a1a2e; /* Dark background for neon effect */
+    border-radius: 8px;
+}
+
+.dark-bg {
+    background: #1a1a2e;
+}`,
+        js: `// Control neon spinner
+const neonSpinner = document.querySelector('.neon-spinner-91');
+
+// Change neon colors
+function setNeonColors(color1, color2, color3) {
+    neonSpinner.style.borderTopColor = color1;
+    neonSpinner.style.boxShadow = \`0 0 15px \${color1}, inset 0 0 15px \${color1}33\`;
+    
+    // Update pseudo-elements
+    const beforeStyle = window.getComputedStyle(neonSpinner, '::before');
+    const afterStyle = window.getComputedStyle(neonSpinner, '::after');
+    
+    // You would need to update via CSS variables or create new elements
+    // For simplicity, we'll update via style tag
+    const style = document.createElement('style');
+    style.textContent = \`
+        .neon-spinner-91::before {
+            border-top-color: \${color2} !important;
+        }
+        .neon-spinner-91::after {
+            border-top-color: \${color3} !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change glow intensity
+function setGlowIntensity(intensity) {
+    neonSpinner.style.boxShadow = \`0 0 \${intensity}px #00ff9d, inset 0 0 \${intensity}px rgba(0, 255, 157, 0.2)\`;
+}
+
+// Change animation speeds
+function setNeonSpeeds(mainSpeed, beforeSpeed, afterSpeed) {
+    neonSpinner.style.animationDuration = mainSpeed + 's';
+    
+    const style = document.createElement('style');
+    style.textContent = \`
+        .neon-spinner-91::before {
+            animation-duration: \${beforeSpeed}s !important;
+        }
+        .neon-spinner-91::after {
+            animation-duration: \${afterSpeed}s !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 92: Geometric Pattern Loader
+    // ====================================================================
+    loader92: {
+        name: "Geometric Pattern Loader",
+        category: "minimal",
+        html: `<div class="loader-container">
+    <div class="geometric-loader-92">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+</div>`,
+        css: `.geometric-loader-92 {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.geometric-loader-92 .shape {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    animation: geometricPulse92 1.5s ease-in-out infinite;
+    border-radius: 50%;
+    position: relative;
+}
+
+.geometric-loader-92 .shape:nth-child(1) { 
+    animation-delay: 0s; 
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+}
+.geometric-loader-92 .shape:nth-child(2) { 
+    animation-delay: 0.1s; 
+    background: linear-gradient(45deg, #ff8e53, #ffd166);
+}
+.geometric-loader-92 .shape:nth-child(3) { 
+    animation-delay: 0.2s; 
+    background: linear-gradient(45deg, #ffd166, #06d6a0);
+}
+.geometric-loader-92 .shape:nth-child(4) { 
+    animation-delay: 0.3s; 
+    background: linear-gradient(45deg, #06d6a0, #118ab2);
+}
+.geometric-loader-92 .shape:nth-child(5) { 
+    animation-delay: 0.4s; 
+    background: linear-gradient(45deg, #118ab2, #ff6b6b);
+}
+
+@keyframes geometricPulse92 {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        border-radius: 50%;
+    }
+    25% {
+        transform: scale(1.5) rotate(90deg);
+        border-radius: 25% 75% 25% 75%;
+    }
+    50% {
+        transform: scale(1) rotate(180deg);
+        border-radius: 75% 25% 75% 25%;
+    }
+    75% {
+        transform: scale(0.8) rotate(270deg);
+        border-radius: 50% 50% 25% 75%;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control geometric loader
+const geometricLoader = document.querySelector('.geometric-loader-92');
+
+// Change colors scheme
+function setGeometricColors(color1, color2, color3, color4, color5) {
+    const shapes = document.querySelectorAll('.geometric-loader-92 .shape');
+    const gradients = [
+        \`linear-gradient(45deg, \${color1}, \${color2})\`,
+        \`linear-gradient(45deg, \${color2}, \${color3})\`,
+        \`linear-gradient(45deg, \${color3}, \${color4})\`,
+        \`linear-gradient(45deg, \${color4}, \${color5})\`,
+        \`linear-gradient(45deg, \${color5}, \${color1})\`
+    ];
+    
+    shapes.forEach((shape, index) => {
+        shape.style.background = gradients[index];
+    });
+}
+
+// Change shape count
+function setShapeCount(count) {
+    geometricLoader.innerHTML = '';
+    for (let i = 0; i < count; i++) {
+        const shape = document.createElement('div');
+        shape.className = 'shape';
+        shape.style.animationDelay = \`\${i * 0.1}s\`;
+        
+        // Calculate color based on position
+        const hue = (i * (360 / count)) % 360;
+        const nextHue = ((i + 1) * (360 / count)) % 360;
+        shape.style.background = \`linear-gradient(45deg, hsl(\${hue}, 100%, 65%), hsl(\${nextHue}, 100%, 65%))\`;
+        
+        geometricLoader.appendChild(shape);
+    }
+}
+
+// Change animation speed
+function setGeometricSpeed(speed) {
+    document.querySelectorAll('.geometric-loader-92 .shape').forEach(shape => {
+        shape.style.animationDuration = speed + 's';
+    });
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 93: Cyberpunk Grid Loader
+    // ====================================================================
+    loader93: {
+        name: "Cyberpunk Grid Loader",
+        category: "animated",
+        html: `<div class="loader-container dark-bg">
+    <div class="cyber-grid-93">
+        <div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div>
+    </div>
+</div>`,
+        css: `.cyber-grid-93 {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.cyber-grid-93::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        #ff00ff, 
+        #00ffff, 
+        #ff00ff, 
+        transparent);
+    animation: scanLine93 2s linear infinite;
+    filter: blur(1px);
+    z-index: 2;
+}
+
+.cyber-grid-93 div {
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    animation: gridPulse93 2s ease-in-out infinite;
+    box-shadow: 
+        inset 0 0 10px rgba(0, 255, 255, 0.2),
+        0 0 5px rgba(0, 255, 255, 0.1);
+}
+
+.cyber-grid-93 div:nth-child(4n+1) { animation-delay: 0s; }
+.cyber-grid-93 div:nth-child(4n+2) { animation-delay: 0.1s; }
+.cyber-grid-93 div:nth-child(4n+3) { animation-delay: 0.2s; }
+.cyber-grid-93 div:nth-child(4n+4) { animation-delay: 0.3s; }
+
+@keyframes scanLine93 {
+    0% { top: 0; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+@keyframes gridPulse93 {
+    0%, 100% {
+        background: rgba(0, 255, 255, 0.1);
+        box-shadow: 
+            inset 0 0 10px rgba(0, 255, 255, 0.2),
+            0 0 5px rgba(0, 255, 255, 0.1);
+    }
+    50% {
+        background: rgba(255, 0, 255, 0.3);
+        box-shadow: 
+            inset 0 0 15px rgba(255, 0, 255, 0.4),
+            0 0 10px rgba(255, 0, 255, 0.3);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #0a0a14; /* Dark cyberpunk background */
+    border-radius: 8px;
+}
+
+.dark-bg {
+    background: #0a0a14;
+}`,
+        js: `// Control cyberpunk grid
+const cyberGrid = document.querySelector('.cyber-grid-93');
+
+// Change grid size
+function setGridSize(rows, cols) {
+    cyberGrid.innerHTML = '';
+    cyberGrid.style.gridTemplateColumns = \`repeat(\${cols}, 1fr)\`;
+    cyberGrid.style.gridTemplateRows = \`repeat(\${rows}, 1fr)\`;
+    
+    const cellCount = rows * cols;
+    for (let i = 0; i < cellCount; i++) {
+        const cell = document.createElement('div');
+        const delay = (i % cols) * 0.1;
+        cell.style.animationDelay = \`\${delay}s\`;
+        cyberGrid.appendChild(cell);
+    }
+}
+
+// Change cyber colors
+function setCyberColors(color1, color2) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .cyber-grid-93::before {
+            background: linear-gradient(90deg, 
+                transparent, 
+                \${color1}, 
+                \${color2}, 
+                \${color1}, 
+                transparent) !important;
+        }
+        
+        .cyber-grid-93 div {
+            border-color: \${color1}4d !important;
+            box-shadow: 
+                inset 0 0 10px \${color1}33,
+                0 0 5px \${color1}1a !important;
+        }
+        
+        @keyframes customGridPulse {
+            0%, 100% {
+                background: \${color1}1a;
+                box-shadow: 
+                    inset 0 0 10px \${color1}33,
+                    0 0 5px \${color1}1a;
+            }
+            50% {
+                background: \${color2}4d;
+                box-shadow: 
+                    inset 0 0 15px \${color2}66,
+                    0 0 10px \${color2}4d;
+            }
+        }
+        
+        .cyber-grid-93 div {
+            animation-name: customGridPulse !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change scan line speed
+function setScanSpeed(speed) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .cyber-grid-93::before {
+            animation-duration: \${speed}s !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 94: Water Ripple Loader
+    // ====================================================================
+    loader94: {
+        name: "Water Ripple Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="water-ripple-94">
+        <div class="ripple"></div>
+        <div class="ripple"></div>
+        <div class="ripple"></div>
+    </div>
+</div>`,
+        css: `.water-ripple-94 {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.water-ripple-94 .ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid transparent;
+    border-radius: 50%;
+    animation: ripple94 2.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.water-ripple-94 .ripple:nth-child(1) {
+    width: 60px;
+    height: 60px;
+    border-color: #4ecdc4;
+    animation-delay: 0s;
+}
+
+.water-ripple-94 .ripple:nth-child(2) {
+    width: 80px;
+    height: 80px;
+    border-color: #1a8cff;
+    animation-delay: 0.5s;
+}
+
+.water-ripple-94 .ripple:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    border-color: #0066cc;
+    animation-delay: 1s;
+}
+
+@keyframes ripple94 {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 1;
+        border-width: 3px;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+        border-width: 1px;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f0f8ff; /* Light blue background for water theme */
+    border-radius: 8px;
+}`,
+        js: `// Control water ripple loader
+const waterRipple = document.querySelector('.water-ripple-94');
+
+// Change ripple colors
+function setRippleColors(color1, color2, color3) {
+    const ripples = document.querySelectorAll('.water-ripple-94 .ripple');
+    const colors = [color1, color2, color3];
+    
+    ripples.forEach((ripple, index) => {
+        ripple.style.borderColor = colors[index];
+    });
+}
+
+// Change ripple count
+function setRippleCount(count) {
+    waterRipple.innerHTML = '';
+    for (let i = 0; i < count; i++) {
+        const ripple = document.createElement('div');
+        ripple.className = 'ripple';
+        
+        const size = 60 + (i * 20);
+        ripple.style.width = size + 'px';
+        ripple.style.height = size + 'px';
+        ripple.style.animationDelay = (i * 0.5) + 's';
+        
+        // Calculate color based on position
+        const hue = 200 + (i * 40);
+        ripple.style.borderColor = \`hsl(\${hue}, 80%, 60%)\`;
+        
+        waterRipple.appendChild(ripple);
+    }
+}
+
+// Change ripple speed
+function setRippleSpeed(speed) {
+    document.querySelectorAll('.water-ripple-94 .ripple').forEach(ripple => {
+        ripple.style.animationDuration = speed + 's';
+    });
+}
+
+// Change ripple expansion
+function setRippleExpansion(minScale, maxScale) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes customRipple {
+            0% {
+                transform: translate(-50%, -50%) scale(\${minScale});
+                opacity: 1;
+                border-width: 3px;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(\${maxScale});
+                opacity: 0;
+                border-width: 1px;
+            }
+        }
+        
+        .water-ripple-94 .ripple {
+            animation-name: customRipple !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 95: Fire Burst Loader
+    // ====================================================================
+    loader95: {
+        name: "Fire Burst Loader",
+        category: "animated",
+        html: `<div class="loader-container dark-bg">
+    <div class="fire-burst-95">
+        <div class="flame"></div>
+        <div class="flame"></div>
+        <div class="flame"></div>
+        <div class="flame"></div>
+    </div>
+</div>`,
+        css: `.fire-burst-95 {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.fire-burst-95 .flame {
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(to top, 
+        transparent 10%,
+        #ff6b35 20%,
+        #ff8e53 50%,
+        #ffd166 80%,
+        #ffb347 100%);
+    border-radius: 50% 50% 20% 20%;
+    animation: fireFlicker95 0.5s ease-in-out infinite alternate;
+    position: relative;
+    filter: blur(2px);
+}
+
+.fire-burst-95 .flame::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: #ff8e53;
+    border-radius: 50%;
+    filter: blur(5px);
+    opacity: 0.7;
+}
+
+.fire-burst-95 .flame:nth-child(1) {
+    animation-delay: 0s;
+    transform: translateX(-25px) scale(0.8);
+}
+.fire-burst-95 .flame:nth-child(2) {
+    animation-delay: 0.1s;
+    transform: translateX(-12px) scale(1);
+}
+.fire-burst-95 .flame:nth-child(3) {
+    animation-delay: 0.2s;
+    transform: translateX(0px) scale(1.2);
+}
+.fire-burst-95 .flame:nth-child(4) {
+    animation-delay: 0.3s;
+    transform: translateX(12px) scale(0.9);
+}
+
+@keyframes fireFlicker95 {
+    0%, 100% {
+        height: 40px;
+        background: linear-gradient(to top, 
+            transparent 10%,
+            #ff6b35 20%,
+            #ff8e53 50%,
+            #ffd166 80%,
+            #ffb347 100%);
+        filter: blur(2px);
+    }
+    50% {
+        height: 45px;
+        background: linear-gradient(to top, 
+            transparent 10%,
+            #ff8e53 20%,
+            #ffb347 50%,
+            #ffd166 80%,
+            #ff6b35 100%);
+        filter: blur(3px);
+    }
+}
+
+/* Embers */
+.fire-burst-95::before,
+.fire-burst-95::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #ffd166;
+    border-radius: 50%;
+    animation: emberFloat95 1.5s linear infinite;
+    filter: blur(1px);
+}
+
+.fire-burst-95::before {
+    top: 10px;
+    left: 20px;
+    animation-delay: 0s;
+}
+
+.fire-burst-95::after {
+    top: 5px;
+    right: 25px;
+    animation-delay: 0.7s;
+}
+
+@keyframes emberFloat95 {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-30px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #1c0f0f; /* Dark red/brown for fire theme */
+    border-radius: 8px;
+}
+
+.dark-bg {
+    background: #1c0f0f;
+}`,
+        js: `// Control fire burst loader
+const fireBurst = document.querySelector('.fire-burst-95');
+
+// Change fire colors
+function setFireColors(baseColor, midColor, tipColor) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .fire-burst-95 .flame {
+            background: linear-gradient(to top, 
+                transparent 10%,
+                \${baseColor} 20%,
+                \${midColor} 50%,
+                \${tipColor} 80%,
+                \${baseColor} 100%) !important;
+        }
+        
+        .fire-burst-95 .flame::after {
+            background: \${midColor} !important;
+        }
+        
+        .fire-burst-95::before,
+        .fire-burst-95::after {
+            background: \${tipColor} !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change flame count
+function setFlameCount(count) {
+    fireBurst.innerHTML = '';
+    for (let i = 0; i < count; i++) {
+        const flame = document.createElement('div');
+        flame.className = 'flame';
+        flame.style.animationDelay = (i * 0.1) + 's';
+        
+        // Position flames evenly
+        const spacing = 80 / (count - 1);
+        const position = -40 + (i * spacing);
+        const scale = 0.8 + (Math.sin(i * Math.PI / (count - 1)) * 0.4);
+        
+        flame.style.transform = \`translateX(\${position}px) scale(\${scale})\`;
+        
+        fireBurst.appendChild(flame);
+    }
+}
+
+// Change flicker speed
+function setFlickerSpeed(speed) {
+    document.querySelectorAll('.fire-burst-95 .flame').forEach(flame => {
+        flame.style.animationDuration = speed + 's';
+    });
+}
+
+// Toggle embers
+function toggleEmbers(show) {
+    const fire = document.querySelector('.fire-burst-95');
+    if (show) {
+        fire.style.setProperty('--ember-display', 'block');
+    } else {
+        fire.style.setProperty('--ember-display', 'none');
+    }
+}`
+    },
 };
 
 // Main functionality for loader templates
