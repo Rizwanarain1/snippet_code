@@ -16660,6 +16660,3630 @@ function toggleEmbers(show) {
     }
 }`
     },
+        // ====================================================================
+    // TEMPLATE 96: Typing Text Loader
+    // ====================================================================
+    loader96: {
+        name: "Typing Text Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="typing-loader-96">
+        <span class="text">Loading</span>
+        <span class="cursor"></span>
+        <span class="dots">
+            <span class="dot">.</span>
+            <span class="dot">.</span>
+            <span class="dot">.</span>
+        </span>
+    </div>
+</div>`,
+        css: `.typing-loader-96 {
+    display: flex;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+    font-size: 24px;
+    font-weight: 600;
+    color: #7c3aed;
+}
+
+.typing-loader-96 .text {
+    overflow: hidden;
+    border-right: 3px solid #7c3aed;
+    white-space: nowrap;
+    animation: typing96 3.5s steps(10, end) infinite;
+}
+
+.typing-loader-96 .cursor {
+    width: 3px;
+    height: 30px;
+    background-color: #7c3aed;
+    margin-left: 5px;
+    animation: blink96 1s infinite;
+}
+
+.typing-loader-96 .dots {
+    display: inline-flex;
+    margin-left: 5px;
+}
+
+.typing-loader-96 .dot {
+    opacity: 0;
+    animation: dotPulse96 1.5s infinite;
+}
+
+.typing-loader-96 .dot:nth-child(1) { animation-delay: 0s; }
+.typing-loader-96 .dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-loader-96 .dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing96 {
+    0%, 100% { width: 0; }
+    50%, 90% { width: 100px; }
+}
+
+@keyframes blink96 {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes dotPulse96 {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control typing loader
+const typingLoader = document.querySelector('.typing-loader-96');
+
+// Change typing text
+function setTypingText(text) {
+    const textElement = typingLoader.querySelector('.text');
+    textElement.textContent = text;
+    
+    // Adjust animation for new text length
+    const textLength = text.length;
+    const animationStyle = document.createElement('style');
+    animationStyle.textContent = \`
+        @keyframes customTyping {
+            0%, 100% { width: 0; }
+            50%, 90% { width: \${textLength * 10}px; }
+        }
+        .typing-loader-96 .text {
+            animation-name: customTyping !important;
+        }
+    \`;
+    document.head.appendChild(animationStyle);
+}
+
+// Change colors
+function setTypingColors(textColor, cursorColor) {
+    typingLoader.style.color = textColor;
+    typingLoader.querySelector('.text').style.borderRightColor = textColor;
+    typingLoader.querySelector('.cursor').style.backgroundColor = cursorColor;
+}
+
+// Change typing speed
+function setTypingSpeed(typeSpeed, blinkSpeed, dotSpeed) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .typing-loader-96 .text {
+            animation-duration: \${typeSpeed}s !important;
+        }
+        .typing-loader-96 .cursor {
+            animation-duration: \${blinkSpeed}s !important;
+        }
+        .typing-loader-96 .dot {
+            animation-duration: \${dotSpeed}s !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change number of dots
+function setDotCount(count) {
+    const dotsContainer = typingLoader.querySelector('.dots');
+    dotsContainer.innerHTML = '';
+    
+    for (let i = 0; i < count; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        dot.textContent = '.';
+        dot.style.animationDelay = \`\${i * 0.2}s\`;
+        dotsContainer.appendChild(dot);
+    }
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 97: Morphing Text Loader
+    // ====================================================================
+    loader97: {
+        name: "Morphing Text Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="morphing-text-97">
+        <span class="word">Loading</span>
+        <span class="word">Please</span>
+        <span class="word">Wait</span>
+        <span class="word">...</span>
+    </div>
+</div>`,
+        css: `.morphing-text-97 {
+    position: relative;
+    height: 60px;
+    width: 200px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #7c3aed;
+    overflow: hidden;
+}
+
+.morphing-text-97 .word {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: wordMorph97 8s infinite;
+}
+
+.morphing-text-97 .word:nth-child(1) { 
+    animation-delay: 0s; 
+    color: #7c3aed;
+}
+.morphing-text-97 .word:nth-child(2) { 
+    animation-delay: 2s; 
+    color: #ec4899;
+}
+.morphing-text-97 .word:nth-child(3) { 
+    animation-delay: 4s; 
+    color: #3b82f6;
+}
+.morphing-text-97 .word:nth-child(4) { 
+    animation-delay: 6s; 
+    color: #10b981;
+}
+
+@keyframes wordMorph97 {
+    0%, 20% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    25%, 45% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50%, 100% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control morphing text loader
+const morphingText = document.querySelector('.morphing-text-97');
+
+// Change words
+function setMorphingWords(words) {
+    morphingText.innerHTML = '';
+    
+    words.forEach((word, index) => {
+        const wordElement = document.createElement('span');
+        wordElement.className = 'word';
+        wordElement.textContent = word;
+        wordElement.style.animationDelay = \`\${index * 2}s\`;
+        
+        // Generate rainbow colors
+        const hue = (index * (360 / words.length)) % 360;
+        wordElement.style.color = \`hsl(\${hue}, 100%, 60%)\`;
+        
+        morphingText.appendChild(wordElement);
+    });
+    
+    // Update animation duration
+    const totalDuration = words.length * 2;
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes customWordMorph {
+            0%, 20% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            25%, 45% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            50%, 100% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+        }
+        .morphing-text-97 .word {
+            animation: customWordMorph \${totalDuration}s infinite !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change font size
+function setMorphingFontSize(size) {
+    morphingText.style.fontSize = size + 'px';
+    morphingText.style.height = (size * 1.5) + 'px';
+}
+
+// Change animation direction
+function setMorphingDirection(direction) {
+    const translateY = direction === 'up' ? '30px' : '-30px';
+    const translateY2 = direction === 'up' ? '-30px' : '30px';
+    
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes morphDirection {
+            0%, 20% {
+                opacity: 0;
+                transform: translateY(\${translateY});
+            }
+            25%, 45% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            50%, 100% {
+                opacity: 0;
+                transform: translateY(\${translateY2});
+            }
+        }
+        .morphing-text-97 .word {
+            animation-name: morphDirection !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 98: Particle Text Loader
+    // ====================================================================
+    loader98: {
+        name: "Particle Text Loader",
+        category: "animated",
+        html: `<div class="loader-container dark-bg">
+    <div class="particle-text-98" data-text="LOADING">
+        LOADING
+    </div>
+</div>`,
+        css: `.particle-text-98 {
+    position: relative;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: transparent;
+    background: linear-gradient(90deg, #7c3aed, #ec4899, #3b82f6, #10b981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.particle-text-98::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(90deg, 
+        rgba(124, 58, 237, 0.3),
+        rgba(236, 72, 153, 0.3),
+        rgba(59, 130, 246, 0.3),
+        rgba(16, 185, 129, 0.3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: particleFlow98 3s linear infinite;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.particle-text-98::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent);
+    animation: particleScan98 2s ease-in-out infinite;
+}
+
+@keyframes particleFlow98 {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(10px); }
+}
+
+@keyframes particleScan98 {
+    0%, 100% { left: -100%; }
+    50% { left: 100%; }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #1a1a2e; /* Dark background for particle effect */
+    border-radius: 8px;
+}
+
+.dark-bg {
+    background: #1a1a2e;
+}`,
+        js: `// Control particle text loader
+const particleText = document.querySelector('.particle-text-98');
+
+// Change particle text
+function setParticleText(text) {
+    particleText.textContent = text;
+    particleText.setAttribute('data-text', text);
+}
+
+// Change gradient colors
+function setParticleGradient(...colors) {
+    const gradient = \`linear-gradient(90deg, \${colors.join(', ')})\`;
+    particleText.style.background = gradient;
+    
+    // Create shadow gradient with transparency
+    const shadowColors = colors.map(color => {
+        // Convert hex to rgba with 0.3 opacity
+        if (color.startsWith('#')) {
+            const r = parseInt(color.slice(1, 3), 16);
+            const g = parseInt(color.slice(3, 5), 16);
+            const b = parseInt(color.slice(5, 7), 16);
+            return \`rgba(\${r}, \${g}, \${b}, 0.3)\`;
+        }
+        return color.replace(')', ', 0.3)').replace('rgb', 'rgba');
+    });
+    
+    const shadowGradient = \`linear-gradient(90deg, \${shadowColors.join(', ')})\`;
+    
+    const style = document.createElement('style');
+    style.textContent = \`
+        .particle-text-98::before {
+            background: \${shadowGradient} !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change particle effects
+function setParticleEffects(flowSpeed, scanSpeed, blurAmount) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes customParticleFlow {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(10px); }
+        }
+        @keyframes customParticleScan {
+            0%, 100% { left: -100%; }
+            50% { left: 100%; }
+        }
+        
+        .particle-text-98::before {
+            animation: customParticleFlow \${flowSpeed}s linear infinite !important;
+            filter: blur(\${blurAmount}px) !important;
+        }
+        .particle-text-98::after {
+            animation: customParticleScan \${scanSpeed}s ease-in-out infinite !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Toggle effects
+function toggleParticleEffect(effect, enabled) {
+    if (effect === 'flow') {
+        particleText.style.animationPlayState = enabled ? 'running' : 'paused';
+    } else if (effect === 'scan') {
+        const afterStyle = window.getComputedStyle(particleText, '::after');
+        // You would need to handle this differently in a real implementation
+    }
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 99: Glitch Text Loader
+    // ====================================================================
+    loader99: {
+        name: "Glitch Text Loader",
+        category: "animated",
+        html: `<div class="loader-container dark-bg">
+    <div class="glitch-text-99">
+        <span class="glitch" data-text="LOADING">LOADING</span>
+    </div>
+</div>`,
+        css: `.glitch-text-99 {
+    position: relative;
+    font-family: 'Monospace', monospace;
+    font-size: 36px;
+    font-weight: 900;
+    color: #00ff9d;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.glitch-text-99 .glitch {
+    position: relative;
+    display: inline-block;
+    animation: glitchSkew99 5s infinite;
+}
+
+.glitch-text-99 .glitch::before,
+.glitch-text-99 .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.glitch-text-99 .glitch::before {
+    animation: glitch-anim-199 3s infinite linear alternate-reverse;
+    color: #ff00ff;
+    z-index: -1;
+}
+
+.glitch-text-99 .glitch::after {
+    animation: glitch-anim-299 2s infinite linear alternate-reverse;
+    color: #00ffff;
+    z-index: -2;
+}
+
+@keyframes glitchSkew99 {
+    0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% {
+        transform: skew(0deg);
+    }
+    41% { transform: skew(10deg); }
+    42% { transform: skew(-10deg); }
+    59% { transform: skew(20deg) translate(5px, 0); }
+    60% { transform: skew(-20deg) translate(-5px, 0); }
+    63% { transform: skew(5deg); }
+    70% { transform: skew(-5deg) translate(0, 5px); }
+    71% { transform: skew(5deg) translate(0, -5px); }
+}
+
+@keyframes glitch-anim-199 {
+    0%, 100% { clip-path: inset(40% 0 61% 0); }
+    20% { clip-path: inset(92% 0 1% 0); }
+    40% { clip-path: inset(43% 0 1% 0); }
+    60% { clip-path: inset(25% 0 58% 0); }
+    80% { clip-path: inset(54% 0 7% 0); }
+}
+
+@keyframes glitch-anim-299 {
+    0%, 100% { clip-path: inset(20% 0 80% 0); }
+    10% { clip-path: inset(5% 0 90% 0); }
+    30% { clip-path: inset(70% 0 20% 0); }
+    50% { clip-path: inset(10% 0 85% 0); }
+    70% { clip-path: inset(90% 0 5% 0); }
+    90% { clip-path: inset(30% 0 65% 0); }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #0a0a14; /* Dark cyberpunk background */
+    border-radius: 8px;
+}
+
+.dark-bg {
+    background: #0a0a14;
+}`,
+        js: `// Control glitch text loader
+const glitchText = document.querySelector('.glitch-text-99 .glitch');
+
+// Change glitch text
+function setGlitchText(text) {
+    glitchText.textContent = text;
+    glitchText.setAttribute('data-text', text);
+}
+
+// Change glitch colors
+function setGlitchColors(mainColor, glitch1Color, glitch2Color) {
+    glitchText.style.color = mainColor;
+    
+    const style = document.createElement('style');
+    style.textContent = \`
+        .glitch-text-99 .glitch::before {
+            color: \${glitch1Color} !important;
+        }
+        .glitch-text-99 .glitch::after {
+            color: \${glitch2Color} !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change glitch intensity
+function setGlitchIntensity(skewAmount, translateAmount) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes customGlitchSkew {
+            0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% {
+                transform: skew(0deg);
+            }
+            41% { transform: skew(\${skewAmount}deg); }
+            42% { transform: skew(-\${skewAmount}deg); }
+            59% { transform: skew(\${skewAmount * 2}deg) translate(\${translateAmount}px, 0); }
+            60% { transform: skew(-\${skewAmount * 2}deg) translate(-\${translateAmount}px, 0); }
+            63% { transform: skew(\${skewAmount / 2}deg); }
+            70% { transform: skew(-\${skewAmount / 2}deg) translate(0, \${translateAmount}px); }
+            71% { transform: skew(\${skewAmount / 2}deg) translate(0, -\${translateAmount}px); }
+        }
+        .glitch-text-99 .glitch {
+            animation-name: customGlitchSkew !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change glitch frequency
+function setGlitchFrequency(frequency) {
+    glitchText.style.animationDuration = frequency + 's';
+    
+    const style = document.createElement('style');
+    style.textContent = \`
+        .glitch-text-99 .glitch::before {
+            animation-duration: \${frequency * 0.6}s !important;
+        }
+        .glitch-text-99 .glitch::after {
+            animation-duration: \${frequency * 0.4}s !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 100: Gradient Wave Text
+    // ====================================================================
+    loader100: {
+        name: "Gradient Wave Text",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="gradient-wave-100">
+        <span class="letter">L</span>
+        <span class="letter">O</span>
+        <span class="letter">A</span>
+        <span class="letter">D</span>
+        <span class="letter">I</span>
+        <span class="letter">N</span>
+        <span class="letter">G</span>
+    </div>
+</div>`,
+        css: `.gradient-wave-100 {
+    display: flex;
+    gap: 8px;
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.gradient-wave-100 .letter {
+    display: inline-block;
+    background: linear-gradient(135deg, #7c3aed, #ec4899, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: letterWave100 1.5s ease-in-out infinite;
+    position: relative;
+    text-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+}
+
+.gradient-wave-100 .letter:nth-child(1) { animation-delay: 0.0s; }
+.gradient-wave-100 .letter:nth-child(2) { animation-delay: 0.1s; }
+.gradient-wave-100 .letter:nth-child(3) { animation-delay: 0.2s; }
+.gradient-wave-100 .letter:nth-child(4) { animation-delay: 0.3s; }
+.gradient-wave-100 .letter:nth-child(5) { animation-delay: 0.4s; }
+.gradient-wave-100 .letter:nth-child(6) { animation-delay: 0.5s; }
+.gradient-wave-100 .letter:nth-child(7) { animation-delay: 0.6s; }
+
+.gradient-wave-100 .letter::after {
+    content: attr(data-letter);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #3b82f6, #10b981, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0;
+    animation: letterShadow100 1.5s ease-in-out infinite;
+}
+
+.gradient-wave-100 .letter:nth-child(1)::after { animation-delay: 0.0s; }
+.gradient-wave-100 .letter:nth-child(2)::after { animation-delay: 0.1s; }
+.gradient-wave-100 .letter:nth-child(3)::after { animation-delay: 0.2s; }
+.gradient-wave-100 .letter:nth-child(4)::after { animation-delay: 0.3s; }
+.gradient-wave-100 .letter:nth-child(5)::after { animation-delay: 0.4s; }
+.gradient-wave-100 .letter:nth-child(6)::after { animation-delay: 0.5s; }
+.gradient-wave-100 .letter:nth-child(7)::after { animation-delay: 0.6s; }
+
+@keyframes letterWave100 {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes letterShadow100 {
+    0%, 100% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+    50% {
+        opacity: 0.3;
+        transform: translate(3px, 3px);
+        filter: blur(2px);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control gradient wave text
+const gradientWave = document.querySelector('.gradient-wave-100');
+
+// Change wave text
+function setWaveText(text) {
+    gradientWave.innerHTML = '';
+    
+    for (let i = 0; i < text.length; i++) {
+        const letter = document.createElement('span');
+        letter.className = 'letter';
+        letter.textContent = text.charAt(i);
+        letter.setAttribute('data-letter', text.charAt(i));
+        letter.style.animationDelay = \`\${i * 0.1}s\`;
+        
+        // Create shadow element
+        const shadowStyle = document.createElement('style');
+        shadowStyle.textContent = \`
+            .gradient-wave-100 .letter:nth-child(\${i + 1})::after {
+                animation-delay: \${i * 0.1}s !important;
+            }
+        \`;
+        document.head.appendChild(shadowStyle);
+        
+        gradientWave.appendChild(letter);
+    }
+}
+
+// Change wave colors
+function setWaveColors(gradient1, gradient2) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .gradient-wave-100 .letter {
+            background: \${gradient1} !important;
+        }
+        .gradient-wave-100 .letter::after {
+            background: \${gradient2} !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change wave properties
+function setWaveProperties(height, scale, speed) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes customLetterWave {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-\${height}px) scale(\${scale});
+                opacity: 0.8;
+            }
+        }
+        .gradient-wave-100 .letter {
+            animation: customLetterWave \${speed}s ease-in-out infinite !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change letter spacing
+function setLetterSpacing(spacing) {
+    gradientWave.style.gap = spacing + 'px';
+}
+
+// Change wave direction
+function setWaveDirection(direction) {
+    const translateY = direction === 'up' ? '-20px' : '20px';
+    const translateY2 = direction === 'up' ? '0' : '0';
+    
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes waveDirection {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(\${translateY}) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+        .gradient-wave-100 .letter {
+            animation-name: waveDirection !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}`
+    },
+        // ====================================================================
+    // TEMPLATE 101: Walking Human Loader
+    // ====================================================================
+    loader101: {
+        name: "Walking Human Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="walking-human-101">
+        <div class="head"></div>
+        <div class="body"></div>
+        <div class="arm left"></div>
+        <div class="arm right"></div>
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+        <div class="shadow"></div>
+    </div>
+</div>`,
+        css: `.walking-human-101 {
+    position: relative;
+    width: 100px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.walking-human-101 .head {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: #ffb347;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.walking-human-101 .body {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 40px;
+    background: #3b82f6;
+    border-radius: 10px 10px 0 0;
+}
+
+.walking-human-101 .arm {
+    position: absolute;
+    top: 25px;
+    width: 8px;
+    height: 30px;
+    background: #ffb347;
+    border-radius: 4px;
+    transform-origin: top center;
+}
+
+.walking-human-101 .arm.left {
+    left: 35px;
+    animation: armSwing101 1s ease-in-out infinite;
+}
+
+.walking-human-101 .arm.right {
+    right: 35px;
+    animation: armSwing101 1s ease-in-out infinite reverse;
+}
+
+.walking-human-101 .leg {
+    position: absolute;
+    top: 55px;
+    width: 10px;
+    height: 40px;
+    background: #1e40af;
+    border-radius: 0 0 5px 5px;
+    transform-origin: top center;
+}
+
+.walking-human-101 .leg.left {
+    left: 40px;
+    animation: legSwing101 1s ease-in-out infinite;
+}
+
+.walking-human-101 .leg.right {
+    right: 40px;
+    animation: legSwing101 1s ease-in-out infinite reverse;
+}
+
+.walking-human-101 .shadow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    animation: shadowPulse101 1s ease-in-out infinite;
+}
+
+@keyframes armSwing101 {
+    0%, 100% {
+        transform: rotate(-30deg);
+    }
+    50% {
+        transform: rotate(30deg);
+    }
+}
+
+@keyframes legSwing101 {
+    0%, 100% {
+        transform: rotate(-20deg);
+    }
+    50% {
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes shadowPulse101 {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateX(-50%) scale(0.8);
+        opacity: 0.4;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control walking human
+const walkingHuman = document.querySelector('.walking-human-101');
+
+// Change walking speed
+function setWalkingSpeed(speed) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .walking-human-101 .arm.left,
+        .walking-human-101 .arm.right {
+            animation-duration: \${speed}s !important;
+        }
+        .walking-human-101 .leg.left,
+        .walking-human-101 .leg.right {
+            animation-duration: \${speed}s !important;
+        }
+        .walking-human-101 .shadow {
+            animation-duration: \${speed}s !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change human colors
+function setHumanColors(skinColor, shirtColor, pantsColor) {
+    walkingHuman.querySelector('.head').style.background = skinColor;
+    walkingHuman.querySelectorAll('.arm').forEach(arm => {
+        arm.style.background = skinColor;
+    });
+    walkingHuman.querySelector('.body').style.background = shirtColor;
+    walkingHuman.querySelectorAll('.leg').forEach(leg => {
+        leg.style.background = pantsColor;
+    });
+}
+
+// Change walking style
+function setWalkingStyle(armSwing, legSwing) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes customArmSwing {
+            0%, 100% {
+                transform: rotate(-\${armSwing}deg);
+            }
+            50% {
+                transform: rotate(\${armSwing}deg);
+            }
+        }
+        @keyframes customLegSwing {
+            0%, 100% {
+                transform: rotate(-\${legSwing}deg);
+            }
+            50% {
+                transform: rotate(\${legSwing}deg);
+            }
+        }
+        .walking-human-101 .arm.left,
+        .walking-human-101 .arm.right {
+            animation-name: customArmSwing !important;
+        }
+        .walking-human-101 .leg.left,
+        .walking-human-101 .leg.right {
+            animation-name: customLegSwing !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 102: Running Dog Loader
+    // ====================================================================
+    loader102: {
+        name: "Running Dog Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="running-dog-102">
+        <div class="dog">
+            <div class="body"></div>
+            <div class="head"></div>
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+            <div class="tail"></div>
+            <div class="leg front-left"></div>
+            <div class="leg front-right"></div>
+            <div class="leg back-left"></div>
+            <div class="leg back-right"></div>
+        </div>
+        <div class="paw-prints"></div>
+    </div>
+</div>`,
+        css: `.running-dog-102 {
+    position: relative;
+    width: 150px;
+    height: 100px;
+}
+
+.running-dog-102 .dog {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.running-dog-102 .body {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 60px;
+    height: 30px;
+    background: #8b4513;
+    border-radius: 15px;
+}
+
+.running-dog-102 .head {
+    position: absolute;
+    top: 20px;
+    left: 85px;
+    width: 25px;
+    height: 25px;
+    background: #a0522d;
+    border-radius: 50%;
+}
+
+.running-dog-102 .ear {
+    position: absolute;
+    top: 15px;
+    width: 15px;
+    height: 20px;
+    background: #8b4513;
+    border-radius: 10px 10px 0 0;
+}
+
+.running-dog-102 .ear.left {
+    left: 85px;
+    transform: rotate(-30deg);
+}
+
+.running-dog-102 .ear.right {
+    left: 105px;
+    transform: rotate(30deg);
+}
+
+.running-dog-102 .tail {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    width: 25px;
+    height: 8px;
+    background: #a0522d;
+    border-radius: 4px;
+    animation: tailWag102 0.3s ease-in-out infinite;
+    transform-origin: left center;
+}
+
+.running-dog-102 .leg {
+    position: absolute;
+    width: 8px;
+    height: 30px;
+    background: #8b4513;
+    border-radius: 4px;
+    transform-origin: top center;
+}
+
+.running-dog-102 .front-left {
+    top: 55px;
+    left: 40px;
+    animation: frontLegRun102 0.4s ease-in-out infinite;
+}
+
+.running-dog-102 .front-right {
+    top: 55px;
+    left: 70px;
+    animation: frontLegRun102 0.4s ease-in-out infinite 0.2s;
+}
+
+.running-dog-102 .back-left {
+    top: 55px;
+    left: 50px;
+    animation: backLegRun102 0.4s ease-in-out infinite 0.1s;
+}
+
+.running-dog-102 .back-right {
+    top: 55px;
+    left: 80px;
+    animation: backLegRun102 0.4s ease-in-out infinite 0.3s;
+}
+
+.running-dog-102 .paw-prints {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+}
+
+.running-dog-102 .paw-prints::before,
+.running-dog-102 .paw-prints::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: rgba(139, 69, 19, 0.3);
+    border-radius: 50%;
+    animation: pawPrint102 1s linear infinite;
+}
+
+.running-dog-102 .paw-prints::before {
+    left: 30px;
+    animation-delay: 0s;
+}
+
+.running-dog-102 .paw-prints::after {
+    left: 80px;
+    animation-delay: 0.5s;
+}
+
+@keyframes tailWag102 {
+    0%, 100% {
+        transform: rotate(-30deg);
+    }
+    50% {
+        transform: rotate(30deg);
+    }
+}
+
+@keyframes frontLegRun102 {
+    0%, 100% {
+        transform: rotate(-40deg);
+    }
+    50% {
+        transform: rotate(40deg);
+    }
+}
+
+@keyframes backLegRun102 {
+    0%, 100% {
+        transform: rotate(40deg);
+    }
+    50% {
+        transform: rotate(-40deg);
+    }
+}
+
+@keyframes pawPrint102 {
+    0% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control running dog
+const runningDog = document.querySelector('.running-dog-102');
+
+// Change dog colors
+function setDogColors(bodyColor, earColor, legColor) {
+    runningDog.querySelector('.body').style.background = bodyColor;
+    runningDog.querySelector('.head').style.background = bodyColor;
+    runningDog.querySelectorAll('.ear').forEach(ear => {
+        ear.style.background = earColor;
+    });
+    runningDog.querySelector('.tail').style.background = earColor;
+    runningDog.querySelectorAll('.leg').forEach(leg => {
+        leg.style.background = legColor;
+    });
+}
+
+// Change running speed
+function setRunningSpeed(speed) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .running-dog-102 .tail {
+            animation-duration: \${speed * 0.3}s !important;
+        }
+        .running-dog-102 .front-left,
+        .running-dog-102 .front-right,
+        .running-dog-102 .back-left,
+        .running-dog-102 .back-right {
+            animation-duration: \${speed * 0.4}s !important;
+        }
+        .running-dog-102 .paw-prints::before,
+        .running-dog-102 .paw-prints::after {
+            animation-duration: \${speed}s !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Toggle paw prints
+function togglePawPrints(show) {
+    const pawPrints = runningDog.querySelector('.paw-prints');
+    pawPrints.style.display = show ? 'block' : 'none';
+}
+
+// Change tail wag intensity
+function setTailWagIntensity(intensity) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes customTailWag {
+            0%, 100% {
+                transform: rotate(-\${intensity}deg);
+            }
+            50% {
+                transform: rotate(\${intensity}deg);
+            }
+        }
+        .running-dog-102 .tail {
+            animation-name: customTailWag !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 103: Flying Bird Loader
+    // ====================================================================
+    loader103: {
+        name: "Flying Bird Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="flying-bird-103">
+        <div class="bird">
+            <div class="body"></div>
+            <div class="head"></div>
+            <div class="beak"></div>
+            <div class="eye"></div>
+            <div class="wing left"></div>
+            <div class="wing right"></div>
+            <div class="tail"></div>
+        </div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+    </div>
+</div>`,
+        css: `.flying-bird-103 {
+    position: relative;
+    width: 120px;
+    height: 100px;
+}
+
+.flying-bird-103 .bird {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: birdFloat103 3s ease-in-out infinite;
+}
+
+.flying-bird-103 .body {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 40px;
+    height: 20px;
+    background: #1e40af;
+    border-radius: 50%;
+}
+
+.flying-bird-103 .head {
+    position: absolute;
+    top: 35px;
+    left: 75px;
+    width: 15px;
+    height: 15px;
+    background: #1e40af;
+    border-radius: 50%;
+}
+
+.flying-bird-103 .beak {
+    position: absolute;
+    top: 38px;
+    left: 88px;
+    width: 10px;
+    height: 5px;
+    background: #f59e0b;
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+
+.flying-bird-103 .eye {
+    position: absolute;
+    top: 36px;
+    left: 78px;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+}
+
+.flying-bird-103 .wing {
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background: #3b82f6;
+    border-radius: 50%;
+    transform-origin: center center;
+}
+
+.flying-bird-103 .wing.left {
+    top: 35px;
+    left: 35px;
+    animation: wingFlap103 0.8s ease-in-out infinite;
+}
+
+.flying-bird-103 .wing.right {
+    top: 45px;
+    left: 45px;
+    animation: wingFlap103 0.8s ease-in-out infinite reverse;
+}
+
+.flying-bird-103 .tail {
+    position: absolute;
+    top: 45px;
+    left: 20px;
+    width: 20px;
+    height: 10px;
+    background: #1e40af;
+    border-radius: 10px 0 0 10px;
+    animation: tailMove103 1s ease-in-out infinite;
+}
+
+.flying-bird-103 .cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: cloudFloat103 4s ease-in-out infinite;
+}
+
+.flying-bird-103 .cloud:nth-child(2) {
+    top: 20px;
+    left: 10px;
+    width: 25px;
+    height: 15px;
+    animation-delay: 0s;
+}
+
+.flying-bird-103 .cloud:nth-child(3) {
+    top: 70px;
+    right: 10px;
+    width: 30px;
+    height: 18px;
+    animation-delay: 2s;
+}
+
+@keyframes birdFloat103 {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes wingFlap103 {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(10deg);
+    }
+}
+
+@keyframes tailMove103 {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+}
+
+@keyframes cloudFloat103 {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateX(10px);
+        opacity: 1;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #87ceeb; /* Sky blue background */
+    border-radius: 8px;
+}`,
+        js: `// Control flying bird
+const flyingBird = document.querySelector('.flying-bird-103');
+
+// Change bird colors
+function setBirdColors(bodyColor, wingColor, beakColor) {
+    flyingBird.querySelector('.body').style.background = bodyColor;
+    flyingBird.querySelector('.head').style.background = bodyColor;
+    flyingBird.querySelector('.tail').style.background = bodyColor;
+    flyingBird.querySelectorAll('.wing').forEach(wing => {
+        wing.style.background = wingColor;
+    });
+    flyingBird.querySelector('.beak').style.background = beakColor;
+}
+
+// Change flying speed
+function setFlyingSpeed(floatSpeed, flapSpeed) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .flying-bird-103 .bird {
+            animation-duration: \${floatSpeed}s !important;
+        }
+        .flying-bird-103 .wing.left,
+        .flying-bird-103 .wing.right {
+            animation-duration: \${flapSpeed}s !important;
+        }
+        .flying-bird-103 .tail {
+            animation-duration: \${flapSpeed * 1.25}s !important;
+        }
+        .flying-bird-103 .cloud {
+            animation-duration: \${floatSpeed * 1.33}s !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Toggle clouds
+function toggleClouds(show) {
+    const clouds = flyingBird.querySelectorAll('.cloud');
+    clouds.forEach(cloud => {
+        cloud.style.display = show ? 'block' : 'none';
+    });
+}
+
+// Change wing flap intensity
+function setWingFlapIntensity(height, rotation) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes customWingFlap {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-\${height}px) rotate(\${rotation}deg);
+            }
+        }
+        .flying-bird-103 .wing.left,
+        .flying-bird-103 .wing.right {
+            animation-name: customWingFlap !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 104: Hand Clapping Loader
+    // ====================================================================
+    loader104: {
+        name: "Hand Clapping Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="hand-clapping-104">
+        <div class="hand left">
+            <div class="palm"></div>
+            <div class="thumb"></div>
+            <div class="finger"></div>
+            <div class="finger"></div>
+            <div class="finger"></div>
+            <div class="finger"></div>
+        </div>
+        <div class="hand right">
+            <div class="palm"></div>
+            <div class="thumb"></div>
+            <div class="finger"></div>
+            <div class="finger"></div>
+            <div class="finger"></div>
+            <div class="finger"></div>
+        </div>
+        <div class="clap-effect"></div>
+    </div>
+</div>`,
+        css: `.hand-clapping-104 {
+    position: relative;
+    width: 120px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hand-clapping-104 .hand {
+    position: absolute;
+    width: 40px;
+    height: 50px;
+}
+
+.hand-clapping-104 .hand.left {
+    left: 20px;
+    animation: handClapLeft104 1s ease-in-out infinite;
+}
+
+.hand-clapping-104 .hand.right {
+    right: 20px;
+    animation: handClapRight104 1s ease-in-out infinite;
+}
+
+.hand-clapping-104 .palm {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background: #ffb347;
+    border-radius: 10px;
+}
+
+.hand-clapping-104 .thumb {
+    position: absolute;
+    top: 5px;
+    left: -8px;
+    width: 12px;
+    height: 18px;
+    background: #ffb347;
+    border-radius: 6px;
+    transform: rotate(-30deg);
+}
+
+.hand-clapping-104 .finger {
+    position: absolute;
+    width: 8px;
+    height: 25px;
+    background: #ffb347;
+    border-radius: 4px;
+}
+
+.hand-clapping-104 .hand .finger:nth-child(3) {
+    top: 5px;
+    right: 0;
+}
+
+.hand-clapping-104 .hand .finger:nth-child(4) {
+    top: 10px;
+    right: 8px;
+}
+
+.hand-clapping-104 .hand .finger:nth-child(5) {
+    top: 15px;
+    right: 16px;
+}
+
+.hand-clapping-104 .hand .finger:nth-child(6) {
+    top: 20px;
+    right: 24px;
+}
+
+.hand-clapping-104 .clap-effect {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    opacity: 0;
+    animation: clapEffect104 1s ease-in-out infinite;
+}
+
+@keyframes handClapLeft104 {
+    0%, 100% {
+        transform: translateX(0) rotate(-10deg);
+    }
+    50% {
+        transform: translateX(25px) rotate(-5deg);
+    }
+}
+
+@keyframes handClapRight104 {
+    0%, 100% {
+        transform: translateX(0) rotate(10deg);
+    }
+    50% {
+        transform: translateX(-25px) rotate(5deg);
+    }
+}
+
+@keyframes clapEffect104 {
+    0%, 100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control hand clapping
+const handClapping = document.querySelector('.hand-clapping-104');
+
+// Change hand colors
+function setHandColor(skinColor) {
+    handClapping.querySelectorAll('.palm').forEach(palm => {
+        palm.style.background = skinColor;
+    });
+    handClapping.querySelectorAll('.thumb').forEach(thumb => {
+        thumb.style.background = skinColor;
+    });
+    handClapping.querySelectorAll('.finger').forEach(finger => {
+        finger.style.background = skinColor;
+    });
+}
+
+// Change clapping speed
+function setClappingSpeed(speed) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .hand-clapping-104 .hand.left,
+        .hand-clapping-104 .hand.right {
+            animation-duration: \${speed}s !important;
+        }
+        .hand-clapping-104 .clap-effect {
+            animation-duration: \${speed}s !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change clapping distance
+function setClappingDistance(distance) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes customHandClapLeft {
+            0%, 100% {
+                transform: translateX(0) rotate(-10deg);
+            }
+            50% {
+                transform: translateX(\${distance}px) rotate(-5deg);
+            }
+        }
+        @keyframes customHandClapRight {
+            0%, 100% {
+                transform: translateX(0) rotate(10deg);
+            }
+            50% {
+                transform: translateX(-\${distance}px) rotate(5deg);
+            }
+        }
+        .hand-clapping-104 .hand.left {
+            animation-name: customHandClapLeft !important;
+        }
+        .hand-clapping-104 .hand.right {
+            animation-name: customHandClapRight !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Toggle clap effect
+function toggleClapEffect(show) {
+    const clapEffect = handClapping.querySelector('.clap-effect');
+    clapEffect.style.display = show ? 'block' : 'none';
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 105: Jumping Rabbit Loader
+    // ====================================================================
+    loader105: {
+        name: "Jumping Rabbit Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="jumping-rabbit-105">
+        <div class="rabbit">
+            <div class="body"></div>
+            <div class="head"></div>
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="nose"></div>
+            <div class="front-leg left"></div>
+            <div class="front-leg right"></div>
+            <div class="back-leg left"></div>
+            <div class="back-leg right"></div>
+            <div class="tail"></div>
+        </div>
+        <div class="shadow"></div>
+        <div class="grass"></div>
+        <div class="grass"></div>
+    </div>
+</div>`,
+        css: `.jumping-rabbit-105 {
+    position: relative;
+    width: 100px;
+    height: 120px;
+}
+
+.jumping-rabbit-105 .rabbit {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: rabbitJump105 1.5s ease-in-out infinite;
+}
+
+.jumping-rabbit-105 .body {
+    position: absolute;
+    top: 40px;
+    left: 35px;
+    width: 40px;
+    height: 50px;
+    background: #f3f4f6;
+    border-radius: 50% 50% 40% 40%;
+}
+
+.jumping-rabbit-105 .head {
+    position: absolute;
+    top: 30px;
+    left: 45px;
+    width: 30px;
+    height: 25px;
+    background: #f3f4f6;
+    border-radius: 50%;
+}
+
+.jumping-rabbit-105 .ear {
+    position: absolute;
+    width: 8px;
+    height: 30px;
+    background: #f3f4f6;
+    border-radius: 4px;
+    animation: earTwitch105 2s ease-in-out infinite;
+}
+
+.jumping-rabbit-105 .ear.left {
+    top: 15px;
+    left: 50px;
+    transform: rotate(-15deg);
+    animation-delay: 0s;
+}
+
+.jumping-rabbit-105 .ear.right {
+    top: 15px;
+    left: 60px;
+    transform: rotate(15deg);
+    animation-delay: 0.5s;
+}
+
+.jumping-rabbit-105 .eye {
+    position: absolute;
+    top: 40px;
+    width: 6px;
+    height: 6px;
+    background: #1f2937;
+    border-radius: 50%;
+}
+
+.jumping-rabbit-105 .eye.left {
+    left: 50px;
+}
+
+.jumping-rabbit-105 .eye.right {
+    left: 65px;
+}
+
+.jumping-rabbit-105 .nose {
+    position: absolute;
+    top: 50px;
+    left: 57px;
+    width: 6px;
+    height: 4px;
+    background: #ef4444;
+    border-radius: 3px;
+    animation: noseTwitch105 1s ease-in-out infinite;
+}
+
+.jumping-rabbit-105 .front-leg {
+    position: absolute;
+    top: 85px;
+    width: 6px;
+    height: 20px;
+    background: #f3f4f6;
+    border-radius: 3px;
+}
+
+.jumping-rabbit-105 .front-leg.left {
+    left: 45px;
+    animation: frontLegJump105 1.5s ease-in-out infinite;
+}
+
+.jumping-rabbit-105 .front-leg.right {
+    left: 60px;
+    animation: frontLegJump105 1.5s ease-in-out infinite 0.2s;
+}
+
+.jumping-rabbit-105 .back-leg {
+    position: absolute;
+    top: 70px;
+    width: 10px;
+    height: 30px;
+    background: #f3f4f6;
+    border-radius: 5px;
+    transform-origin: top center;
+}
+
+.jumping-rabbit-105 .back-leg.left {
+    left: 35px;
+    animation: backLegJump105 1.5s ease-in-out infinite;
+}
+
+.jumping-rabbit-105 .back-leg.right {
+    left: 70px;
+    animation: backLegJump105 1.5s ease-in-out infinite 0.1s;
+}
+
+.jumping-rabbit-105 .tail {
+    position: absolute;
+    top: 65px;
+    left: 30px;
+    width: 15px;
+    height: 15px;
+    background: #f3f4f6;
+    border-radius: 50%;
+    animation: tailWiggle105 1s ease-in-out infinite;
+}
+
+.jumping-rabbit-105 .shadow {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    animation: shadowJump105 1.5s ease-in-out infinite;
+}
+
+.jumping-rabbit-105 .grass {
+    position: absolute;
+    bottom: 0;
+    width: 15px;
+    height: 20px;
+    background: #10b981;
+    border-radius: 0 0 5px 5px;
+    animation: grassSway105 2s ease-in-out infinite;
+}
+
+.jumping-rabbit-105 .grass:nth-child(3) {
+    left: 20px;
+    animation-delay: 0s;
+}
+
+.jumping-rabbit-105 .grass:nth-child(4) {
+    right: 20px;
+    animation-delay: 1s;
+}
+
+@keyframes rabbitJump105 {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes earTwitch105 {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes noseTwitch105 {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes frontLegJump105 {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes backLegJump105 {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-30deg);
+    }
+}
+
+@keyframes tailWiggle105 {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(15deg);
+    }
+}
+
+@keyframes shadowJump105 {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateX(-50%) scale(0.7);
+        opacity: 0.4;
+    }
+}
+
+@keyframes grassSway105 {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #86efac; /* Light green background */
+    border-radius: 8px;
+}`,
+        js: `// Control jumping rabbit
+const jumpingRabbit = document.querySelector('.jumping-rabbit-105');
+
+// Change rabbit colors
+function setRabbitColors(furColor, eyeColor, noseColor) {
+    jumpingRabbit.querySelector('.body').style.background = furColor;
+    jumpingRabbit.querySelector('.head').style.background = furColor;
+    jumpingRabbit.querySelectorAll('.ear').forEach(ear => {
+        ear.style.background = furColor;
+    });
+    jumpingRabbit.querySelectorAll('.front-leg, .back-leg').forEach(leg => {
+        leg.style.background = furColor;
+    });
+    jumpingRabbit.querySelector('.tail').style.background = furColor;
+    jumpingRabbit.querySelectorAll('.eye').forEach(eye => {
+        eye.style.background = eyeColor;
+    });
+    jumpingRabbit.querySelector('.nose').style.background = noseColor;
+}
+
+// Change jumping height
+function setJumpHeight(height) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes customRabbitJump {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-\${height}px);
+            }
+        }
+        @keyframes customShadowJump {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                opacity: 0.2;
+            }
+            50% {
+                transform: translateX(-50%) scale(\${1 - (height / 100)});
+                opacity: 0.4;
+            }
+        }
+        .jumping-rabbit-105 .rabbit {
+            animation-name: customRabbitJump !important;
+        }
+        .jumping-rabbit-105 .shadow {
+            animation-name: customShadowJump !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change animation speeds
+function setRabbitSpeeds(jumpSpeed, earSpeed, noseSpeed) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .jumping-rabbit-105 .rabbit {
+            animation-duration: \${jumpSpeed}s !important;
+        }
+        .jumping-rabbit-105 .ear.left,
+        .jumping-rabbit-105 .ear.right {
+            animation-duration: \${earSpeed}s !important;
+        }
+        .jumping-rabbit-105 .nose {
+            animation-duration: \${noseSpeed}s !important;
+        }
+        .jumping-rabbit-105 .shadow {
+            animation-duration: \${jumpSpeed}s !important;
+        }
+        .jumping-rabbit-105 .grass {
+            animation-duration: \${earSpeed}s !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Toggle grass
+function toggleGrass(show) {
+    const grasses = jumpingRabbit.querySelectorAll('.grass');
+    grasses.forEach(grass => {
+        grass.style.display = show ? 'block' : 'none';
+    });
+}`
+    },
+        // ====================================================================
+    // TEMPLATE 106: iOS Style Loader
+    // ====================================================================
+    loader106: {
+        name: "iOS Style Loader",
+        category: "modern",
+        html: `<div class="loader-container dark-bg">
+    <div class="ios-loader-106">
+        <div class="iphone-frame">
+            <div class="notch"></div>
+            <div class="screen">
+                <div class="status-bar">
+                    <span class="time">9:41</span>
+                    <span class="status-icons">
+                        <i class="wifi"></i>
+                        <i class="signal"></i>
+                        <i class="battery"></i>
+                    </span>
+                </div>
+                <div class="app-icon"></div>
+                <div class="loading-text">Loading...</div>
+                <div class="progress-ring">
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`,
+        css: `.ios-loader-106 {
+    position: relative;
+    width: 120px;
+    height: 200px;
+}
+
+.ios-loader-106 .iphone-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    border: 3px solid #333;
+}
+
+.ios-loader-106 .notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 20px;
+    background: #000;
+    border-radius: 0 0 10px 10px;
+    z-index: 10;
+}
+
+.ios-loader-106 .screen {
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 25px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ios-loader-106 .status-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    color: white;
+    font-size: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin-bottom: 20px;
+}
+
+.ios-loader-106 .status-icons {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.ios-loader-106 .status-icons i {
+    display: inline-block;
+    width: 12px;
+    height: 6px;
+    background: white;
+    border-radius: 1px;
+}
+
+.ios-loader-106 .status-icons .wifi {
+    transform: rotate(45deg);
+}
+
+.ios-loader-106 .status-icons .signal {
+    width: 10px;
+    height: 6px;
+    clip-path: polygon(0% 100%, 25% 0%, 50% 100%, 75% 0%, 100% 100%);
+}
+
+.ios-loader-106 .status-icons .battery {
+    width: 15px;
+    height: 8px;
+    border: 1px solid white;
+    border-radius: 2px;
+    position: relative;
+}
+
+.ios-loader-106 .status-icons .battery::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    top: 2px;
+    width: 2px;
+    height: 4px;
+    background: white;
+    border-radius: 0 1px 1px 0;
+}
+
+.ios-loader-106 .app-icon {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: appIconBounce106 2s ease-in-out infinite;
+}
+
+.ios-loader-106 .loading-text {
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 12px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.ios-loader-106 .progress-ring {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.ios-loader-106 .progress-ring .ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: ringRotate106 1.5s linear infinite;
+}
+
+.ios-loader-106 .progress-ring .ring:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.ios-loader-106 .progress-ring .ring:nth-child(2) {
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    animation-delay: 0.2s;
+}
+
+.ios-loader-106 .progress-ring .ring:nth-child(3) {
+    width: 40%;
+    height: 40%;
+    top: 30%;
+    left: 30%;
+    animation-delay: 0.4s;
+}
+
+@keyframes appIconBounce106 {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes ringRotate106 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #1a1a1a;
+    border-radius: 8px;
+}
+
+.dark-bg {
+    background: #1a1a1a;
+}`,
+        js: `// Control iOS loader
+const iosLoader = document.querySelector('.ios-loader-106');
+
+// Change iOS theme
+function setIOSTheme(backgroundColor, appColor) {
+    const screen = iosLoader.querySelector('.screen');
+    screen.style.background = backgroundColor;
+    
+    const appIcon = iosLoader.querySelector('.app-icon');
+    appIcon.style.background = appColor;
+}
+
+// Change loading text
+function setIOSText(text) {
+    const loadingText = iosLoader.querySelector('.loading-text');
+    loadingText.textContent = text;
+}
+
+// Change animation speeds
+function setIOSAnimations(bounceSpeed, ringSpeed) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .ios-loader-106 .app-icon {
+            animation-duration: \${bounceSpeed}s !important;
+        }
+        .ios-loader-106 .progress-ring .ring {
+            animation-duration: \${ringSpeed}s !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change status bar time
+function setIOSTime(time) {
+    const timeElement = iosLoader.querySelector('.time');
+    timeElement.textContent = time;
+}
+
+// Toggle status icons
+function toggleIOSIcons(showWifi, showSignal, showBattery) {
+    const wifi = iosLoader.querySelector('.wifi');
+    const signal = iosLoader.querySelector('.signal');
+    const battery = iosLoader.querySelector('.battery');
+    
+    wifi.style.display = showWifi ? 'block' : 'none';
+    signal.style.display = showSignal ? 'block' : 'none';
+    battery.style.display = showBattery ? 'block' : 'none';
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 107: Android Material Loader
+    // ====================================================================
+    loader107: {
+        name: "Android Material Loader",
+        category: "modern",
+        html: `<div class="loader-container">
+    <div class="android-loader-107">
+        <div class="phone-frame">
+            <div class="camera-cutout"></div>
+            <div class="screen">
+                <div class="material-header">
+                    <div class="material-circle"></div>
+                    <div class="material-title">Loading</div>
+                </div>
+                <div class="material-progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <div class="material-content">
+                    <div class="content-shimmer"></div>
+                    <div class="content-shimmer"></div>
+                    <div class="content-shimmer"></div>
+                </div>
+                <div class="material-fab">
+                    <div class="fab-icon">+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`,
+        css: `.android-loader-107 {
+    position: relative;
+    width: 120px;
+    height: 200px;
+}
+
+.android-loader-107 .phone-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 3px solid #ddd;
+}
+
+.android-loader-107 .camera-cutout {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: #333;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.android-loader-107 .screen {
+    position: absolute;
+    top: 30px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.android-loader-107 .material-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.android-loader-107 .material-circle {
+    width: 40px;
+    height: 40px;
+    background: #4285f4;
+    border-radius: 50%;
+    animation: materialPulse107 2s ease-in-out infinite;
+}
+
+.android-loader-107 .material-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.android-loader-107 .material-progress {
+    width: 100%;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.android-loader-107 .progress-bar {
+    width: 60%;
+    height: 100%;
+    background: #4285f4;
+    border-radius: 2px;
+    animation: progressLoad107 3s ease-in-out infinite;
+}
+
+.android-loader-107 .material-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.android-loader-107 .content-shimmer {
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    animation: shimmer107 1.5s ease-in-out infinite;
+}
+
+.android-loader-107 .content-shimmer:nth-child(2) {
+    width: 80%;
+}
+
+.android-loader-107 .content-shimmer:nth-child(3) {
+    width: 60%;
+}
+
+.android-loader-107 .material-fab {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: #4285f4;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fabFloat107 2s ease-in-out infinite;
+}
+
+.android-loader-107 .fab-icon {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+@keyframes materialPulse107 {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes progressLoad107 {
+    0%, 100% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes shimmer107 {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes fabFloat107 {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control Android loader
+const androidLoader = document.querySelector('.android-loader-107');
+
+// Change Material colors
+function setMaterialColors(primaryColor, backgroundColor) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .android-loader-107 .material-circle {
+            background: \${primaryColor} !important;
+        }
+        .android-loader-107 .progress-bar {
+            background: \${primaryColor} !important;
+        }
+        .android-loader-107 .material-fab {
+            background: \${primaryColor} !important;
+            box-shadow: 0 4px 10px \${primaryColor}4d !important;
+        }
+        .android-loader-107 .screen {
+            background: \${backgroundColor} !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change content shimmer
+function setShimmerContent(lines) {
+    const contentContainer = androidLoader.querySelector('.material-content');
+    contentContainer.innerHTML = '';
+    
+    for (let i = 0; i < lines; i++) {
+        const shimmer = document.createElement('div');
+        shimmer.className = 'content-shimmer';
+        shimmer.style.width = \`\${100 - (i * 20)}%\`;
+        shimmer.style.animationDelay = \`\${i * 0.2}s\`;
+        contentContainer.appendChild(shimmer);
+    }
+}
+
+// Change FAB icon
+function setFABIcon(icon) {
+    const fabIcon = androidLoader.querySelector('.fab-icon');
+    fabIcon.textContent = icon;
+}
+
+// Change animation speeds
+function setMaterialAnimations(pulseSpeed, progressSpeed, shimmerSpeed) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .android-loader-107 .material-circle {
+            animation-duration: \${pulseSpeed}s !important;
+        }
+        .android-loader-107 .progress-bar {
+            animation-duration: \${progressSpeed}s !important;
+        }
+        .android-loader-107 .content-shimmer {
+            animation-duration: \${shimmerSpeed}s !important;
+        }
+        .android-loader-107 .material-fab {
+            animation-duration: \${pulseSpeed}s !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Toggle FAB
+function toggleFAB(show) {
+    const fab = androidLoader.querySelector('.material-fab');
+    fab.style.display = show ? 'flex' : 'none';
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 108: Foldable Phone Loader
+    // ====================================================================
+    loader108: {
+        name: "Foldable Phone Loader",
+        category: "modern",
+        html: `<div class="loader-container">
+    <div class="foldable-loader-108">
+        <div class="foldable-phone">
+            <div class="screen left">
+                <div class="notification"></div>
+                <div class="notification"></div>
+                <div class="fold-line"></div>
+            </div>
+            <div class="screen right">
+                <div class="app-grid">
+                    <div class="app"></div>
+                    <div class="app"></div>
+                    <div class="app"></div>
+                    <div class="app"></div>
+                </div>
+                <div class="fold-line"></div>
+            </div>
+            <div class="hinge"></div>
+        </div>
+        <div class="fold-animation"></div>
+    </div>
+</div>`,
+        css: `.foldable-loader-108 {
+    position: relative;
+    width: 180px;
+    height: 120px;
+}
+
+.foldable-loader-108 .foldable-phone {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    perspective: 1000px;
+}
+
+.foldable-loader-108 .screen {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #333;
+    animation: screenFold108 4s ease-in-out infinite;
+}
+
+.foldable-loader-108 .screen.left {
+    transform-origin: right center;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    padding: 15px;
+}
+
+.foldable-loader-108 .screen.right {
+    transform-origin: left center;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    padding: 15px;
+    background: #222;
+}
+
+.foldable-loader-108 .notification {
+    width: 100%;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    animation: notificationPulse108 2s ease-in-out infinite;
+}
+
+.foldable-loader-108 .notification:nth-child(2) {
+    animation-delay: 0.5s;
+    width: 80%;
+}
+
+.foldable-loader-108 .fold-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+        transparent 10%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        transparent 90%);
+}
+
+.foldable-loader-108 .screen.left .fold-line {
+    right: 0;
+}
+
+.foldable-loader-108 .screen.right .fold-line {
+    left: 0;
+}
+
+.foldable-loader-108 .app-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.foldable-loader-108 .app {
+    width: 25px;
+    height: 25px;
+    background: rgba(66, 133, 244, 0.8);
+    border-radius: 8px;
+    animation: appGlow108 2s ease-in-out infinite;
+}
+
+.foldable-loader-108 .app:nth-child(2) {
+    background: rgba(219, 68, 55, 0.8);
+    animation-delay: 0.2s;
+}
+
+.foldable-loader-108 .app:nth-child(3) {
+    background: rgba(244, 180, 0, 0.8);
+    animation-delay: 0.4s;
+}
+
+.foldable-loader-108 .app:nth-child(4) {
+    background: rgba(15, 157, 88, 0.8);
+    animation-delay: 0.6s;
+}
+
+.foldable-loader-108 .hinge {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 40px;
+    background: linear-gradient(45deg, #333, #666);
+    border-radius: 5px;
+    z-index: 2;
+    animation: hingeGlow108 2s ease-in-out infinite;
+}
+
+.foldable-loader-108 .fold-animation {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 20px;
+    background: #4285f4;
+    border-radius: 2px;
+    animation: foldIndicator108 4s ease-in-out infinite;
+}
+
+@keyframes screenFold108 {
+    0%, 100% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(-20deg);
+    }
+}
+
+@keyframes notificationPulse108 {
+    0%, 100% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes appGlow108 {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+@keyframes hingeGlow108 {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(102, 102, 102, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(102, 102, 102, 0.8);
+    }
+}
+
+@keyframes foldIndicator108 {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+        opacity: 1;
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control foldable loader
+const foldableLoader = document.querySelector('.foldable-loader-108');
+
+// Change fold angle
+function setFoldAngle(angle) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes customScreenFold {
+            0%, 100% {
+                transform: rotateY(0deg);
+            }
+            50% {
+                transform: rotateY(-\${angle}deg);
+            }
+        }
+        .foldable-loader-108 .screen {
+            animation-name: customScreenFold !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change screen colors
+function setScreenColors(leftColor, rightColor) {
+    const leftScreen = foldableLoader.querySelector('.screen.left');
+    const rightScreen = foldableLoader.querySelector('.screen.right');
+    
+    leftScreen.style.background = leftColor;
+    rightScreen.style.background = rightColor;
+}
+
+// Change app colors
+function setAppColors(colors) {
+    const apps = foldableLoader.querySelectorAll('.app');
+    apps.forEach((app, index) => {
+        if (colors[index]) {
+            app.style.background = colors[index];
+        }
+    });
+}
+
+// Change fold speed
+function setFoldSpeed(foldSpeed, notificationSpeed, appSpeed) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .foldable-loader-108 .screen {
+            animation-duration: \${foldSpeed}s !important;
+        }
+        .foldable-loader-108 .notification {
+            animation-duration: \${notificationSpeed}s !important;
+        }
+        .foldable-loader-108 .app {
+            animation-duration: \${appSpeed}s !important;
+        }
+        .foldable-loader-108 .hinge {
+            animation-duration: \${notificationSpeed}s !important;
+        }
+        .foldable-loader-108 .fold-animation {
+            animation-duration: \${foldSpeed}s !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Toggle hinge
+function toggleHinge(show) {
+    const hinge = foldableLoader.querySelector('.hinge');
+    hinge.style.display = show ? 'block' : 'none';
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 109: Smartwatch Loader
+    // ====================================================================
+    loader109: {
+        name: "Smartwatch Loader",
+        category: "minimal",
+        html: `<div class="loader-container dark-bg">
+    <div class="smartwatch-loader-109">
+        <div class="watch-body">
+            <div class="watch-screen">
+                <div class="watch-face">
+                    <div class="hour-hand"></div>
+                    <div class="minute-hand"></div>
+                    <div class="second-hand"></div>
+                    <div class="center-dot"></div>
+                </div>
+                <div class="watch-stats">
+                    <div class="stat">
+                        <div class="stat-icon">❤️</div>
+                        <div class="stat-value">72</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-value">65%</div>
+                    </div>
+                </div>
+                <div class="loading-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+            <div class="watch-crown"></div>
+            <div class="watch-button"></div>
+        </div>
+        <div class="watch-band"></div>
+    </div>
+</div>`,
+        css: `.smartwatch-loader-109 {
+    position: relative;
+    width: 100px;
+    height: 120px;
+}
+
+.smartwatch-loader-109 .watch-body {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background: #222;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 3px solid #333;
+}
+
+.smartwatch-loader-109 .watch-screen {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background: #000;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.smartwatch-loader-109 .watch-face {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #4285f4;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.smartwatch-loader-109 .hour-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 15px;
+    background: white;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(30deg);
+    animation: hourRotate109 12s linear infinite;
+}
+
+.smartwatch-loader-109 .minute-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: #4285f4;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(90deg);
+    animation: minuteRotate109 6s linear infinite;
+}
+
+.smartwatch-loader-109 .second-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 22px;
+    background: #ff4444;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(180deg);
+    animation: secondRotate109 1s linear infinite;
+}
+
+.smartwatch-loader-109 .center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+}
+
+.smartwatch-loader-109 .watch-stats {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.smartwatch-loader-109 .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+}
+
+.smartwatch-loader-109 .stat-icon {
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.smartwatch-loader-109 .stat-value {
+    font-weight: bold;
+}
+
+.smartwatch-loader-109 .loading-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.smartwatch-loader-109 .loading-dots .dot {
+    width: 6px;
+    height: 6px;
+    background: #4285f4;
+    border-radius: 50%;
+    animation: watchDotPulse109 1.5s ease-in-out infinite;
+}
+
+.smartwatch-loader-109 .loading-dots .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.smartwatch-loader-109 .loading-dots .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.smartwatch-loader-109 .watch-crown {
+    position: absolute;
+    right: -8px;
+    top: 30px;
+    width: 8px;
+    height: 20px;
+    background: #333;
+    border-radius: 4px 0 0 4px;
+}
+
+.smartwatch-loader-109 .watch-button {
+    position: absolute;
+    right: -8px;
+    top: 55px;
+    width: 8px;
+    height: 15px;
+    background: #333;
+    border-radius: 4px 0 0 4px;
+}
+
+.smartwatch-loader-109 .watch-band {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    right: 20px;
+    height: 20px;
+    background: #111;
+    border-radius: 0 0 10px 10px;
+    animation: bandPulse109 2s ease-in-out infinite;
+}
+
+@keyframes hourRotate109 {
+    0% {
+        transform: translate(-50%, -100%) rotate(30deg);
+    }
+    100% {
+        transform: translate(-50%, -100%) rotate(390deg);
+    }
+}
+
+@keyframes minuteRotate109 {
+    0% {
+        transform: translate(-50%, -100%) rotate(90deg);
+    }
+    100% {
+        transform: translate(-50%, -100%) rotate(450deg);
+    }
+}
+
+@keyframes secondRotate109 {
+    0% {
+        transform: translate(-50%, -100%) rotate(180deg);
+    }
+    100% {
+        transform: translate(-50%, -100%) rotate(540deg);
+    }
+}
+
+@keyframes watchDotPulse109 {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+@keyframes bandPulse109 {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(1.05);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #1a1a1a;
+    border-radius: 8px;
+}
+
+.dark-bg {
+    background: #1a1a1a;
+}`,
+        js: `// Control smartwatch loader
+const smartwatchLoader = document.querySelector('.smartwatch-loader-109');
+
+// Change watch colors
+function setWatchColors(faceColor, handColor, bandColor) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .smartwatch-loader-109 .watch-face {
+            border-color: \${faceColor} !important;
+        }
+        .smartwatch-loader-109 .minute-hand {
+            background: \${handColor} !important;
+        }
+        .smartwatch-loader-109 .loading-dots .dot {
+            background: \${faceColor} !important;
+        }
+        .smartwatch-loader-109 .watch-band {
+            background: \${bandColor} !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Update watch stats
+function setWatchStats(heartRate, battery) {
+    const heartElement = smartwatchLoader.querySelector('.stat-value:nth-child(1)');
+    const batteryElement = smartwatchLoader.querySelector('.stat-value:nth-child(2)');
+    
+    heartElement.textContent = heartRate;
+    batteryElement.textContent = \`\${battery}%\`;
+}
+
+// Set current time
+function setWatchTime(hours, minutes) {
+    const hourDeg = (hours % 12) * 30 + minutes * 0.5;
+    const minuteDeg = minutes * 6;
+    
+    const style = document.createElement('style');
+    style.textContent = \`
+        .smartwatch-loader-109 .hour-hand {
+            animation: none;
+            transform: translate(-50%, -100%) rotate(\${hourDeg}deg);
+        }
+        .smartwatch-loader-109 .minute-hand {
+            animation: none;
+            transform: translate(-50%, -100%) rotate(\${minuteDeg}deg);
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change animation speeds
+function setWatchAnimations(hourSpeed, minuteSpeed, secondSpeed) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes customHourRotate {
+            0% {
+                transform: translate(-50%, -100%) rotate(30deg);
+            }
+            100% {
+                transform: translate(-50%, -100%) rotate(390deg);
+            }
+        }
+        @keyframes customMinuteRotate {
+            0% {
+                transform: translate(-50%, -100%) rotate(90deg);
+            }
+            100% {
+                transform: translate(-50%, -100%) rotate(450deg);
+            }
+        }
+        @keyframes customSecondRotate {
+            0% {
+                transform: translate(-50%, -100%) rotate(180deg);
+            }
+            100% {
+                transform: translate(-50%, -100%) rotate(540deg);
+            }
+        }
+        
+        .smartwatch-loader-109 .hour-hand {
+            animation: customHourRotate \${hourSpeed}s linear infinite !important;
+        }
+        .smartwatch-loader-109 .minute-hand {
+            animation: customMinuteRotate \${minuteSpeed}s linear infinite !important;
+        }
+        .smartwatch-loader-109 .second-hand {
+            animation: customSecondRotate \${secondSpeed}s linear infinite !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Toggle watch band
+function toggleWatchBand(show) {
+    const band = smartwatchLoader.querySelector('.watch-band');
+    band.style.display = show ? 'block' : 'none';
+}`
+    },
+
+    // ====================================================================
+    // TEMPLATE 110: Retro Mobile Loader
+    // ====================================================================
+    loader110: {
+        name: "Retro Mobile Loader",
+        category: "animated",
+        html: `<div class="loader-container">
+    <div class="retro-mobile-loader-110">
+        <div class="retro-phone">
+            <div class="antenna"></div>
+            <div class="phone-body">
+                <div class="screen">
+                    <div class="signal-bars">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    <div class="battery-indicator">
+                        <div class="battery-level"></div>
+                    </div>
+                    <div class="retro-text">Connecting...</div>
+                    <div class="signal-wave"></div>
+                    <div class="dialing-animation">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                <div class="keypad">
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`,
+        css: `.retro-mobile-loader-110 {
+    position: relative;
+    width: 120px;
+    height: 180px;
+}
+
+.retro-mobile-loader-110 .retro-phone {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.retro-mobile-loader-110 .antenna {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 20px;
+    background: #333;
+    border-radius: 2px 2px 0 0;
+    animation: antennaBob110 2s ease-in-out infinite;
+}
+
+.retro-mobile-loader-110 .phone-body {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 160px;
+    background: #888;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid #666;
+}
+
+.retro-mobile-loader-110 .screen {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    height: 80px;
+    background: #000;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.retro-mobile-loader-110 .signal-bars {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.retro-mobile-loader-110 .signal-bars .bar {
+    width: 4px;
+    background: #0f0;
+    border-radius: 1px;
+    animation: signalPulse110 2s ease-in-out infinite;
+}
+
+.retro-mobile-loader-110 .signal-bars .bar:nth-child(1) {
+    height: 6px;
+    animation-delay: 0s;
+}
+
+.retro-mobile-loader-110 .signal-bars .bar:nth-child(2) {
+    height: 9px;
+    animation-delay: 0.2s;
+}
+
+.retro-mobile-loader-110 .signal-bars .bar:nth-child(3) {
+    height: 12px;
+    animation-delay: 0.4s;
+}
+
+.retro-mobile-loader-110 .signal-bars .bar:nth-child(4) {
+    height: 15px;
+    animation-delay: 0.6s;
+}
+
+.retro-mobile-loader-110 .battery-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 10px;
+    border: 1px solid #0f0;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.retro-mobile-loader-110 .battery-level {
+    width: 60%;
+    height: 100%;
+    background: #0f0;
+    animation: batteryCharge110 3s ease-in-out infinite;
+}
+
+.retro-mobile-loader-110 .retro-text {
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    margin-top: 20px;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.retro-mobile-loader-110 .signal-wave {
+    position: absolute;
+    bottom: 10px;
+    left: 20%;
+    right: 20%;
+    height: 20px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #0f0 25%, 
+        transparent 50%, 
+        #0f0 75%, 
+        transparent 100%);
+    background-size: 200% 100%;
+    animation: signalWave110 2s linear infinite;
+    clip-path: polygon(0% 50%, 20% 30%, 40% 50%, 60% 70%, 80% 50%, 100% 30%);
+}
+
+.retro-mobile-loader-110 .dialing-animation {
+    position: absolute;
+    bottom: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+.retro-mobile-loader-110 .dialing-animation .dot {
+    width: 6px;
+    height: 6px;
+    background: #0f0;
+    border-radius: 50%;
+    animation: dialingDot110 1.5s ease-in-out infinite;
+}
+
+.retro-mobile-loader-110 .dialing-animation .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.retro-mobile-loader-110 .dialing-animation .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.retro-mobile-loader-110 .keypad {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    height: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.retro-mobile-loader-110 .key {
+    background: #666;
+    border-radius: 5px;
+    animation: keyPress110 2s ease-in-out infinite;
+}
+
+.retro-mobile-loader-110 .key:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.retro-mobile-loader-110 .key:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.retro-mobile-loader-110 .key:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.retro-mobile-loader-110 .key:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+@keyframes antennaBob110 {
+    0%, 100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(5deg);
+    }
+}
+
+@keyframes signalPulse110 {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes batteryCharge110 {
+    0%, 100% {
+        width: 20%;
+    }
+    50% {
+        width: 80%;
+    }
+}
+
+@keyframes signalWave110 {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes dialingDot110 {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+}
+
+@keyframes keyPress110 {
+    0%, 100% {
+        background: #666;
+        transform: scale(1);
+    }
+    50% {
+        background: #888;
+        transform: scale(0.9);
+    }
+}
+
+/* Container styling */
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}`,
+        js: `// Control retro mobile loader
+const retroLoader = document.querySelector('.retro-mobile-loader-110');
+
+// Change retro colors
+function setRetroColors(screenColor, signalColor, keyColor) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .retro-mobile-loader-110 .screen {
+            background: \${screenColor} !important;
+        }
+        .retro-mobile-loader-110 .signal-bars .bar,
+        .retro-mobile-loader-110 .battery-indicator,
+        .retro-mobile-loader-110 .battery-level,
+        .retro-mobile-loader-110 .retro-text,
+        .retro-mobile-loader-110 .signal-wave,
+        .retro-mobile-loader-110 .dialing-animation .dot {
+            color: \${signalColor} !important;
+            background: \${signalColor} !important;
+            border-color: \${signalColor} !important;
+            text-shadow: 0 0 5px \${signalColor} !important;
+        }
+        .retro-mobile-loader-110 .key {
+            background: \${keyColor} !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Change retro text
+function setRetroText(text) {
+    const retroText = retroLoader.querySelector('.retro-text');
+    retroText.textContent = text;
+}
+
+// Change signal strength
+function setSignalStrength(strength) {
+    const bars = retroLoader.querySelectorAll('.signal-bars .bar');
+    bars.forEach((bar, index) => {
+        bar.style.opacity = index < strength ? '1' : '0.3';
+        bar.style.animationPlayState = index < strength ? 'running' : 'paused';
+    });
+}
+
+// Change animation speeds
+function setRetroAnimations(antennaSpeed, signalSpeed, keySpeed) {
+    const style = document.createElement('style');
+    style.textContent = \`
+        .retro-mobile-loader-110 .antenna {
+            animation-duration: \${antennaSpeed}s !important;
+        }
+        .retro-mobile-loader-110 .signal-bars .bar {
+            animation-duration: \${signalSpeed}s !important;
+        }
+        .retro-mobile-loader-110 .battery-level {
+            animation-duration: \${signalSpeed * 1.5}s !important;
+        }
+        .retro-mobile-loader-110 .signal-wave {
+            animation-duration: \${signalSpeed}s !important;
+        }
+        .retro-mobile-loader-110 .dialing-animation .dot {
+            animation-duration: \${signalSpeed * 0.75}s !important;
+        }
+        .retro-mobile-loader-110 .key {
+            animation-duration: \${keySpeed}s !important;
+        }
+    \`;
+    document.head.appendChild(style);
+}
+
+// Toggle antenna
+function toggleAntenna(show) {
+    const antenna = retroLoader.querySelector('.antenna');
+    antenna.style.display = show ? 'block' : 'none';
+}`
+    },
 };
 
 // Main functionality for loader templates
