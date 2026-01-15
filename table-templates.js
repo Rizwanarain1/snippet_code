@@ -1,3 +1,519 @@
+// Add this script before closing body tag
+document.addEventListener('DOMContentLoaded', function() {
+    // Table Feature Controls
+    const tableDemoControls = document.querySelectorAll('.table-demo-control');
+    const demoTable = document.querySelector('.demo-table');
+    
+    tableDemoControls.forEach(control => {
+        control.addEventListener('click', () => {
+            // Remove active class from all controls
+            tableDemoControls.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked control
+            control.classList.add('active');
+            
+            // Get feature type
+            const feature = control.getAttribute('data-feature');
+            
+            // Update table based on feature
+            updateTableFeature(feature);
+            
+            // Add click animation
+            control.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                control.style.transform = '';
+            }, 150);
+        });
+    });
+    
+    // Update Table Feature
+    function updateTableFeature(feature) {
+        if (!demoTable) return;
+        
+        // Remove all feature classes
+        demoTable.classList.remove('sorting-active', 'filtering-active', 'pagination-active');
+        
+        // Add current feature class
+        demoTable.classList.add(`${feature}-active`);
+        
+        // Show feedback based on feature
+        let message = '';
+        switch(feature) {
+            case 'sort':
+                message = 'Table sorting enabled - Click column headers to sort';
+                highlightSortButtons();
+                break;
+            case 'filter':
+                message = 'Table filtering enabled - Use search input';
+                highlightSearch();
+                break;
+            case 'pagination':
+                message = 'Pagination controls active';
+                highlightPagination();
+                break;
+        }
+        
+        // Show notification
+        showTableNotification(message);
+    }
+    
+    // Highlight Sort Buttons
+    function highlightSortButtons() {
+        const sortBtns = document.querySelectorAll('.sort-btn');
+        sortBtns.forEach(btn => {
+            btn.style.animation = 'pulse 2s infinite';
+            setTimeout(() => {
+                btn.style.animation = '';
+            }, 2000);
+        });
+    }
+    
+    // Highlight Search
+    function highlightSearch() {
+        const searchInput = document.querySelector('.table-search-input');
+        if (searchInput) {
+            searchInput.style.boxShadow = '0 0 0 3px rgba(16, 185, 129, 0.3)';
+            searchInput.placeholder = 'Try typing "nav" or "button"...';
+            setTimeout(() => {
+                searchInput.style.boxShadow = '';
+                searchInput.placeholder = 'Search components...';
+            }, 3000);
+        }
+    }
+    
+    // Highlight Pagination
+    function highlightPagination() {
+        const paginationBtns = document.querySelectorAll('.pagination-btn:not(.disabled)');
+        paginationBtns.forEach(btn => {
+            btn.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                btn.style.transform = '';
+            }, 1000);
+        });
+    }
+    
+    // Sort Button Functionality
+    const sortButtons = document.querySelectorAll('.sort-btn');
+    sortButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all sort buttons
+            sortButtons.forEach(b => {
+                b.classList.remove('active');
+                b.innerHTML = '<i class="fas fa-sort"></i>';
+            });
+            
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Update sort icon
+            const isAscending = !btn.classList.contains('desc');
+            btn.classList.toggle('desc', !isAscending);
+            
+            // Update icon
+            if (isAscending) {
+                btn.innerHTML = '<i class="fas fa-sort-up"></i>';
+            } else {
+                btn.innerHTML = '<i class="fas fa-sort-down"></i>';
+            }
+            
+            // Simulate sorting
+            const columnIndex = Array.from(btn.parentNode.parentNode.children).indexOf(btn.parentNode);
+            simulateTableSort(columnIndex, isAscending);
+            
+            // Show feedback
+            showTableNotification(`Sorted by ${getColumnName(columnIndex)} ${isAscending ? 'ascending' : 'descending'}`);
+        });
+    });
+    
+    // Simulate Table Sort
+    function simulateTableSort(columnIndex, ascending) {
+        const tableRows = document.querySelectorAll('.table-row:not(.header)');
+        
+        // Create array of rows with their data
+        const rowsArray = Array.from(tableRows);
+        
+        // Sort animation
+        rowsArray.forEach((row, index) => {
+            setTimeout(() => {
+                row.style.opacity = '0.5';
+                row.style.transform = 'translateX(-10px)';
+                
+                setTimeout(() => {
+                    row.style.opacity = '1';
+                    row.style.transform = 'translateX(0)';
+                }, 300);
+            }, index * 100);
+        });
+    }
+    
+    // Get Column Name
+    function getColumnName(index) {
+        const columns = ['Component', 'Category', 'Downloads', 'Rating', 'Actions'];
+        return columns[index] || 'Column';
+    }
+    
+    // Copy Code Button
+    const tableCopyBtn = document.querySelector('.table-copy-code-btn');
+    if (tableCopyBtn) {
+        tableCopyBtn.addEventListener('click', () => {
+            const originalText = tableCopyBtn.innerHTML;
+            
+            // Update button state
+            tableCopyBtn.innerHTML = '<i class="fas fa-check"></i><span>Code Copied!</span>';
+            tableCopyBtn.style.background = 'linear-gradient(90deg, #059669, #047857)';
+            
+            // Simulate copy action
+            const codeToCopy = `/* Modern Data Table Component */
+.table-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.demo-table {
+    padding: 1.5rem;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.table-row.header {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 1rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.table-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sort-btn {
+    background: none;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sort-btn:hover {
+    color: white;
+}
+
+.sort-btn.active {
+    color: #10b981;
+}
+
+/* Full code available at SnippetCode */`;
+            
+            navigator.clipboard.writeText(codeToCopy)
+                .then(() => {
+                    console.log('Table code copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Failed to copy code:', err);
+                });
+            
+            // Reset button after 2 seconds
+            setTimeout(() => {
+                tableCopyBtn.innerHTML = originalText;
+                tableCopyBtn.style.background = 'linear-gradient(90deg, #10b981, #34d399)';
+            }, 2000);
+            
+            // Show success notification
+            showTableNotification('Table code copied to clipboard!');
+        });
+    }
+    
+    // Search Functionality
+    const searchInput = document.querySelector('.table-search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const tableRows = document.querySelectorAll('.table-row:not(.header)');
+            
+            tableRows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    row.style.display = 'grid';
+                    row.style.animation = 'fadeIn 0.3s ease';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    }
+    
+    // Action Buttons
+    const viewButtons = document.querySelectorAll('.action-btn.view');
+    const copyButtons = document.querySelectorAll('.action-btn.copy');
+    
+    viewButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const row = btn.closest('.table-row');
+            const title = row.querySelector('.cell-title').textContent;
+            showTableNotification(`Previewing: ${title}`);
+            
+            // Animation
+            btn.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                btn.style.transform = '';
+            }, 300);
+        });
+    });
+    
+    copyButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const row = btn.closest('.table-row');
+            const title = row.querySelector('.cell-title').textContent;
+            showTableNotification(`Copied ${title} code`);
+            
+            // Animation
+            btn.style.transform = 'scale(1.2)';
+            btn.style.background = '#10b981';
+            btn.style.color = 'white';
+            
+            setTimeout(() => {
+                btn.style.transform = '';
+                btn.style.background = '';
+                btn.style.color = '';
+            }, 1000);
+        });
+    });
+    
+    // Pagination
+    const paginationButtons = document.querySelectorAll('.pagination-btn:not(.disabled)');
+    paginationButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('active')) return;
+            
+            // Update active pagination button
+            document.querySelectorAll('.pagination-btn').forEach(b => {
+                b.classList.remove('active');
+            });
+            
+            if (!btn.querySelector('i')) {
+                btn.classList.add('active');
+                showTableNotification(`Navigated to page ${btn.textContent}`);
+            }
+            
+            // Animation
+            btn.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                btn.style.transform = '';
+            }, 300);
+        });
+    });
+    
+    // Component Card Hover Effects
+    const tableComponentCards = document.querySelectorAll('.table-component-card');
+    
+    tableComponentCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Add pulse animation to active card
+            if (card.classList.contains('active')) {
+                card.style.animation = 'pulseCard 0.5s ease-out';
+                setTimeout(() => {
+                    card.style.animation = '';
+                }, 500);
+            }
+        });
+        
+        // Add click animation
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Add click effect
+            card.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                card.style.transform = '';
+                
+                // Navigate to href
+                const href = card.getAttribute('href');
+                if (href) {
+                    window.location.href = href;
+                }
+            }, 150);
+        });
+    });
+    
+    // Notification Function
+    function showTableNotification(message) {
+        // Remove existing notification
+        const existingNotification = document.querySelector('.table-notification');
+        if (existingNotification) {
+            existingNotification.remove();
+        }
+        
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = 'table-notification';
+        notification.innerHTML = `
+            <span>${message}</span>
+            <button class="close-table-notification">×</button>
+        `;
+        
+        // Add styles
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideInRight 0.3s ease-out;
+            z-index: 1000;
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Auto remove after 3 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+                setTimeout(() => notification.remove(), 300);
+            }
+        }, 3000);
+        
+        // Close button functionality
+        const closeBtn = notification.querySelector('.close-table-notification');
+        closeBtn.addEventListener('click', () => {
+            notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+            setTimeout(() => notification.remove(), 300);
+        });
+    }
+    
+    // Add animation keyframes for notification
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes pulseCard {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .close-table-notification {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+        
+        .close-table-notification:hover {
+            color: white;
+        }
+        
+        /* Responsive data labels */
+        @media (max-width: 768px) {
+            .table-cell[data-label]::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: #94a3b8;
+                margin-right: auto;
+                min-width: 100px;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Add data labels for responsive design
+    const tableCells = document.querySelectorAll('.table-row:not(.header) .table-cell');
+    const headers = document.querySelectorAll('.table-row.header .table-cell span');
+    
+    headers.forEach((header, index) => {
+        const cells = document.querySelectorAll(`.table-row:not(.header) .table-cell:nth-child(${index + 1})`);
+        cells.forEach(cell => {
+            cell.setAttribute('data-label', header.textContent);
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Template code data for table templates
 const templateCodes = {
     

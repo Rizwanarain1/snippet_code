@@ -1,3 +1,634 @@
+// Add this script before closing body tag
+document.addEventListener('DOMContentLoaded', function() {
+    // Loader Type Controls
+    const loaderControls = document.querySelectorAll('.loader-demo-control');
+    const loaderTypes = document.querySelectorAll('.loader-type');
+    
+    loaderControls.forEach(control => {
+        control.addEventListener('click', () => {
+            // Remove active class from all controls
+            loaderControls.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked control
+            control.classList.add('active');
+            
+            // Get loader type
+            const type = control.getAttribute('data-type');
+            
+            // Show selected loader type
+            showLoaderType(type);
+            
+            // Add click animation
+            control.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                control.style.transform = '';
+            }, 150);
+        });
+    });
+    
+    // Show Loader Type
+    function showLoaderType(type) {
+        // Hide all loader types
+        loaderTypes.forEach(loader => {
+            loader.classList.remove('active');
+        });
+        
+        // Show selected loader type
+        const selectedLoader = document.querySelector(`.loader-type[data-type="${type}"]`);
+        if (selectedLoader) {
+            selectedLoader.classList.add('active');
+            showLoaderNotification(`${type.charAt(0).toUpperCase() + type.slice(1)} loaders activated`);
+        }
+    }
+    
+    // Speed Controls
+    const speedButtons = document.querySelectorAll('.speed-btn');
+    speedButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all speed buttons
+            speedButtons.forEach(b => b.classList.remove('active'));
+            
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Get speed
+            const speed = btn.getAttribute('data-speed');
+            
+            // Update loader speeds
+            updateLoaderSpeed(speed);
+        });
+    });
+    
+    // Update Loader Speed
+    function updateLoaderSpeed(speed) {
+        const animations = document.querySelectorAll('[style*="animation"]');
+        const cssAnimations = document.querySelectorAll('.spinner, .progress-fill, .skeleton-header, .skeleton-line, .skeleton-image, .dot, .wave, .cube');
+        
+        // Calculate speed multiplier
+        let multiplier = 1;
+        switch(speed) {
+            case 'slow': multiplier = 1.5; break;
+            case 'fast': multiplier = 0.5; break;
+            default: multiplier = 1;
+        }
+        
+        // Update inline animations
+        animations.forEach(element => {
+            const style = element.style.animation;
+            if (style) {
+                const updatedStyle = style.replace(/(\d+(\.\d+)?)s/g, (match, time) => {
+                    return (parseFloat(time) * multiplier) + 's';
+                });
+                element.style.animation = updatedStyle;
+            }
+        });
+        
+        // Update CSS animations
+        cssAnimations.forEach(element => {
+            // Store original animation
+            const computedStyle = window.getComputedStyle(element);
+            let animation = computedStyle.animation;
+            
+            if (animation && animation !== 'none') {
+                const updatedAnimation = animation.replace(/(\d+(\.\d+)?)s/g, (match, time) => {
+                    return (parseFloat(time) * multiplier) + 's';
+                });
+                element.style.animation = updatedAnimation;
+            }
+        });
+        
+        showLoaderNotification(`Animation speed: ${speed}`);
+    }
+    
+    // Color Controls
+    const colorButtons = document.querySelectorAll('.color-btn');
+    colorButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all color buttons
+            colorButtons.forEach(b => b.classList.remove('active'));
+            
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Get color
+            const color = btn.getAttribute('data-color');
+            
+            // Update loader colors
+            updateLoaderColor(color);
+        });
+    });
+    
+    // Update Loader Color
+    function updateLoaderColor(color) {
+        // Update spinner colors
+        const spinners = document.querySelectorAll('.spinner-1, .spinner-3');
+        spinners.forEach(spinner => {
+            spinner.style.borderTopColor = color;
+        });
+        
+        // Update spinner-2 dots
+        const dots = document.querySelectorAll('.spinner-2::before, .spinner-2::after, .spinner-2 span');
+        dots.forEach(dot => {
+            dot.style.background = color;
+        });
+        
+        // Update spinner-4 pulse
+        const pulseSpinner = document.querySelector('.spinner-4');
+        if (pulseSpinner) {
+            pulseSpinner.style.background = color;
+        }
+        
+        // Update progress bars
+        const progressFills = document.querySelectorAll('.progress-fill');
+        progressFills.forEach(fill => {
+            fill.style.background = color;
+        });
+        
+        // Update gradient progress bar
+        const gradientBar = document.querySelector('.bar-2 .progress-fill');
+        if (gradientBar) {
+            const lightColor = lightenColor(color, 30);
+            gradientBar.style.background = `linear-gradient(45deg, ${color} 25%, ${lightColor} 25%, ${lightColor} 50%, ${color} 50%, ${color} 75%, ${lightColor} 75%)`;
+            gradientBar.style.backgroundSize = '20px 20px';
+        }
+        
+        // Update creative loaders
+        const creativeDots = document.querySelectorAll('.creative-1 .dot');
+        creativeDots.forEach(dot => {
+            dot.style.background = color;
+        });
+        
+        const creativeWaves = document.querySelectorAll('.creative-2 .wave');
+        creativeWaves.forEach(wave => {
+            wave.style.borderColor = color;
+        });
+        
+        const creativeCubes = document.querySelectorAll('.creative-3 .cube');
+        creativeCubes.forEach(cube => {
+            cube.style.background = color;
+        });
+        
+        showLoaderNotification(`Loader color updated to ${color}`);
+    }
+    
+    // Helper function to lighten color
+    function lightenColor(color, percent) {
+        const num = parseInt(color.replace("#", ""), 16);
+        const amt = Math.round(2.55 * percent);
+        const R = (num >> 16) + amt;
+        const G = (num >> 8 & 0x00FF) + amt;
+        const B = (num & 0x0000FF) + amt;
+        
+        return "#" + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
+            (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
+            (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
+    }
+    
+    // Size Controls
+    const sizeButtons = document.querySelectorAll('.size-btn');
+    sizeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all size buttons
+            sizeButtons.forEach(b => b.classList.remove('active'));
+            
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Get size
+            const size = btn.getAttribute('data-size');
+            
+            // Update loader sizes
+            updateLoaderSize(size);
+        });
+    });
+    
+    // Update Loader Size
+    function updateLoaderSize(size) {
+        let scale = 1;
+        switch(size) {
+            case 'small': scale = 0.75; break;
+            case 'large': scale = 1.25; break;
+            default: scale = 1;
+        }
+        
+        const loaders = document.querySelectorAll('.loader-item');
+        loaders.forEach(loader => {
+            loader.style.transform = `scale(${scale})`;
+        });
+        
+        showLoaderNotification(`Loader size: ${size}`);
+    }
+    
+    // Copy Code Button
+    const loaderCopyBtn = document.querySelector('.loader-copy-code-btn');
+    if (loaderCopyBtn) {
+        loaderCopyBtn.addEventListener('click', () => {
+            const originalText = loaderCopyBtn.innerHTML;
+            
+            // Update button state
+            loaderCopyBtn.innerHTML = '<i class="fas fa-check"></i><span>Code Copied!</span>';
+            loaderCopyBtn.style.background = 'linear-gradient(90deg, #7c3aed, #6d28d9)';
+            
+            // Get current loader type
+            const activeControl = document.querySelector('.loader-demo-control.active');
+            const loaderType = activeControl ? activeControl.getAttribute('data-type') : 'spinner';
+            
+            // Generate code based on loader type
+            let codeToCopy = '';
+            
+            switch(loaderType) {
+                case 'spinner':
+                    codeToCopy = `/* Spinner Loader Component */
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(139, 92, 246, 0.2);
+    border-top-color: #8b5cf6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Dots Loader */
+.dots-loader {
+    display: flex;
+    gap: 6px;
+}
+
+.dots-loader::before,
+.dots-loader::after,
+.dots-loader span {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #8b5cf6;
+    border-radius: 50%;
+    animation: bounce 1.4s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
+/* Full code available at SnippetCode */`;
+                    break;
+                    
+                case 'bar':
+                    codeToCopy = `/* Progress Bar Loader */
+.progress-bar {
+    width: 200px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    position: absolute;
+    height: 100%;
+    background: #8b5cf6;
+    border-radius: 4px;
+    animation: progress 2s ease-in-out infinite;
+}
+
+@keyframes progress {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+/* Circle Progress */
+.circle-progress {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #8b5cf6;
+    animation: spin 1s linear infinite;
+}
+
+/* Full code available at SnippetCode */`;
+                    break;
+                    
+                case 'skeleton':
+                    codeToCopy = `/* Skeleton Loader Component */
+.skeleton {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.skeleton-header {
+    width: 60%;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-line {
+    width: 100%;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-line.short {
+    width: 70%;
+}
+
+@keyframes skeletonPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.skeleton-image {
+    width: 100%;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+/* Full code available at SnippetCode */`;
+                    break;
+                    
+                case 'creative':
+                    codeToCopy = `/* Creative Loader Components */
+/* Bouncing Dots */
+.bouncing-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.bouncing-dots .dot {
+    width: 12px;
+    height: 12px;
+    background: #8b5cf6;
+    border-radius: 50%;
+    animation: bounce 1.4s ease-in-out infinite;
+}
+
+/* Wave Loader */
+.wave-loader {
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+
+.wave-loader .wave {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #8b5cf6;
+    border-radius: 50%;
+    opacity: 0;
+    animation: wave 1.5s ease-out infinite;
+}
+
+@keyframes wave {
+    0% { transform: scale(0.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0; }
+}
+
+/* Cube Loader */
+.cube-loader {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(60deg) rotateZ(45deg);
+}
+
+.cube-loader .cube {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #8b5cf6;
+    animation: cube 1.8s ease-in-out infinite;
+}
+
+@keyframes cube {
+    0%, 100% { transform: translateZ(0); }
+    50% { transform: translateZ(20px); }
+}
+
+/* Full code available at SnippetCode */`;
+                    break;
+            }
+            
+            navigator.clipboard.writeText(codeToCopy)
+                .then(() => {
+                    console.log('Loader code copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Failed to copy code:', err);
+                });
+            
+            // Reset button after 2 seconds
+            setTimeout(() => {
+                loaderCopyBtn.innerHTML = originalText;
+                loaderCopyBtn.style.background = 'linear-gradient(90deg, #8b5cf6, #a78bfa)';
+            }, 2000);
+            
+            // Show success notification
+            showLoaderNotification('Loader code copied to clipboard!');
+        });
+    }
+    
+    // Loader Item Interaction
+    const loaderItems = document.querySelectorAll('.loader-item');
+    loaderItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const loaderName = item.querySelector('.loader-name').textContent;
+            showLoaderNotification(`Selected: ${loaderName}`);
+            
+            // Add click animation
+            item.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                item.style.transform = '';
+            }, 200);
+        });
+    });
+    
+    // Component Card Hover Effects
+    const loaderComponentCards = document.querySelectorAll('.loader-component-card');
+    
+    loaderComponentCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Add pulse animation to active card
+            if (card.classList.contains('active')) {
+                card.style.animation = 'pulseCard 0.5s ease-out';
+                setTimeout(() => {
+                    card.style.animation = '';
+                }, 500);
+            }
+        });
+        
+        // Add click animation
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Add click effect
+            card.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                card.style.transform = '';
+                
+                // Navigate to href
+                const href = card.getAttribute('href');
+                if (href) {
+                    window.location.href = href;
+                }
+            }, 150);
+        });
+    });
+    
+    // Simulate Loading Progress
+    function simulateProgress() {
+        const progressFills = document.querySelectorAll('.progress-fill');
+        progressFills.forEach((fill, index) => {
+            // Reset animation
+            fill.style.animation = 'none';
+            
+            // Force reflow
+            fill.offsetHeight;
+            
+            // Restart animation with delay
+            setTimeout(() => {
+                fill.style.animation = 'progress 2s ease-in-out infinite';
+            }, index * 200);
+        });
+    }
+    
+    // Periodically reset animations
+    setInterval(simulateProgress, 4000);
+    
+    // Initial call
+    simulateProgress();
+    
+    // Notification Function
+    function showLoaderNotification(message) {
+        // Remove existing notification
+        const existingNotification = document.querySelector('.loader-notification');
+        if (existingNotification) {
+            existingNotification.remove();
+        }
+        
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = 'loader-notification';
+        notification.innerHTML = `
+            <span>${message}</span>
+            <button class="close-loader-notification">×</button>
+        `;
+        
+        // Add styles
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideInRight 0.3s ease-out;
+            z-index: 1000;
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Auto remove after 3 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+                setTimeout(() => notification.remove(), 300);
+            }
+        }, 3000);
+        
+        // Close button functionality
+        const closeBtn = notification.querySelector('.close-loader-notification');
+        closeBtn.addEventListener('click', () => {
+            notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+            setTimeout(() => notification.remove(), 300);
+        });
+    }
+    
+    // Add animation keyframes
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes pulseCard {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .close-loader-notification {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+        
+        .close-loader-notification:hover {
+            color: white;
+        }
+    `;
+    document.head.appendChild(style);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Loader templates data
 const loaderTemplates = {
     // ====================================================================

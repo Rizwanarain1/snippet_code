@@ -1,3 +1,355 @@
+// Add this script before closing body tag
+    document.addEventListener('DOMContentLoaded', function() {
+        // Demo Control Functionality
+        const footerDemoControls = document.querySelectorAll('.footer-demo-control');
+        const footerPreview = document.querySelector('.footer-preview');
+        
+        footerDemoControls.forEach(control => {
+            control.addEventListener('click', () => {
+                // Remove active class from all controls
+                footerDemoControls.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked control
+                control.classList.add('active');
+                
+                // Get layout type
+                const layout = control.getAttribute('data-layout');
+                
+                // Update preview based on layout
+                updateFooterLayout(layout);
+                
+                // Add click animation
+                control.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    control.style.transform = '';
+                }, 150);
+            });
+        });
+        
+        // Update Footer Layout
+        function updateFooterLayout(layout) {
+            if (!footerPreview) return;
+            
+            // Remove all layout classes
+            footerPreview.classList.remove('desktop-layout', 'tablet-layout', 'mobile-layout');
+            
+            // Add current layout class
+            footerPreview.classList.add(`${layout}-layout`);
+            
+            // Update responsive behavior
+            const footerTop = document.querySelector('.footer-top');
+            const linksGrid = document.querySelector('.footer-links-grid');
+            
+            if (layout === 'mobile') {
+                if (footerTop) footerTop.style.gridTemplateColumns = '1fr';
+                if (linksGrid) linksGrid.style.gridTemplateColumns = '1fr';
+            } else if (layout === 'tablet') {
+                if (footerTop) footerTop.style.gridTemplateColumns = '1fr 1fr';
+                if (linksGrid) linksGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+            } else {
+                if (footerTop) footerTop.style.gridTemplateColumns = '1fr 2fr 1fr';
+                if (linksGrid) linksGrid.style.gridTemplateColumns = 'repeat(3, 1fr)';
+            }
+        }
+        
+        // Copy Code Button
+        const footerCopyBtn = document.querySelector('.footer-copy-code-btn');
+        if (footerCopyBtn) {
+            footerCopyBtn.addEventListener('click', () => {
+                const originalText = footerCopyBtn.innerHTML;
+                
+                // Update button state
+                footerCopyBtn.innerHTML = '<i class="fas fa-check"></i><span>Code Copied!</span>';
+                footerCopyBtn.style.background = 'linear-gradient(90deg, #059669, #047857)';
+                
+                // Simulate copy action
+                const codeToCopy = `/* Modern Footer Component */
+    .footer {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+    }
+    
+    .footer-top {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .footer-links-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    .footer-link {
+        color: #94a3b8;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .footer-link:hover {
+        color: white;
+    }
+    
+    .footer-bottom {
+        padding-top: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #64748b;
+    }
+    
+    /* Full code available at SnippetCode */`;
+                
+                navigator.clipboard.writeText(codeToCopy)
+                    .then(() => {
+                        console.log('Footer code copied to clipboard!');
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy code:', err);
+                    });
+                
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    footerCopyBtn.innerHTML = originalText;
+                    footerCopyBtn.style.background = 'linear-gradient(90deg, #10b981, #34d399)';
+                }, 2000);
+                
+                // Show success notification
+                showFooterNotification('Footer code copied to clipboard!');
+            });
+        }
+        
+        // Newsletter Form Interaction
+        const newsletterForm = document.querySelector('.newsletter-form');
+        const newsletterInput = document.querySelector('.newsletter-input');
+        const newsletterBtn = document.querySelector('.newsletter-btn');
+        
+        if (newsletterForm && newsletterInput && newsletterBtn) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const email = newsletterInput.value.trim();
+                if (email && validateEmail(email)) {
+                    // Show success state
+                    newsletterBtn.innerHTML = '<i class="fas fa-check"></i>';
+                    newsletterBtn.style.background = '#10b981';
+                    
+                    // Reset after 2 seconds
+                    setTimeout(() => {
+                        newsletterBtn.innerHTML = '<i class="fas fa-paper-plane"></i>';
+                        newsletterBtn.style.background = 'linear-gradient(90deg, #f59e0b, #d97706)';
+                        newsletterInput.value = '';
+                    }, 2000);
+                    
+                    // Show notification
+                    showFooterNotification('Thank you for subscribing!');
+                } else {
+                    // Show error state
+                    newsletterInput.style.borderColor = '#ef4444';
+                    newsletterInput.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+                    
+                    setTimeout(() => {
+                        newsletterInput.style.borderColor = '';
+                        newsletterInput.style.boxShadow = '';
+                    }, 3000);
+                }
+            });
+        }
+        
+        // Email validation helper
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // Social Links Hover Effect
+        const socialLinks = document.querySelectorAll('.social-link');
+        socialLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.style.transform = 'translateY(-5px) rotate(5deg)';
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                link.style.transform = '';
+            });
+        });
+        
+        // Footer Links Animation
+        const footerLinks = document.querySelectorAll('.footer-link');
+        footerLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.style.transform = 'translateX(5px)';
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                link.style.transform = '';
+            });
+        });
+        
+        // Component Card Hover Effects
+        const footerComponentCards = document.querySelectorAll('.footer-component-card');
+        
+        footerComponentCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Add pulse animation to active card
+                if (card.classList.contains('active')) {
+                    card.style.animation = 'pulseCard 0.5s ease-out';
+                    setTimeout(() => {
+                        card.style.animation = '';
+                    }, 500);
+                }
+            });
+            
+            // Add click animation
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Add click effect
+                card.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    card.style.transform = '';
+                    
+                    // Navigate to href
+                    const href = card.getAttribute('href');
+                    if (href) {
+                        window.location.href = href;
+                    }
+                }, 150);
+            });
+        });
+        
+        // Notification Function
+        function showFooterNotification(message) {
+            // Remove existing notification
+            const existingNotification = document.querySelector('.footer-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'footer-notification';
+            notification.innerHTML = `
+                <span>${message}</span>
+                <button class="close-footer-notification">×</button>
+            `;
+            
+            // Add styles
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                animation: slideInRight 0.3s ease-out;
+                z-index: 1000;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 3000);
+            
+            // Close button functionality
+            const closeBtn = notification.querySelector('.close-footer-notification');
+            closeBtn.addEventListener('click', () => {
+                notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+                setTimeout(() => notification.remove(), 300);
+            });
+        }
+        
+        // Add animation keyframes for notification
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes pulseCard {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.02); }
+                100% { transform: scale(1); }
+            }
+            
+            .close-footer-notification {
+                background: none;
+                border: none;
+                color: #94a3b8;
+                font-size: 1.5rem;
+                cursor: pointer;
+                padding: 0;
+                line-height: 1;
+            }
+            
+            .close-footer-notification:hover {
+                color: white;
+            }
+        `;
+        document.head.appendChild(style);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Extended template code data with 9 footer templates
 const templateCodes = {
     

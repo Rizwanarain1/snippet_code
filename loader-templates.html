@@ -10,59 +10,357 @@
    
 </head>
 <body>
-    <!-- Header with Navigation -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-cube"></i>
-                    SnippetCodeHub
+    <!-- Modern Loader Hero Section -->
+<section class="loader-hero">
+    <!-- Background Elements -->
+    <div class="loader-hero-bg">
+        <div class="loader-grid">
+            <div class="grid-line"></div>
+            <div class="grid-dot"></div>
+        </div>
+        <div class="floating-loaders">
+            <div class="floating-loader loader-1"></div>
+            <div class="floating-loader loader-2"></div>
+            <div class="floating-loader loader-3"></div>
+            <div class="floating-loader loader-4"></div>
+        </div>
+        <div class="particle-overlay"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="loader-hero-header">
+            <div class="loader-badge">
+                <span class="loader-badge-icon">⏳</span>
+                <span class="loader-badge-text">ANIMATED LOADERS</span>
+            </div>
+            <div class="loader-stats">
+                <div class="loader-stat">
+                    <span class="loader-stat-number">100+</span>
+                    <span class="loader-stat-label">Loader Types</span>
                 </div>
-                <button class="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Resources</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </nav>
+                <div class="loader-stat-divider"></div>
+                <div class="loader-stat">
+                    <span class="loader-stat-number">100%</span>
+                    <span class="loader-stat-label">Customizable</span>
+                </div>
             </div>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Loader SnippetCode</h1>
-            <p>
-                Beautiful and responsive loading animations for any website. Preview and copy code instantly.
+        <!-- Main Content -->
+        <div class="loader-hero-content">
+            <div class="loader-title-wrapper">
+                <h1 class="loader-main-title">
+                    <span class="loader-title-part-1">Modern Loader</span>
+                    <span class="loader-title-part-2">SnippetCode</span>
+                </h1>
+                <div class="loader-title-underline">
+                    <div class="loader-underline-line"></div>
+                    <div class="loader-underline-dot"></div>
+                </div>
+            </div>
+
+            <p class="loader-description">
+                Beautiful loading animations and spinners for better user experience.
+                Copy clean, production-ready code with one click.
             </p>
-            <div class="hero-buttons">
-                <a href="nav-templates.html" class="btn">Navigation SnippetCodes</a>
-                <a href="footer-templates.html" class="btn">Footer SnippetCode</a>
-                <a href="table-templates.html" class="btn">Table SnippetCode</a>
-            </div><br>
-            <div class="hero-buttons">
-                <a href="buttons-templates.html" class="btn">Button SnippetCodes</a>
-                <a href="checkbox-templates.html" class="btn">Checkbox SnippetCode</a>
-                <a href="loader-templates.html" class="btn active">Loader SnippetCode</a>
+
+            <!-- Live Demo Card -->
+            <div class="loader-demo-card">
+                <div class="loader-demo-header">
+                    <div class="loader-demo-title">
+                        <i class="fas fa-spinner"></i>
+                        <span>Live Loader Demo</span>
+                    </div>
+                    <div class="loader-demo-controls">
+                        <button class="loader-demo-control active" data-type="spinner">
+                            <i class="fas fa-circle-notch"></i>
+                            <span>Spinners</span>
+                        </button>
+                        <button class="loader-demo-control" data-type="bar">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Progress Bars</span>
+                        </button>
+                        <button class="loader-demo-control" data-type="skeleton">
+                            <i class="fas fa-square"></i>
+                            <span>Skeleton</span>
+                        </button>
+                        <button class="loader-demo-control" data-type="creative">
+                            <i class="fas fa-magic"></i>
+                            <span>Creative</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Loader Preview -->
+                <div class="loader-preview-wrapper">
+                    <div class="loader-preview">
+                        <!-- Spinner Loaders -->
+                        <div class="loader-type active" data-type="spinner">
+                            <div class="loader-showcase">
+                                <div class="loader-item">
+                                    <div class="spinner spinner-1"></div>
+                                    <span class="loader-name">Circle Spinner</span>
+                                </div>
+                                <div class="loader-item">
+                                    <div class="spinner spinner-2"></div>
+                                    <span class="loader-name">Dots</span>
+                                </div>
+                                <div class="loader-item">
+                                    <div class="spinner spinner-3"></div>
+                                    <span class="loader-name">Ring</span>
+                                </div>
+                                <div class="loader-item">
+                                    <div class="spinner spinner-4"></div>
+                                    <span class="loader-name">Pulse</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bars -->
+                        <div class="loader-type" data-type="bar">
+                            <div class="loader-showcase">
+                                <div class="loader-item">
+                                    <div class="progress-bar bar-1">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                    <span class="loader-name">Linear</span>
+                                </div>
+                                <div class="loader-item">
+                                    <div class="progress-bar bar-2">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                    <span class="loader-name">Stripe</span>
+                                </div>
+                                <div class="loader-item">
+                                    <div class="progress-bar bar-3">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                    <span class="loader-name">Gradient</span>
+                                </div>
+                                <div class="loader-item">
+                                    <div class="progress-bar bar-4">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                    <span class="loader-name">Circle Progress</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Skeleton Loaders -->
+                        <div class="loader-type" data-type="skeleton">
+                            <div class="skeleton-showcase">
+                                <div class="skeleton-item">
+                                    <div class="skeleton-header"></div>
+                                    <div class="skeleton-line"></div>
+                                    <div class="skeleton-line short"></div>
+                                    <div class="skeleton-line"></div>
+                                </div>
+                                <div class="skeleton-item">
+                                    <div class="skeleton-card">
+                                        <div class="skeleton-image"></div>
+                                        <div class="skeleton-line"></div>
+                                        <div class="skeleton-line short"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Creative Loaders -->
+                        <div class="loader-type" data-type="creative">
+                            <div class="creative-showcase">
+                                <div class="loader-item">
+                                    <div class="creative-loader creative-1">
+                                        <div class="dot"></div>
+                                        <div class="dot"></div>
+                                        <div class="dot"></div>
+                                    </div>
+                                    <span class="loader-name">Bouncing Dots</span>
+                                </div>
+                                <div class="loader-item">
+                                    <div class="creative-loader creative-2">
+                                        <div class="wave"></div>
+                                        <div class="wave"></div>
+                                        <div class="wave"></div>
+                                    </div>
+                                    <span class="loader-name">Wave</span>
+                                </div>
+                                <div class="loader-item">
+                                    <div class="creative-loader creative-3">
+                                        <div class="cube"></div>
+                                        <div class="cube"></div>
+                                        <div class="cube"></div>
+                                    </div>
+                                    <span class="loader-name">Cube</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loader Controls -->
+                <div class="loader-controls">
+                    <div class="control-group">
+                        <label>Speed</label>
+                        <div class="speed-control">
+                            <button class="speed-btn active" data-speed="slow">Slow</button>
+                            <button class="speed-btn" data-speed="normal">Normal</button>
+                            <button class="speed-btn" data-speed="fast">Fast</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label>Color</label>
+                        <div class="color-controls">
+                            <button class="color-btn active" data-color="#8b5cf6" style="background: #8b5cf6;"></button>
+                            <button class="color-btn" data-color="#3b82f6" style="background: #3b82f6;"></button>
+                            <button class="color-btn" data-color="#10b981" style="background: #10b981;"></button>
+                            <button class="color-btn" data-color="#ec4899" style="background: #ec4899;"></button>
+                            <button class="color-btn" data-color="#f59e0b" style="background: #f59e0b;"></button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label>Size</label>
+                        <div class="size-controls">
+                            <button class="size-btn" data-size="small">Small</button>
+                            <button class="size-btn active" data-size="medium">Medium</button>
+                            <button class="size-btn" data-size="large">Large</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="loader-demo-actions">
+                    <button class="loader-copy-code-btn">
+                        <i class="fas fa-copy"></i>
+                        <span>Copy Loader Code</span>
+                    </button>
+                    <!-- <div class="loader-demo-stats">
+                        <div class="loader-demo-stat">
+                            <i class="fas fa-download"></i>
+                            <span>1.2k Downloads</span>
+                        </div>
+                        <div class="loader-demo-stat">
+                            <i class="fas fa-star"></i>
+                            <span>4.8 Rating</span>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- Component Navigation -->
+            <div class="loader-component-navigation">
+                <div class="loader-section-label">
+                    <i class="fas fa-th-large"></i>
+                    <span>Browse All Components</span>
+                </div>
+
+                <div class="loader-component-cards">
+                    <!-- Navigation Card -->
+                    <a href="nav-templates.html" class="loader-component-card nav-card">
+                        <div class="loader-card-icon">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                        <div class="loader-card-content">
+                            <h3>Navigation</h3>
+                            <p>99+ modern designs</p>
+                        </div>
+                        <div class="loader-card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+
+                    <!-- Footer Card -->
+                    <a href="footer-templates.html" class="loader-component-card footer-card">
+                        <div class="loader-card-icon">
+                            <i class="fas fa-window-minimize"></i>
+                        </div>
+                        <div class="loader-card-content">
+                            <h3>Footers</h3>
+                            <p>70+ modern designs</p>
+                        </div>
+                        <div class="loader-card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+
+                    <!-- Table Card -->
+                    <a href="table-templates.html" class="loader-component-card table-card">
+                        <div class="loader-card-icon">
+                            <i class="fas fa-table"></i>
+                        </div>
+                        <div class="loader-card-content">
+                            <h3>Tables</h3>
+                            <p>60+ modern designs</p>
+                        </div>
+                        <div class="loader-card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+
+                    <!-- Button Card -->
+                    <a href="buttons-templates.html" class="loader-component-card button-card">
+                        <div class="loader-card-icon">
+                            <i class="fas fa-square"></i>
+                        </div>
+                        <div class="loader-card-content">
+                            <h3>Buttons</h3>
+                            <p>130+ modern designs</p>
+                        </div>
+                        <div class="loader-card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+
+                    <!-- Checkbox Card -->
+                    <a href="checkbox-templates.html" class="loader-component-card checkbox-card">
+                        <div class="loader-card-icon">
+                            <i class="fas fa-check-square"></i>
+                        </div>
+                        <div class="loader-card-content">
+                            <h3>Checkboxes</h3>
+                            <p>110+modern designs</p>
+                        </div>
+                        <div class="loader-card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+
+                    <!-- Loader Card -->
+                    <a href="loader-templates.html" class="loader-component-card loader-card active">
+                        <div class="loader-card-icon">
+                            <i class="fas fa-spinner"></i>
+                        </div>
+                        <div class="loader-card-content">
+                            <h3>Loaders</h3>
+                            <p>100+ modern designs</p>
+                            <div class="loader-card-badge">Featured</div>
+                        </div>
+                        <div class="loader-card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="loader-card-glow"></div>
+                    </a>
+                </div>
+
+                <!-- View All Link -->
+                <!-- <div class="loader-view-all-container">
+                    <a href="#all-components" class="loader-view-all-btn">
+                        <span>Explore All Loader Animations</span>
+                        <div class="loader-view-all-icon">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div> -->
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- Loader Templates Section -->
     <section id="loader-templates">
         <div class="container">
             <div class="section-title">
-                <h2>Loader SnippetCode</h2>
-                <p>Choose from our collection of stylish loading animations</p>
+                <!-- <h2>Loader SnippetCode</h2>
+                <p>Choose from our collection of stylish loading animations</p> -->
             </div>
 
             <div class="categories">

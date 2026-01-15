@@ -1,3 +1,270 @@
+// Add this script before closing body tag
+document.addEventListener('DOMContentLoaded', function() {
+    // Demo Control Functionality
+    const demoControls = document.querySelectorAll('.demo-control');
+    const navPreview = document.querySelector('.nav-preview');
+    
+    demoControls.forEach(control => {
+        control.addEventListener('click', () => {
+            // Remove active class from all controls
+            demoControls.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked control
+            control.classList.add('active');
+            
+            // Get view type
+            const view = control.getAttribute('data-view');
+            
+            // Update preview based on view
+            updatePreviewView(view);
+            
+            // Add click animation
+            control.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                control.style.transform = '';
+            }, 150);
+        });
+    });
+    
+    // Update Preview View
+    function updatePreviewView(view) {
+        if (!navPreview) return;
+        
+        // Remove all view classes
+        navPreview.classList.remove('desktop-view', 'tablet-view', 'mobile-view');
+        
+        // Add current view class
+        navPreview.classList.add(`${view}-view`);
+        
+        // Update hamburger visibility based on view
+        const hamburger = document.querySelector('.nav-hamburger');
+        if (hamburger) {
+            if (view === 'mobile') {
+                hamburger.style.display = 'flex';
+                document.querySelector('.preview-nav-menu').style.display = 'none';
+            } else {
+                hamburger.style.display = 'none';
+                document.querySelector('.preview-nav-menu').style.display = 'flex';
+            }
+        }
+    }
+    
+    // Copy Code Button
+    const copyBtn = document.querySelector('.copy-code-btn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            const originalText = copyBtn.innerHTML;
+            
+            // Update button state
+            copyBtn.innerHTML = '<i class="fas fa-check"></i><span>Code Copied!</span>';
+            copyBtn.style.background = 'linear-gradient(90deg, #059669, #047857)';
+            
+            // Simulate copy action
+            const codeToCopy = `/* Modern Navigation Component */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Full code available at SnippetCode */`;
+            
+            navigator.clipboard.writeText(codeToCopy)
+                .then(() => {
+                    console.log('Navigation code copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Failed to copy code:', err);
+                });
+            
+            // Reset button after 2 seconds
+            setTimeout(() => {
+                copyBtn.innerHTML = originalText;
+                copyBtn.style.background = 'linear-gradient(90deg, #10b981, #34d399)';
+            }, 2000);
+            
+            // Show success notification
+            showNotification('Navigation code copied to clipboard!');
+        });
+    }
+    
+    // Component Card Hover Effects
+    const componentCards = document.querySelectorAll('.component-card');
+    
+    componentCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Add pulse animation to active card
+            if (card.classList.contains('active')) {
+                card.style.animation = 'pulseCard 0.5s ease-out';
+                setTimeout(() => {
+                    card.style.animation = '';
+                }, 500);
+            }
+        });
+        
+        // Add click animation
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Add click effect
+            card.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                card.style.transform = '';
+                
+                // Navigate to href
+                const href = card.getAttribute('href');
+                if (href) {
+                    window.location.href = href;
+                }
+            }, 150);
+        });
+    });
+    
+    // Hamburger Menu Toggle (for mobile view)
+    const hamburger = document.querySelector('.nav-hamburger');
+    const navMenu = document.querySelector('.preview-nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            const isVisible = navMenu.style.display !== 'none';
+            navMenu.style.display = isVisible ? 'none' : 'flex';
+            
+            // Animate hamburger to X
+            const spans = hamburger.querySelectorAll('span');
+            if (isVisible) {
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = '';
+            } else {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            }
+        });
+    }
+    
+    // Notification Function
+    function showNotification(message) {
+        // Remove existing notification
+        const existingNotification = document.querySelector('.notification');
+        if (existingNotification) {
+            existingNotification.remove();
+        }
+        
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.innerHTML = `
+            <span>${message}</span>
+            <button class="close-notification">×</button>
+        `;
+        
+        // Add styles
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideInRight 0.3s ease-out;
+            z-index: 1000;
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Auto remove after 3 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+                setTimeout(() => notification.remove(), 300);
+            }
+        }, 3000);
+        
+        // Close button functionality
+        const closeBtn = notification.querySelector('.close-notification');
+        closeBtn.addEventListener('click', () => {
+            notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+            setTimeout(() => notification.remove(), 300);
+        });
+    }
+    
+    // Add animation keyframes for notification
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes pulseCard {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .close-notification {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+        
+        .close-notification:hover {
+            color: white;
+        }
+    `;
+    document.head.appendChild(style);
+});
+
+
+
+
+
+
+
+
+
+
+
 // Extended template code data with 9 navigation templates
 const templateCodes = {
     

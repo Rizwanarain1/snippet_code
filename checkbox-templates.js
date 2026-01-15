@@ -1,3 +1,535 @@
+// Add this script before closing body tag
+document.addEventListener('DOMContentLoaded', function() {
+    // Style Control Functionality
+    const styleControls = document.querySelectorAll('.checkbox-demo-control');
+    
+    styleControls.forEach(control => {
+        control.addEventListener('click', () => {
+            // Remove active class from all controls
+            styleControls.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked control
+            control.classList.add('active');
+            
+            // Get style type
+            const style = control.getAttribute('data-style');
+            
+            // Update preview based on style
+            updateCheckboxStyle(style);
+            
+            // Add click animation
+            control.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                control.style.transform = '';
+            }, 150);
+        });
+    });
+    
+    // Update Checkbox Style
+    function updateCheckboxStyle(style) {
+        // Show feedback based on style
+        let message = '';
+        switch(style) {
+            case 'default':
+                message = 'Showing standard checkbox designs';
+                highlightCheckboxGroup('.default-group');
+                break;
+            case 'animated':
+                message = 'Showing animated checkbox effects';
+                highlightCheckboxGroup('.animated-group');
+                break;
+            case 'custom':
+                message = 'Showing custom checkbox styles';
+                highlightCheckboxGroup('.custom-group');
+                break;
+        }
+        
+        // Show notification
+        showCheckboxNotification(message);
+    }
+    
+    // Highlight Checkbox Group
+    function highlightCheckboxGroup(selector) {
+        const group = document.querySelector(selector);
+        if (group) {
+            group.style.animation = 'pulseGroup 0.5s ease-out';
+            group.style.borderColor = '#ec4899';
+            
+            setTimeout(() => {
+                group.style.animation = '';
+                setTimeout(() => {
+                    group.style.borderColor = '';
+                }, 1000);
+            }, 500);
+        }
+    }
+    
+    // Size Controls
+    const sizeButtons = document.querySelectorAll('.size-btn');
+    
+    sizeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all size buttons
+            sizeButtons.forEach(b => b.classList.remove('active'));
+            
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            // Get size
+            const size = button.getAttribute('data-size');
+            
+            // Update checkbox sizes
+            updateCheckboxSize(size);
+            
+            // Show notification
+            showCheckboxNotification(`Changed checkbox size to ${size}`);
+        });
+    });
+    
+    // Update Checkbox Size
+    function updateCheckboxSize(size) {
+        const checkboxes = document.querySelectorAll('.checkbox-box, .animated-checkbox, .custom-checkbox');
+        
+        checkboxes.forEach(checkbox => {
+            // Reset to default
+            checkbox.style.width = '';
+            checkbox.style.height = '';
+            checkbox.style.fontSize = '';
+            
+            // Apply size
+            switch(size) {
+                case 'small':
+                    checkbox.style.width = '16px';
+                    checkbox.style.height = '16px';
+                    if (checkbox.classList.contains('animated-checkbox') || 
+                        checkbox.classList.contains('custom-checkbox')) {
+                        checkbox.style.width = '20px';
+                        checkbox.style.height = '20px';
+                    }
+                    break;
+                case 'large':
+                    checkbox.style.width = '24px';
+                    checkbox.style.height = '24px';
+                    if (checkbox.classList.contains('animated-checkbox') || 
+                        checkbox.classList.contains('custom-checkbox')) {
+                        checkbox.style.width = '28px';
+                        checkbox.style.height = '28px';
+                    }
+                    break;
+            }
+        });
+        
+        // Update tick sizes
+        const ticks = document.querySelectorAll('.animated-tick, .custom-tick');
+        ticks.forEach(tick => {
+            tick.style.width = '';
+            tick.style.height = '';
+            
+            switch(size) {
+                case 'small':
+                    tick.style.width = '10px';
+                    tick.style.height = '10px';
+                    break;
+                case 'large':
+                    tick.style.width = '16px';
+                    tick.style.height = '16px';
+                    break;
+            }
+        });
+    }
+    
+    // Color Controls
+    const colorButtons = document.querySelectorAll('.color-btn');
+    
+    colorButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all color buttons
+            colorButtons.forEach(b => b.classList.remove('active'));
+            
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            // Get color
+            const color = button.getAttribute('data-color');
+            
+            // Update checkbox colors
+            updateCheckboxColor(color);
+            
+            // Show notification
+            showCheckboxNotification(`Changed checkbox theme to ${color}`);
+        });
+    });
+    
+    // Update Checkbox Color
+    function updateCheckboxColor(color) {
+        let colorValue;
+        let gradient;
+        
+        switch(color) {
+            case 'pink':
+                colorValue = '#ec4899';
+                gradient = 'linear-gradient(90deg, #ec4899, #f472b6)';
+                break;
+            case 'purple':
+                colorValue = '#8b5cf6';
+                gradient = 'linear-gradient(90deg, #8b5cf6, #a78bfa)';
+                break;
+            case 'blue':
+                colorValue = '#3b82f6';
+                gradient = 'linear-gradient(90deg, #3b82f6, #60a5fa)';
+                break;
+            case 'green':
+                colorValue = '#10b981';
+                gradient = 'linear-gradient(90deg, #10b981, #34d399)';
+                break;
+        }
+        
+        // Update CSS variables
+        document.documentElement.style.setProperty('--checkbox-color', colorValue);
+        document.documentElement.style.setProperty('--checkbox-gradient', gradient);
+        
+        // Update all checkboxes
+        const checkboxes = document.querySelectorAll('.checkbox-box, .animated-checkbox, .custom-checkbox');
+        checkboxes.forEach(checkbox => {
+            if (checkbox.classList.contains('gradient')) {
+                checkbox.style.background = gradient;
+            }
+        });
+        
+        // Update checked state colors
+        const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked + label .checkbox-box');
+        checkedBoxes.forEach(box => {
+            box.style.background = colorValue;
+            box.style.borderColor = colorValue;
+        });
+        
+        const checkedAnimated = document.querySelectorAll('input[type="checkbox"]:checked + label .animated-checkbox');
+        checkedAnimated.forEach(box => {
+            box.style.background = colorValue;
+            box.style.borderColor = colorValue;
+        });
+        
+        const checkedCustom = document.querySelectorAll('input[type="checkbox"]:checked + label .custom-checkbox.outlined');
+        checkedCustom.forEach(box => {
+            box.style.borderColor = colorValue;
+            box.style.background = `${colorValue}20`;
+        });
+    }
+    
+    // Interactive Checkbox Functionality
+    const previewCheckboxes = document.querySelectorAll('.preview-checkbox input[type="checkbox"]');
+    
+    previewCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const label = this.nextElementSibling;
+            
+            if (this.checked) {
+                // Add checked animation
+                label.style.animation = 'checkBounce 0.3s ease';
+                setTimeout(() => {
+                    label.style.animation = '';
+                }, 300);
+                
+                // Show notification
+                const checkboxLabel = label.querySelector('.checkbox-label').textContent;
+                showCheckboxNotification(`Checked: ${checkboxLabel}`);
+            } else {
+                // Add unchecked animation
+                label.style.animation = 'uncheckFade 0.3s ease';
+                setTimeout(() => {
+                    label.style.animation = '';
+                }, 300);
+            }
+        });
+    });
+    
+    // Copy Code Button
+    const checkboxCopyBtn = document.querySelector('.checkbox-copy-code-btn');
+    if (checkboxCopyBtn) {
+        checkboxCopyBtn.addEventListener('click', () => {
+            const originalText = checkboxCopyBtn.innerHTML;
+            
+            // Update button state
+            checkboxCopyBtn.innerHTML = '<i class="fas fa-check"></i><span>Code Copied!</span>';
+            checkboxCopyBtn.style.background = 'linear-gradient(90deg, #be185d, #9d174d)';
+            
+            // Simulate copy action
+            const codeToCopy = `/* Modern Checkbox Component */
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.checkbox-item input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-item label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox-custom::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.checkbox-item input[type="checkbox"]:checked + label .checkbox-custom {
+    background: #ec4899;
+    border-color: #ec4899;
+}
+
+.checkbox-item input[type="checkbox"]:checked + label .checkbox-custom::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.checkbox-label {
+    color: #cbd5e1;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.checkbox-item input[type="checkbox"]:checked + label .checkbox-label {
+    color: white;
+}
+
+/* Animated version */
+.checkbox-animated {
+    animation: checkboxBounce 0.5s ease;
+}
+
+@keyframes checkboxBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(0.9); }
+}
+
+/* Full code available at SnippetCode */`;
+            
+            navigator.clipboard.writeText(codeToCopy)
+                .then(() => {
+                    console.log('Checkbox code copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Failed to copy code:', err);
+                });
+            
+            // Reset button after 2 seconds
+            setTimeout(() => {
+                checkboxCopyBtn.innerHTML = originalText;
+                checkboxCopyBtn.style.background = 'linear-gradient(90deg, #ec4899, #f472b6)';
+            }, 2000);
+            
+            // Show success notification
+            showCheckboxNotification('Checkbox code copied to clipboard!');
+        });
+    }
+    
+    // Component Card Hover Effects
+    const checkboxComponentCards = document.querySelectorAll('.checkbox-component-card');
+    
+    checkboxComponentCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Add pulse animation to active card
+            if (card.classList.contains('active')) {
+                card.style.animation = 'pulseCard 0.5s ease-out';
+                setTimeout(() => {
+                    card.style.animation = '';
+                }, 500);
+            }
+        });
+        
+        // Add click animation
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Add click effect
+            card.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                card.style.transform = '';
+                
+                // Navigate to href
+                const href = card.getAttribute('href');
+                if (href) {
+                    window.location.href = href;
+                }
+            }, 150);
+        });
+    });
+    
+    // Notification Function
+    function showCheckboxNotification(message) {
+        // Remove existing notification
+        const existingNotification = document.querySelector('.checkbox-notification');
+        if (existingNotification) {
+            existingNotification.remove();
+        }
+        
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = 'checkbox-notification';
+        notification.innerHTML = `
+            <span>${message}</span>
+            <button class="close-checkbox-notification">×</button>
+        `;
+        
+        // Add styles
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideInRight 0.3s ease-out;
+            z-index: 1000;
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Auto remove after 3 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+                setTimeout(() => notification.remove(), 300);
+            }
+        }, 3000);
+        
+        // Close button functionality
+        const closeBtn = notification.querySelector('.close-checkbox-notification');
+        closeBtn.addEventListener('click', () => {
+            notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+            setTimeout(() => notification.remove(), 300);
+        });
+    }
+    
+    // Add animation keyframes
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes pulseCard {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes pulseGroup {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes checkBounce {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+            100% { transform: translateX(0); }
+        }
+        
+        @keyframes uncheckFade {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .close-checkbox-notification {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+        
+        .close-checkbox-notification:hover {
+            color: white;
+        }
+        
+        /* CSS Variables for dynamic colors */
+        :root {
+            --checkbox-color: #ec4899;
+            --checkbox-gradient: linear-gradient(90deg, #ec4899, #f472b6);
+        }
+    `;
+    document.head.appendChild(style);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Checkbox templates data
 const templateCodes = {
     // ====================================================================

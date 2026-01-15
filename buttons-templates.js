@@ -1,3 +1,605 @@
+// Add this script before closing body tag
+document.addEventListener('DOMContentLoaded', function() {
+    // Button Style Controls
+    const buttonStyleControls = document.querySelectorAll('.button-demo-control');
+    const previewButtons = document.querySelectorAll('.preview-btn');
+    
+    buttonStyleControls.forEach(control => {
+        control.addEventListener('click', () => {
+            // Remove active class from all controls
+            buttonStyleControls.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked control
+            control.classList.add('active');
+            
+            // Get style type
+            const style = control.getAttribute('data-style');
+            
+            // Update buttons based on style
+            updateButtonStyle(style);
+            
+            // Add click animation
+            control.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                control.style.transform = '';
+            }, 150);
+        });
+    });
+    
+    // Update Button Style
+    function updateButtonStyle(style) {
+        previewButtons.forEach(button => {
+            // Remove all style classes
+            button.classList.remove('btn-solid', 'btn-outline', 'btn-gradient', 'btn-animated');
+            
+            // Add current style class
+            button.classList.add(`btn-${style}`);
+            
+            // Apply specific styles based on type
+            switch(style) {
+                case 'solid':
+                    button.style.background = button.getAttribute('data-original-bg') || '';
+                    button.style.border = 'none';
+                    button.style.color = 'white';
+                    break;
+                case 'outline':
+                    const bgColor = button.getAttribute('data-original-bg') || '#3b82f6';
+                    button.style.background = 'transparent';
+                    button.style.border = `2px solid ${bgColor}`;
+                    button.style.color = bgColor;
+                    break;
+                case 'gradient':
+                    if (!button.classList.contains('btn-gradient')) {
+                        button.style.background = 'linear-gradient(90deg, #8b5cf6, #ec4899)';
+                        button.style.border = 'none';
+                        button.style.color = 'white';
+                    }
+                    break;
+                case 'animated':
+                    button.style.animation = 'buttonPulse 2s infinite';
+                    break;
+            }
+        });
+        
+        // Show notification
+        showButtonNotification(`${style.charAt(0).toUpperCase() + style.slice(1)} style applied to all buttons`);
+    }
+    
+    // Store original button colors
+    previewButtons.forEach(button => {
+        const bgColor = window.getComputedStyle(button).backgroundColor;
+        button.setAttribute('data-original-bg', bgColor);
+    });
+    
+    // Size Controls
+    const sizeButtons = document.querySelectorAll('.size-btn');
+    sizeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all size buttons
+            sizeButtons.forEach(b => b.classList.remove('active'));
+            
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Get size
+            const size = btn.getAttribute('data-size');
+            
+            // Update button sizes
+            updateButtonSize(size);
+        });
+    });
+    
+    // Update Button Size
+    function updateButtonSize(size) {
+        previewButtons.forEach(button => {
+            switch(size) {
+                case 'sm':
+                    button.style.padding = '0.75rem 1.5rem';
+                    button.style.fontSize = '0.9rem';
+                    break;
+                case 'md':
+                    button.style.padding = '1rem 2rem';
+                    button.style.fontSize = '1rem';
+                    break;
+                case 'lg':
+                    button.style.padding = '1.25rem 2.5rem';
+                    button.style.fontSize = '1.1rem';
+                    break;
+            }
+        });
+    }
+    
+    // Color Controls
+    const colorButtons = document.querySelectorAll('.color-btn');
+    colorButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all color buttons
+            colorButtons.forEach(b => b.classList.remove('active'));
+            
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Get color
+            const color = btn.getAttribute('data-color');
+            
+            // Update primary buttons color
+            updateButtonColor(color);
+        });
+    });
+    
+    // Update Button Color
+    function updateButtonColor(color) {
+        const primaryButtons = document.querySelectorAll('.btn-primary, .btn-icon-only, .btn-with-badge');
+        primaryButtons.forEach(button => {
+            button.style.background = color;
+            
+            // If outline style is active, update border color
+            if (button.classList.contains('btn-outline')) {
+                button.style.borderColor = color;
+                button.style.color = color;
+            }
+        });
+        
+        // Update badge color
+        const badges = document.querySelectorAll('.btn-badge');
+        badges.forEach(badge => {
+            badge.style.background = color;
+        });
+    }
+    
+    // Animation Controls
+    const animationButtons = document.querySelectorAll('.anim-btn');
+    animationButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all animation buttons
+            animationButtons.forEach(b => b.classList.remove('active'));
+            
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Get animation
+            const animation = btn.getAttribute('data-anim');
+            
+            // Update button animations
+            updateButtonAnimation(animation);
+        });
+    });
+    
+    // Update Button Animation
+    function updateButtonAnimation(animation) {
+        previewButtons.forEach(button => {
+            // Remove all animation classes
+            button.classList.remove('anim-pulse', 'anim-bounce', 'anim-shimmer');
+            button.style.animation = '';
+            
+            // Add selected animation
+            if (animation !== 'none') {
+                button.classList.add(`anim-${animation}`);
+            }
+            
+            // Apply CSS animation
+            switch(animation) {
+                case 'pulse':
+                    button.style.animation = 'pulse 2s infinite';
+                    break;
+                case 'bounce':
+                    button.style.animation = 'bounce 1s infinite';
+                    break;
+                case 'shimmer':
+                    button.style.animation = 'shimmer 2s infinite';
+                    break;
+            }
+        });
+    }
+    
+    // Reset Button
+    const resetBtn = document.querySelector('.reset-btn');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            // Reset all controls
+            document.querySelector('.button-demo-control[data-style="solid"]').click();
+            document.querySelector('.size-btn[data-size="md"]').click();
+            document.querySelector('.color-btn[data-color="#8b5cf6"]').click();
+            document.querySelector('.anim-btn[data-anim="pulse"]').click();
+            
+            // Show notification
+            showButtonNotification('All settings reset to default');
+        });
+    }
+    
+    // Button Hover Effects
+    previewButtons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            // Add hover effect
+            button.style.transform = 'translateY(-5px) scale(1.05)';
+            
+            // Add ripple effect for gradient buttons
+            if (button.classList.contains('btn-gradient')) {
+                createRippleEffect(button);
+            }
+        });
+        
+        button.addEventListener('mouseleave', () => {
+            // Reset transform
+            button.style.transform = '';
+        });
+        
+        // Click effect
+        button.addEventListener('click', (e) => {
+            // Prevent default for demo buttons
+            e.preventDefault();
+            
+            // Click animation
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 200);
+            
+            // Show click feedback
+            const buttonText = button.querySelector('span')?.textContent || 'Button';
+            showButtonNotification(`Clicked: ${buttonText}`);
+            
+            // Special effects for specific buttons
+            if (button.classList.contains('btn-loading')) {
+                simulateLoading(button);
+            }
+            
+            if (button.classList.contains('btn-with-badge')) {
+                updateBadgeCount(button);
+            }
+        });
+    });
+    
+    // Create Ripple Effect
+    function createRippleEffect(button) {
+        const ripple = document.createElement('div');
+        ripple.style.cssText = `
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        `;
+        
+        const rect = button.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        
+        button.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    }
+    
+    // Simulate Loading
+    function simulateLoading(button) {
+        const originalHTML = button.innerHTML;
+        const originalText = button.querySelector('span')?.textContent || '';
+        
+        // Show loading state
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Processing...</span>';
+        button.style.cursor = 'wait';
+        
+        // Simulate async operation
+        setTimeout(() => {
+            button.innerHTML = '<i class="fas fa-check"></i><span>Completed!</span>';
+            button.style.background = '#10b981';
+            
+            setTimeout(() => {
+                button.innerHTML = originalHTML;
+                button.style.background = '';
+                button.style.cursor = '';
+                showButtonNotification('Action completed successfully');
+            }, 1500);
+        }, 2000);
+    }
+    
+    // Update Badge Count
+    function updateBadgeCount(button) {
+        const badge = button.querySelector('.btn-badge');
+        if (badge) {
+            let count = parseInt(badge.textContent);
+            count = Math.max(0, count - 1);
+            badge.textContent = count;
+            
+            if (count === 0) {
+                badge.style.display = 'none';
+                showButtonNotification('All notifications cleared');
+            } else {
+                badge.style.animation = 'badgePulse 0.5s';
+                setTimeout(() => {
+                    badge.style.animation = '';
+                }, 500);
+            }
+        }
+    }
+    
+    // Copy Code Button
+    const buttonCopyBtn = document.querySelector('.button-copy-code-btn');
+    if (buttonCopyBtn) {
+        buttonCopyBtn.addEventListener('click', () => {
+            const originalText = buttonCopyBtn.innerHTML;
+            
+            // Update button state
+            buttonCopyBtn.innerHTML = '<i class="fas fa-check"></i><span>Code Copied!</span>';
+            buttonCopyBtn.style.background = 'linear-gradient(90deg, #2563eb, #1d4ed8)';
+            
+            // Simulate copy action
+            const codeToCopy = `/* Modern Button Component */
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Variants */
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+}
+
+.btn-gradient {
+    background: linear-gradient(90deg, #8b5cf6, #ec4899);
+    color: white;
+}
+
+/* Full code available at SnippetCode */`;
+            
+            navigator.clipboard.writeText(codeToCopy)
+                .then(() => {
+                    console.log('Button code copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Failed to copy code:', err);
+                });
+            
+            // Reset button after 2 seconds
+            setTimeout(() => {
+                buttonCopyBtn.innerHTML = originalText;
+                buttonCopyBtn.style.background = 'linear-gradient(90deg, #3b82f6, #60a5fa)';
+            }, 2000);
+            
+            // Show success notification
+            showButtonNotification('Button code copied to clipboard!');
+        });
+    }
+    
+    // Component Card Hover Effects
+    const buttonComponentCards = document.querySelectorAll('.button-component-card');
+    
+    buttonComponentCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Add pulse animation to active card
+            if (card.classList.contains('active')) {
+                card.style.animation = 'pulseCard 0.5s ease-out';
+                setTimeout(() => {
+                    card.style.animation = '';
+                }, 500);
+            }
+        });
+        
+        // Add click animation
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Add click effect
+            card.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                card.style.transform = '';
+                
+                // Navigate to href
+                const href = card.getAttribute('href');
+                if (href) {
+                    window.location.href = href;
+                }
+            }, 150);
+        });
+    });
+    
+    // Notification Function
+    function showButtonNotification(message) {
+        // Remove existing notification
+        const existingNotification = document.querySelector('.button-notification');
+        if (existingNotification) {
+            existingNotification.remove();
+        }
+        
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = 'button-notification';
+        notification.innerHTML = `
+            <span>${message}</span>
+            <button class="close-button-notification">×</button>
+        `;
+        
+        // Add styles
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideInRight 0.3s ease-out;
+            z-index: 1000;
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Auto remove after 3 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+                setTimeout(() => notification.remove(), 300);
+            }
+        }, 3000);
+        
+        // Close button functionality
+        const closeBtn = notification.querySelector('.close-button-notification');
+        closeBtn.addEventListener('click', () => {
+            notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+            setTimeout(() => notification.remove(), 300);
+        });
+    }
+    
+    // Add animation keyframes
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes pulseCard {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .close-button-notification {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+        
+        .close-button-notification:hover {
+            color: white;
+        }
+        
+        /* Animation classes for buttons */
+        .anim-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .anim-bounce {
+            animation: bounce 1s infinite;
+        }
+        
+        .anim-shimmer {
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                transparent 100%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite;
+        }
+    `;
+    document.head.appendChild(style);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Button Templates Code Data
 const buttonCodes = {
     // ====================================================================
