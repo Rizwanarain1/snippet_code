@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Services - SnippetCodeHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --success: #38b2ac;
+            --warning: #f6ad55;
+            --danger: #fc8181;
+            --dark: #2d3748;
+            --light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fefefe;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a.active {
+            color: var(--primary);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .services-hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.9)"/></svg>');
+            background-size: cover;
+        }
+
+        .free-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--success), #4299e1);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--dark);
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            position: relative;
+            z-index: 1;
+            line-height: 1.6;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .service-header h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        .free-tag {
+            background: rgba(56, 178, 172, 0.1);
+            color: var(--success);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .service-description {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .service-features li i {
+            color: var(--success);
+            font-size: 0.9rem;
+        }
+
+        .service-action {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-service {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-service:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Component Services */
+        .component-services {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .component-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .component-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .component-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .component-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .nav-bg { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .footer-bg { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .table-bg { background: linear-gradient(135deg, #4fd1c7, #38b2ac); }
+        .button-bg { background: linear-gradient(135deg, #f6ad55, #ed8936); }
+        .checkbox-bg { background: linear-gradient(135deg, #fc8181, #f56565); }
+        .loader-bg { background: linear-gradient(135deg, #a78bfa, #8b5cf6); }
+
+        .component-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat .label {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 1;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover .step-number {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .step-content {
+            padding: 0 15px;
+        }
+
+        .step-content h4 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 4rem;
+            color: rgba(102, 126, 234, 0.1);
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .author-info h5 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 30px 25px;
+            max-height: 500px;
+        }
+
+        /* CTA Section */
+        .services-cta {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .steps-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .steps-container::before {
+                width: 3px;
+                height: 100%;
+                top: 0;
+                left: 40px;
+            }
+            
+            .step {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                text-align: left;
+            }
+            
+            .step-number {
+                flex-shrink: 0;
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                display: none;
+            }
+            
+            nav.show {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+                max-width: 300px;
+            }
+            
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-cube"></i>
+                    SnippetCodeHub
+                </div>
+                <button class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Features.html">Features</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="container">
+            <div class="free-badge">
+                <i class="fas fa-gift"></i>
+                100% Free Services - No Hidden Costs
+            </div>
+            <h1 class="hero-title">Free Services for Developers</h1>
+            <p class="hero-subtitle">
+                Everything you need to build amazing websites - completely free. No subscriptions, 
+                no premium plans, just quality services for the developer community.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-grid">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Free Services</h2>
+                <p>Comprehensive services designed to help you build faster and better</p>
+            </div>
+            
+            <div class="services-container">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="service-header">
+                        <h3>Free UI Components</h3>
+                        <span class="free-tag">FREE</span>
+                    </div>
+                    <div class="service-description">
+                        Access 500+ ready-to-use UI components including navigation bars, footers, 
+                        tables, buttons, and more. All components are production-ready.
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 500+ Components</li>
+                        <li><i class="fas fa-check"></i> Copy-Paste Ready</li>
+                        <li><i class="fas fa-check"></i> 100% Responsive</li>
+                        <li><i class="fas fa-check"></i> 100% Free</li>
+                    </ul>
+                    <!-- <div class="service-action">
+                        <a href="index.html" class="btn-service">
+                            <i class="fas fa-rocket"></i>
+                            Explore Components
+                        </a>
+                    </div> -->
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <div class="service-header">
+                        <h3>Code Examples</h3>
+                        <span class="free-tag">FREE</span>
+                    </div>
+                    <div class="service-description">
+                        Learn from real-world code examples. Each component includes detailed 
+                        documentation and implementation guides for easy integration.
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Live Demos</li>
+                        <li><i class="fas fa-check"></i> Documentation</li>
+                        <li><i class="fas fa-check"></i> Implementation Guides</li>
+                        <li><i class="fas fa-check"></i> Best Practices</li>
+                    </ul>
+                    <!-- <div class="service-action">
+                        <a href="#" class="btn-service">
+                            <i class="fas fa-book"></i>
+                            View Documentation
+                        </a>
+                    </div> -->
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <div class="service-header">
+                        <h3>Instant Downloads</h3>
+                        <span class="free-tag">FREE</span>
+                    </div>
+                    <div class="service-description">
+                        Download any component instantly. No registration required, no email 
+                        collection, just direct downloads for immediate use.
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> No Registration</li>
+                        <li><i class="fas fa-check"></i> Easy to Use</li>
+                        <li><i class="fas fa-check"></i> All Templates Free</li>
+                        <li><i class="fas fa-check"></i> No Limits</li>
+                    </ul>
+                    <!-- <div class="service-action">
+                        <a href="#" class="btn-service">
+                            <i class="fas fa-download"></i>
+                            Start Downloading
+                        </a>
+                    </div> -->
+                </div>
+
+                <!-- Service 4 -->
+                <!-- <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="service-header">
+                        <h3>Community Support</h3>
+                        <span class="free-tag">FREE</span>
+                    </div>
+                    <div class="service-description">
+                        Get help from our growing community. Share ideas, ask questions, and 
+                        collaborate with developers worldwide.
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Community Forum</li>
+                        <li><i class="fas fa-check"></i> GitHub Discussions</li>
+                        <li><i class="fas fa-check"></i> Code Reviews</li>
+                        <li><i class="fas fa-check"></i> Collaboration</li>
+                    </ul>
+                    <div class="service-action">
+                        <a href="#" class="btn-service">
+                            <i class="fas fa-comments"></i>
+                            Join Community
+                        </a>
+                    </div>
+                </div> -->
+
+                <!-- Service 5 -->
+                <!-- <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="service-header">
+                        <h3>Regular Updates</h3>
+                        <span class="free-tag">FREE</span>
+                    </div>
+                    <div class="service-description">
+                        Stay updated with the latest web trends. New components added weekly, 
+                        existing components improved based on feedback.
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Weekly Updates</li>
+                        <li><i class="fas fa-check"></i> New Components</li>
+                        <li><i class="fas fa-check"></i> Bug Fixes</li>
+                        <li><i class="fas fa-check"></i> Performance Improvements</li>
+                    </ul>
+                    <div class="service-action">
+                        <a href="#" class="btn-service">
+                            <i class="fas fa-bell"></i>
+                            View Changelog
+                        </a>
+                    </div>
+                </div> -->
+
+                <!-- Service 6 -->
+                <!-- <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="service-header">
+                        <h3>Learning Resources</h3>
+                        <span class="free-tag">FREE</span>
+                    </div>
+                    <div class="service-description">
+                        Improve your skills with free tutorials, articles, and guides on modern 
+                        web development techniques and best practices.
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Tutorials</li>
+                        <li><i class="fas fa-check"></i> Blog Articles</li>
+                        <li><i class="fas fa-check"></i> Video Guides</li>
+                        <li><i class="fas fa-check"></i> Code Snippets</li>
+                    </ul>
+                    <div class="service-action">
+                        <a href="#" class="btn-service">
+                            <i class="fas fa-book-open"></i>
+                            Start Learning
+                        </a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Component Services -->
+    <!-- <section class="component-services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Component Categories</h2>
+                <p>Specialized services for each component type</p>
+            </div>
+            
+            <div class="component-grid">
+                <div class="component-card">
+                    <div class="component-icon nav-bg">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <h3>Navigation Bars</h3>
+                    <p>99+ responsive navigation templates with mobile menus and animations.</p>
+                    <div class="component-stats">
+                        <div class="stat">
+                            <div class="number">99+</div>
+                            <div class="label"></div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">15</div>
+                            <div class="label">Menu Typee</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-icon footer-bg">
+                        <i class="fas fa-window-minimize"></i>
+                    </div>
+                    <h3>Footers</h3>
+                    <p>70+ modern footer designs with social integration and newsletter forms.</p>
+                    <div class="component-stats">
+                        <div class="stat">
+                            <div class="number">70+</div>
+                            <div class="label"></div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">8</div>
+                            <div class="label">Layouts</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-icon table-bg">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <h3>Tables</h3>
+                    <p>60+ responsive table designs with sorting and filtering capabilities.</p>
+                    <div class="component-stats">
+                        <div class="stat">
+                            <div class="number">60+</div>
+                            <div class="label"></div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">6</div>
+                            <div class="label">Table Types</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-icon button-bg">
+                        <i class="fas fa-square"></i>
+                    </div>
+                    <h3>Buttons</h3>
+                    <p>130+ animated button designs with hover effects and loading states.</p>
+                    <div class="component-stats">
+                        <div class="stat">
+                            <div class="number">130+</div>
+                            <div class="label"></div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">12</div>
+                            <div class="label">Animations</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-icon checkbox-bg">
+                        <i class="fas fa-check-square"></i>
+                    </div>
+                    <h3>Checkboxes</h3>
+                    <p>115+ custom checkbox designs with toggle switches and radio buttons.</p>
+                    <div class="component-stats">
+                        <div class="stat">
+                            <div class="number">115+</div>
+                            <div class="label"></div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">7</div>
+                            <div class="label">Variations</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-icon loader-bg">
+                        <i class="fas fa-spinner"></i>
+                    </div>
+                    <h3>Loaders</h3>
+                    <p>100+ creative loading animations including spinners and progress bars.</p>
+                    <div class="component-stats">
+                        <div class="stat">
+                            <div class="number">100+</div>
+                            <div class="label"></div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">9</div>
+                            <div class="label">Styles</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Start using our free services in 4 simple steps</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Browse Components</h4>
+                        <p>Explore our collection of 500+ UI components across 6 categories.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Copy Code</h4>
+                        <p>Click on any component and copy the ready-to-use HTML, CSS, and JS code.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Paste & Customize</h4>
+                        <p>Paste the code into your project and customize it to fit your design.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Save Time</h4>
+                        <p>Focus on building unique features while we handle the UI components.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Developers Say</h2>
+                <p>Thousands of developers trust our free services</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "SnippetCodeHub saved me hours of development time. The components are 
+                        well-designed and easy to customize. Best of all, it's completely free!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AJ</div>
+                        <div class="author-info">
+                            <h5>Alex Johnson</h5>
+                            <p>Frontend Developer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "As a solo developer, I can't afford expensive UI libraries. SnippetCodeHub 
+                        provides professional components for free. It's a game-changer!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h5>Sarah Miller</h5>
+                            <p>Freelance Developer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The quality of components is amazing. Regular updates and responsive 
+                        design make this my go-to resource for all projects."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MC</div>
+                        <div class="author-info">
+                            <h5>Michael Chen</h5>
+                            <p>UI/UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Get answers to common questions about our free services</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is SnippetCodeHub really free?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! All 500+ components and services are completely free. There are no 
+                        hidden charges, premium plans, or subscriptions. We believe in supporting 
+                        the developer community.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I use the components?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Simply browse our components, copy the HTML, CSS, and JavaScript code, 
+                        and paste it into your project. No installation or registration required.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I customize the components?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely! All components are designed to be easily customizable. You 
+                        can modify colors, sizes, animations, and functionality to match your 
+                        project requirements.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Are the components responsive?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, every component is 100% responsive and works perfectly on mobile, 
+                        tablet, and desktop devices. We follow mobile-first design principles.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How often are new components added?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We add new components weekly and regularly update existing ones based 
+                        on user feedback and the latest web development trends.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="services-cta">
+        <div class="container">
+            <h2 class="cta-title">Ready to Get Started?</h2>
+            <p class="cta-subtitle">Join thousands of developers who are building better websites faster with our free services</p>
+            <div class="cta-buttons">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    Explore Free Components
+                </a>
+                <!-- <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-question-circle"></i>
+                    Need Help?
+                </a> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>SnippetCodeHub</h4>
+                    <p>Free UI components and services for developers. Build faster with our collection of ready-to-use code snippets.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-codepen"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Free Services</h4>
+                    <ul>
+                        <li><a href="services.html">UI Components</a></li>
+                        <li><a href="services.html">Code Examples</a></li>
+                        <li><a href="services.html">Downloads</a></li>
+                        <li><a href="services.html">Community Support</a></li>
+                        <li><a href="services.html">Learning Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> SnippetCodeHub@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mehrabpur, Sindh</li>
+                        <li><i class="fas fa-calendar-alt"></i> Project Started: 2025</li>
+                        <li><i class="fas fa-tag"></i> All Services: FREE</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SnippetCodeHub. All services and components are completely free to use. No hidden costs, no subscriptions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('show');
+            menuToggle.innerHTML = nav.classList.contains('show') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && !e.target.closest('.menu-toggle') && nav.classList.contains('show')) {
+                nav.classList.remove('show');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.service-card, .component-card, .step, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+            }
+        });
+
+        // Animate numbers in stats
+        const statNumbers = document.querySelectorAll('.stat .number');
+        const statsSection = document.querySelector('.component-services');
+        
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    statNumbers.forEach(stat => {
+                        const text = stat.textContent;
+                        if (text.includes('+')) {
+                            const target = parseInt(text);
+                            let current = 0;
+                            const increment = target / 50;
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    stat.textContent = target + '+';
+                                    clearInterval(timer);
+                                } else {
+                                    stat.textContent = Math.floor(current);
+                                }
+                            }, 30);
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Step hover effects
+        document.querySelectorAll('.step').forEach(step => {
+            step.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            step.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
