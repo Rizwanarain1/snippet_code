@@ -133,7 +133,7 @@ nav ul li a {
     padding: 0.5rem 0;
     position: relative;
     font-size: 1rem;
-    display: block;
+    /* display: block; */
     white-space: nowrap;
     
 }

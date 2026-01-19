@@ -69,6 +69,12 @@
             font-size: 1.8rem;
         }
 
+        /* Navigation */
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav ul {
             display: flex;
             gap: 30px;
@@ -103,13 +109,39 @@
             border-radius: 2px;
         }
 
+        /* Menu Toggle Button */
         .menu-toggle {
             display: none;
-            background: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
             border: none;
-            font-size: 1.5rem;
             cursor: pointer;
-            color: var(--dark);
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--dark);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
         }
 
         /* Contact Hero */
@@ -695,27 +727,51 @@
 
         @media (max-width: 768px) {
             .menu-toggle {
-                display: block;
-            }
-            
-            nav {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: white;
-                padding: 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                display: none;
-            }
-            
-            nav.show {
-                display: block;
+                display: flex;
             }
             
             nav ul {
+                position: fixed;
+                top: 80px;
+                /* left: 0; */
+                right: 0;
+                background: white;
                 flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
                 gap: 15px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav ul.show {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul li {
+                width: 100%;
+            }
+            
+            nav a {
+                display: block;
+                padding: 15px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+            
+            nav a:hover,
+            nav a.active {
+                background: rgba(102, 126, 234, 0.1);
+                padding-left: 20px;
+            }
+            
+            nav a.active::after {
+                display: none;
             }
             
             .hero-title {
@@ -744,11 +800,11 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
+                <a href="index.html" class="logo">
                     <i class="fas fa-cube"></i>
                     SnippetCodeHub
-                </div>
-                <button class="menu-toggle">
+                </a>
+                <button class="menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -759,7 +815,7 @@
                         <li><a href="About.html">About</a></li>
                         <li><a href="Features.html">Features</a></li>
                         <li><a href="Services.html">Services</a></li>
-                        <li><a href="Contact.html">Contact</a></li>
+                        <li><a href="Contact.html" class="active">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -849,21 +905,12 @@
                     </div>
                     
                     <div class="social-links-contact">
-                        <!-- <a href="#" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a> -->
-                        <a href="https://www.facebook.com/share/1B9L72M7cc/" title="Facebookr" target="_blank">
-                            <i class="fa-brands fa-facebook"></i>
+                        <a href="https://www.facebook.com/share/1B9L72M7cc/" title="Facebook" target="_blank">
+                            <i class="fab fa-facebook"></i>
                         </a>
                         <a href="https://www.linkedin.com/in/rizwan-ahmed%F0%9F%92%AB-44893a289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" title="LinkedIn" target="_blank">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <!-- <a href="#" title="CodePen">
-                            <i class="fab fa-codepen"></i>
-                        </a>
-                        <a href="#" title="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a> -->
                     </div>
                 </div>
                 
@@ -1007,14 +1054,14 @@
             <h2 class="cta-title">Let's Build Something Amazing</h2>
             <p class="cta-subtitle">Whether you need help with components, want to collaborate, or just want to say hello, I'd love to hear from you.</p>
             <div class="cta-buttons">
-                <a href="mailto:rizwanarain039@gmail.com" class="btn btn-primary">
+                <a href="mailto:rizwanarain0309@gmail.com" class="btn btn-primary">
                     <i class="fas fa-envelope"></i>
                     Email Me Directly
                 </a>
-                <!-- <a href="index.html" class="btn btn-secondary">
+                <a href="index.html" class="btn btn-secondary">
                     <i class="fas fa-code"></i>
                     Browse Components
-                </a> -->
+                </a>
             </div>
         </div>
     </section>
@@ -1027,20 +1074,20 @@
                     <h4>SnippetCodeHub</h4>
                     <p>A solo developer project created in 2025 to help developers build better websites faster with free UI components.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-codepen"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/share/1B9L72M7cc/" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-codepen"></i></a>
+                        <a href="https://www.linkedin.com/in/rizwan-ahmed%F0%9F%92%AB-44893a289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="features.html">Features</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Features.html">Features</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -1056,15 +1103,16 @@
                 <div class="footer-column">
                     <h4>Contact Info</h4>
                     <ul>
-                        <li><i class="fas fa-user"></i> Muhammad Huzaifa</li>
-                        <li><i class="fas fa-envelope"></i> SnippetCodeHub@gmail.com</li>
+                        <li><i class="fas fa-user"></i> Rizwan Arain</li>
+                        <li><i class="fas fa-envelope"></i> rizwanarain0309@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +92 3163397710</li>
                         <li><i class="fas fa-map-marker-alt"></i> Mehrabpur, Sindh</li>
                         <li><i class="fas fa-calendar-alt"></i> Project Started: 2025</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 SnippetCodeHub. Created with ❤️ by Muhammad Huzaifa in Mehrabpur, Sindh, Pakistan.</p>
+                <p>&copy; 2025 SnippetCodeHub. Created with ❤️ by Rizwan Arain in Mehrabpur, Sindh, Pakistan.</p>
             </div>
         </div>
     </footer>
@@ -1072,20 +1120,28 @@
     <script>
         // Mobile Menu Toggle
         const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
+        const nav = document.querySelector('nav ul');
         
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('show');
-            menuToggle.innerHTML = nav.classList.contains('show') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+            menuToggle.classList.toggle('active');
+            
+            // Close menu when clicking on a link
+            if (nav.classList.contains('show')) {
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        nav.classList.remove('show');
+                        menuToggle.classList.remove('active');
+                    });
+                });
+            }
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('nav') && !e.target.closest('.menu-toggle') && nav.classList.contains('show')) {
                 nav.classList.remove('show');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                menuToggle.classList.remove('active');
             }
         });
 
@@ -1117,9 +1173,6 @@
                 
                 // Show success message
                 alert('Thank you for your message! I will get back to you within 24 hours.');
-                
-                // In a real application, you would send the data to a server here
-                // For example: sendFormData({ name, email, subject, message });
                 
                 // Reset form
                 contactForm.reset();
@@ -1167,6 +1220,16 @@
                 this.parentElement.innerHTML = '<i class="fas fa-user" style="font-size: 4rem; color: white;"></i>';
             };
         }
+
+        // Active page highlighting
+        const currentPage = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('nav a');
+        
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
     </script>
 </body>
 </html>

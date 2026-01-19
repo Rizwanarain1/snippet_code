@@ -69,6 +69,11 @@
             font-size: 1.8rem;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav ul {
             display: flex;
             gap: 30px;
@@ -103,13 +108,39 @@
             border-radius: 2px;
         }
 
+        /* Menu Toggle Button - Hamburger Icon */
         .menu-toggle {
             display: none;
-            background: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
             border: none;
-            font-size: 1.5rem;
             cursor: pointer;
-            color: var(--dark);
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--dark);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
         }
 
         /* Hero Section */
@@ -759,27 +790,51 @@
 
         @media (max-width: 768px) {
             .menu-toggle {
-                display: block;
-            }
-            
-            nav {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: white;
-                padding: 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                display: none;
-            }
-            
-            nav.show {
-                display: block;
+                display: flex;
             }
             
             nav ul {
+                position: fixed;
+                top: 80px;
+                /* left: 0; */
+                right: 0;
+                background: white;
                 flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
                 gap: 15px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav ul.show {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul li {
+                width: 100%;
+            }
+            
+            nav a {
+                display: block;
+                padding: 15px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+            
+            nav a:hover,
+            nav a.active {
+                background: rgba(102, 126, 234, 0.1);
+                padding-left: 20px;
+            }
+            
+            nav a.active::after {
+                display: none;
             }
             
             .hero-title {
@@ -808,11 +863,11 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
+                <a href="index.html" class="logo">
                     <i class="fas fa-cube"></i>
                     SnippetCodeHub
-                </div>
-                <button class="menu-toggle">
+                </a>
+                <button class="menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -822,7 +877,7 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="About.html">About</a></li>
                         <li><a href="Features.html">Features</a></li>
-                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="Services.html" class="active">Services</a></li>
                         <li><a href="Contact.html">Contact</a></li>
                     </ul>
                 </nav>
@@ -873,12 +928,6 @@
                         <li><i class="fas fa-check"></i> 100% Responsive</li>
                         <li><i class="fas fa-check"></i> 100% Free</li>
                     </ul>
-                    <!-- <div class="service-action">
-                        <a href="index.html" class="btn-service">
-                            <i class="fas fa-rocket"></i>
-                            Explore Components
-                        </a>
-                    </div> -->
                 </div>
 
                 <!-- Service 2 -->
@@ -900,12 +949,6 @@
                         <li><i class="fas fa-check"></i> Implementation Guides</li>
                         <li><i class="fas fa-check"></i> Best Practices</li>
                     </ul>
-                    <!-- <div class="service-action">
-                        <a href="#" class="btn-service">
-                            <i class="fas fa-book"></i>
-                            View Documentation
-                        </a>
-                    </div> -->
                 </div>
 
                 <!-- Service 3 -->
@@ -927,217 +970,10 @@
                         <li><i class="fas fa-check"></i> All Templates Free</li>
                         <li><i class="fas fa-check"></i> No Limits</li>
                     </ul>
-                    <!-- <div class="service-action">
-                        <a href="#" class="btn-service">
-                            <i class="fas fa-download"></i>
-                            Start Downloading
-                        </a>
-                    </div> -->
                 </div>
-
-                <!-- Service 4 -->
-                <!-- <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="service-header">
-                        <h3>Community Support</h3>
-                        <span class="free-tag">FREE</span>
-                    </div>
-                    <div class="service-description">
-                        Get help from our growing community. Share ideas, ask questions, and 
-                        collaborate with developers worldwide.
-                    </div>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Community Forum</li>
-                        <li><i class="fas fa-check"></i> GitHub Discussions</li>
-                        <li><i class="fas fa-check"></i> Code Reviews</li>
-                        <li><i class="fas fa-check"></i> Collaboration</li>
-                    </ul>
-                    <div class="service-action">
-                        <a href="#" class="btn-service">
-                            <i class="fas fa-comments"></i>
-                            Join Community
-                        </a>
-                    </div>
-                </div> -->
-
-                <!-- Service 5 -->
-                <!-- <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <div class="service-header">
-                        <h3>Regular Updates</h3>
-                        <span class="free-tag">FREE</span>
-                    </div>
-                    <div class="service-description">
-                        Stay updated with the latest web trends. New components added weekly, 
-                        existing components improved based on feedback.
-                    </div>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Weekly Updates</li>
-                        <li><i class="fas fa-check"></i> New Components</li>
-                        <li><i class="fas fa-check"></i> Bug Fixes</li>
-                        <li><i class="fas fa-check"></i> Performance Improvements</li>
-                    </ul>
-                    <div class="service-action">
-                        <a href="#" class="btn-service">
-                            <i class="fas fa-bell"></i>
-                            View Changelog
-                        </a>
-                    </div>
-                </div> -->
-
-                <!-- Service 6 -->
-                <!-- <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="service-header">
-                        <h3>Learning Resources</h3>
-                        <span class="free-tag">FREE</span>
-                    </div>
-                    <div class="service-description">
-                        Improve your skills with free tutorials, articles, and guides on modern 
-                        web development techniques and best practices.
-                    </div>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Tutorials</li>
-                        <li><i class="fas fa-check"></i> Blog Articles</li>
-                        <li><i class="fas fa-check"></i> Video Guides</li>
-                        <li><i class="fas fa-check"></i> Code Snippets</li>
-                    </ul>
-                    <div class="service-action">
-                        <a href="#" class="btn-service">
-                            <i class="fas fa-book-open"></i>
-                            Start Learning
-                        </a>
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
-
-    <!-- Component Services -->
-    <!-- <section class="component-services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Component Categories</h2>
-                <p>Specialized services for each component type</p>
-            </div>
-            
-            <div class="component-grid">
-                <div class="component-card">
-                    <div class="component-icon nav-bg">
-                        <i class="fas fa-bars"></i>
-                    </div>
-                    <h3>Navigation Bars</h3>
-                    <p>99+ responsive navigation templates with mobile menus and animations.</p>
-                    <div class="component-stats">
-                        <div class="stat">
-                            <div class="number">99+</div>
-                            <div class="label"></div>
-                        </div>
-                        <div class="stat">
-                            <div class="number">15</div>
-                            <div class="label">Menu Typee</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="component-card">
-                    <div class="component-icon footer-bg">
-                        <i class="fas fa-window-minimize"></i>
-                    </div>
-                    <h3>Footers</h3>
-                    <p>70+ modern footer designs with social integration and newsletter forms.</p>
-                    <div class="component-stats">
-                        <div class="stat">
-                            <div class="number">70+</div>
-                            <div class="label"></div>
-                        </div>
-                        <div class="stat">
-                            <div class="number">8</div>
-                            <div class="label">Layouts</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="component-card">
-                    <div class="component-icon table-bg">
-                        <i class="fas fa-table"></i>
-                    </div>
-                    <h3>Tables</h3>
-                    <p>60+ responsive table designs with sorting and filtering capabilities.</p>
-                    <div class="component-stats">
-                        <div class="stat">
-                            <div class="number">60+</div>
-                            <div class="label"></div>
-                        </div>
-                        <div class="stat">
-                            <div class="number">6</div>
-                            <div class="label">Table Types</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="component-card">
-                    <div class="component-icon button-bg">
-                        <i class="fas fa-square"></i>
-                    </div>
-                    <h3>Buttons</h3>
-                    <p>130+ animated button designs with hover effects and loading states.</p>
-                    <div class="component-stats">
-                        <div class="stat">
-                            <div class="number">130+</div>
-                            <div class="label"></div>
-                        </div>
-                        <div class="stat">
-                            <div class="number">12</div>
-                            <div class="label">Animations</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="component-card">
-                    <div class="component-icon checkbox-bg">
-                        <i class="fas fa-check-square"></i>
-                    </div>
-                    <h3>Checkboxes</h3>
-                    <p>115+ custom checkbox designs with toggle switches and radio buttons.</p>
-                    <div class="component-stats">
-                        <div class="stat">
-                            <div class="number">115+</div>
-                            <div class="label"></div>
-                        </div>
-                        <div class="stat">
-                            <div class="number">7</div>
-                            <div class="label">Variations</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="component-card">
-                    <div class="component-icon loader-bg">
-                        <i class="fas fa-spinner"></i>
-                    </div>
-                    <h3>Loaders</h3>
-                    <p>100+ creative loading animations including spinners and progress bars.</p>
-                    <div class="component-stats">
-                        <div class="stat">
-                            <div class="number">100+</div>
-                            <div class="label"></div>
-                        </div>
-                        <div class="stat">
-                            <div class="number">9</div>
-                            <div class="label">Styles</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <!-- How It Works -->
     <section class="how-it-works">
@@ -1316,10 +1152,6 @@
                     <i class="fas fa-rocket"></i>
                     Explore Free Components
                 </a>
-                <!-- <a href="#" class="btn btn-secondary">
-                    <i class="fas fa-question-circle"></i>
-                    Need Help?
-                </a> -->
             </div>
         </div>
     </section>
@@ -1355,7 +1187,7 @@
                         <li><a href="about.html">About</a></li>
                         <li><a href="features.html">Features</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -1377,20 +1209,28 @@
     <script>
         // Mobile Menu Toggle
         const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
+        const nav = document.querySelector('nav ul');
         
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('show');
-            menuToggle.innerHTML = nav.classList.contains('show') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+            menuToggle.classList.toggle('active');
+            
+            // Close menu when clicking on a link
+            if (nav.classList.contains('show')) {
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        nav.classList.remove('show');
+                        menuToggle.classList.remove('active');
+                    });
+                });
+            }
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('nav') && !e.target.closest('.menu-toggle') && nav.classList.contains('show')) {
                 nav.classList.remove('show');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                menuToggle.classList.remove('active');
             }
         });
 
@@ -1418,7 +1258,7 @@
         }, observerOptions);
 
         // Observe all cards and sections
-        document.querySelectorAll('.service-card, .component-card, .step, .testimonial-card').forEach(el => {
+        document.querySelectorAll('.service-card, .component-card, .step, .testimonial-card, .faq-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -1435,38 +1275,15 @@
             }
         });
 
-        // Animate numbers in stats
-        const statNumbers = document.querySelectorAll('.stat .number');
-        const statsSection = document.querySelector('.component-services');
+        // Active page highlighting
+        const currentPage = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('nav a');
         
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    statNumbers.forEach(stat => {
-                        const text = stat.textContent;
-                        if (text.includes('+')) {
-                            const target = parseInt(text);
-                            let current = 0;
-                            const increment = target / 50;
-                            const timer = setInterval(() => {
-                                current += increment;
-                                if (current >= target) {
-                                    stat.textContent = target + '+';
-                                    clearInterval(timer);
-                                } else {
-                                    stat.textContent = Math.floor(current);
-                                }
-                            }, 30);
-                        }
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
 
         // Step hover effects
         document.querySelectorAll('.step').forEach(step => {
