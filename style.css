@@ -838,17 +838,22 @@ html, body {
     max-width: 100%;
 }
 
+
+
+
+
+
 /* ====================================
    SNIPPETCODE HERO SECTION
    ==================================== */
 
-   .hero-snippetcode{
+   .hero-snippetcode {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
- .hero-snippetcode {
+.hero-snippetcode {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: #0f172a;
     color: white;
@@ -906,6 +911,9 @@ html, body {
 .e3 { bottom: 30%; left: 15%; animation-delay: 8s; }
 .e4 { bottom: 20%; right: 20%; animation-delay: 12s; }
 .e5 { top: 40%; left: 20%; animation-delay: 16s; }
+.e6 { top: 60%; right: 15%; animation-delay: 3s; }
+.e7 { bottom: 40%; left: 80%; animation-delay: 10s; }
+.e8 { top: 80%; right: 5%; animation-delay: 14s; }
 
 @keyframes floatCode {
     0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.2; }
@@ -1296,6 +1304,21 @@ html, body {
     box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3); 
     color: #8b5cf6;
 }
+/* NEW: Form card */
+.form-card:hover { 
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3); 
+    color: #f59e0b;
+}
+/* NEW: Toggle card */
+.toggle-card:hover { 
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3); 
+    color: #10b981;
+}
+/* NEW: Card card */
+.card-card:hover { 
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3); 
+    color: #3b82f6;
+}
 
 .card-icon {
     width: 56px;
@@ -1311,9 +1334,15 @@ html, body {
 
 .component-card:hover .card-icon {
     background: currentColor;
-    transform: rotate(10deg);
-    background-color: rgb(249, 247, 247);
+    color: white;
+    transform: rotate(10deg) scale(1.1);
+background-color: #334155;
 }
+
+/* Icon colors for new categories */
+.form-card .card-icon { color: #f59e0b; }
+.toggle-card .card-icon { color: #10b981; }
+.card-card .card-icon { color: #3b82f6; }
 
 .card-content {
     flex: 1;
@@ -1457,6 +1486,10 @@ html, body {
     .text-shine {
         font-size: 3.5rem;
     }
+    
+    .components-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
@@ -1505,6 +1538,16 @@ html, body {
         gap: 1rem;
         align-items: center;
     }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .section-badge {
+        align-self: flex-start;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1540,5 +1583,33 @@ html, body {
     
     .sub-headline {
         font-size: 1rem;
+    }
+    
+    .stat {
+        padding: 1rem;
+    }
+    
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .component-card {
+        padding: 1rem;
+    }
+    
+    .card-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+    }
+    
+    .card-content h4 {
+        font-size: 1.1rem;
     }
 }
