@@ -28,44 +28,494 @@
           <nav>
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Features</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Resources</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="About.html">About</a></li>
+              <li><a href="Features.html">Features</a></li>
+              <li><a href="Services.html">Services</a></li>
+              <li><a href="Contact.html">Contact</a></li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <h1>Form SnippetCode</h1>
-        <p>
-          Modern and responsive Form designs for any website. Preview and
-          copy code with a single click.
-        </p>
-        <div class="hero-buttons">
-          <a href="nav-templates.html" class="btn">Navigation SnippetCodes</a>
-          <a href="footer-templates.html" class="btn">Footer SnippetCode</a>
-          <a href="table-templates.html" class="btn">Table SnippetCode</a>
-        </div><br>
-        <div class="hero-buttons">
-          <a href="buttons-templates.html" class="btn">Button SnippetCodes</a>
-          <a href="#" class="btn">Form SnippetCode</a>
-          <a href="#" class="btn"> -- SnippetCode</a>
-        </div>
+   <!-- Modern Forms Hero Section -->
+<section class="form-hero">
+  <!-- Background Elements -->
+  <div class="form-hero-bg">
+      <div class="form-gradient-grid">
+          <div class="form-grid-line"></div>
+          <div class="form-grid-dot"></div>
+          <div class="form-grid-cell"></div>
       </div>
-    </section>
+      <div class="floating-form-icons">
+          <div class="form-icon">□</div>
+          <div class="form-icon">✓</div>
+          <div class="form-icon">○</div>
+          <div class="form-icon">☑</div>
+      </div>
+  </div>
+
+  <div class="container">
+      <!-- Header -->
+      <div class="form-hero-header">
+          <div class="form-badge">
+              <span class="form-badge-icon">📝</span>
+              <span class="form-badge-text">FORM COMPONENTS</span>
+          </div>
+          <div class="form-stats">
+              <div class="form-stat">
+                  <span class="form-stat-number">85+</span>
+                  <span class="form-stat-label">Form Templates</span>
+              </div>
+              <div class="form-stat-divider"></div>
+              <div class="form-stat">
+                  <span class="form-stat-number">100%</span>
+                  <span class="form-stat-label">Responsive</span>
+              </div>
+          </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="form-hero-content">
+          <div class="form-title-wrapper">
+              <h1 class="form-main-title">
+                  <span class="form-title-part-1">Modern Form</span>
+                  <span class="form-title-part-2">SnippetCode</span>
+              </h1>
+              <div class="form-title-underline">
+                  <div class="form-underline-line"></div>
+                  <div class="form-underline-dot"></div>
+              </div>
+          </div>
+
+          <p class="form-description">
+              Professionally designed form components with validation, modern inputs, and responsive layouts. 
+              Live previews with one-click copy functionality.
+          </p>
+
+          <!-- Live Demo Card -->
+          <div class="form-demo-card">
+              <div class="form-demo-header">
+                  <div class="form-demo-title">
+                      <i class="fas fa-file-alt"></i>
+                      <span>Live Form Demo</span>
+                  </div>
+                  <div class="form-demo-controls">
+                      <button class="form-demo-control active" data-form="login">
+                          <i class="fas fa-sign-in-alt"></i>
+                          <span>Login</span>
+                      </button>
+                      <button class="form-demo-control" data-form="contact">
+                          <i class="fas fa-envelope"></i>
+                          <span>Contact</span>
+                      </button>
+                      <button class="form-demo-control" data-form="signup">
+                          <i class="fas fa-user-plus"></i>
+                          <span>Sign Up</span>
+                      </button>
+                  </div>
+              </div>
+
+              <!-- Form Preview -->
+              <div class="form-preview-wrapper">
+                  <div class="form-preview">
+                      <!-- Form Container -->
+                      <div class="preview-form-container">
+                          <!-- Login Form -->
+                          <form class="demo-form login-form active">
+                              <div class="form-header">
+                                  <h3>Login to Your Account</h3>
+                                  <p>Enter your credentials to continue</p>
+                              </div>
+                              
+                              <div class="form-group">
+                                  <label for="email">
+                                      <i class="fas fa-envelope"></i>
+                                      Email Address
+                                  </label>
+                                  <div class="input-group">
+                                      <input type="email" id="email" placeholder="you@example.com" class="form-input">
+                                      <div class="input-icon">
+                                          <i class="fas fa-check-circle"></i>
+                                      </div>
+                                  </div>
+                              </div>
+                              
+                              <div class="form-group">
+                                  <label for="password">
+                                      <i class="fas fa-lock"></i>
+                                      Password
+                                  </label>
+                                  <div class="input-group">
+                                      <input type="password" id="password" placeholder="••••••••" class="form-input">
+                                      <button type="button" class="password-toggle">
+                                          <i class="fas fa-eye"></i>
+                                      </button>
+                                  </div>
+                              </div>
+                              
+                              <div class="form-options">
+                                  <label class="checkbox-label">
+                                      <input type="checkbox" checked>
+                                      <span class="checkmark"></span>
+                                      Remember me
+                                  </label>
+                                  <a href="#" class="forgot-link">Forgot password?</a>
+                              </div>
+                              
+                              <button type="submit" class="submit-btn">
+                                  <i class="fas fa-sign-in-alt"></i>
+                                  Sign In
+                              </button>
+                              
+                              <div class="form-divider">
+                                  <span>Or continue with</span>
+                              </div>
+                              
+                              <div class="social-login">
+                                  <button type="button" class="social-btn google">
+                                      <i class="fab fa-google"></i>
+                                      Google
+                                  </button>
+                                  <button type="button" class="social-btn github">
+                                      <i class="fab fa-github"></i>
+                                      GitHub
+                                  </button>
+                              </div>
+                              
+                              <div class="form-footer">
+                                  <p>Don't have an account? <a href="#" class="form-link">Sign up</a></p>
+                              </div>
+                          </form>
+
+                          <!-- Contact Form -->
+                          <form class="demo-form contact-form">
+                              <div class="form-header">
+                                  <h3>Contact Us</h3>
+                                  <p>We'll get back to you within 24 hours</p>
+                              </div>
+                              
+                              <div class="form-row">
+                                  <div class="form-group">
+                                      <label for="name">
+                                          <i class="fas fa-user"></i>
+                                          Full Name
+                                      </label>
+                                      <input type="text" id="name" placeholder="John Doe" class="form-input">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="contact-email">
+                                          <i class="fas fa-envelope"></i>
+                                          Email
+                                      </label>
+                                      <input type="email" id="contact-email" placeholder="john@example.com" class="form-input">
+                                  </div>
+                              </div>
+                              
+                              <div class="form-group">
+                                  <label for="subject">
+                                      <i class="fas fa-tag"></i>
+                                      Subject
+                                  </label>
+                                  <select id="subject" class="form-select">
+                                      <option value="">Select a subject</option>
+                                      <option value="support">Support</option>
+                                      <option value="sales">Sales</option>
+                                      <option value="feedback">Feedback</option>
+                                      <option value="other">Other</option>
+                                  </select>
+                              </div>
+                              
+                              <div class="form-group">
+                                  <label for="message">
+                                      <i class="fas fa-comment"></i>
+                                      Message
+                                  </label>
+                                  <textarea id="message" placeholder="Your message here..." rows="4" class="form-textarea"></textarea>
+                                  <div class="char-count">0/500</div>
+                              </div>
+                              
+                              <div class="form-group">
+                                  <label class="checkbox-label">
+                                      <input type="checkbox">
+                                      <span class="checkmark"></span>
+                                      Subscribe to newsletter
+                                  </label>
+                              </div>
+                              
+                              <button type="submit" class="submit-btn">
+                                  <i class="fas fa-paper-plane"></i>
+                                  Send Message
+                              </button>
+                          </form>
+
+                          <!-- Sign Up Form -->
+                          <form class="demo-form signup-form">
+                              <div class="form-header">
+                                  <h3>Create Account</h3>
+                                  <p>Join our community today</p>
+                              </div>
+                              
+                              <div class="form-group">
+                                  <label for="username">
+                                      <i class="fas fa-user"></i>
+                                      Username
+                                  </label>
+                                  <div class="input-group">
+                                      <input type="text" id="username" placeholder="johndoe" class="form-input">
+                                      <div class="input-status available">
+                                          <i class="fas fa-check-circle"></i>
+                                      </div>
+                                  </div>
+                              </div>
+                              
+                              <div class="form-group">
+                                  <label for="signup-email">
+                                      <i class="fas fa-envelope"></i>
+                                      Email
+                                  </label>
+                                  <input type="email" id="signup-email" placeholder="john@example.com" class="form-input">
+                              </div>
+                              
+                              <div class="form-row">
+                                  <div class="form-group">
+                                      <label for="signup-password">
+                                          <i class="fas fa-lock"></i>
+                                          Password
+                                      </label>
+                                      <div class="password-strength">
+                                          <input type="password" id="signup-password" placeholder="••••••••" class="form-input">
+                                          <div class="strength-meter">
+                                              <div class="strength-bar"></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="confirm-password">
+                                          <i class="fas fa-lock"></i>
+                                          Confirm Password
+                                      </label>
+                                      <input type="password" id="confirm-password" placeholder="••••••••" class="form-input">
+                                  </div>
+                              </div>
+                              
+                              <div class="form-group">
+                                  <label class="radio-group-label">
+                                      Account Type
+                                  </label>
+                                  <div class="radio-group">
+                                      <label class="radio-label">
+                                          <input type="radio" name="account-type" checked>
+                                          <span class="radio-checkmark"></span>
+                                          <span class="radio-content">
+                                              <i class="fas fa-user"></i>
+                                              Personal
+                                          </span>
+                                      </label>
+                                      <label class="radio-label">
+                                          <input type="radio" name="account-type">
+                                          <span class="radio-checkmark"></span>
+                                          <span class="radio-content">
+                                              <i class="fas fa-briefcase"></i>
+                                              Business
+                                          </span>
+                                      </label>
+                                  </div>
+                              </div>
+                              
+                              <div class="form-group">
+                                  <label class="checkbox-label">
+                                      <input type="checkbox">
+                                      <span class="checkmark"></span>
+                                      I agree to the <a href="#" class="form-link">Terms & Conditions</a>
+                                  </label>
+                              </div>
+                              
+                              <button type="submit" class="submit-btn">
+                                  <i class="fas fa-user-plus"></i>
+                                  Create Account
+                              </button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="form-demo-actions">
+                  <button class="form-copy-code-btn">
+                      <i class="fas fa-copy"></i>
+                      <span>Copy Form Code</span>
+                  </button>
+                  <!-- <div class="form-demo-stats">
+                      <div class="form-demo-stat">
+                          <i class="fas fa-download"></i>
+                          <span>1.5k Downloads</span>
+                      </div>
+                      <div class="form-demo-stat">
+                          <i class="fas fa-star"></i>
+                          <span>4.8 Rating</span>
+                      </div>
+                  </div> -->
+              </div>
+          </div>
+
+          <!-- Component Navigation -->
+          <div class="form-component-navigation">
+              <div class="form-section-label">
+                  <i class="fas fa-th-large"></i>
+                  <span>Browse All Components</span>
+              </div>
+
+              <div class="form-component-cards">
+                  <!-- Navigation Card -->
+                  <a href="nav-templates.html" class="form-component-card nav-card">
+                      <div class="form-card-icon">
+                          <i class="fas fa-bars"></i>
+                      </div>
+                      <div class="form-card-content">
+                          <h3>Navigation</h3>
+                          <p>99+ modern designs</p>
+                      </div>
+                      <div class="form-card-arrow">
+                          <i class="fas fa-arrow-right"></i>
+                      </div>
+                  </a>
+
+                  <!-- Footer Card -->
+                  <a href="footer-templates.html" class="form-component-card footer-card">
+                      <div class="form-card-icon">
+                          <i class="fas fa-window-minimize"></i>
+                      </div>
+                      <div class="form-card-content">
+                          <h3>Footers</h3>
+                          <p>70+ modern designs</p>
+                      </div>
+                      <div class="form-card-arrow">
+                          <i class="fas fa-arrow-right"></i>
+                      </div>
+                  </a>
+
+                  <!-- Table Card -->
+                  <a href="table-templates.html" class="form-component-card table-card">
+                      <div class="form-card-icon">
+                          <i class="fas fa-table"></i>
+                      </div>
+                      <div class="form-card-content">
+                          <h3>Tables</h3>
+                          <p>60+ modern designs</p>
+                      </div>
+                      <div class="form-card-arrow">
+                          <i class="fas fa-arrow-right"></i>
+                      </div>
+                  </a>
+
+                  <!-- Button Card -->
+                  <a href="buttons-templates.html" class="form-component-card button-card">
+                      <div class="form-card-icon">
+                          <i class="fas fa-square"></i>
+                      </div>
+                      <div class="form-card-content">
+                          <h3>Buttons</h3>
+                          <p>130+ modern designs</p>
+                      </div>
+                      <div class="form-card-arrow">
+                          <i class="fas fa-arrow-right"></i>
+                      </div>
+                  </a>
+
+                  <!-- Checkbox Card -->
+                  <a href="checkbox-templates.html" class="form-component-card checkbox-card">
+                      <div class="form-card-icon">
+                          <i class="fas fa-check-square"></i>
+                      </div>
+                      <div class="form-card-content">
+                          <h3>Checkboxes</h3>
+                          <p>110+ modern designs</p>
+                      </div>
+                      <div class="form-card-arrow">
+                          <i class="fas fa-arrow-right"></i>
+                      </div>
+                  </a>
+
+                  <!-- Loader Card -->
+                  <a href="loader-templates.html" class="form-component-card loader-card">
+                      <div class="form-card-icon">
+                          <i class="fas fa-spinner"></i>
+                      </div>
+                      <div class="form-card-content">
+                          <h3>Loaders</h3>
+                          <p>100+ modern designs</p>
+                      </div>
+                      <div class="form-card-arrow">
+                          <i class="fas fa-arrow-right"></i>
+                      </div>
+                  </a>
+
+                  <!-- Forms Card -->
+                  <a href="form-templates.html" class="form-component-card form-card active">
+                      <div class="form-card-icon">
+                          <i class="fas fa-file-alt"></i>
+                      </div>
+                      <div class="form-card-content">
+                          <h3>Forms</h3>
+                          <p>85+ modern designs</p>
+                          <div class="form-card-badge">Featured</div>
+                      </div>
+                      <div class="form-card-arrow">
+                          <i class="fas fa-arrow-right"></i>
+                      </div>
+                      <div class="form-card-glow"></div>
+                  </a>
+
+                  <!-- Toggle Buttons Card -->
+                  <a href="toggle-templates.html" class="form-component-card toggle-card">
+                      <div class="form-card-icon">
+                          <i class="fas fa-toggle-on"></i>
+                      </div>
+                      <div class="form-card-content">
+                          <h3>Toggle Buttons</h3>
+                          <p>65+ modern designs</p>
+                      </div>
+                      <div class="form-card-arrow">
+                          <i class="fas fa-arrow-right"></i>
+                      </div>
+                  </a>
+
+                  <!-- Cards Card -->
+                  <a href="card-templates.html" class="form-component-card card-card">
+                      <div class="form-card-icon">
+                          <i class="fas fa-id-card"></i>
+                      </div>
+                      <div class="form-card-content">
+                          <h3>Cards</h3>
+                          <p>120+ modern designs</p>
+                      </div>
+                      <div class="form-card-arrow">
+                          <i class="fas fa-arrow-right"></i>
+                      </div>
+                  </a>
+              </div>
+
+              <!-- View All Link -->
+              <!-- <div class="form-view-all-container">
+                  <a href="#all-components" class="form-view-all-btn">
+                      <span>Explore All Form Templates</span>
+                      <div class="form-view-all-icon">
+                          <i class="fas fa-arrow-right"></i>
+                      </div>
+                  </a>
+              </div> -->
+          </div>
+      </div>
+  </div>
+</section>
 
     <!-- Form Templates Section -->
     <section id="form-templates">
       <div class="container">
         <div class="section-title">
-          <h2>Form SnippetCode</h2>
-          <p>Choose from our collection of modern Form designs</p>
+          <!-- <h2>Form SnippetCode</h2>
+          <p>Choose from our collection of modern Form designs</p> -->
         </div>
 
         <div class="categories">
@@ -73,33 +523,55 @@
           <button class="category-btn" data-category="login">Login Forms</button>
           <button class="category-btn" data-category="contact">Contact Forms</button>
           <button class="category-btn" data-category="signup">Signup Forms</button>
-          <button class="category-btn" data-category="modern">Modern Forms</button>
+          <button class="category-btn" data-category="modern">Modern</button>
         </div>
 
         <div class="template-grid">
           <!-- Template 1 - Modern Login Form -->
           <div class="template-card" data-category="login modern">
             <div class="template-preview">
-              <div class="form-preview-mini">
+              <div class="live-preview-mini">
                 <div class="form-container">
+                  <div class="form-header">
+                    <h3>Welcome Back</h3>
+                    <p>Sign in to your account</p>
+                  </div>
                   <form class="modern-form">
-                    <h3>Login Form</h3>
                     <div class="input-group">
-                      <input type="email" placeholder="Email Address" required>
                       <i class="fas fa-envelope"></i>
+                      <input type="email" placeholder="Email Address" required>
                     </div>
                     <div class="input-group">
-                      <input type="password" placeholder="Password" required>
                       <i class="fas fa-lock"></i>
+                      <input type="password" placeholder="Password" required>
                     </div>
-                    <button type="submit" class="form-submit-btn">Login</button>
+                    <div class="form-options">
+                      <label class="checkbox-small">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Remember me
+                      </label>
+                      <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="form-btn">Sign In</button>
+                    <div class="divider">
+                      <span>or continue with</span>
+                    </div>
+                    <div class="social-login">
+                      <button type="button" class="social-btn">
+                        <i class="fab fa-google"></i> Google
+                      </button>
+                      <button type="button" class="social-btn">
+                        <i class="fab fa-github"></i> GitHub
+                      </button>
+                    </div>
                   </form>
                 </div>
               </div>
             </div>
             <div class="template-info">
               <h3>Modern Login Form</h3>
-              <p>Clean login form with gradient button and input animations.</p>
+              <p>Clean modern login form with social login options and smooth animations.</p>
               <div class="template-actions">
                 <button class="btn code-btn" data-template="form1">Get Code</button>
               </div>
@@ -109,160 +581,493 @@
           <!-- Template 2 - Contact Form -->
           <div class="template-card" data-category="contact modern">
             <div class="template-preview">
-              <div class="form-preview-mini">
+              <div class="live-preview-mini">
                 <div class="form-container">
-                  <form class="contact-form">
+                  <div class="form-header">
                     <h3>Contact Us</h3>
-                    <div class="input-group">
-                      <input type="text" placeholder="Full Name" required>
-                      <i class="fas fa-user"></i>
+                    <p>We'd love to hear from you</p>
+                  </div>
+                  <form class="contact-form">
+                    <div class="input-row">
+                      <div class="input-group">
+                        <input type="text" placeholder="First Name" required>
+                      </div>
+                      <div class="input-group">
+                        <input type="text" placeholder="Last Name" required>
+                      </div>
                     </div>
                     <div class="input-group">
                       <input type="email" placeholder="Email Address" required>
-                      <i class="fas fa-envelope"></i>
                     </div>
                     <div class="input-group">
-                      <textarea placeholder="Your Message" rows="3"></textarea>
-                      <i class="fas fa-comment"></i>
+                      <input type="text" placeholder="Subject" required>
                     </div>
-                    <button type="submit" class="form-submit-btn">Send Message</button>
+                    <div class="input-group">
+                      <textarea placeholder="Your Message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="form-btn">Send Message</button>
                   </form>
                 </div>
               </div>
             </div>
             <div class="template-info">
               <h3>Contact Form</h3>
-              <p>Modern contact form with animated icons and validation.</p>
+              <p>Professional contact form with validation and modern design.</p>
               <div class="template-actions">
                 <button class="btn code-btn" data-template="form2">Get Code</button>
               </div>
             </div>
           </div>
 
-          <!-- Template 3 - Signup Form -->
-          <div class="template-card" data-category="signup">
+          <!-- Template 3 - Gradient Signup Form -->
+          <div class="template-card" data-category="signup modern">
             <div class="template-preview">
-              <div class="form-preview-mini">
-                <div class="form-container">
-                  <form class="signup-form">
+              <div class="live-preview-mini">
+                <div class="form-container gradient-bg">
+                  <div class="form-header">
                     <h3>Create Account</h3>
-                    <div class="input-row">
-                      <div class="input-group half">
-                        <input type="text" placeholder="First Name" required>
-                        <i class="fas fa-user"></i>
-                      </div>
-                      <div class="input-group half">
-                        <input type="text" placeholder="Last Name" required>
-                        <i class="fas fa-user"></i>
-                      </div>
+                    <p>Join our community today</p>
+                  </div>
+                  <form class="signup-form">
+                    <div class="input-group">
+                      <i class="fas fa-user"></i>
+                      <input type="text" placeholder="Full Name" required>
                     </div>
                     <div class="input-group">
-                      <input type="email" placeholder="Email Address" required>
                       <i class="fas fa-envelope"></i>
+                      <input type="email" placeholder="Email Address" required>
                     </div>
                     <div class="input-group">
-                      <input type="password" placeholder="Password" required>
                       <i class="fas fa-lock"></i>
+                      <input type="password" placeholder="Password" required>
                     </div>
-                    <button type="submit" class="form-submit-btn gradient-btn">Sign Up</button>
+                    <div class="input-group">
+                      <i class="fas fa-lock"></i>
+                      <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <label class="checkbox-small">
+                      <input type="checkbox" required>
+                      <span class="checkmark"></span>
+                      I agree to the <a href="#">Terms & Conditions</a>
+                    </label>
+                    <button type="submit" class="form-btn gradient-btn">Create Account</button>
+                    <p class="form-footer">
+                      Already have an account? <a href="#">Sign In</a>
+                    </p>
                   </form>
                 </div>
               </div>
             </div>
             <div class="template-info">
-              <h3>Signup Form</h3>
-              <p>Multi-step signup form with responsive layout.</p>
+              <h3>Gradient Signup Form</h3>
+              <p>Beautiful gradient signup form with terms agreement and validation.</p>
               <div class="template-actions">
                 <button class="btn code-btn" data-template="form3">Get Code</button>
               </div>
             </div>
           </div>
 
-          <!-- Template 4 - Dark Login Form -->
-          <div class="template-card" data-category="login">
-            <div class="template-preview">
-              <div class="form-preview-mini dark-bg">
-                <div class="form-container">
-                  <form class="dark-form">
-                    <h3>Welcome Back</h3>
-                    <div class="input-group">
-                      <input type="email" placeholder="Email Address" required>
-                      <i class="fas fa-user"></i>
-                    </div>
-                    <div class="input-group">
-                      <input type="password" placeholder="Password" required>
-                      <i class="fas fa-lock"></i>
-                    </div>
-                    <button type="submit" class="form-submit-btn dark-btn">Login</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <div class="template-info">
-              <h3>Dark Login Form</h3>
-              <p>Dark theme login form with smooth animations.</p>
-              <div class="template-actions">
-                <button class="btn code-btn" data-template="form4">Get Code</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Template 5 - Newsletter Form -->
+          <!-- Template 4 - Newsletter Form -->
           <div class="template-card" data-category="modern">
             <div class="template-preview">
-              <div class="form-preview-mini">
-                <div class="form-container">
+              <div class="live-preview-mini">
+                <div class="newsletter-container">
+                  <div class="newsletter-header">
+                    <i class="fas fa-paper-plane"></i>
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest updates</p>
+                  </div>
                   <form class="newsletter-form">
-                    <h3>Subscribe Newsletter</h3>
                     <div class="input-group">
                       <input type="email" placeholder="Enter your email" required>
-                      <i class="fas fa-paper-plane"></i>
+                      <button type="submit" class="subscribe-btn">
+                        <i class="fas fa-paper-plane"></i> Subscribe
+                      </button>
                     </div>
-                    <button type="submit" class="form-submit-btn">Subscribe</button>
-                    <p class="form-note">No spam ever. Unsubscribe anytime.</p>
+                    <label class="checkbox-small">
+                      <input type="checkbox" required>
+                      <span class="checkmark"></span>
+                      I agree to receive newsletter emails
+                    </label>
                   </form>
                 </div>
               </div>
             </div>
             <div class="template-info">
               <h3>Newsletter Form</h3>
-              <p>Simple newsletter subscription form with icon.</p>
+              <p>Modern newsletter subscription form with email validation.</p>
+              <div class="template-actions">
+                <button class="btn code-btn" data-template="form4">Get Code</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Template 5 - Dark Mode Login -->
+          <div class="template-card" data-category="login">
+            <div class="template-preview dark-bg">
+              <div class="live-preview-mini">
+                <div class="form-container dark-form">
+                  <div class="form-header">
+                    <h3>Welcome Back</h3>
+                    <p>Sign in to continue</p>
+                  </div>
+                  <form class="dark-mode-form">
+                    <div class="input-group">
+                      <i class="fas fa-user"></i>
+                      <input type="text" placeholder="Username or Email" required>
+                    </div>
+                    <div class="input-group">
+                      <i class="fas fa-lock"></i>
+                      <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="form-btn dark-btn">Sign In</button>
+                    <div class="form-links">
+                      <a href="#">Create Account</a>
+                      <a href="#">Forgot Password?</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="template-info">
+              <h3>Dark Mode Login</h3>
+              <p>Dark theme login form with elegant design and animations.</p>
               <div class="template-actions">
                 <button class="btn code-btn" data-template="form5">Get Code</button>
               </div>
             </div>
           </div>
 
-          <!-- Template 6 - Search Form -->
+          <!-- Template 6 - Payment Form -->
           <div class="template-card" data-category="modern">
             <div class="template-preview">
-              <div class="form-preview-mini">
+              <div class="live-preview-mini">
                 <div class="form-container">
-                  <form class="search-form">
+                  <div class="form-header">
+                    <h3>Payment Details</h3>
+                    <p>Complete your purchase</p>
+                  </div>
+                  <form class="payment-form">
                     <div class="input-group">
-                      <input type="text" placeholder="Search..." required>
-                      <i class="fas fa-search"></i>
+                      <input type="text" placeholder="Cardholder Name" required>
                     </div>
-                    <button type="submit" class="form-submit-btn">
-                      <i class="fas fa-search"></i> Search
+                    <div class="input-group">
+                      <input type="text" placeholder="Card Number" required>
+                    </div>
+                    <div class="input-row">
+                      <div class="input-group">
+                        <input type="text" placeholder="MM/YY" required>
+                      </div>
+                      <div class="input-group">
+                        <input type="text" placeholder="CVV" required>
+                      </div>
+                    </div>
+                    <div class="total-amount">
+                      <span>Total Amount:</span>
+                      <span class="amount">$99.99</span>
+                    </div>
+                    <button type="submit" class="form-btn payment-btn">
+                      <i class="fas fa-lock"></i> Pay Now
                     </button>
+                    <p class="secure-note">
+                      <i class="fas fa-shield-alt"></i> Your payment is secure and encrypted
+                    </p>
                   </form>
                 </div>
               </div>
             </div>
             <div class="template-info">
-              <h3>Search Form</h3>
-              <p>Modern search form with icon and button.</p>
+              <h3>Payment Form</h3>
+              <p>Secure payment form with card details and validation.</p>
               <div class="template-actions">
                 <button class="btn code-btn" data-template="form6">Get Code</button>
               </div>
             </div>
           </div>
+          <!-- ====================================
+   NEW LOGIN FORM TEMPLATES
+   ==================================== -->
+
+<!-- Template 7 - Glassmorphism Login -->
+<div class="template-card" data-category="login modern">
+  <div class="template-preview">
+      <div class="live-preview-mini">
+          <div class="form-container glassmorphism-form">
+              <div class="form-header">
+                  <div class="login-logo">
+                      <i class="fas fa-user-circle"></i>
+                  </div>
+                  <h3>Welcome Back</h3>
+                  <p>Sign in to your account</p>
+              </div>
+              <form class="login-form">
+                  <div class="input-group">
+                      <i class="fas fa-envelope"></i>
+                      <input type="email" placeholder="Email Address" required>
+                  </div>
+                  <div class="input-group">
+                      <i class="fas fa-lock"></i>
+                      <input type="password" placeholder="Password" required>
+                      <span class="password-toggle">
+                          <i class="fas fa-eye"></i>
+                      </span>
+                  </div>
+                  <div class="form-options">
+                      <label class="checkbox-small">
+                          <input type="checkbox">
+                          <span class="checkmark"></span>
+                          Remember me
+                      </label>
+                      <a href="#" class="forgot-link">Forgot Password?</a>
+                  </div>
+                  <button type="submit" class="form-btn glass-btn">
+                      <i class="fas fa-sign-in-alt"></i> Sign In
+                  </button>
+                  <div class="divider">
+                      <span>or continue with</span>
+                  </div>
+                  <div class="social-login-grid">
+                      <button type="button" class="social-btn google-btn">
+                          <i class="fab fa-google"></i>
+                      </button>
+                      <button type="button" class="social-btn facebook-btn">
+                          <i class="fab fa-facebook-f"></i>
+                      </button>
+                      <button type="button" class="social-btn twitter-btn">
+                          <i class="fab fa-twitter"></i>
+                      </button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+  <div class="template-info">
+      <h3>Glassmorphism Login</h3>
+      <p>Modern glass effect login with social buttons</p>
+      <div class="template-actions">
+          <button class="btn code-btn" data-template="login7">Get Code</button>
+      </div>
+  </div>
+</div>
+
+<!-- Template 8 - Dark Gradient Login -->
+<div class="template-card" data-category="login modern">
+  <div class="template-preview dark-bg">
+      <div class="live-preview-mini">
+          <div class="form-container dark-gradient-form">
+              <div class="form-header">
+                  <div class="login-avatar">
+                      <i class="fas fa-user"></i>
+                  </div>
+                  <h3>Member Login</h3>
+                  <p>Access your dashboard</p>
+              </div>
+              <form class="login-form">
+                  <div class="floating-input-group">
+                      <input type="email" required>
+                      <label>Email Address</label>
+                      <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="floating-input-group">
+                      <input type="password" required>
+                      <label>Password</label>
+                      <i class="fas fa-lock"></i>
+                  </div>
+                  <div class="form-options">
+                      <label class="checkbox-switch">
+                          <input type="checkbox">
+                          <span class="switch-slider"></span>
+                          <span class="switch-text">Remember me</span>
+                      </label>
+                  </div>
+                  <button type="submit" class="form-btn gradient-btn">
+                      <span class="btn-text">Login to Account</span>
+                      <i class="fas fa-arrow-right"></i>
+                  </button>
+                  <p class="form-footer">
+                      Don't have an account? 
+                      <a href="#" class="signup-link">Sign up now</a>
+                  </p>
+              </form>
+          </div>
+      </div>
+  </div>
+  <div class="template-info">
+      <h3>Dark Gradient Login</h3>
+      <p>Elegant dark theme with floating labels</p>
+      <div class="template-actions">
+          <button class="btn code-btn" data-template="login8">Get Code</button>
+      </div>
+  </div>
+</div>
+
+<!-- Template 9 - Split Screen Login -->
+<div class="template-card" data-category="login">
+  <div class="template-preview">
+      <div class="live-preview-mini">
+          <div class="split-container">
+              <div class="split-left">
+                  <div class="brand-logo">
+                      <i class="fas fa-shield-alt"></i>
+                      <span>SecureAuth</span>
+                  </div>
+                  <form class="split-login-form">
+                      <h3>Secure Login</h3>
+                      <div class="input-group">
+                          <i class="fas fa-user"></i>
+                          <input type="text" placeholder="Username" required>
+                      </div>
+                      <div class="input-group">
+                          <i class="fas fa-key"></i>
+                          <input type="password" placeholder="Password" required>
+                      </div>
+                      <button type="submit" class="form-btn security-btn">
+                          <i class="fas fa-fingerprint"></i> Verify & Login
+                      </button>
+                  </form>
+              </div>
+              <div class="split-right">
+                  <div class="security-info">
+                      <i class="fas fa-lock"></i>
+                      <h4>Secure Access</h4>
+                      <p>Your data is protected with 256-bit encryption</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="template-info">
+      <h3>Split Screen Login</h3>
+      <p>Two-panel design with security features</p>
+      <div class="template-actions">
+          <button class="btn code-btn" data-template="login9">Get Code</button>
+      </div>
+  </div>
+</div>
+
+<!-- Template 10 - Minimal Login -->
+<div class="template-card" data-category="login modern">
+  <div class="template-preview">
+      <div class="live-preview-mini">
+          <div class="form-container minimal-form">
+              <div class="form-header">
+                  <h3>Welcome</h3>
+                  <p>Sign in with your credentials</p>
+              </div>
+              <form class="minimal-login-form">
+                  <div class="input-line">
+                      <input type="email" placeholder="Email" required>
+                      <div class="line"></div>
+                  </div>
+                  <div class="input-line">
+                      <input type="password" placeholder="Password" required>
+                      <div class="line"></div>
+                  </div>
+                  <button type="submit" class="form-btn minimal-btn">
+                      Continue
+                      <i class="fas fa-arrow-right"></i>
+                  </button>
+                  <div class="form-divider">
+                      <span>OR</span>
+                  </div>
+                  <button type="button" class="social-btn-minimal google-minimal">
+                      <i class="fab fa-google"></i>
+                      Continue with Google
+                  </button>
+                  <button type="button" class="social-btn-minimal apple-minimal">
+                      <i class="fab fa-apple"></i>
+                      Continue with Apple
+                  </button>
+              </form>
+              <div class="form-footer-minimal">
+                  <p>New here? <a href="#" class="link">Create account</a></p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="template-info">
+      <h3>Minimal Login</h3>
+      <p>Clean, minimal design with social options</p>
+      <div class="template-actions">
+          <button class="btn code-btn" data-template="login10">Get Code</button>
+      </div>
+  </div>
+</div>
+
+<!-- Template 11 - Animated Login -->
+<div class="template-card" data-category="login modern">
+  <div class="template-preview">
+      <div class="live-preview-mini">
+          <div class="form-container animated-form">
+              <div class="form-header animated-header">
+                  <div class="animated-logo">
+                      <i class="fas fa-rocket"></i>
+                  </div>
+                  <h3>Let's Get Started</h3>
+                  <p>Login to continue your journey</p>
+              </div>
+              <form class="animated-login-form">
+                  <div class="animated-input-group">
+                      <div class="input-icon-animated">
+                          <i class="fas fa-at"></i>
+                      </div>
+                      <input type="email" placeholder="Your email address" required>
+                      <div class="focus-border"></div>
+                  </div>
+                  <div class="animated-input-group">
+                      <div class="input-icon-animated">
+                          <i class="fas fa-lock"></i>
+                      </div>
+                      <input type="password" placeholder="Your password" required>
+                      <div class="focus-border"></div>
+                  </div>
+                  <div class="animated-options">
+                      <div class="remember-animated">
+                          <input type="checkbox" id="remember-animated">
+                          <label for="remember-animated">
+                              <span class="checkbox-animated"></span>
+                              Keep me signed in
+                          </label>
+                      </div>
+                      <a href="#" class="animated-forgot">Forgot password?</a>
+                  </div>
+                  <button type="submit" class="form-btn animated-btn">
+                      <span class="btn-text">Sign In</span>
+                      <span class="btn-icon">
+                          <i class="fas fa-arrow-right"></i>
+                      </span>
+                      <span class="btn-loader"></span>
+                  </button>
+                  <div class="animated-footer">
+                      <p>Not a member? <a href="#" class="animated-link">Join now</a></p>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+  <div class="template-info">
+      <h3>Animated Login</h3>
+      <p>Interactive form with smooth animations</p>
+      <div class="template-actions">
+          <button class="btn code-btn" data-template="login11">Get Code</button>
+      </div>
+  </div>
+</div>
+
+          
+          
+          
+
+
+
+
+
+
         </div>
       </div>
     </section>
 
-    <!-- Code Modal -->
+    <!-- Code Modal (Same as checkbox page) -->
     <div class="modal" id="codeModal">
       <div class="modal-content">
         <div class="modal-header">
@@ -321,7 +1126,7 @@
               <li><a href="index.html">Home</a></li>
               <li><a href="nav-templates.html">Navigation Templates</a></li>
               <li><a href="footer-templates.html">Footer Templates</a></li>
-              <li><a href="table-templates.html">Table Templates</a></li>
+              <li><a href="form-templates.html">Form Templates</a></li>
               <li><a href="#about">About Us</a></li>
             </ul>
           </div>
