@@ -784,614 +784,1192 @@
               </div>
             </div>
           </div>
-          <!-- ====================================
-   NEW LOGIN FORM TEMPLATES
-   ==================================== -->
-
-<!-- Template 7 - Glassmorphism Login -->
-<div class="template-card" data-category="login modern">
+         <!-- Template 7 - Feedback Form -->
+<div class="template-card" data-category="feedback modern">
   <div class="template-preview">
-      <div class="live-preview-mini">
-          <div class="form-container glassmorphism-form">
-              <div class="form-header">
-                  <div class="login-logo">
-                      <i class="fas fa-user-circle"></i>
-                  </div>
-                  <h3>Welcome Back</h3>
-                  <p>Sign in to your account</p>
-              </div>
-              <form class="login-form">
-                  <div class="input-group">
-                      <i class="fas fa-envelope"></i>
-                      <input type="email" placeholder="Email Address" required>
-                  </div>
-                  <div class="input-group">
-                      <i class="fas fa-lock"></i>
-                      <input type="password" placeholder="Password" required>
-                      <span class="password-toggle">
-                          <i class="fas fa-eye"></i>
-                      </span>
-                  </div>
-                  <div class="form-options">
-                      <label class="checkbox-small">
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          Remember me
-                      </label>
-                      <a href="#" class="forgot-link">Forgot Password?</a>
-                  </div>
-                  <button type="submit" class="form-btn glass-btn">
-                      <i class="fas fa-sign-in-alt"></i> Sign In
-                  </button>
-                  <div class="divider">
-                      <span>or continue with</span>
-                  </div>
-                  <div class="social-login-grid">
-                      <button type="button" class="social-btn google-btn">
-                          <i class="fab fa-google"></i>
-                      </button>
-                      <button type="button" class="social-btn facebook-btn">
-                          <i class="fab fa-facebook-f"></i>
-                      </button>
-                      <button type="button" class="social-btn twitter-btn">
-                          <i class="fab fa-twitter"></i>
-                      </button>
-                  </div>
-              </form>
+    <div class="live-preview-mini">
+      <div class="form-container feedback-bg">
+        <div class="form-header">
+          <h3>Share Feedback</h3>
+          <p>Help us improve our service</p>
+        </div>
+        <form class="feedback-form">
+          <div class="input-group">
+            <i class="fas fa-star"></i>
+            <div class="rating-stars">
+              <span class="star" data-rating="1">★</span>
+              <span class="star" data-rating="2">★</span>
+              <span class="star" data-rating="3">★</span>
+              <span class="star" data-rating="4">★</span>
+              <span class="star active" data-rating="5">★</span>
+            </div>
           </div>
+          <div class="input-group">
+            <input type="text" placeholder="Title of your feedback" required>
+          </div>
+          <div class="input-group">
+            <textarea placeholder="Tell us about your experience..." rows="3" required></textarea>
+            <div class="char-count">0/300</div>
+          </div>
+          <div class="form-group">
+            <label class="radio-group-label">
+              How likely are you to recommend us?
+            </label>
+            <div class="likert-scale">
+              <label class="likert-option">
+                <input type="radio" name="recommend" value="1">
+                <span>1</span>
+              </label>
+              <label class="likert-option">
+                <input type="radio" name="recommend" value="2">
+                <span>2</span>
+              </label>
+              <label class="likert-option">
+                <input type="radio" name="recommend" value="3" checked>
+                <span>3</span>
+              </label>
+              <label class="likert-option">
+                <input type="radio" name="recommend" value="4">
+                <span>4</span>
+              </label>
+              <label class="likert-option">
+                <input type="radio" name="recommend" value="5">
+                <span>5</span>
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="form-btn feedback-btn">
+            <i class="fas fa-paper-plane"></i> Submit Feedback
+          </button>
+        </form>
       </div>
+    </div>
   </div>
   <div class="template-info">
-      <h3>Glassmorphism Login</h3>
-      <p>Modern glass effect login with social buttons</p>
-      <div class="template-actions">
-          <button class="btn code-btn" data-template="login7">Get Code</button>
-      </div>
+    <h3>Feedback Form</h3>
+    <p>Collect user feedback with star ratings and Likert scales.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form7">Get Code</button>
+    </div>
   </div>
 </div>
 
-<!-- Template 8 - Dark Gradient Login -->
+<!-- Template 8 - Survey Form -->
+<div class="template-card" data-category="survey modern">
+  <div class="template-preview">
+    <div class="live-preview-mini">
+      <div class="form-container survey-bg">
+        <div class="form-header">
+          <h3>Quick Survey</h3>
+          <p>Your opinion matters to us</p>
+        </div>
+        <form class="survey-form">
+          <div class="form-group">
+            <label class="survey-question">
+              How often do you use our service?
+            </label>
+            <div class="survey-options">
+              <label class="survey-option">
+                <input type="radio" name="frequency" value="daily">
+                <span class="option-checkmark"></span>
+                <span class="option-text">Daily</span>
+              </label>
+              <label class="survey-option">
+                <input type="radio" name="frequency" value="weekly" checked>
+                <span class="option-checkmark"></span>
+                <span class="option-text">Weekly</span>
+              </label>
+              <label class="survey-option">
+                <input type="radio" name="frequency" value="monthly">
+                <span class="option-checkmark"></span>
+                <span class="option-text">Monthly</span>
+              </label>
+              <label class="survey-option">
+                <input type="radio" name="frequency" value="rarely">
+                <span class="option-checkmark"></span>
+                <span class="option-text">Rarely</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="survey-question">
+              What features do you like? (Select all)
+            </label>
+            <div class="survey-checkboxes">
+              <label class="survey-checkbox">
+                <input type="checkbox" checked>
+                <span class="checkbox-checkmark"></span>
+                <span class="checkbox-text">Easy to use</span>
+              </label>
+              <label class="survey-checkbox">
+                <input type="checkbox">
+                <span class="checkbox-checkmark"></span>
+                <span class="checkbox-text">Fast performance</span>
+              </label>
+              <label class="survey-checkbox">
+                <input type="checkbox" checked>
+                <span class="checkbox-checkmark"></span>
+                <span class="checkbox-text">Good design</span>
+              </label>
+              <label class="survey-checkbox">
+                <input type="checkbox">
+                <span class="checkbox-checkmark"></span>
+                <span class="checkbox-text">Customer support</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="survey-question">
+              How satisfied are you overall?
+            </label>
+            <div class="satisfaction-scale">
+              <div class="scale-labels">
+                <span>Very Dissatisfied</span>
+                <span>Very Satisfied</span>
+              </div>
+              <input type="range" min="1" max="10" value="7" class="satisfaction-slider">
+              <div class="scale-ticks">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+              </div>
+            </div>
+          </div>
+          
+          <button type="submit" class="form-btn survey-btn">
+            <i class="fas fa-chart-bar"></i> Submit Survey
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="template-info">
+    <h3>Survey Form</h3>
+    <p>Interactive survey with multiple choice and range sliders.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form8">Get Code</button>
+    </div>
+  </div>
+</div>
+
+<!-- Template 9 - Booking Form -->
+<div class="template-card" data-category="booking modern">
+  <div class="template-preview">
+    <div class="live-preview-mini">
+      <div class="form-container booking-bg">
+        <div class="form-header">
+          <h3>Book Appointment</h3>
+          <p>Schedule your next visit</p>
+        </div>
+        <form class="booking-form">
+          <div class="input-row">
+            <div class="input-group">
+              <i class="fas fa-calendar"></i>
+              <input type="date" required>
+            </div>
+            <div class="input-group">
+              <i class="fas fa-clock"></i>
+              <select class="form-select">
+                <option value="">Select Time</option>
+                <option value="09:00">09:00 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="14:00">02:00 PM</option>
+                <option value="15:00">03:00 PM</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <select class="form-select">
+              <option value="">Select Service</option>
+              <option value="consultation">Consultation</option>
+              <option value="repair">Repair</option>
+              <option value="maintenance">Maintenance</option>
+              <option value="installation">Installation</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <i class="fas fa-users"></i>
+            <select class="form-select">
+              <option value="">Number of People</option>
+              <option value="1">1 Person</option>
+              <option value="2">2 People</option>
+              <option value="3">3 People</option>
+              <option value="4">4 People</option>
+              <option value="5">5+ People</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <i class="fas fa-phone"></i>
+            <input type="tel" placeholder="Phone Number" required>
+          </div>
+          
+          <div class="input-group">
+            <textarea placeholder="Additional notes (optional)" rows="2"></textarea>
+          </div>
+          
+          <div class="booking-summary">
+            <div class="summary-item">
+              <span>Date:</span>
+              <span class="summary-value">Not selected</span>
+            </div>
+            <div class="summary-item">
+              <span>Duration:</span>
+              <span class="summary-value">60 minutes</span>
+            </div>
+            <div class="summary-item">
+              <span>Estimated Cost:</span>
+              <span class="summary-price">$99</span>
+            </div>
+          </div>
+          
+          <button type="submit" class="form-btn booking-btn">
+            <i class="fas fa-calendar-check"></i> Book Now
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="template-info">
+    <h3>Booking Form</h3>
+    <p>Appointment booking with date/time selection and service options.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form9">Get Code</button>
+    </div>
+  </div>
+</div>
+
+<!-- Template 10 - Job Application Form -->
+<div class="template-card" data-category="job modern">
+  <div class="template-preview">
+    <div class="live-preview-mini">
+      <div class="form-container job-bg">
+        <div class="form-header">
+          <h3>Job Application</h3>
+          <p>Apply for your dream position</p>
+        </div>
+        <form class="job-form">
+          <div class="input-row">
+            <div class="input-group">
+              <input type="text" placeholder="First Name" required>
+            </div>
+            <div class="input-group">
+              <input type="text" placeholder="Last Name" required>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <input type="email" placeholder="Email Address" required>
+          </div>
+          
+          <div class="input-group">
+            <input type="tel" placeholder="Phone Number" required>
+          </div>
+          
+          <div class="input-group">
+            <input type="text" placeholder="Position applying for" required>
+          </div>
+          
+          <div class="input-row">
+            <div class="input-group">
+              <select class="form-select">
+                <option value="">Experience Level</option>
+                <option value="entry">Entry Level</option>
+                <option value="mid">Mid Level</option>
+                <option value="senior">Senior Level</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <select class="form-select">
+                <option value="">Employment Type</option>
+                <option value="full">Full Time</option>
+                <option value="part">Part Time</option>
+                <option value="contract">Contract</option>
+                <option value="remote">Remote</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="upload-label">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <span>Upload Resume (PDF, DOC)</span>
+              <input type="file" accept=".pdf,.doc,.docx" class="file-input">
+              <div class="upload-progress">
+                <div class="progress-bar"></div>
+              </div>
+            </label>
+          </div>
+          
+          <div class="form-group">
+            <label class="upload-label">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <span>Upload Cover Letter (Optional)</span>
+              <input type="file" accept=".pdf,.doc,.docx" class="file-input">
+            </label>
+          </div>
+          
+          <div class="input-group">
+            <textarea placeholder="Additional comments or portfolio links..." rows="2"></textarea>
+          </div>
+          
+          <button type="submit" class="form-btn job-btn">
+            <i class="fas fa-briefcase"></i> Submit Application
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="template-info">
+    <h3>Job Application Form</h3>
+    <p>Professional job application with file uploads and employment details.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form10">Get Code</button>
+    </div>
+  </div>
+</div>
+
+<!-- Template 11 - Order Form -->
+<div class="template-card" data-category="order modern">
+  <div class="template-preview">
+    <div class="live-preview-mini">
+      <div class="form-container order-bg">
+        <div class="form-header">
+          <h3>Place Order</h3>
+          <p>Complete your purchase</p>
+        </div>
+        <form class="order-form">
+          <div class="cart-items">
+            <div class="cart-item">
+              <span class="item-name">Premium Service</span>
+              <span class="item-price">$99.99</span>
+            </div>
+            <div class="cart-item">
+              <span class="item-name">Add-on Feature</span>
+              <span class="item-price">$29.99</span>
+            </div>
+            <div class="cart-divider"></div>
+            <div class="cart-total">
+              <span>Total:</span>
+              <span class="total-price">$129.98</span>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <i class="fas fa-tag"></i>
+            <input type="text" placeholder="Discount Code (Optional)">
+            <button type="button" class="apply-discount-btn">Apply</button>
+          </div>
+          
+          <div class="form-group">
+            <label class="radio-group-label">
+              Shipping Method
+            </label>
+            <div class="shipping-options">
+              <label class="shipping-option">
+                <input type="radio" name="shipping" value="standard" checked>
+                <span class="shipping-checkmark"></span>
+                <div class="shipping-content">
+                  <span class="shipping-name">Standard Shipping</span>
+                  <span class="shipping-time">5-7 business days</span>
+                  <span class="shipping-price">Free</span>
+                </div>
+              </label>
+              <label class="shipping-option">
+                <input type="radio" name="shipping" value="express">
+                <span class="shipping-checkmark"></span>
+                <div class="shipping-content">
+                  <span class="shipping-name">Express Shipping</span>
+                  <span class="shipping-time">2-3 business days</span>
+                  <span class="shipping-price">$9.99</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="radio-group-label">
+              Payment Method
+            </label>
+            <div class="payment-methods">
+              <label class="payment-method">
+                <input type="radio" name="payment" value="credit" checked>
+                <span class="payment-checkmark"></span>
+                <i class="fab fa-cc-visa"></i>
+                <span>Credit Card</span>
+              </label>
+              <label class="payment-method">
+                <input type="radio" name="payment" value="paypal">
+                <span class="payment-checkmark"></span>
+                <i class="fab fa-paypal"></i>
+                <span>PayPal</span>
+              </label>
+              <label class="payment-method">
+                <input type="radio" name="payment" value="applepay">
+                <span class="payment-checkmark"></span>
+                <i class="fab fa-apple"></i>
+                <span>Apple Pay</span>
+              </label>
+            </div>
+          </div>
+          
+          <button type="submit" class="form-btn order-btn">
+            <i class="fas fa-shopping-cart"></i> Complete Order
+          </button>
+          
+          <p class="secure-note">
+            <i class="fas fa-lock"></i> Secure checkout with 256-bit encryption
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="template-info">
+    <h3>Order Form</h3>
+    <p>E-commerce order form with cart summary and multiple payment options.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form11">Get Code</button>
+    </div>
+  </div>
+</div>
+
+<!-- Template 12 - Event Registration Form -->
+<div class="template-card" data-category="event modern">
+  <div class="template-preview">
+    <div class="live-preview-mini">
+      <div class="form-container event-bg">
+        <div class="form-header">
+          <h3>Event Registration</h3>
+          <p>Join our exclusive event</p>
+        </div>
+        <form class="event-form">
+          <div class="event-details">
+            <div class="event-info">
+              <i class="fas fa-calendar-alt"></i>
+              <div>
+                <span class="event-date">December 15, 2024</span>
+                <span class="event-time">2:00 PM - 6:00 PM</span>
+              </div>
+            </div>
+            <div class="event-info">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <span class="event-location">Virtual Event</span>
+                <span class="event-platform">Zoom & Live Stream</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="input-row">
+            <div class="input-group">
+              <input type="number" min="1" max="10" value="1" class="guest-count">
+              <label>Number of Guests</label>
+            </div>
+            <div class="input-group">
+              <select class="form-select">
+                <option value="">Ticket Type</option>
+                <option value="general">General Admission - $49</option>
+                <option value="vip">VIP Access - $99</option>
+                <option value="student">Student - $29</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="radio-group-label">
+              Dietary Preferences
+            </label>
+            <div class="diet-options">
+              <label class="diet-option">
+                <input type="checkbox">
+                <span class="diet-checkmark"></span>
+                <span>Vegetarian</span>
+              </label>
+              <label class="diet-option">
+                <input type="checkbox">
+                <span class="diet-checkmark"></span>
+                <span>Vegan</span>
+              </label>
+              <label class="diet-option">
+                <input type="checkbox">
+                <span class="diet-checkmark"></span>
+                <span>Gluten Free</span>
+              </label>
+              <label class="diet-option">
+                <input type="checkbox">
+                <span class="diet-checkmark"></span>
+                <span>No Restrictions</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" checked>
+              <span class="checkmark"></span>
+              I would like to receive event updates via email
+            </label>
+          </div>
+          
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+              I agree to the <a href="#" class="form-link">Terms & Conditions</a>
+            </label>
+          </div>
+          
+          <div class="price-summary">
+            <div class="price-item">
+              <span>Tickets (1 x $49)</span>
+              <span>$49.00</span>
+            </div>
+            <div class="price-item">
+              <span>Service Fee</span>
+              <span>$4.90</span>
+            </div>
+            <div class="price-item total">
+              <span>Total</span>
+              <span>$53.90</span>
+            </div>
+          </div>
+          
+          <button type="submit" class="form-btn event-btn">
+            <i class="fas fa-ticket-alt"></i> Register Now
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="template-info">
+    <h3>Event Registration Form</h3>
+    <p>Complete event registration with ticket selection and dietary preferences.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form12">Get Code</button>
+    </div>
+  </div>
+</div>
+ <!-- Template 13 - Glassmorphism Login -->
+<div class="template-card" data-category="login modern">
+  <div class="template-preview">
+    <div class="live-preview-mini">
+      <div class="form-container glassmorphism-bg">
+        <div class="form-header">
+          <div class="avatar-container">
+            <div class="avatar">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+          <h3>Welcome Back</h3>
+          <p>Sign in to your account</p>
+        </div>
+        <form class="glassmorphism-form">
+          <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email Address" required>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" required>
+            <button type="button" class="password-toggle">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          <div class="form-options">
+            <label class="checkbox-label">
+              <input type="checkbox" checked>
+              <span class="checkbox-checkmark"></span>
+              Remember me
+            </label>
+            <a href="#" class="forgot-link">Forgot Password?</a>
+          </div>
+          <button type="submit" class="form-btn glassmorphism-btn">
+            <i class="fas fa-sign-in-alt"></i>
+            Sign In
+          </button>
+          <div class="form-divider">
+            <span>or continue with</span>
+          </div>
+          <div class="social-login-icons">
+            <button type="button" class="social-icon google">
+              <i class="fab fa-google"></i>
+            </button>
+            <button type="button" class="social-icon facebook">
+              <i class="fab fa-facebook-f"></i>
+            </button>
+            <button type="button" class="social-icon twitter">
+              <i class="fab fa-twitter"></i>
+            </button>
+            <button type="button" class="social-icon github">
+              <i class="fab fa-github"></i>
+            </button>
+          </div>
+        </form>
+        <div class="form-footer">
+          <p>Don't have an account? <a href="#" class="form-link">Sign up</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="template-info">
+    <h3>Glassmorphism Login</h3>
+    <p>Transparent glass effect with blur and vibrant social icons.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form13">Get Code</button>
+    </div>
+  </div>
+</div>
+
+<!-- Template 14 - Gradient Wave Login -->
+<div class="template-card" data-category="login modern">
+  <div class="template-preview">
+    <div class="live-preview-mini">
+      <div class="form-container gradient-wave-bg">
+        <div class="wave-container">
+          <div class="wave wave1"></div>
+          <div class="wave wave2"></div>
+          <div class="wave wave3"></div>
+        </div>
+        <div class="form-header">
+          <div class="logo-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3>Secure Login</h3>
+          <p>Access your secure account</p>
+        </div>
+        <form class="gradient-wave-form">
+          <div class="floating-input-group">
+            <input type="email" id="wave-email" required>
+            <label for="wave-email">
+              <i class="fas fa-envelope"></i>
+              Email Address
+            </label>
+            <div class="underline"></div>
+          </div>
+          <div class="floating-input-group">
+            <input type="password" id="wave-password" required>
+            <label for="wave-password">
+              <i class="fas fa-lock"></i>
+              Password
+            </label>
+            <div class="underline"></div>
+            <button type="button" class="password-toggle">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          <div class="form-options">
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+              <span class="switch-label">Remember me</span>
+            </label>
+            <a href="#" class="forgot-link">
+              <i class="fas fa-key"></i>
+              Forgot?
+            </a>
+          </div>
+          <button type="submit" class="form-btn gradient-wave-btn">
+            <span class="btn-text">Sign In</span>
+            <div class="btn-wave"></div>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+          <div class="security-info">
+            <i class="fas fa-shield-alt"></i>
+            <span>Protected by 256-bit SSL encryption</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="template-info">
+    <h3>Gradient Wave Login</h3>
+    <p>Animated waves with floating labels and security features.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form14">Get Code</button>
+    </div>
+  </div>
+</div>
+
+<!-- Template 15 - Neon Glow Login -->
 <div class="template-card" data-category="login modern">
   <div class="template-preview dark-bg">
-      <div class="live-preview-mini">
-          <div class="form-container dark-gradient-form">
-              <div class="form-header">
-                  <div class="login-avatar">
-                      <i class="fas fa-user"></i>
-                  </div>
-                  <h3>Member Login</h3>
-                  <p>Access your dashboard</p>
-              </div>
-              <form class="login-form">
-                  <div class="floating-input-group">
-                      <input type="email" required>
-                      <label>Email Address</label>
-                      <i class="fas fa-envelope"></i>
-                  </div>
-                  <div class="floating-input-group">
-                      <input type="password" required>
-                      <label>Password</label>
-                      <i class="fas fa-lock"></i>
-                  </div>
-                  <div class="form-options">
-                      <label class="checkbox-switch">
-                          <input type="checkbox">
-                          <span class="switch-slider"></span>
-                          <span class="switch-text">Remember me</span>
-                      </label>
-                  </div>
-                  <button type="submit" class="form-btn gradient-btn">
-                      <span class="btn-text">Login to Account</span>
-                      <i class="fas fa-arrow-right"></i>
-                  </button>
-                  <p class="form-footer">
-                      Don't have an account? 
-                      <a href="#" class="signup-link">Sign up now</a>
-                  </p>
-              </form>
+    <div class="live-preview-mini">
+      <div class="form-container neon-glow-bg">
+        <div class="neon-border">
+          <div class="neon-corner tl"></div>
+          <div class="neon-corner tr"></div>
+          <div class="neon-corner bl"></div>
+          <div class="neon-corner br"></div>
+        </div>
+        <div class="form-header">
+          <h3 class="neon-text">
+            <span class="neon-letter">L</span>
+            <span class="neon-letter">O</span>
+            <span class="neon-letter">G</span>
+            <span class="neon-letter">I</span>
+            <span class="neon-letter">N</span>
+          </h3>
+          <p class="neon-subtext">Enter the portal</p>
+        </div>
+        <form class="neon-glow-form">
+          <div class="neon-input-group">
+            <i class="fas fa-user-astronaut"></i>
+            <input type="text" placeholder="Username" required class="neon-input">
+            <div class="neon-glow"></div>
           </div>
+          <div class="neon-input-group">
+            <i class="fas fa-key"></i>
+            <input type="password" placeholder="Password" required class="neon-input">
+            <div class="neon-glow"></div>
+            <button type="button" class="password-toggle neon-toggle">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          <div class="form-options">
+            <label class="neon-checkbox">
+              <input type="checkbox">
+              <span class="neon-checkmark">
+                <i class="fas fa-check"></i>
+              </span>
+              <span class="neon-label">Stay logged in</span>
+            </label>
+            <a href="#" class="neon-link">
+              <i class="fas fa-question-circle"></i>
+              Need help?
+            </a>
+          </div>
+          <button type="submit" class="form-btn neon-btn">
+            <span class="neon-btn-text">ACCESS</span>
+            <div class="neon-btn-glow"></div>
+            <i class="fas fa-rocket"></i>
+          </button>
+          <div class="neon-divider">
+            <span>OR</span>
+          </div>
+          <div class="neon-social">
+            <button type="button" class="neon-social-btn">
+              <i class="fab fa-discord"></i>
+            </button>
+            <button type="button" class="neon-social-btn">
+              <i class="fab fa-steam"></i>
+            </button>
+            <button type="button" class="neon-social-btn">
+              <i class="fab fa-twitch"></i>
+            </button>
+          </div>
+          <div class="neon-footer">
+            <span class="pulse-dot"></span>
+            <span>Secure connection active</span>
+          </div>
+        </form>
       </div>
+    </div>
   </div>
   <div class="template-info">
-      <h3>Dark Gradient Login</h3>
-      <p>Elegant dark theme with floating labels</p>
-      <div class="template-actions">
-          <button class="btn code-btn" data-template="login8">Get Code</button>
-      </div>
+    <h3>Neon Glow Login</h3>
+    <p>Cyberpunk neon glow effects with animated corners.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form15">Get Code</button>
+    </div>
   </div>
 </div>
 
-<!-- Template 9 - Split Screen Login -->
-<div class="template-card" data-category="login">
-  <div class="template-preview">
-      <div class="live-preview-mini">
-          <div class="split-container">
-              <div class="split-left">
-                  <div class="brand-logo">
-                      <i class="fas fa-shield-alt"></i>
-                      <span>SecureAuth</span>
-                  </div>
-                  <form class="split-login-form">
-                      <h3>Secure Login</h3>
-                      <div class="input-group">
-                          <i class="fas fa-user"></i>
-                          <input type="text" placeholder="Username" required>
-                      </div>
-                      <div class="input-group">
-                          <i class="fas fa-key"></i>
-                          <input type="password" placeholder="Password" required>
-                      </div>
-                      <button type="submit" class="form-btn security-btn">
-                          <i class="fas fa-fingerprint"></i> Verify & Login
-                      </button>
-                  </form>
-              </div>
-              <div class="split-right">
-                  <div class="security-info">
-                      <i class="fas fa-lock"></i>
-                      <h4>Secure Access</h4>
-                      <p>Your data is protected with 256-bit encryption</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="template-info">
-      <h3>Split Screen Login</h3>
-      <p>Two-panel design with security features</p>
-      <div class="template-actions">
-          <button class="btn code-btn" data-template="login9">Get Code</button>
-      </div>
-  </div>
-</div>
-
-<!-- Template 10 - Minimal Login -->
+<!-- Template 16 - 3D Depth Login -->
 <div class="template-card" data-category="login modern">
   <div class="template-preview">
-      <div class="live-preview-mini">
-          <div class="form-container minimal-form">
-              <div class="form-header">
-                  <h3>Welcome</h3>
-                  <p>Sign in with your credentials</p>
+    <div class="live-preview-mini">
+      <div class="form-container depth-3d-bg">
+        <div class="depth-card">
+          <div class="depth-shadow"></div>
+          <div class="depth-content">
+            <div class="form-header">
+              <div class="depth-logo">
+                <div class="depth-icon">
+                  <i class="fas fa-cube"></i>
+                </div>
+                <h3>CubeSpace</h3>
               </div>
-              <form class="minimal-login-form">
-                  <div class="input-line">
-                      <input type="email" placeholder="Email" required>
-                      <div class="line"></div>
-                  </div>
-                  <div class="input-line">
-                      <input type="password" placeholder="Password" required>
-                      <div class="line"></div>
-                  </div>
-                  <button type="submit" class="form-btn minimal-btn">
-                      Continue
-                      <i class="fas fa-arrow-right"></i>
-                  </button>
-                  <div class="form-divider">
-                      <span>OR</span>
-                  </div>
-                  <button type="button" class="social-btn-minimal google-minimal">
-                      <i class="fab fa-google"></i>
-                      Continue with Google
-                  </button>
-                  <button type="button" class="social-btn-minimal apple-minimal">
-                      <i class="fab fa-apple"></i>
-                      Continue with Apple
-                  </button>
-              </form>
-              <div class="form-footer-minimal">
-                  <p>New here? <a href="#" class="link">Create account</a></p>
+              <p>Enter your workspace</p>
+            </div>
+            <form class="depth-3d-form">
+              <div class="depth-input-group">
+                <div class="input-wrapper">
+                  <i class="fas fa-user-circle"></i>
+                  <input type="email" placeholder=" " required>
+                  <label>Email Address</label>
+                  <div class="input-depth"></div>
+                </div>
               </div>
+              <div class="depth-input-group">
+                <div class="input-wrapper">
+                  <i class="fas fa-fingerprint"></i>
+                  <input type="password" placeholder=" " required>
+                  <label>Password</label>
+                  <div class="input-depth"></div>
+                  <button type="button" class="password-toggle">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="depth-checkbox-group">
+                <label class="depth-checkbox">
+                  <input type="checkbox" checked>
+                  <div class="checkbox-3d">
+                    <div class="checkbox-front">
+                      <i class="fas fa-check"></i>
+                    </div>
+                    <div class="checkbox-back"></div>
+                  </div>
+                  <span>Keep me signed in</span>
+                </label>
+                <a href="#" class="depth-link">
+                  <i class="fas fa-lock"></i>
+                  Reset password
+                </a>
+              </div>
+              <button type="submit" class="form-btn depth-btn">
+                <span>Enter Workspace</span>
+                <div class="btn-3d-effect"></div>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+              <div class="depth-divider">
+                <div class="divider-line"></div>
+                <span>New here?</span>
+                <div class="divider-line"></div>
+              </div>
+              <button type="button" class="depth-alt-btn">
+                <i class="fas fa-user-plus"></i>
+                Create Account
+              </button>
+            </form>
           </div>
+        </div>
       </div>
+    </div>
   </div>
   <div class="template-info">
-      <h3>Minimal Login</h3>
-      <p>Clean, minimal design with social options</p>
-      <div class="template-actions">
-          <button class="btn code-btn" data-template="login10">Get Code</button>
-      </div>
+    <h3>3D Depth Login</h3>
+    <p>Realistic 3D depth effects with shadows and perspective.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form16">Get Code</button>
+    </div>
   </div>
 </div>
-
-<!-- Template 11 - Animated Login -->
-<div class="template-card" data-category="login modern">
+<!-- Template 17 - Minimal Signup -->
+<div class="template-card" data-category="signup modern">
   <div class="template-preview">
-      <div class="live-preview-mini">
-          <div class="form-container animated-form">
-              <div class="form-header animated-header">
-                  <div class="animated-logo">
-                      <i class="fas fa-rocket"></i>
-                  </div>
-                  <h3>Let's Get Started</h3>
-                  <p>Login to continue your journey</p>
-              </div>
-              <form class="animated-login-form">
-                  <div class="animated-input-group">
-                      <div class="input-icon-animated">
-                          <i class="fas fa-at"></i>
-                      </div>
-                      <input type="email" placeholder="Your email address" required>
-                      <div class="focus-border"></div>
-                  </div>
-                  <div class="animated-input-group">
-                      <div class="input-icon-animated">
-                          <i class="fas fa-lock"></i>
-                      </div>
-                      <input type="password" placeholder="Your password" required>
-                      <div class="focus-border"></div>
-                  </div>
-                  <div class="animated-options">
-                      <div class="remember-animated">
-                          <input type="checkbox" id="remember-animated">
-                          <label for="remember-animated">
-                              <span class="checkbox-animated"></span>
-                              Keep me signed in
-                          </label>
-                      </div>
-                      <a href="#" class="animated-forgot">Forgot password?</a>
-                  </div>
-                  <button type="submit" class="form-btn animated-btn">
-                      <span class="btn-text">Sign In</span>
-                      <span class="btn-icon">
-                          <i class="fas fa-arrow-right"></i>
-                      </span>
-                      <span class="btn-loader"></span>
-                  </button>
-                  <div class="animated-footer">
-                      <p>Not a member? <a href="#" class="animated-link">Join now</a></p>
-                  </div>
-              </form>
+    <div class="live-preview-mini">
+      <div class="form-container minimal-signup-bg">
+        <div class="form-header">
+          <div class="logo-minimal">
+            <i class="fas fa-user-plus"></i>
           </div>
+          <h3>Create Account</h3>
+          <p>Join us in seconds</p>
+        </div>
+        <form class="minimal-signup-form">
+          <div class="input-group">
+            <input type="text" placeholder="Username" required>
+          </div>
+          <div class="input-group">
+            <input type="email" placeholder="Email" required>
+          </div>
+          <div class="input-group">
+            <input type="password" placeholder="Password" required>
+          </div>
+          <div class="privacy-notice">
+            By signing up, you agree to our <a href="#">Terms</a> & <a href="#">Privacy</a>
+          </div>
+          <button type="submit" class="form-btn minimal-signup-btn">
+            Create Account
+          </button>
+          <div class="auth-links">
+            <span>Already have an account? <a href="#">Sign in</a></span>
+          </div>
+        </form>
       </div>
+    </div>
   </div>
   <div class="template-info">
-      <h3>Animated Login</h3>
-      <p>Interactive form with smooth animations</p>
-      <div class="template-actions">
-          <button class="btn code-btn" data-template="login11">Get Code</button>
-      </div>
+    <h3>Minimal Signup</h3>
+    <p>Clean, minimal design with focus on essentials.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form17">Get Code</button>
+    </div>
   </div>
 </div>
-<!-- ====================================
-   CONTACT FORM TEMPLATES (12-16)
-   ==================================== -->
 
-<!-- Template 12 - Modern Contact Form -->
-<div class="template-card" data-category="contact modern">
+<!-- Template 18 - Social Signup -->
+<div class="template-card" data-category="signup modern">
   <div class="template-preview">
-      <div class="live-preview-mini">
-          <div class="form-container" style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe);">
-              <div class="form-header">
-                  <div class="contact-header-icon">
-                      <i class="fas fa-headset"></i>
-                  </div>
-                  <h3>Contact Support</h3>
-                  <p>Get in touch with our team</p>
-              </div>
-              <form class="contact-form-12">
-                  <div class="input-group">
-                      <i class="fas fa-user"></i>
-                      <input type="text" placeholder="Full Name" required>
-                  </div>
-                  <div class="input-group">
-                      <i class="fas fa-envelope"></i>
-                      <input type="email" placeholder="Email Address" required>
-                  </div>
-                  <div class="input-group">
-                      <i class="fas fa-phone"></i>
-                      <input type="tel" placeholder="Phone Number">
-                  </div>
-                  <div class="input-group">
-                      <i class="fas fa-tag"></i>
-                      <select class="form-select">
-                          <option value="">Select Department</option>
-                          <option value="sales">Sales</option>
-                          <option value="support">Support</option>
-                          <option value="billing">Billing</option>
-                          <option value="technical">Technical</option>
-                      </select>
-                  </div>
-                  <div class="input-group">
-                      <i class="fas fa-comment-dots"></i>
-                      <textarea placeholder="Your Message" rows="3" required></textarea>
-                  </div>
-                  <div class="form-options">
-                      <label class="checkbox-small">
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                          Urgent Priority
-                      </label>
-                  </div>
-                  <button type="submit" class="form-btn" style="background: linear-gradient(135deg, #0ea5e9, #3b82f6);">
-                      <i class="fas fa-paper-plane"></i> Send Message
-                  </button>
-              </form>
+    <div class="live-preview-mini">
+      <div class="form-container social-signup-bg">
+        <div class="form-header">
+          <h3>Get Started</h3>
+          <p>Choose your signup method</p>
+        </div>
+        <div class="social-buttons">
+          <button type="button" class="social-signup-btn google">
+            <i class="fab fa-google"></i>
+            Continue with Google
+          </button>
+          <button type="button" class="social-signup-btn facebook">
+            <i class="fab fa-facebook"></i>
+            Continue with Facebook
+          </button>
+          <button type="button" class="social-signup-btn twitter">
+            <i class="fab fa-twitter"></i>
+            Continue with Twitter
+          </button>
+          <button type="button" class="social-signup-btn github">
+            <i class="fab fa-github"></i>
+            Continue with GitHub
+          </button>
+        </div>
+        <div class="divider">
+          <span>or sign up with email</span>
+        </div>
+        <form class="social-signup-form">
+          <div class="input-group">
+            <input type="email" placeholder="Email address" required>
           </div>
+          <div class="input-group">
+            <input type="password" placeholder="Create password" required>
+          </div>
+          <button type="submit" class="form-btn social-email-btn">
+            Continue with Email
+          </button>
+        </form>
+        <div class="terms-text">
+          By continuing, you agree to our <a href="#">Terms of Service</a>
+        </div>
       </div>
+    </div>
   </div>
   <div class="template-info">
-      <h3>Contact Form </h3>
-      <p>Modern contact form with department selection and priority</p>
-      <div class="template-actions">
-          <button class="btn code-btn" data-template="form12">Get Code</button>
-      </div>
+    <h3>Social Signup</h3>
+    <p>Multiple social login options with email fallback.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form18">Get Code</button>
+    </div>
   </div>
 </div>
 
-<!-- Template 13 - Minimal Contact Form -->
-<div class="template-card" data-category="contact modern">
+<!-- Template 19 - Step Progress Signup -->
+<div class="template-card" data-category="signup modern">
   <div class="template-preview">
-      <div class="live-preview-mini">
-          <div class="form-container" style="background: white; border: 2px solid #e2e8f0;">
-              <div class="form-header">
-                  <h3 style="color: #1e293b;">Send a Message</h3>
-                  <p style="color: #64748b;">We'll respond within 24 hours</p>
-              </div>
-              <form class="contact-form-13">
-                  <div class="input-row">
-                      <div class="input-group">
-                          <input type="text" placeholder="First Name" required style="border: 1px solid #cbd5e1;">
-                      </div>
-                      <div class="input-group">
-                          <input type="text" placeholder="Last Name" required style="border: 1px solid #cbd5e1;">
-                      </div>
-                  </div>
-                  <div class="input-group">
-                      <input type="email" placeholder="Work Email" required style="border: 1px solid #cbd5e1;">
-                  </div>
-                  <div class="input-group">
-                      <input type="text" placeholder="Company Name" style="border: 1px solid #cbd5e1;">
-                  </div>
-                  <div class="input-group">
-                      <textarea placeholder="Project Details" rows="3" required style="border: 1px solid #cbd5e1;"></textarea>
-                  </div>
-                  <div class="budget-group">
-                      <label>Project Budget</label>
-                      <div class="budget-options">
-                          <label class="radio-label-small">
-                              <input type="radio" name="budget">
-                              <span class="radio-checkmark-small"></span>
-                              <span class="radio-text">$1k - $5k</span>
-                          </label>
-                          <label class="radio-label-small">
-                              <input type="radio" name="budget">
-                              <span class="radio-checkmark-small"></span>
-                              <span class="radio-text">$5k - $10k</span>
-                          </label>
-                          <label class="radio-label-small">
-                              <input type="radio" name="budget">
-                              <span class="radio-checkmark-small"></span>
-                              <span class="radio-text">$10k+</span>
-                          </label>
-                      </div>
-                  </div>
-                  <button type="submit" class="form-btn" style="background: #1e293b; color: white;">
-                      <i class="fas fa-rocket"></i> Submit Inquiry
-                  </button>
-              </form>
+    <div class="live-preview-mini">
+      <div class="form-container step-signup-bg">
+        <div class="step-progress">
+          <div class="step active" data-step="1">
+            <div class="step-number">1</div>
+            <div class="step-label">Account</div>
           </div>
+          <div class="step" data-step="2">
+            <div class="step-number">2</div>
+            <div class="step-label">Profile</div>
+          </div>
+          <div class="step" data-step="3">
+            <div class="step-number">3</div>
+            <div class="step-label">Complete</div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 33%"></div>
+          </div>
+        </div>
+        <form class="step-signup-form">
+          <!-- Step 1 -->
+          <div class="form-step active" data-step="1">
+            <div class="form-header">
+              <h3>Create Account</h3>
+              <p>Step 1: Basic information</p>
+            </div>
+            <div class="input-group">
+              <input type="text" placeholder="Full name" required>
+            </div>
+            <div class="input-group">
+              <input type="email" placeholder="Email address" required>
+            </div>
+            <div class="input-group">
+              <input type="password" placeholder="Password" required>
+            </div>
+            <button type="button" class="form-btn next-step-btn">
+              Next Step
+            </button>
+          </div>
+          
+          <!-- Step 2 -->
+          <div class="form-step" data-step="2">
+            <div class="form-header">
+              <h3>Profile Details</h3>
+              <p>Step 2: Tell us about yourself</p>
+            </div>
+            <div class="input-group">
+              <input type="text" placeholder="Company (Optional)">
+            </div>
+            <div class="input-group">
+              <select class="form-select">
+                <option value="">Job Role</option>
+                <option value="developer">Developer</option>
+                <option value="designer">Designer</option>
+                <option value="manager">Manager</option>
+                <option value="student">Student</option>
+              </select>
+            </div>
+            <div class="button-group">
+              <button type="button" class="form-btn prev-step-btn">
+                Back
+              </button>
+              <button type="submit" class="form-btn complete-btn">
+                Complete
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
+    </div>
   </div>
   <div class="template-info">
-      <h3>Contact Form </h3>
-      <p>Minimal business contact form with budget selection</p>
-      <div class="template-actions">
-          <button class="btn code-btn" data-template="form13">Get Code</button>
-      </div>
+    <h3>Step Progress Signup</h3>
+    <p>Multi-step signup with progress indicator.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form19">Get Code</button>
+    </div>
   </div>
 </div>
 
-<!-- Template 14 - Gradient Contact Form -->
-<div class="template-card" data-category="contact modern">
-  <div class="template-preview">
-      <div class="live-preview-mini">
-          <div class="form-container" style="background: linear-gradient(135deg, #7c3aed, #ec4899); color: white;">
-              <div class="form-header">
-                  <div class="gradient-icon">
-                      <i class="fas fa-comments"></i>
-                  </div>
-                  <h3>Let's Talk</h3>
-                  <p>Start a conversation with us</p>
-              </div>
-              <form class="contact-form-14">
-                  <div class="input-group">
-                      <i class="fas fa-user" style="color: rgba(255,255,255,0.8);"></i>
-                      <input type="text" placeholder="Your Name" required style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: white;">
-                  </div>
-                  <div class="input-row">
-                      <div class="input-group">
-                          <input type="email" placeholder="Email" required style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: white;">
-                      </div>
-                      <div class="input-group">
-                          <input type="tel" placeholder="Phone" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: white;">
-                      </div>
-                  </div>
-                  <div class="input-group">
-                      <i class="fas fa-building" style="color: rgba(255,255,255,0.8);"></i>
-                      <select class="form-select" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: white;">
-                          <option value="">Company Size</option>
-                          <option value="1-10">1-10 employees</option>
-                          <option value="11-50">11-50 employees</option>
-                          <option value="51-200">51-200 employees</option>
-                          <option value="201+">201+ employees</option>
-                      </select>
-                  </div>
-                  <div class="input-group">
-                      <i class="fas fa-edit" style="color: rgba(255,255,255,0.8);"></i>
-                      <textarea placeholder="How can we help you?" rows="3" required style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: white;"></textarea>
-                  </div>
-                  <div class="attachment-group">
-                      <label class="attachment-label">
-                          <i class="fas fa-paperclip"></i>
-                          <span>Attach File (Optional)</span>
-                          <input type="file" hidden>
-                      </label>
-                  </div>
-                  <button type="submit" class="form-btn" style="background: white; color: #7c3aed;">
-                      <i class="fas fa-paper-plane"></i> Send Message
-                  </button>
-              </form>
-          </div>
-      </div>
-  </div>
-  <div class="template-info">
-      <h3>Contact Form </h3>
-      <p>Gradient contact form with file attachment</p>
-      <div class="template-actions">
-          <button class="btn code-btn" data-template="form14">Get Code</button>
-      </div>
-  </div>
-</div>
-
-<!-- Template 15 - Dark Professional Contact Form -->
-<div class="template-card" data-category="contact modern">
+<!-- Template 20 - Dark Premium Signup -->
+<div class="template-card" data-category="signup">
   <div class="template-preview dark-bg">
-      <div class="live-preview-mini">
-          <div class="form-container" style="background: #0f172a; color: white; border: 1px solid rgba(255,255,255,0.1);">
-              <div class="form-header">
-                  <div class="form-badge" style="background: rgba(59, 130, 246, 0.1); padding: 5px 15px; border-radius: 20px; display: inline-block; margin-bottom: 10px;">
-                      <i class="fas fa-briefcase"></i>
-                      <span style="font-size: 0.7rem; color: #60a5fa;">PROFESSIONAL</span>
-                  </div>
-                  <h3>Business Inquiry</h3>
-                  <p>For corporate partnerships and enterprise</p>
-              </div>
-              <form class="contact-form-15">
-                  <div class="input-group">
-                      <input type="text" placeholder="Company Name" required style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: white;">
-                  </div>
-                  <div class="input-row">
-                      <div class="input-group">
-                          <input type="text" placeholder="Contact Person" required style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: white;">
-                      </div>
-                      <div class="input-group">
-                          <input type="text" placeholder="Job Title" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: white;">
-                      </div>
-                  </div>
-                  <div class="input-group">
-                      <input type="email" placeholder="Corporate Email" required style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: white;">
-                  </div>
-                  <div class="input-group">
-                      <input type="url" placeholder="Website URL" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: white;">
-                  </div>
-                  <div class="input-group">
-                      <select class="form-select" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: white;">
-                          <option value="">Type of Inquiry</option>
-                          <option value="partnership">Partnership</option>
-                          <option value="investment">Investment</option>
-                          <option value="enterprise">Enterprise Solution</option>
-                          <option value="custom">Custom Development</option>
-                      </select>
-                  </div>
-                  <div class="input-group">
-                      <textarea placeholder="Tell us about your project requirements..." rows="3" required style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: white;"></textarea>
-                  </div>
-                  <div class="form-footer" style="text-align: left; font-size: 0.7rem; color: #94a3b8; margin-top: 10px;">
-                      <i class="fas fa-lock"></i> Your information is secure and confidential
-                  </div>
-                  <button type="submit" class="form-btn" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8); margin-top: 15px;">
-                      <i class="fas fa-handshake"></i> Submit Business Inquiry
-                  </button>
-              </form>
+    <div class="live-preview-mini">
+      <div class="form-container premium-signup-bg">
+        <div class="premium-badge">
+          <i class="fas fa-crown"></i>
+          <span>PREMIUM</span>
+        </div>
+        <div class="form-header">
+          <h3>Unlock Premium</h3>
+          <p>Start your 14-day free trial</p>
+        </div>
+        <div class="plan-features">
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>All premium features</span>
           </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Priority support</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>No credit card required</span>
+          </div>
+        </div>
+        <form class="premium-signup-form">
+          <div class="input-group">
+            <input type="email" placeholder="Work email" required>
+          </div>
+          <div class="input-group">
+            <input type="password" placeholder="Create password" required>
+          </div>
+          <div class="input-group">
+            <input type="text" placeholder="Company name">
+          </div>
+          <button type="submit" class="form-btn premium-btn">
+            <i class="fas fa-rocket"></i>
+            Start Free Trial
+          </button>
+          <div class="trial-note">
+            Free for 14 days • No credit card required
+          </div>
+        </form>
       </div>
+    </div>
   </div>
   <div class="template-info">
-      <h3>Contact Form </h3>
-      <p>Dark professional form for business inquiries</p>
-      <div class="template-actions">
-          <button class="btn code-btn" data-template="form15">Get Code</button>
-      </div>
+    <h3>Premium Signup</h3>
+    <p>Dark theme premium signup with trial offer.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form20">Get Code</button>
+    </div>
   </div>
 </div>
 
-<!-- Template 16 - Contact Form with Quick Questions -->
-<div class="template-card" data-category="contact modern">
+<!-- Template 21 - Floating Label Signup -->
+<div class="template-card" data-category="signup modern">
   <div class="template-preview">
-      <div class="live-preview-mini">
-          <div class="form-container" style="background: white;">
-              <div class="form-header">
-                  <h3 style="color: #1e293b;">Quick Contact</h3>
-                  <p style="color: #64748b;">Answer a few quick questions</p>
-              </div>
-              <form class="contact-form-16">
-                  <div class="progress-bar">
-                      <div class="progress-fill" style="width: 60%;"></div>
-                      <div class="progress-text">Step 2 of 3</div>
-                  </div>
-                  
-                  <div class="input-group">
-                      <input type="text" placeholder="What's your name?" required style="border: 1px solid #e2e8f0;">
-                  </div>
-                  
-                  <div class="input-group">
-                      <input type="email" placeholder="Best email to reach you?" required style="border: 1px solid #e2e8f0;">
-                  </div>
-                  
-                  <div class="question-group">
-                      <label>How can we help you today?</label>
-                      <div class="quick-options">
-                          <label class="quick-option">
-                              <input type="radio" name="help" value="support">
-                              <div class="quick-option-content">
-                                  <i class="fas fa-headset"></i>
-                                  <span>Technical Support</span>
-                              </div>
-                          </label>
-                          <label class="quick-option">
-                              <input type="radio" name="help" value="sales">
-                              <div class="quick-option-content">
-                                  <i class="fas fa-shopping-cart"></i>
-                                  <span>Sales Inquiry</span>
-                              </div>
-                          </label>
-                          <label class="quick-option">
-                              <input type="radio" name="help" value="feedback">
-                              <div class="quick-option-content">
-                                  <i class="fas fa-comment-alt"></i>
-                                  <span>Feedback</span>
-                              </div>
-                          </label>
-                      </div>
-                  </div>
-                  
-                  <div class="urgency-group">
-                      <label>How urgent is this?</label>
-                      <div class="urgency-options">
-                          <label class="urgency-option">
-                              <input type="radio" name="urgency" value="low">
-                              <div class="urgency-badge low">Low</div>
-                          </label>
-                          <label class="urgency-option">
-                              <input type="radio" name="urgency" value="medium">
-                              <div class="urgency-badge medium">Medium</div>
-                          </label>
-                          <label class="urgency-option">
-                              <input type="radio" name="urgency" value="high">
-                              <div class="urgency-badge high">High</div>
-                          </label>
-                      </div>
-                  </div>
-                  
-                  <div class="button-group">
-                      <button type="button" class="btn-back">Back</button>
-                      <button type="submit" class="form-btn" style="background: linear-gradient(135deg, #10b981, #059669);">
-                          Next Step <i class="fas fa-arrow-right"></i>
-                      </button>
-                  </div>
-              </form>
+    <div class="live-preview-mini">
+      <div class="form-container floating-signup-bg">
+        <div class="form-header">
+          <h3>Join Our Community</h3>
+          <p>Become a member today</p>
+        </div>
+        <form class="floating-signup-form">
+          <div class="floating-input">
+            <input type="text" id="floating-name" placeholder=" " required>
+            <label for="floating-name">
+              <i class="fas fa-user"></i>
+              Full Name
+            </label>
+            <div class="floating-line"></div>
           </div>
+          <div class="floating-input">
+            <input type="email" id="floating-email" placeholder=" " required>
+            <label for="floating-email">
+              <i class="fas fa-envelope"></i>
+              Email Address
+            </label>
+            <div class="floating-line"></div>
+          </div>
+          <div class="floating-input">
+            <input type="password" id="floating-password" placeholder=" " required>
+            <label for="floating-password">
+              <i class="fas fa-lock"></i>
+              Password
+            </label>
+            <div class="floating-line"></div>
+            <button type="button" class="password-toggle">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          <div class="floating-input">
+            <input type="password" id="floating-confirm" placeholder=" " required>
+            <label for="floating-confirm">
+              <i class="fas fa-lock"></i>
+              Confirm Password
+            </label>
+            <div class="floating-line"></div>
+          </div>
+          <div class="password-rules">
+            <p>Password must contain:</p>
+            <ul>
+              <li class="rule"><i class="fas fa-check"></i> 8+ characters</li>
+              <li class="rule"><i class="fas fa-check"></i> 1 uppercase letter</li>
+              <li class="rule"><i class="fas fa-check"></i> 1 number</li>
+            </ul>
+          </div>
+          <button type="submit" class="form-btn floating-btn">
+            <i class="fas fa-user-plus"></i>
+            Create Account
+          </button>
+        </form>
       </div>
+    </div>
   </div>
   <div class="template-info">
-      <h3>Contact Form </h3>
-      <p>Multi-step contact form with progress indicator</p>
-      <div class="template-actions">
-          <button class="btn code-btn" data-template="form16">Get Code</button>
-      </div>
+    <h3>Floating Label Signup</h3>
+    <p>Elegant floating labels with password validation.</p>
+    <div class="template-actions">
+      <button class="btn code-btn" data-template="form21">Get Code</button>
+    </div>
   </div>
 </div>
+
           
           
           
@@ -1442,56 +2020,55 @@
     </div>
 
     <!-- Footer -->
-    <footer>
-      <div class="container">
+   <footer>
+    <div class="container">
         <div class="footer-content">
-          <div class="footer-column">
-            <h4>SnippetCodeHub</h4>
-            <p>
-              Providing modern, high-quality web SnippetCode for developers and
-              designers. Build beautiful websites faster.
-            </p>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-github"></i></a>
-              <a href="#"><i class="fab fa-dribbble"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
+            <div class="footer-column">
+                <h4>SnippetCodeHub</h4>
+                <p>A solo developer project created in 2025 to help developers build better websites faster with free UI components.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/1B9L72M7cc/" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <!-- <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-codepen"></i></a> -->
+                    <a href="https://www.linkedin.com/in/rizwan-ahmed%F0%9F%92%AB-44893a289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
-          </div>
-          <div class="footer-column">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="nav-templates.html">Navigation Templates</a></li>
-              <li><a href="footer-templates.html">Footer Templates</a></li>
-              <li><a href="form-templates.html">Form Templates</a></li>
-              <li><a href="#about">About Us</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Resources</h4>
-            <ul>
-              <li><a href="#">Documentation</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Support</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">License</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Contact Us</h4>
-            <ul>
-              <li><i class="fas fa-envelope"></i> hello@snippetcodehub.com</li>
-              <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-              <li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li>
-            </ul>
-          </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Features.html">Features</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Components</h4>
+                <ul>
+                    <li><a href="nav-templates.html">Navigation</a></li>
+                    <li><a href="footer-templates.html">Footers</a></li>
+                    <li><a href="table-templates.html">Tables</a></li>
+                    <li><a href="buttons-templates.html">Buttons</a></li>
+                    <li><a href="checkbox-templates.html">Checkboxes</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-user"></i> Rizwan Arain</li>
+                    <li><i class="fas fa-envelope"></i> rizwanarain0309@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +92 3163397710</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Mehrabpur, Sindh</li>
+                    <li><i class="fas fa-calendar-alt"></i> Project Started: 2025</li>
+                </ul>
+            </div>
         </div>
         <div class="copyright">
-          <p>&copy; 2023 SnippetCodeHub. All rights reserved.</p>
+            <p>&copy; 2025 SnippetCodeHub. Created with ❤️ by Rizwan Arain in Mehrabpur, Sindh, Pakistan.</p>
         </div>
-      </div>
-    </footer>
+    </div>
+</footer>
 
     <script src="script.js"></script>
     <script src="form-templates.js"></script>
