@@ -7573,6 +7573,2255 @@ function resetPasswordRules() {
     });
 }`,
 },
+// ====================================================================
+// TEMPLATE 22: Professional Contact Form
+// ====================================================================
+form22: {
+    name: "Professional Contact Form",
+    category: "contact modern professional",
+    html: `<div class="form-container professional-contact">
+    <div class="form-header">
+        <div class="header-icon">
+            <i class="fas fa-handshake"></i>
+        </div>
+        <h3>Business Contact</h3>
+        <p>Get in touch with our team</p>
+    </div>
+    <form class="contact-form-professional">
+        <div class="input-group">
+            <div class="input-icon">
+                <i class="fas fa-building"></i>
+            </div>
+            <input type="text" placeholder="Company Name" required>
+        </div>
+        <div class="input-row">
+            <div class="input-group">
+                <div class="input-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="input-group">
+                <div class="input-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <input type="text" placeholder="Position" required>
+            </div>
+        </div>
+        <div class="input-group">
+            <div class="input-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <input type="email" placeholder="Business Email" required>
+        </div>
+        <div class="input-group">
+            <div class="input-icon">
+                <i class="fas fa-phone"></i>
+            </div>
+            <input type="tel" placeholder="Business Phone" required>
+        </div>
+        <div class="input-group">
+            <div class="input-icon">
+                <i class="fas fa-comment-alt"></i>
+            </div>
+            <select class="form-select">
+                <option value="">Nature of Inquiry</option>
+                <option value="partnership">Partnership</option>
+                <option value="quote">Request Quote</option>
+                <option value="support">Technical Support</option>
+                <option value="general">General Inquiry</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <textarea placeholder="Project details or requirements..." rows="3" required></textarea>
+            <div class="char-count">0/500</div>
+        </div>
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" required>
+                <span class="checkmark"></span>
+                I agree to receive business communications
+            </label>
+        </div>
+        <button type="submit" class="form-btn professional-btn">
+            <i class="fas fa-paper-plane"></i> Send Business Inquiry
+        </button>
+    </form>
+</div>`,
+    css: `.professional-contact {
+    width: 100%;
+    max-width: 400px;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 25px;
+}
+
+.header-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.2rem;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 2;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+
+.input-row .input-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.professional-contact input,
+.professional-contact select,
+.professional-contact textarea {
+    width: 100%;
+    padding: 12px 12px 12px 35px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.professional-contact textarea {
+    padding: 12px;
+    min-height: 80px;
+    resize: vertical;
+}
+
+.professional-contact input:focus,
+.professional-contact select:focus,
+.professional-contact textarea:focus {
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+.char-count {
+    text-align: right;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 5px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    user-select: none;
+}
+
+.checkbox-label input {
+    display: none;
+}
+
+.checkbox-label .checkmark {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label input:checked + .checkmark {
+    background: white;
+    border-color: white;
+}
+
+.checkbox-label input:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #1e3c72;
+    font-size: 10px;
+}
+
+.form-btn.professional-btn {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    color: #1e3c72;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.form-btn.professional-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}`,
+    js: `// Professional Contact Form functionality
+document.querySelector('.contact-form-professional')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const company = this.querySelector('input[placeholder="Company Name"]').value;
+    const name = this.querySelector('input[placeholder="Your Name"]').value;
+    const position = this.querySelector('input[placeholder="Position"]').value;
+    const email = this.querySelector('input[type="email"]').value;
+    const phone = this.querySelector('input[type="tel"]').value;
+    const inquiry = this.querySelector('select').value;
+    const message = this.querySelector('textarea').value;
+    const agreed = this.querySelector('input[type="checkbox"]').checked;
+    
+    console.log('Business inquiry:', { company, name, position, email, phone, inquiry, message, agreed });
+    
+    if (!agreed) {
+        alert('Please agree to receive business communications');
+        return;
+    }
+    
+    // Show success
+    const btn = this.querySelector('.professional-btn');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i> Inquiry Sent!';
+    btn.style.background = '#10b981';
+    
+    setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+        this.reset();
+    }, 2000);
+});`
+},
+
+// ====================================================================
+// TEMPLATE 23: Minimal Contact Form
+// ====================================================================
+form23: {
+    name: "Minimal Contact Form",
+    category: "contact modern minimal",
+    html: `<div class="form-container minimal-contact">
+    <div class="form-header">
+        <h3>Say Hello</h3>
+        <p>Simple and clean contact form</p>
+    </div>
+    <form class="contact-form-minimal">
+        <div class="input-group">
+            <input type="text" placeholder="Name" required class="minimal-input">
+            <div class="input-line"></div>
+        </div>
+        <div class="input-group">
+            <input type="email" placeholder="Email" required class="minimal-input">
+            <div class="input-line"></div>
+        </div>
+        <div class="input-group">
+            <textarea placeholder="Message" rows="3" required class="minimal-input"></textarea>
+            <div class="input-line"></div>
+        </div>
+        <button type="submit" class="form-btn minimal-btn">
+            Send Message
+        </button>
+    </form>
+</div>`,
+    css: `.minimal-contact {
+    width: 100%;
+    max-width: 350px;
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.minimal-input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 2px solid #e2e8f0;
+    background: transparent;
+    font-size: 0.9rem;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.minimal-input:focus {
+    outline: none;
+    border-bottom-color: #667eea;
+}
+
+.minimal-input::placeholder {
+    color: #999;
+}
+
+.input-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #667eea;
+    transition: width 0.3s ease;
+}
+
+.minimal-input:focus ~ .input-line {
+    width: 100%;
+}
+
+.form-btn.minimal-btn {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.form-btn.minimal-btn:hover {
+    background: #667eea;
+    color: white;
+}`,
+    js: `// Minimal Contact Form functionality
+document.querySelector('.contact-form-minimal')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = this.querySelector('input[placeholder="Name"]').value;
+    const email = this.querySelector('input[placeholder="Email"]').value;
+    const message = this.querySelector('textarea').value;
+    
+    console.log('Minimal contact:', { name, email, message });
+    
+    // Simple validation
+    if (!name || !email || !message) {
+        alert('Please fill in all fields');
+        return;
+    }
+    
+    // Show success
+    const btn = this.querySelector('.minimal-btn');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sent!';
+    btn.style.borderColor = '#10b981';
+    btn.style.color = '#10b981';
+    
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.borderColor = '';
+        btn.style.color = '';
+        this.reset();
+    }, 2000);
+});`
+},
+
+// ====================================================================
+// TEMPLATE 24: Support Ticket Form
+// ====================================================================
+form24: {
+    name: "Support Ticket Form",
+    category: "contact support modern",
+    html: `<div class="form-container support-contact">
+    <div class="form-header">
+        <div class="support-badge">
+            <i class="fas fa-headset"></i>
+            <span>Support Ticket</span>
+        </div>
+        <h3>Create Support Ticket</h3>
+        <p>We'll respond within 24 hours</p>
+    </div>
+    <form class="contact-form-support">
+        <div class="input-group">
+            <input type="text" placeholder="Ticket Title" required>
+        </div>
+        <div class="input-group">
+            <select class="form-select">
+                <option value="">Priority Level</option>
+                <option value="low">Low - General Question</option>
+                <option value="medium">Medium - Feature Request</option>
+                <option value="high">High - Bug Report</option>
+                <option value="urgent">Urgent - System Down</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <select class="form-select">
+                <option value="">Category</option>
+                <option value="technical">Technical Issue</option>
+                <option value="billing">Billing Problem</option>
+                <option value="account">Account Access</option>
+                <option value="feature">Feature Request</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <textarea placeholder="Describe your issue in detail..." rows="3" required></textarea>
+            <div class="char-count">0/1000</div>
+        </div>
+        <div class="form-group">
+            <label class="upload-label">
+                <i class="fas fa-paperclip"></i>
+                <span>Attach Screenshots (Optional)</span>
+                <input type="file" accept="image/*" multiple class="file-input">
+            </label>
+        </div>
+        <div class="priority-indicator">
+            <div class="priority-dot low"></div>
+            <span>Response Time: 24-48 hours</span>
+        </div>
+        <button type="submit" class="form-btn support-btn">
+            <i class="fas fa-ticket-alt"></i> Submit Ticket
+        </button>
+    </form>
+</div>`,
+    css: `.support-contact {
+    width: 100%;
+    max-width: 400px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    border-radius: 16px;
+    padding: 25px;
+}
+
+.support-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(59, 130, 246, 0.2);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.support-contact input,
+.support-contact select,
+.support-contact textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.support-contact textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.support-contact input:focus,
+.support-contact select:focus,
+.support-contact textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.char-count {
+    text-align: right;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.upload-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    transition: all 0.3s ease;
+}
+
+.upload-label:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.file-input {
+    display: none;
+}
+
+.priority-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.priority-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.priority-dot.low { background: #10b981; }
+.priority-dot.medium { background: #f59e0b; }
+.priority-dot.high { background: #ef4444; }
+.priority-dot.urgent { 
+    background: #dc2626; 
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.form-btn.support-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-btn.support-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}`,
+    js: `// Support Ticket Form functionality
+document.querySelector('.contact-form-support')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const title = this.querySelector('input[placeholder="Ticket Title"]').value;
+    const priority = this.querySelectorAll('select')[0].value;
+    const category = this.querySelectorAll('select')[1].value;
+    const message = this.querySelector('textarea').value;
+    
+    console.log('Support ticket:', { title, priority, category, message });
+    
+    // Validate
+    if (!priority || !category) {
+        alert('Please select priority and category');
+        return;
+    }
+    
+    // Update priority indicator based on selection
+    const priorityDot = this.querySelector('.priority-dot');
+    const timeText = this.querySelector('.priority-indicator span');
+    
+    if (priority === 'urgent') {
+        priorityDot.className = 'priority-dot urgent';
+        timeText.textContent = 'Response Time: 1-4 hours (Urgent)';
+    } else if (priority === 'high') {
+        priorityDot.className = 'priority-dot high';
+        timeText.textContent = 'Response Time: 4-8 hours (High)';
+    } else if (priority === 'medium') {
+        priorityDot.className = 'priority-dot medium';
+        timeText.textContent = 'Response Time: 8-24 hours (Medium)';
+    } else {
+        priorityDot.className = 'priority-dot low';
+        timeText.textContent = 'Response Time: 24-48 hours (Low)';
+    }
+    
+    // Show success
+    const btn = this.querySelector('.support-btn');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i> Ticket Submitted!';
+    btn.style.background = '#10b981';
+    
+    setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+        this.reset();
+        priorityDot.className = 'priority-dot low';
+        timeText.textContent = 'Response Time: 24-48 hours';
+    }, 2000);
+});`
+},
+
+// ====================================================================
+// TEMPLATE 25: Quick Contact Form
+// ====================================================================
+form25: {
+    name: "Quick Contact Form",
+    category: "contact modern quick",
+    html: `<div class="form-container quick-contact">
+    <div class="form-header">
+        <h3>Quick Contact</h3>
+        <p>Send us a message in seconds</p>
+    </div>
+    <form class="contact-form-quick">
+        <div class="input-group">
+            <input type="text" placeholder="Your Name" required>
+            <span class="quick-note">Required</span>
+        </div>
+        <div class="input-group">
+            <input type="email" placeholder="Email Address" required>
+            <span class="quick-note">Required</span>
+        </div>
+        <div class="input-group">
+            <textarea placeholder="Your message..." rows="2" required></textarea>
+            <span class="quick-note">Max 200 characters</span>
+        </div>
+        <div class="quick-options">
+            <label class="quick-radio">
+                <input type="radio" name="response-type" value="email" checked>
+                <span class="radio-dot"></span>
+                <span>Reply via Email</span>
+            </label>
+            <label class="quick-radio">
+                <input type="radio" name="response-type" value="phone">
+                <span class="radio-dot"></span>
+                <span>Call me back</span>
+            </label>
+        </div>
+        <button type="submit" class="form-btn quick-btn">
+            <i class="fas fa-bolt"></i> Send Quick Message
+        </button>
+    </form>
+</div>`,
+    css: `.quick-contact {
+    width: 100%;
+    max-width: 350px;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: white;
+    border-radius: 16px;
+    padding: 25px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.quick-contact input,
+.quick-contact textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.quick-contact textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+.quick-contact input:focus,
+.quick-contact textarea:focus {
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.quick-contact input::placeholder,
+.quick-contact textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.quick-note {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 5px;
+    display: block;
+}
+
+.quick-options {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.quick-radio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.quick-radio input {
+    display: none;
+}
+
+.radio-dot {
+    width: 16px;
+    height: 16px;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.quick-radio input:checked + .radio-dot {
+    background: white;
+}
+
+.quick-radio input:checked + .radio-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: #f59e0b;
+    border-radius: 50%;
+}
+
+.form-btn.quick-btn {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    color: #f59e0b;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-btn.quick-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}`,
+    js: `// Quick Contact Form functionality
+document.querySelector('.contact-form-quick')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = this.querySelector('input[placeholder="Your Name"]').value;
+    const email = this.querySelector('input[placeholder="Email Address"]').value;
+    const message = this.querySelector('textarea').value;
+    const responseType = this.querySelector('input[name="response-type"]:checked').value;
+    
+    console.log('Quick contact:', { name, email, message, responseType });
+    
+    // Character limit validation
+    if (message.length > 200) {
+        alert('Message exceeds 200 characters limit');
+        return;
+    }
+    
+    // Show fast sending animation
+    const btn = this.querySelector('.quick-btn');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    btn.disabled = true;
+    
+    // Simulate quick sending
+    setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+        btn.style.background = '#10b981';
+        btn.style.color = 'white';
+        
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+            btn.style.color = '';
+            btn.disabled = false;
+            this.reset();
+            this.querySelector('input[value="email"]').checked = true;
+        }, 1000);
+    }, 500);
+});`
+},
+
+// ====================================================================
+// TEMPLATE 26: Animated Contact Form
+// ====================================================================
+form26: {
+    name: "Animated Contact Form",
+    category: "contact modern animated",
+    html: `<div class="form-container animated-contact">
+    <div class="form-header">
+        <div class="animated-icon">
+            <i class="fas fa-comments"></i>
+        </div>
+        <h3>Let's Chat</h3>
+        <p>Send us an animated message</p>
+    </div>
+    <form class="contact-form-animated">
+        <div class="input-group animated-input">
+            <input type="text" placeholder=" " required>
+            <label>Your Name</label>
+            <div class="animated-border"></div>
+        </div>
+        <div class="input-group animated-input">
+            <input type="email" placeholder=" " required>
+            <label>Email Address</label>
+            <div class="animated-border"></div>
+        </div>
+        <div class="input-group animated-input">
+            <textarea placeholder=" " rows="2" required></textarea>
+            <label>Your Message</label>
+            <div class="animated-border"></div>
+            <div class="char-count-animated">0/300</div>
+        </div>
+        <div class="emoji-selector">
+            <span class="emoji-label">How are you feeling?</span>
+            <div class="emoji-options">
+                <label class="emoji-option">
+                    <input type="radio" name="mood" value="happy">
+                    <span class="emoji">😊</span>
+                </label>
+                <label class="emoji-option">
+                    <input type="radio" name="mood" value="neutral" checked>
+                    <span class="emoji">😐</span>
+                </label>
+                <label class="emoji-option">
+                    <input type="radio" name="mood" value="sad">
+                    <span class="emoji">😔</span>
+                </label>
+                <label class="emoji-option">
+                    <input type="radio" name="mood" value="excited">
+                    <span class="emoji">🤩</span>
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="form-btn animated-btn">
+            <span class="btn-text">Send Message</span>
+            <div class="btn-wave"></div>
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </form>
+</div>`,
+    css: `.animated-contact {
+    width: 100%;
+    max-width: 400px;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+    border-radius: 16px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.animated-input {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.animated-input input,
+.animated-input textarea {
+    width: 100%;
+    padding: 15px 0 5px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.animated-input textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+.animated-input label {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.animated-input input:focus + label,
+.animated-input input:not(:placeholder-shown) + label,
+.animated-input textarea:focus + label,
+.animated-input textarea:not(:placeholder-shown) + label {
+    top: 0;
+    font-size: 0.7rem;
+    color: white;
+}
+
+.animated-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.animated-input input:focus ~ .animated-border,
+.animated-input textarea:focus ~ .animated-border {
+    width: 100%;
+}
+
+.char-count-animated {
+    text-align: right;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 5px;
+}
+
+.emoji-selector {
+    margin: 25px 0;
+}
+
+.emoji-label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.emoji-options {
+    display: flex;
+    gap: 15px;
+}
+
+.emoji-option {
+    cursor: pointer;
+}
+
+.emoji-option input {
+    display: none;
+}
+
+.emoji {
+    font-size: 2rem;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.emoji-option input:checked + .emoji {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.form-btn.animated-btn {
+    position: relative;
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-wave {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+    transition: left 0.5s ease;
+}
+
+.form-btn.animated-btn:hover .btn-wave {
+    left: 100%;
+}
+
+.form-btn.animated-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}`,
+    js: `// Animated Contact Form functionality
+document.querySelector('.contact-form-animated')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = this.querySelector('input[type="text"]').value;
+    const email = this.querySelector('input[type="email"]').value;
+    const message = this.querySelector('textarea').value;
+    const mood = this.querySelector('input[name="mood"]:checked').value;
+    
+    console.log('Animated contact:', { name, email, message, mood });
+    
+    // Character count validation
+    if (message.length > 300) {
+        alert('Message exceeds 300 characters limit');
+        return;
+    }
+    
+    // Animated send button
+    const btn = this.querySelector('.animated-btn');
+    const btnText = btn.querySelector('.btn-text');
+    const originalText = btnText.textContent;
+    const planeIcon = btn.querySelector('.fa-paper-plane');
+    
+    btnText.textContent = 'Sending...';
+    planeIcon.style.transform = 'rotate(45deg)';
+    
+    // Wave animation
+    const wave = btn.querySelector('.btn-wave');
+    wave.style.left = '-100%';
+    wave.style.transition = 'left 1.5s ease';
+    wave.style.left = '100%';
+    
+    setTimeout(() => {
+        btnText.textContent = 'Sent!';
+        planeIcon.style.transform = 'rotate(0)';
+        planeIcon.style.color = '#4CAF50';
+        btn.style.borderColor = '#4CAF50';
+        btn.style.color = '#4CAF50';
+        
+        // Reset
+        setTimeout(() => {
+            btnText.textContent = originalText;
+            planeIcon.style.transform = '';
+            planeIcon.style.color = '';
+            btn.style.borderColor = '';
+            btn.style.color = '';
+            this.reset();
+            this.querySelector('input[value="neutral"]').checked = true;
+            wave.style.transition = '';
+        }, 1500);
+    }, 1500);
+});`
+},
+
+// ====================================================================
+// TEMPLATE 27: Multi-Step Contact Form
+// ====================================================================
+form27: {
+    name: "Multi-Step Contact Form",
+    category: "contact modern multistep",
+    html: `<div class="form-container multistep-contact">
+    <div class="form-header">
+        <div class="step-indicator">
+            <div class="step active">1</div>
+            <div class="step-line"></div>
+            <div class="step">2</div>
+            <div class="step-line"></div>
+            <div class="step">3</div>
+        </div>
+        <h3>Contact Wizard</h3>
+        <p>Step 1: Basic Information</p>
+    </div>
+    <form class="contact-form-multistep">
+        <!-- Step 1 -->
+        <div class="form-step active" data-step="1">
+            <div class="input-group">
+                <input type="text" placeholder="Full Name" required>
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <input type="tel" placeholder="Phone Number" required>
+            </div>
+            <button type="button" class="form-btn next-btn">
+                Next Step <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="form-step" data-step="2">
+            <div class="input-group">
+                <select class="form-select">
+                    <option value="">Inquiry Type</option>
+                    <option value="general">General Question</option>
+                    <option value="support">Technical Support</option>
+                    <option value="sales">Sales Inquiry</option>
+                    <option value="feedback">Feedback</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Subject" required>
+            </div>
+            <div class="input-group">
+                <textarea placeholder="Brief description..." rows="2" required></textarea>
+            </div>
+            <div class="step-buttons">
+                <button type="button" class="form-btn prev-btn">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button type="button" class="form-btn next-btn">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="form-step" data-step="3">
+            <div class="input-group">
+                <textarea placeholder="Detailed message..." rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" required>
+                    <span class="checkmark"></span>
+                    I agree to terms and privacy policy
+                </label>
+            </div>
+            <div class="step-buttons">
+                <button type="button" class="form-btn prev-btn">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button type="submit" class="form-btn submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="progress-bar">
+        <div class="progress-fill" style="width: 33%"></div>
+    </div>
+</div>`,
+    css: `.multistep-contact {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.step {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.step.active {
+    background: #667eea;
+    color: white;
+    transform: scale(1.1);
+}
+
+.step-line {
+    width: 50px;
+    height: 2px;
+    background: #e2e8f0;
+    transition: background 0.3s ease;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.form-step {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-step.active {
+    display: block;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.multistep-contact input,
+.multistep-contact select,
+.multistep-contact textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.multistep-contact input:focus,
+.multistep-contact select:focus,
+.multistep-contact textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.step-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.form-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.form-btn.prev-btn {
+    background: #e2e8f0;
+    color: #64748b;
+}
+
+.form-btn.next-btn {
+    background: #667eea;
+    color: white;
+}
+
+.form-btn.submit-btn {
+    background: #10b981;
+    color: white;
+}
+
+.form-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #667eea;
+    transition: width 0.3s ease;
+}`,
+    js: `// Multi-Step Contact Form functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.contact-form-multistep');
+    if (!form) return;
+    
+    const steps = form.querySelectorAll('.form-step');
+    const stepIndicator = form.querySelectorAll('.step');
+    const stepLines = form.querySelectorAll('.step-line');
+    const progressFill = document.querySelector('.progress-fill');
+    const stepText = document.querySelector('.form-header p');
+    let currentStep = 1;
+    
+    // Next button functionality
+    form.querySelectorAll('.next-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Validate current step
+            if (!validateStep(currentStep)) {
+                return;
+            }
+            
+            // Move to next step
+            if (currentStep < 3) {
+                steps.forEach(step => step.classList.remove('active'));
+                stepIndicator.forEach(step => step.classList.remove('active'));
+                
+                currentStep++;
+                
+                form.querySelector(\`.form-step[data-step="\${currentStep}"]\`).classList.add('active');
+                stepIndicator[currentStep - 1].classList.add('active');
+                
+                // Update step lines
+                if (currentStep === 2) {
+                    stepLines[0].style.background = '#667eea';
+                } else if (currentStep === 3) {
+                    stepLines[1].style.background = '#667eea';
+                }
+                
+                // Update progress bar
+                progressFill.style.width = \`\${currentStep * 33}%\`;
+                
+                // Update step text
+                const stepTitles = ['Step 1: Basic Information', 'Step 2: Inquiry Details', 'Step 3: Final Message'];
+                stepText.textContent = stepTitles[currentStep - 1];
+            }
+        });
+    });
+    
+    // Previous button functionality
+    form.querySelectorAll('.prev-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (currentStep > 1) {
+                steps.forEach(step => step.classList.remove('active'));
+                stepIndicator.forEach(step => step.classList.remove('active'));
+                
+                currentStep--;
+                
+                form.querySelector(\`.form-step[data-step="\${currentStep}"]\`).classList.add('active');
+                stepIndicator[currentStep - 1].classList.add('active');
+                
+                // Update step lines
+                if (currentStep === 1) {
+                    stepLines[0].style.background = '#e2e8f0';
+                } else if (currentStep === 2) {
+                    stepLines[1].style.background = '#e2e8f0';
+                }
+                
+                // Update progress bar
+                progressFill.style.width = \`\${currentStep * 33}%\`;
+                
+                // Update step text
+                const stepTitles = ['Step 1: Basic Information', 'Step 2: Inquiry Details', 'Step 3: Final Message'];
+                stepText.textContent = stepTitles[currentStep - 1];
+            }
+        });
+    });
+    
+    // Form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (!validateStep(3)) {
+            return;
+        }
+        
+        // Get all form data
+        const formData = {
+            name: this.querySelector('input[placeholder="Full Name"]').value,
+            email: this.querySelector('input[placeholder="Email Address"]').value,
+            phone: this.querySelector('input[placeholder="Phone Number"]').value,
+            inquiry: this.querySelector('select').value,
+            subject: this.querySelector('input[placeholder="Subject"]').value,
+            brief: this.querySelectorAll('textarea')[0].value,
+            message: this.querySelectorAll('textarea')[1].value
+        };
+        
+        console.log('Multi-step contact:', formData);
+        
+        // Show success animation
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> Success!';
+        submitBtn.style.background = '#059669';
+        
+        // Reset form after success
+        setTimeout(() => {
+            // Reset to step 1
+            steps.forEach(step => step.classList.remove('active'));
+            stepIndicator.forEach(step => step.classList.remove('active'));
+            stepLines.forEach(line => line.style.background = '#e2e8f0');
+            
+            currentStep = 1;
+            form.querySelector('.form-step[data-step="1"]').classList.add('active');
+            stepIndicator[0].classList.add('active');
+            progressFill.style.width = '33%';
+            stepText.textContent = 'Step 1: Basic Information';
+            
+            // Reset button
+            submitBtn.innerHTML = originalText;
+            submitBtn.style.background = '';
+            this.reset();
+        }, 2000);
+    });
+    
+    // Validation function
+    function validateStep(step) {
+        const currentStepElement = form.querySelector(\`.form-step[data-step="\${step}"]\`);
+        const inputs = currentStepElement.querySelectorAll('input[required], select[required], textarea[required]');
+        
+        let isValid = true;
+        
+        inputs.forEach(input => {
+            if (!input.value.trim()) {
+                isValid = false;
+                input.style.borderColor = '#ef4444';
+                input.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+                
+                setTimeout(() => {
+                    input.style.borderColor = '';
+                    input.style.boxShadow = '';
+                }, 2000);
+            }
+        });
+        
+        return isValid;
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 28: Creative Contact Form
+// ====================================================================
+form28: {
+    name: "Creative Contact Form",
+    category: "contact modern creative",
+    html: `<div class="form-container creative-contact">
+    <div class="form-header">
+        <div class="creative-shape">
+            <i class="fas fa-pen-fancy"></i>
+        </div>
+        <h3>Creative Contact</h3>
+        <p>Share your creative ideas with us</p>
+    </div>
+    <form class="contact-form-creative">
+        <div class="creative-input-group">
+            <div class="input-container">
+                <input type="text" placeholder=" " required>
+                <label>Your Creative Name</label>
+                <div class="input-decoration"></div>
+            </div>
+        </div>
+        <div class="creative-input-group">
+            <div class="input-container">
+                <input type="email" placeholder=" " required>
+                <label>Email for Collaboration</label>
+                <div class="input-decoration"></div>
+            </div>
+        </div>
+        <div class="creative-input-group">
+            <div class="input-container">
+                <select class="form-select">
+                    <option value="">Project Type</option>
+                    <option value="design">Graphic Design</option>
+                    <option value="web">Web Development</option>
+                    <option value="content">Content Creation</option>
+                    <option value="branding">Brand Identity</option>
+                </select>
+                <div class="select-decoration"></div>
+            </div>
+        </div>
+        <div class="creative-input-group">
+            <div class="input-container">
+                <textarea placeholder=" " rows="2" required></textarea>
+                <label>Describe your creative vision</label>
+                <div class="input-decoration"></div>
+                <div class="inspiration-hint">
+                    <i class="fas fa-lightbulb"></i>
+                    Be as detailed as possible
+                </div>
+            </div>
+        </div>
+        <div class="color-picker">
+            <span>Preferred Color Theme:</span>
+            <div class="color-options">
+                <button type="button" class="color-option" style="background: #667eea;"></button>
+                <button type="button" class="color-option" style="background: #764ba2;"></button>
+                <button type="button" class="color-option" style="background: #f093fb;"></button>
+                <button type="button" class="color-option" style="background: #f5576c;"></button>
+                <button type="button" class="color-option" style="background: #4facfe;"></button>
+            </div>
+        </div>
+        <button type="submit" class="form-btn creative-btn">
+            <i class="fas fa-palette"></i> Share Creative Idea
+        </button>
+    </form>
+</div>`,
+    css: `.creative-contact {
+    width: 100%;
+    max-width: 400px;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: white;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.creative-shape {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.5rem;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-container input,
+.input-container textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.input-container textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.input-container input:focus,
+.input-container textarea:focus {
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.input-container label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label,
+.input-container textarea:focus + label,
+.input-container textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.7rem;
+    color: white;
+    background: #ff6b6b;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.input-decoration {
+    position: absolute;
+    bottom: -5px;
+    left: 10px;
+    right: 10px;
+    height: 2px;
+    background: white;
+    border-radius: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.input-container input:focus ~ .input-decoration,
+.input-container textarea:focus ~ .input-decoration {
+    transform: scaleX(1);
+}
+
+.inspiration-hint {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.color-picker {
+    margin: 25px 0;
+}
+
+.color-picker span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.color-options {
+    display: flex;
+    gap: 10px;
+}
+
+.color-option {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.color-option:hover,
+.color-option.active {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.form-btn.creative-btn {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    color: #ff6b6b;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-btn.creative-btn:hover {
+    transform: translateY(-2px) rotate(1deg);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}`,
+    js: `// Creative Contact Form functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.contact-form-creative');
+    if (!form) return;
+    
+    // Color picker functionality
+    const colorOptions = form.querySelectorAll('.color-option');
+    let selectedColor = '#667eea';
+    
+    colorOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            colorOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            selectedColor = this.style.background;
+            
+            // Animate button with selected color
+            const btn = form.querySelector('.creative-btn');
+            btn.style.color = this.style.background;
+            btn.style.transform = 'scale(1.05)';
+            
+            setTimeout(() => {
+                btn.style.transform = '';
+            }, 300);
+        });
+    });
+    
+    // Form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = this.querySelector('input[type="text"]').value;
+        const email = this.querySelector('input[type="email"]').value;
+        const projectType = this.querySelector('select').value;
+        const vision = this.querySelector('textarea').value;
+        
+        console.log('Creative contact:', { name, email, projectType, vision, selectedColor });
+        
+        if (!projectType) {
+            alert('Please select a project type');
+            return;
+        }
+        
+        // Creative success animation
+        const btn = this.querySelector('.creative-btn');
+        const originalText = btn.innerHTML;
+        const paletteIcon = btn.querySelector('.fa-palette');
+        
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sharing...';
+        
+        // Color burst animation
+        createColorBurst(btn);
+        
+        setTimeout(() => {
+            btn.innerHTML = '<i class="fas fa-check"></i> Idea Shared!';
+            btn.style.background = selectedColor;
+            btn.style.color = 'white';
+            paletteIcon.style.transform = 'rotate(360deg)';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                btn.style.color = '';
+                paletteIcon.style.transform = '';
+                this.reset();
+                colorOptions[0].click();
+            }, 1500);
+        }, 1500);
+    });
+    
+    // Helper function for color burst effect
+    function createColorBurst(element) {
+        const rect = element.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        const colors = ['#667eea', '#764ba2', '#f093fb', '#f5576c', '#4facfe', '#ff6b6b', '#ff8e53'];
+        
+        for (let i = 0; i < 8; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'color-particle';
+            particle.style.cssText = \`
+                position: fixed;
+                width: 8px;
+                height: 8px;
+                background: \${colors[i % colors.length]};
+                border-radius: 50%;
+                top: \${centerY}px;
+                left: \${centerX}px;
+                pointer-events: none;
+                z-index: 1000;
+                animation: colorBurst 1s forwards;
+            \`;
+            document.body.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), 1000);
+        }
+        
+        // Add animation if not exists
+        if (!document.querySelector('#color-burst-styles')) {
+            const style = document.createElement('style');
+            style.id = 'color-burst-styles';
+            style.textContent = \`
+                @keyframes colorBurst {
+                    0% { 
+                        transform: translate(0, 0) scale(1);
+                        opacity: 1;
+                    }
+                    100% { 
+                        transform: translate(\${Math.random() * 100 - 50}px, \${Math.random() * 100 - 50}px) scale(0);
+                        opacity: 0;
+                    }
+                }
+            \`;
+            document.head.appendChild(style);
+        }
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 29: Advanced Contact Form
+// ====================================================================
+form29: {
+    name: "Advanced Contact Form",
+    category: "contact modern advanced",
+    html: `<div class="form-container advanced-contact">
+    <div class="form-header">
+        <div class="advanced-badge">
+            <i class="fas fa-cogs"></i>
+            <span>Advanced Contact</span>
+        </div>
+        <h3>Detailed Contact Form</h3>
+        <p>Complete contact information</p>
+    </div>
+    <form class="contact-form-advanced">
+        <div class="section-title">
+            <i class="fas fa-user-circle"></i>
+            <span>Personal Information</span>
+        </div>
+        <div class="input-row">
+            <div class="input-group">
+                <input type="text" placeholder="First Name" required>
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Last Name" required>
+            </div>
+        </div>
+        <div class="input-group">
+            <input type="text" placeholder="Job Title" required>
+        </div>
+        
+        <div class="section-title">
+            <i class="fas fa-building"></i>
+            <span>Company Information</span>
+        </div>
+        <div class="input-group">
+            <input type="text" placeholder="Company Name" required>
+        </div>
+        <div class="input-group">
+            <input type="text" placeholder="Industry" required>
+        </div>
+        <div class="input-group">
+            <input type="number" placeholder="Company Size" min="1">
+        </div>
+        
+        <div class="section-title">
+            <i class="fas fa-comments"></i>
+            <span>Inquiry Details</span>
+        </div>
+        <div class="input-group">
+            <select class="form-select">
+                <option value="">How did you hear about us?</option>
+                <option value="search">Search Engine</option>
+                <option value="social">Social Media</option>
+                <option value="referral">Referral</option>
+                <option value="ad">Advertisement</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <textarea placeholder="Project requirements or questions..." rows="3" required></textarea>
+            <div class="char-count">0/1000</div>
+        </div>
+        
+        <div class="input-group">
+            <label class="checkbox-label">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Subscribe to newsletter
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" required>
+                <span class="checkmark"></span>
+                I agree to privacy policy
+            </label>
+        </div>
+        
+        <button type="submit" class="form-btn advanced-btn">
+            <i class="fas fa-rocket"></i> Submit Detailed Inquiry
+        </button>
+        <div class="privacy-note">
+            <i class="fas fa-shield-alt"></i>
+            <span>Your information is secure and encrypted</span>
+        </div>
+    </form>
+</div>`,
+    css: `.advanced-contact {
+    width: 100%;
+    max-width: 450px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    border-radius: 16px;
+    padding: 25px;
+}
+
+.advanced-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(99, 102, 241, 0.2);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    color: #a5b4fc;
+    font-size: 0.9rem;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 25px 0 15px 0;
+    font-size: 0.9rem;
+    color: #a5b4fc;
+    border-bottom: 1px solid rgba(165, 180, 252, 0.2);
+    padding-bottom: 8px;
+}
+
+.section-title i {
+    font-size: 1rem;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+
+.input-row .input-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.advanced-contact input,
+.advanced-contact select,
+.advanced-contact textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.advanced-contact input:focus,
+.advanced-contact select:focus,
+.advanced-contact textarea:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.advanced-contact textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.char-count {
+    text-align: right;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+    user-select: none;
+}
+
+.checkbox-label input {
+    display: none;
+}
+
+.checkbox-label .checkmark {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label input:checked + .checkmark {
+    background: #6366f1;
+    border-color: #6366f1;
+}
+
+.checkbox-label input:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 10px;
+}
+
+.form-btn.advanced-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.form-btn.advanced-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+
+.privacy-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    font-size: 0.7rem;
+    color: #94a3b8;
+}`,
+    js: `// Advanced Contact Form functionality
+document.querySelector('.contact-form-advanced')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Personal information
+    const firstName = this.querySelector('input[placeholder="First Name"]').value;
+    const lastName = this.querySelector('input[placeholder="Last Name"]').value;
+    const jobTitle = this.querySelector('input[placeholder="Job Title"]').value;
+    
+    // Company information
+    const company = this.querySelector('input[placeholder="Company Name"]').value;
+    const industry = this.querySelector('input[placeholder="Industry"]').value;
+    const companySize = this.querySelector('input[placeholder="Company Size"]').value;
+    
+    // Inquiry details
+    const referral = this.querySelector('select').value;
+    const message = this.querySelector('textarea').value;
+    const newsletter = this.querySelectorAll('input[type="checkbox"]')[0].checked;
+    const privacy = this.querySelectorAll('input[type="checkbox"]')[1].checked;
+    
+    console.log('Advanced contact:', { 
+        firstName, lastName, jobTitle, company, industry, companySize, 
+        referral, message, newsletter, privacy 
+    });
+    
+    // Validation
+    if (!privacy) {
+        alert('You must agree to the privacy policy');
+        return;
+    }
+    
+    if (message.length > 1000) {
+        alert('Message exceeds 1000 characters limit');
+        return;
+    }
+    
+    // Advanced submission with progress
+    const btn = this.querySelector('.advanced-btn');
+    const originalText = btn.innerHTML;
+    const rocketIcon = btn.querySelector('.fa-rocket');
+    
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+    btn.disabled = true;
+    
+    // Simulate multi-step processing
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+        progress += 25;
+        if (progress <= 100) {
+            btn.innerHTML = \`<i class="fas fa-spinner fa-spin"></i> Processing \${progress}%\`;
+        }
+    }, 500);
+    
+    // Simulate API call
+    setTimeout(() => {
+        clearInterval(progressInterval);
+        
+        // Success animation
+        btn.innerHTML = '<i class="fas fa-check"></i> Submission Complete!';
+        rocketIcon.style.transform = 'translateY(-10px)';
+        btn.style.background = '#10b981';
+        
+        // Privacy note update
+        const privacyNote = this.querySelector('.privacy-note');
+        privacyNote.innerHTML = '<i class="fas fa-shield-check" style="color: #10b981"></i><span style="color: #10b981">✓ Data securely submitted</span>';
+        
+        setTimeout(() => {
+            // Reset form
+            btn.innerHTML = originalText;
+            rocketIcon.style.transform = '';
+            btn.style.background = '';
+            btn.disabled = false;
+            this.reset();
+            privacyNote.innerHTML = '<i class="fas fa-shield-alt"></i><span>Your information is secure and encrypted</span>';
+        }, 2000);
+    }, 2000);
+});`
+},
      
 
 

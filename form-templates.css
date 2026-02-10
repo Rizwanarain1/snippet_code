@@ -4812,3 +4812,614 @@ label i {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
 }
+
+/* ====================================
+   TEMPLATE 22: Professional Contact Form
+   ==================================== */
+   .professional-contact {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.header-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.2rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 2;
+}
+
+.professional-contact input,
+.professional-contact select,
+.professional-contact textarea {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.85rem;
+}
+
+.professional-contact textarea {
+    padding: 10px;
+    min-height: 60px;
+}
+
+.char-count {
+    text-align: right;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 5px;
+}
+
+.form-btn.professional-btn {
+    background: white;
+    color: #1e3c72;
+    font-weight: 600;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* ====================================
+   TEMPLATE 23: Minimal Contact Form
+   ==================================== */
+.minimal-contact {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.minimal-input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 2px solid #e2e8f0;
+    background: transparent;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.minimal-input:focus {
+    outline: none;
+    border-bottom-color: #667eea;
+}
+
+.input-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #667eea;
+    transition: width 0.3s ease;
+}
+
+.minimal-input:focus ~ .input-line {
+    width: 100%;
+}
+
+.form-btn.minimal-btn {
+    background: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+    margin-top: 15px;
+}
+
+.form-btn.minimal-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+/* ====================================
+   TEMPLATE 24: Support Ticket Form
+   ==================================== */
+.support-contact {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.support-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(59, 130, 246, 0.2);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.priority-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.priority-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.priority-dot.low { background: #10b981; }
+.priority-dot.medium { background: #f59e0b; }
+.priority-dot.high { background: #ef4444; }
+.priority-dot.urgent { background: #dc2626; animation: pulse 1s infinite; }
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.upload-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.form-btn.support-btn {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    margin-top: 10px;
+}
+
+/* ====================================
+   TEMPLATE 25: Quick Contact Form
+   ==================================== */
+.quick-contact {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: white;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.quick-note {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 5px;
+    display: block;
+}
+
+.quick-options {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.quick-radio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.radio-dot {
+    width: 14px;
+    height: 14px;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: relative;
+}
+
+.quick-radio input:checked + .radio-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+}
+
+.form-btn.quick-btn {
+    background: white;
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+/* ====================================
+   TEMPLATE 26: Animated Contact Form
+   ==================================== */
+.animated-contact {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.animated-input {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.animated-input input,
+.animated-input textarea {
+    width: 100%;
+    padding: 15px 0 5px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 0.9rem;
+}
+
+.animated-input label {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.animated-input input:focus + label,
+.animated-input input:not(:placeholder-shown) + label,
+.animated-input textarea:focus + label,
+.animated-input textarea:not(:placeholder-shown) + label {
+    top: 0;
+    font-size: 0.7rem;
+    color: white;
+}
+
+.animated-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.animated-input input:focus ~ .animated-border,
+.animated-input textarea:focus ~ .animated-border {
+    width: 100%;
+}
+
+.emoji-selector {
+    margin: 15px 0;
+}
+
+.emoji-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.emoji-options {
+    display: flex;
+    gap: 10px;
+}
+
+.emoji-option {
+    cursor: pointer;
+}
+
+.emoji-option input {
+    display: none;
+}
+
+.emoji {
+    font-size: 1.5rem;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.emoji-option input:checked + .emoji {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.form-btn.animated-btn {
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    border: 2px solid white;
+    margin-top: 15px;
+}
+
+.btn-wave {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.form-btn.animated-btn:hover .btn-wave {
+    left: 100%;
+}
+
+/* ====================================
+   TEMPLATE 27: Multi-Step Contact Form
+   ==================================== */
+.multistep-contact {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.step.active {
+    background: #667eea;
+    color: white;
+}
+
+.step-line {
+    width: 40px;
+    height: 2px;
+    background: #e2e8f0;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.step-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.form-btn.next-btn {
+    background: #667eea;
+    color: white;
+}
+
+.form-btn.prev-btn {
+    background: #e2e8f0;
+    color: #64748b;
+}
+
+.form-btn.submit-btn {
+    background: #10b981;
+    color: white;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #667eea;
+    transition: width 0.3s ease;
+}
+
+/* ====================================
+   TEMPLATE 28: Creative Contact Form
+   ==================================== */
+.creative-contact {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.creative-shape {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.5rem;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-container input,
+.input-container textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.input-container label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label,
+.input-container textarea:focus + label,
+.input-container textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.7rem;
+    color: white;
+    background: #ff6b6b;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.inspiration-hint {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.color-picker {
+    margin: 15px 0;
+}
+
+.color-options {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.color-option {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.color-option:hover {
+    transform: scale(1.2);
+}
+
+.form-btn.creative-btn {
+    background: white;
+    color: #ff6b6b;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* ====================================
+   TEMPLATE 29: Advanced Contact Form
+   ==================================== */
+.advanced-contact {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.advanced-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(99, 102, 241, 0.2);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0 15px 0;
+    font-size: 0.9rem;
+    color: #a5b4fc;
+}
+
+.section-title i {
+    font-size: 1rem;
+}
+
+.privacy-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
+
+.form-btn.advanced-btn {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    margin-top: 10px;
+}
