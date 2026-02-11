@@ -9822,6 +9822,2933 @@ document.querySelector('.contact-form-advanced')?.addEventListener('submit', fun
     }, 2000);
 });`
 },
+// Add this to your formTemplateCodes object after form16
+
+// ====================================================================
+// TEMPLATE 30: Minimalist Bordered Login
+// ====================================================================
+form30: {
+    name: "Minimalist Bordered Login",
+    category: "login modern minimalist",
+    html: `<div class="form-container minimalist-bordered-bg">
+    <div class="form-header">
+        <h3>Sign In</h3>
+        <p>Welcome back! Please enter your details</p>
+    </div>
+    <form class="minimalist-bordered-form">
+        <div class="bordered-input-group">
+            <label for="minimal-email">Email</label>
+            <input type="email" id="minimal-email" placeholder="michael@example.com" required>
+            <div class="input-border"></div>
+        </div>
+        <div class="bordered-input-group">
+            <label for="minimal-password">Password</label>
+            <input type="password" id="minimal-password" placeholder="••••••••" required>
+            <button type="button" class="password-toggle bordered-toggle">
+                <i class="fas fa-eye"></i>
+            </button>
+            <div class="input-border"></div>
+        </div>
+        <div class="form-options minimal-options">
+            <label class="minimal-checkbox">
+                <input type="checkbox" checked>
+                <span class="minimal-checkmark"></span>
+                <span class="minimal-label">Keep me signed in</span>
+            </label>
+            <a href="#" class="minimal-link">Forgot password?</a>
+        </div>
+        <button type="submit" class="form-btn minimalist-btn">
+            <span>Sign In</span>
+            <i class="fas fa-arrow-right"></i>
+        </button>
+        <div class="minimal-divider">
+            <span>New to platform?</span>
+            <a href="#" class="minimal-signup-link">Create account</a>
+        </div>
+    </form>
+</div>`,
+    css: `.minimalist-bordered-bg {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f0f0f0;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.bordered-input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.bordered-input-group label {
+    position: absolute;
+    top: -8px;
+    left: 12px;
+    background: white;
+    padding: 0 6px;
+    font-size: 0.7rem;
+    color: #6b7280;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    z-index: 2;
+}
+
+.bordered-input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    background: white;
+    color: #1f2937;
+}
+
+.bordered-input-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.05);
+}
+
+.input-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #3b82f6;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.bordered-input-group input:focus ~ .input-border {
+    width: 100%;
+}
+
+.bordered-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 0.9rem;
+    z-index: 3;
+}
+
+.bordered-toggle:hover {
+    color: #3b82f6;
+}
+
+.minimal-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 25px;
+}
+
+.minimal-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #4b5563;
+}
+
+.minimal-checkbox input {
+    display: none;
+}
+
+.minimal-checkmark {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #d1d5db;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.minimal-checkbox input:checked + .minimal-checkmark {
+    background: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.minimal-checkbox input:checked + .minimal-checkmark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 10px;
+}
+
+.minimal-link {
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.2s ease;
+    border-bottom: 1px dashed #d1d5db;
+    padding-bottom: 2px;
+}
+
+.minimal-link:hover {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+}
+
+.form-btn.minimalist-btn {
+    width: 100%;
+    padding: 14px;
+    background: white;
+    color: #1f2937;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-btn.minimalist-btn:hover {
+    background: #f9fafb;
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.1);
+}
+
+.form-btn.minimalist-btn i {
+    transition: transform 0.3s ease;
+}
+
+.form-btn.minimalist-btn:hover i {
+    transform: translateX(5px);
+    color: #3b82f6;
+}
+
+.minimal-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.minimal-signup-link {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+}`,
+    js: `// Minimalist Bordered Login
+document.addEventListener('DOMContentLoaded', function() {
+    const minimalistForm = document.querySelector('.minimalist-bordered-form');
+    
+    if (minimalistForm) {
+        // Form submission
+        minimalistForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            if (!email || !password) {
+                showMinimalNotification('Please fill in all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.minimalist-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Signing in...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                showMinimalNotification('Login successful!', 'success');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                this.reset();
+                this.querySelector('input[type="checkbox"]').checked = true;
+            }, 1500);
+        });
+        
+        // Password toggle
+        const toggleBtn = minimalistForm.querySelector('.bordered-toggle');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showMinimalNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: \${type === 'success' ? '#10b981' : '#ef4444'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 31: Cyberpunk Grid Login
+// ====================================================================
+form31: {
+    name: "Cyberpunk Grid Login",
+    category: "login modern cyberpunk",
+    html: `<div class="form-container cyberpunk-grid-bg">
+    <div class="cyber-grid-overlay"></div>
+    <div class="glitch-container">
+        <div class="form-header">
+            <h3 class="glitch-text" data-text="TERMINAL ACCESS">TERMINAL ACCESS</h3>
+            <p class="cyber-subtext">Authorization required</p>
+        </div>
+    </div>
+    <form class="cyberpunk-form">
+        <div class="cyber-input-group">
+            <span class="cyber-prefix">></span>
+            <input type="text" placeholder="USERNAME" required class="cyber-input">
+            <div class="cyber-glow-line"></div>
+        </div>
+        <div class="cyber-input-group">
+            <span class="cyber-prefix">#</span>
+            <input type="password" placeholder="PASSWORD" required class="cyber-input">
+            <button type="button" class="cyber-toggle">
+                <i class="fas fa-eye"></i>
+            </button>
+            <div class="cyber-glow-line"></div>
+        </div>
+        <div class="cyber-options">
+            <label class="cyber-checkbox">
+                <input type="checkbox" checked>
+                <span class="cyber-checkmark"></span>
+                <span class="cyber-label">Remember terminal</span>
+            </label>
+            <a href="#" class="cyber-link">[Reset]</a>
+        </div>
+        <button type="submit" class="form-btn cyber-btn">
+            <span class="btn-glitch">EXECUTE</span>
+            <span class="btn-glitch-layer"></span>
+            <i class="fas fa-terminal"></i>
+        </button>
+        <div class="cyber-status">
+            <span class="status-dot"></span>
+            <span class="status-text">SECURE CONNECTION ESTABLISHED</span>
+        </div>
+    </form>
+    <div class="cyber-footer">
+        <span class="scan-line"></span>
+        <span>© 2025 CYBERSPACE</span>
+    </div>
+</div>`,
+    css: `.cyberpunk-grid-bg {
+    background: #0a0c0f;
+    border-radius: 8px;
+    padding: 25px;
+    color: #00ff9d;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #00ff9d;
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.cyber-grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 157, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 157, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.glitch-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    color: #00ff9d;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+    animation: glitch 3s infinite;
+    margin-bottom: 5px;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.glitch-text::before {
+    color: #ff00c1;
+    z-index: -1;
+    animation: glitch-offset 0.3s infinite;
+}
+
+.glitch-text::after {
+    color: #00fff9;
+    z-index: -2;
+    animation: glitch-offset2 0.2s infinite;
+}
+
+@keyframes glitch {
+    0%, 100% { transform: none; opacity: 1; }
+    7% { transform: skew(-0.5deg, -0.9deg); opacity: 0.75; }
+    10% { transform: none; opacity: 1; }
+    27% { transform: none; opacity: 1; }
+    30% { transform: skew(0.8deg, -0.1deg); opacity: 0.75; }
+    35% { transform: none; opacity: 1; }
+    52% { transform: none; opacity: 1; }
+    55% { transform: skew(-1deg, 0.2deg); opacity: 0.75; }
+    50% { transform: none; opacity: 1; }
+    72% { transform: none; opacity: 1; }
+    75% { transform: skew(0.4deg, 1deg); opacity: 0.75; }
+    80% { transform: none; opacity: 1; }
+    100% { transform: none; opacity: 1; }
+}
+
+@keyframes glitch-offset {
+    0%, 100% { left: 0; }
+    20% { left: -2px; }
+    40% { left: 2px; }
+    60% { left: -1px; }
+    80% { left: 1px; }
+}
+
+@keyframes glitch-offset2 {
+    0%, 100% { left: 0; }
+    20% { left: 2px; }
+    40% { left: -2px; }
+    60% { left: 1px; }
+    80% { left: -1px; }
+}
+
+.cyber-subtext {
+    text-align: center;
+    color: #6c7a89;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.cyber-input-group {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.cyber-prefix {
+    position: absolute;
+    left: 12px;
+    color: #00ff9d;
+    font-weight: 700;
+    z-index: 2;
+    text-shadow: 0 0 5px #00ff9d;
+}
+
+.cyber-input {
+    width: 100%;
+    padding: 14px 14px 14px 30px;
+    background: rgba(0, 255, 157, 0.05);
+    border: 1px solid #00ff9d;
+    border-radius: 4px;
+    color: #00ff9d;
+    font-size: 0.8rem;
+    font-family: 'Courier New', monospace;
+    transition: all 0.3s ease;
+}
+
+.cyber-input:focus {
+    outline: none;
+    background: rgba(0, 255, 157, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+}
+
+.cyber-input::placeholder {
+    color: rgba(0, 255, 157, 0.3);
+    font-family: 'Courier New', monospace;
+}
+
+.cyber-glow-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #00ff9d;
+    box-shadow: 0 0 10px #00ff9d;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.cyber-input:focus ~ .cyber-glow-line {
+    transform: scaleX(1);
+}
+
+.cyber-toggle {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #00ff9d;
+    cursor: pointer;
+    font-size: 0.9rem;
+    z-index: 3;
+}
+
+.cyber-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0 20px;
+}
+
+.cyber-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    color: #00ff9d;
+}
+
+.cyber-checkbox input {
+    display: none;
+}
+
+.cyber-checkmark {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #00ff9d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+}
+
+.cyber-checkbox input:checked + .cyber-checkmark::after {
+    content: '✓';
+    color: #00ff9d;
+}
+
+.cyber-link {
+    color: #ff00c1;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-family: 'Courier New', monospace;
+}
+
+.form-btn.cyber-btn {
+    position: relative;
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    color: #00ff9d;
+    border: 1px solid #00ff9d;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.btn-glitch-layer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.2), transparent);
+    animation: btn-scan 2s infinite;
+}
+
+@keyframes btn-scan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.cyber-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background: #00ff9d;
+    border-radius: 50%;
+    animation: pulse 1s infinite;
+}
+
+.status-text {
+    color: #6c7a89;
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+}
+
+.cyber-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 255, 157, 0.2);
+    font-size: 0.6rem;
+    color: #6c7a89;
+    position: relative;
+}
+
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 255, 157, 0.3);
+    animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100px); }
+}`,
+    js: `// Cyberpunk Grid Login
+document.addEventListener('DOMContentLoaded', function() {
+    const cyberForm = document.querySelector('.cyberpunk-form');
+    
+    if (cyberForm) {
+        // Form submission
+        cyberForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = this.querySelector('input[placeholder="USERNAME"]').value;
+            const password = this.querySelector('input[placeholder="PASSWORD"]').value;
+            
+            if (!username || !password) {
+                showCyberNotification('ACCESS DENIED: Missing credentials', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.cyber-btn');
+            const btnText = submitBtn.querySelector('.btn-glitch');
+            const originalText = btnText.textContent;
+            
+            btnText.textContent = 'AUTHENTICATING...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                btnText.textContent = 'ACCESS GRANTED';
+                submitBtn.style.background = 'rgba(0, 255, 157, 0.2)';
+                showCyberNotification('Welcome to the grid', 'success');
+                
+                setTimeout(() => {
+                    btnText.textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('input[type="checkbox"]').checked = true;
+                }, 1500);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const cyberToggle = cyberForm.querySelector('.cyber-toggle');
+        if (cyberToggle) {
+            cyberToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.cyber-input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showCyberNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0a0c0f;
+            border: 1px solid \${type === 'success' ? '#00ff9d' : '#ff00c1'};
+            color: \${type === 'success' ? '#00ff9d' : '#ff00c1'};
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: 'Courier New', monospace;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 15px \${type === 'success' ? 'rgba(0, 255, 157, 0.3)' : 'rgba(255, 0, 193, 0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 32: Floating Particles Login
+// ====================================================================
+form32: {
+    name: "Floating Particles Login",
+    category: "login modern animated",
+    html: `<div class="form-container particles-bg">
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    <div class="form-header">
+        <div class="particle-logo">
+            <i class="fas fa-atom"></i>
+        </div>
+        <h3>Welcome to Cosmos</h3>
+        <p>Sign in to explore the universe</p>
+    </div>
+    <form class="particles-form">
+        <div class="particle-input-wrapper">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="cosmic@example.com" required class="particle-input">
+            <div class="input-ring"></div>
+        </div>
+        <div class="particle-input-wrapper">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="••••••••" required class="particle-input">
+            <button type="button" class="particle-toggle">
+                <i class="fas fa-eye"></i>
+            </button>
+            <div class="input-ring"></div>
+        </div>
+        <div class="particle-options">
+            <label class="particle-check">
+                <input type="checkbox">
+                <span class="particle-checkmark">
+                    <i class="fas fa-check"></i>
+                </span>
+                <span>Stay connected</span>
+            </label>
+            <a href="#" class="particle-link">Orbit lost?</a>
+        </div>
+        <button type="submit" class="form-btn particle-btn">
+            <span>Launch</span>
+            <i class="fas fa-rocket"></i>
+            <div class="btn-particles"></div>
+        </button>
+        <div class="particle-divider">
+            <span>Join the journey</span>
+            <a href="#" class="particle-signup">Create account</a>
+        </div>
+    </form>
+</div>`,
+    css: `.particles-bg {
+    background: linear-gradient(135deg, #0b0c1e, #1a1b3c);
+    border-radius: 20px;
+    padding: 25px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: float-particle 8s infinite;
+}
+
+.particle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+.particle:nth-child(2) { top: 60%; left: 80%; animation-delay: 1s; }
+.particle:nth-child(3) { top: 80%; left: 30%; animation-delay: 2s; }
+.particle:nth-child(4) { top: 40%; left: 60%; animation-delay: 3s; }
+.particle:nth-child(5) { top: 10%; left: 90%; animation-delay: 4s; }
+.particle:nth-child(6) { top: 70%; left: 10%; animation-delay: 5s; }
+
+@keyframes float-particle {
+    0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+    25% { transform: translateY(-20px) translateX(10px); opacity: 0.6; }
+    50% { transform: translateY(0) translateX(20px); opacity: 0.3; }
+    75% { transform: translateY(20px) translateX(10px); opacity: 0.6; }
+}
+
+.particle-logo {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.3rem;
+    color: #7c9eff;
+    box-shadow: 0 0 30px rgba(124, 158, 255, 0.3);
+}
+
+.particle-input-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.particle-input-wrapper i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7c9eff;
+    z-index: 2;
+    font-size: 0.9rem;
+}
+
+.particle-input {
+    width: 100%;
+    padding: 14px 14px 14px 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.particle-input:focus {
+    outline: none;
+    border-color: #7c9eff;
+    box-shadow: 0 0 20px rgba(124, 158, 255, 0.3);
+}
+
+.input-ring {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 1px solid #7c9eff;
+    border-radius: 30px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.particle-input:focus ~ .input-ring {
+    opacity: 0.5;
+}
+
+.particle-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    z-index: 3;
+}
+
+.particle-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.particle-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.particle-check input {
+    display: none;
+}
+
+.particle-checkmark {
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: transparent;
+    transition: all 0.3s ease;
+}
+
+.particle-check input:checked + .particle-checkmark {
+    background: #7c9eff;
+    border-color: #7c9eff;
+    color: white;
+}
+
+.particle-link {
+    color: #7c9eff;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.form-btn.particle-btn {
+    position: relative;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(45deg, #7c9eff, #a78bfa);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, white 1px, transparent 1px);
+    background-size: 10px 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-btn.particle-btn:hover .btn-particles {
+    opacity: 0.2;
+}
+
+.particle-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.particle-signup {
+    color: #7c9eff;
+    text-decoration: none;
+    font-weight: 500;
+}`,
+    js: `// Floating Particles Login
+document.addEventListener('DOMContentLoaded', function() {
+    const particleForm = document.querySelector('.particles-form');
+    
+    if (particleForm) {
+        // Form submission
+        particleForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            if (!email || !password) {
+                showParticleNotification('Please enter cosmic credentials', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.particle-btn');
+            const rocketIcon = submitBtn.querySelector('.fa-rocket');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Launching...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                rocketIcon.style.animation = 'launch 1s';
+                showParticleNotification('Welcome to the cosmos!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 1500);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const particleToggle = particleForm.querySelector('.particle-toggle');
+        if (particleToggle) {
+            particleToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.particle-input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showParticleNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #0b0c1e, #1a1b3c);
+            border: 1px solid \${type === 'success' ? '#7c9eff' : '#ff6b6b'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 20px \${type === 'success' ? 'rgba(124, 158, 255, 0.3)' : 'rgba(255, 107, 107, 0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 33: Retro Terminal Login
+// ====================================================================
+form33: {
+    name: "Retro Terminal Login",
+    category: "login retro",
+    html: `<div class="form-container retro-terminal-bg">
+    <div class="crt-effect"></div>
+    <div class="scanlines"></div>
+    <div class="terminal-header">
+        <div class="terminal-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+        </div>
+        <span class="terminal-title">root@localhost:~/login</span>
+    </div>
+    <div class="terminal-body">
+        <div class="terminal-prompt">
+            <span class="prompt-user">user@system:~$</span>
+            <span class="prompt-command">login --secure</span>
+        </div>
+        <form class="retro-form">
+            <div class="retro-input-line">
+                <span class="retro-label">username:</span>
+                <input type="text" placeholder="enter username" required class="retro-input">
+                <span class="retro-cursor"></span>
+            </div>
+            <div class="retro-input-line">
+                <span class="retro-label">password:</span>
+                <input type="password" placeholder="••••••••" required class="retro-input">
+                <button type="button" class="retro-toggle">
+                    <i class="fas fa-eye"></i>
+                </button>
+            </div>
+            <div class="retro-checkbox-line">
+                <label class="retro-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="retro-checkmark">[x]</span>
+                    <span class="retro-check-label">remember session</span>
+                </label>
+            </div>
+            <div class="retro-actions">
+                <button type="submit" class="retro-btn">
+                    <span>></span> AUTHENTICATE
+                </button>
+                <a href="#" class="retro-link">reset</a>
+            </div>
+        </form>
+        <div class="terminal-footer">
+            <span class="blink">_</span>
+            <span class="system-msg">[SYSTEM READY]</span>
+        </div>
+    </div>
+</div>`,
+    css: `.retro-terminal-bg {
+    background: #0a0f0a;
+    border-radius: 8px;
+    padding: 20px;
+    color: #33ff33;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #33ff33;
+    box-shadow: 0 0 15px rgba(51, 255, 51, 0.2);
+    font-family: 'Courier New', monospace;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.crt-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.1) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.3;
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #33ff33;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 5px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-title {
+    color: #33ff33;
+    font-size: 0.7rem;
+}
+
+.terminal-prompt {
+    margin-bottom: 15px;
+    color: #33ff33;
+    font-size: 0.8rem;
+}
+
+.prompt-user {
+    color: #33ff33;
+}
+
+.prompt-command {
+    color: #88ff88;
+    margin-left: 10px;
+}
+
+.retro-input-line {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.retro-label {
+    width: 80px;
+    color: #33ff33;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.retro-input {
+    flex: 1;
+    padding: 8px;
+    background: transparent;
+    border: 1px solid #33ff33;
+    color: #33ff33;
+    font-size: 0.8rem;
+    font-family: 'Courier New', monospace;
+}
+
+.retro-input:focus {
+    outline: none;
+    background: rgba(51, 255, 51, 0.1);
+}
+
+.retro-cursor {
+    position: absolute;
+    right: 8px;
+    width: 8px;
+    height: 16px;
+    background: #33ff33;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.retro-toggle {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #33ff33;
+    cursor: pointer;
+}
+
+.retro-checkbox-line {
+    margin: 15px 0;
+}
+
+.retro-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #33ff33;
+    font-size: 0.8rem;
+}
+
+.retro-checkbox input {
+    display: none;
+}
+
+.retro-checkmark {
+    display: inline-block;
+    width: 20px;
+}
+
+.retro-btn {
+    background: transparent;
+    border: 1px solid #33ff33;
+    color: #33ff33;
+    padding: 10px 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.retro-btn:hover {
+    background: #33ff33;
+    color: #0a0f0a;
+}
+
+.retro-link {
+    color: #33ff33;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-left: 15px;
+}
+
+.terminal-footer {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #33ff33;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+.system-msg {
+    color: #88ff88;
+    font-size: 0.7rem;
+}`,
+    js: `// Retro Terminal Login
+document.addEventListener('DOMContentLoaded', function() {
+    const retroForm = document.querySelector('.retro-form');
+    
+    if (retroForm) {
+        // Form submission
+        retroForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = this.querySelector('input[placeholder="enter username"]').value;
+            const password = this.querySelector('input[placeholder="••••••••"]').value;
+            
+            if (!username || !password) {
+                showRetroNotification('ERROR: Missing credentials', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.retro-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>></span> PROCESSING...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>></span> AUTHENTICATED';
+                submitBtn.style.background = '#33ff33';
+                submitBtn.style.color = '#0a0f0a';
+                showRetroNotification('Login successful', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.style.color = '';
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('input[type="checkbox"]').checked = true;
+                }, 1500);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const retroToggle = retroForm.querySelector('.retro-toggle');
+        if (retroToggle) {
+            retroToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.retro-input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showRetroNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0a0f0a;
+            border: 1px solid \${type === 'success' ? '#33ff33' : '#ff5f56'};
+            color: \${type === 'success' ? '#33ff33' : '#ff5f56'};
+            padding: 12px 24px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 15px \${type === 'success' ? 'rgba(51, 255, 51, 0.3)' : 'rgba(255, 95, 86, 0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 34: Brutalist Geometric Login
+// ====================================================================
+form34: {
+    name: "Brutalist Geometric Login",
+    category: "login modern brutalist",
+    html: `<div class="form-container brutalist-bg">
+    <div class="geometric-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+    <div class="brutalist-header">
+        <div class="brutalist-badge">ACCESS</div>
+        <h3>LOGIN</h3>
+        <p>IDENTIFY YOURSELF</p>
+    </div>
+    <form class="brutalist-form">
+        <div class="brutalist-field">
+            <label>EMAIL</label>
+            <div class="brutalist-input-wrapper">
+                <input type="email" placeholder="user@domain.com" required>
+                <div class="brutalist-corner tl"></div>
+                <div class="brutalist-corner tr"></div>
+                <div class="brutalist-corner bl"></div>
+                <div class="brutalist-corner br"></div>
+            </div>
+        </div>
+        <div class="brutalist-field">
+            <label>PASSWORD</label>
+            <div class="brutalist-input-wrapper">
+                <input type="password" placeholder="••••••••" required>
+                <button type="button" class="brutalist-toggle">
+                    <i class="fas fa-eye"></i>
+                </button>
+                <div class="brutalist-corner tl"></div>
+                <div class="brutalist-corner tr"></div>
+                <div class="brutalist-corner bl"></div>
+                <div class="brutalist-corner br"></div>
+            </div>
+        </div>
+        <div class="brutalist-options">
+            <label class="brutalist-checkbox">
+                <input type="checkbox">
+                <span class="brutalist-checkbox-mark">[ ]</span>
+                <span class="brutalist-checkbox-label">REMEMBER</span>
+            </label>
+            <a href="#" class="brutalist-link">FORGOT?</a>
+        </div>
+        <button type="submit" class="brutalist-submit-btn">
+            <span>ENTER</span>
+            <i class="fas fa-arrow-right"></i>
+        </button>
+        <div class="brutalist-divider">
+            <span>—— OR ——</span>
+        </div>
+        <button type="button" class="brutalist-ghost-btn">
+            <span>CREATE ACCOUNT</span>
+        </button>
+    </form>
+</div>`,
+    css: `.brutalist-bg {
+    background: #f5f3f0;
+    border-radius: 0;
+    padding: 25px;
+    color: #1a1e24;
+    position: relative;
+    overflow: hidden;
+    border: 4px solid #1a1e24;
+    box-shadow: 8px 8px 0 #1a1e24;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.geometric-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    background: rgba(255, 107, 107, 0.1);
+}
+
+.shape-1 {
+    width: 80px;
+    height: 80px;
+    top: -20px;
+    right: -20px;
+    background: #ff6b6b;
+    transform: rotate(45deg);
+}
+
+.shape-2 {
+    width: 60px;
+    height: 60px;
+    bottom: -20px;
+    left: -20px;
+    background: #4ecdc4;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.shape-3 {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: -20px;
+    background: #ffe66d;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.shape-4 {
+    width: 30px;
+    height: 30px;
+    bottom: 20px;
+    right: 20px;
+    background: #a37eba;
+    transform: rotate(45deg);
+}
+
+.brutalist-header {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.brutalist-badge {
+    display: inline-block;
+    background: #1a1e24;
+    color: #f5f3f0;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.brutalist-header h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #1a1e24;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+}
+
+.brutalist-header p {
+    color: #6b7280;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.brutalist-field {
+    margin-bottom: 20px;
+}
+
+.brutalist-field label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #1a1e24;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.brutalist-input-wrapper {
+    position: relative;
+}
+
+.brutalist-input-wrapper input {
+    width: 100%;
+    padding: 14px;
+    background: white;
+    border: 3px solid #1a1e24;
+    font-size: 0.9rem;
+    color: #1a1e24;
+    font-weight: 500;
+}
+
+.brutalist-input-wrapper input:focus {
+    outline: none;
+    background: #fff9e6;
+}
+
+.brutalist-corner {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #1a1e24;
+    pointer-events: none;
+}
+
+.brutalist-corner.tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.brutalist-corner.tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+.brutalist-corner.bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+.brutalist-corner.br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+.brutalist-toggle {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #1a1e24;
+    cursor: pointer;
+}
+
+.brutalist-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.brutalist-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1a1e24;
+}
+
+.brutalist-checkbox input {
+    display: none;
+}
+
+.brutalist-checkbox-mark {
+    display: inline-block;
+    width: 20px;
+    font-weight: 900;
+}
+
+.brutalist-link {
+    color: #1a1e24;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-bottom: 2px solid #1a1e24;
+}
+
+.brutalist-submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #1a1e24;
+    color: white;
+    border: 3px solid #1a1e24;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.brutalist-submit-btn:hover {
+    background: #2c3e50;
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+.brutalist-divider {
+    text-align: center;
+    margin: 15px 0;
+    color: #1a1e24;
+    font-weight: 600;
+}
+
+.brutalist-ghost-btn {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    color: #1a1e24;
+    border: 3px solid #1a1e24;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.brutalist-ghost-btn:hover {
+    background: #1a1e24;
+    color: white;
+}`,
+    js: `// Brutalist Geometric Login
+document.addEventListener('DOMContentLoaded', function() {
+    const brutalistForm = document.querySelector('.brutalist-form');
+    
+    if (brutalistForm) {
+        // Form submission
+        brutalistForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            if (!email || !password) {
+                showBrutalistNotification('FILL ALL FIELDS', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.brutalist-submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>ENTERING...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>WELCOME</span> <i class="fas fa-check"></i>';
+                showBrutalistNotification('ACCESS GRANTED', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 1500);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const brutalistToggle = brutalistForm.querySelector('.brutalist-toggle');
+        if (brutalistToggle) {
+            brutalistToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showBrutalistNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #f5f3f0;
+            border: 4px solid #1a1e24;
+            box-shadow: 6px 6px 0 #1a1e24;
+            color: #1a1e24;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            z-index: 9999;
+            animation: slideIn 0.1s ease;
+            text-transform: uppercase;
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.1s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 35: Nature Organic Login
+// ====================================================================
+form35: {
+    name: "Nature Organic Login",
+    category: "login modern nature",
+    html: `<div class="form-container nature-organic-bg">
+    <div class="organic-blob"></div>
+    <div class="organic-blob blob-2"></div>
+    <div class="organic-blob blob-3"></div>
+    <div class="form-header">
+        <div class="leaf-icon">
+            <i class="fas fa-leaf"></i>
+        </div>
+        <h3>Welcome Back</h3>
+        <p>Sign in to your natural space</p>
+    </div>
+    <form class="nature-form">
+        <div class="nature-input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="your@email.com" required>
+            <div class="nature-underline"></div>
+        </div>
+        <div class="nature-input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" required>
+            <button type="button" class="nature-toggle">
+                <i class="fas fa-eye"></i>
+            </button>
+            <div class="nature-underline"></div>
+        </div>
+        <div class="nature-options">
+            <label class="nature-checkbox">
+                <input type="checkbox" checked>
+                <span class="nature-checkmark">
+                    <i class="fas fa-check"></i>
+                </span>
+                <span>Remember me</span>
+            </label>
+            <a href="#" class="nature-link">Forget password?</a>
+        </div>
+        <button type="submit" class="form-btn nature-btn">
+            <span>Sign In</span>
+            <i class="fas fa-seedling"></i>
+        </button>
+        <div class="nature-footer">
+            <span>New to nature?</span>
+            <a href="#" class="nature-signup">Create account</a>
+        </div>
+    </form>
+</div>`,
+    css: `.nature-organic-bg {
+    background: linear-gradient(145deg, #e8f5e9, #c8e6c9);
+    border-radius: 30px 30px 30px 0;
+    padding: 25px;
+    color: #2e7d32;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.organic-blob {
+    position: absolute;
+    background: rgba(129, 199, 132, 0.2);
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: 1;
+}
+
+.organic-blob:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    right: -50px;
+    background: rgba(76, 175, 80, 0.15);
+}
+
+.blob-2 {
+    width: 150px;
+    height: 150px;
+    bottom: -50px;
+    left: -50px;
+    background: rgba(139, 195, 74, 0.15);
+}
+
+.blob-3 {
+    width: 100px;
+    height: 100px;
+    top: 30%;
+    left: 20%;
+    background: rgba(165, 214, 167, 0.2);
+}
+
+.leaf-icon {
+    width: 50px;
+    height: 50px;
+    background: #4caf50;
+    border-radius: 50% 50% 0 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 1.3rem;
+    transform: rotate(15deg);
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+}
+
+.nature-input-group {
+    position: relative;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.nature-input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #66bb6a;
+    z-index: 2;
+    font-size: 0.9rem;
+}
+
+.nature-input-group input {
+    width: 100%;
+    padding: 14px 14px 14px 45px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid transparent;
+    border-radius: 25px;
+    color: #1e3a1e;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.nature-input-group input:focus {
+    outline: none;
+    border-color: #66bb6a;
+    background: white;
+    box-shadow: 0 0 0 6px rgba(102, 187, 106, 0.1);
+}
+
+.nature-underline {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #66bb6a;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nature-input-group input:focus ~ .nature-underline {
+    width: 80%;
+}
+
+.nature-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #66bb6a;
+    cursor: pointer;
+}
+
+.nature-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    z-index: 2;
+    position: relative;
+}
+
+.nature-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #2e7d32;
+}
+
+.nature-checkbox input {
+    display: none;
+}
+
+.nature-checkmark {
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 2px solid #66bb6a;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 0.7rem;
+}
+
+.nature-checkbox input:checked + .nature-checkmark {
+    background: #66bb6a;
+    color: white;
+}
+
+.nature-link {
+    color: #66bb6a;
+    text-decoration: none;
+    font-size: 0.8rem;
+    border-bottom: 1px dashed #66bb6a;
+}
+
+.form-btn.nature-btn {
+    width: 100%;
+    padding: 14px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+}
+
+.form-btn.nature-btn:hover {
+    background: #43a047;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(76, 175, 80, 0.4);
+}
+
+.nature-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #2e7d32;
+}
+
+.nature-signup {
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}`,
+    js: `// Nature Organic Login
+document.addEventListener('DOMContentLoaded', function() {
+    const natureForm = document.querySelector('.nature-form');
+    
+    if (natureForm) {
+        // Form submission
+        natureForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            if (!email || !password) {
+                showNatureNotification('Please fill all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.nature-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Signing in...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome!</span> <i class="fas fa-check"></i>';
+                showNatureNotification('Welcome back to nature!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('input[type="checkbox"]').checked = true;
+                }, 1500);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const natureToggle = natureForm.querySelector('.nature-toggle');
+        if (natureToggle) {
+            natureToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showNatureNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #e8f5e9;
+            border: 2px solid \${type === 'success' ? '#4caf50' : '#f44336'};
+            border-radius: 30px;
+            color: \${type === 'success' ? '#2e7d32' : '#c62828'};
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.2);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 36: Holographic Futuristic Login
+// ====================================================================
+form36: {
+    name: "Holographic Futuristic Login",
+    category: "login modern futuristic",
+    html: `<div class="form-container holographic-bg">
+    <div class="holographic-grid"></div>
+    <div class="holographic-overlay"></div>
+    <div class="form-header">
+        <div class="holographic-icon">
+            <i class="fas fa-fingerprint"></i>
+        </div>
+        <h3 class="holographic-title">BIOMETRIC ACCESS</h3>
+        <p class="holographic-subtitle">Secure identity verification</p>
+    </div>
+    <form class="holographic-form">
+        <div class="holographic-scan-area">
+            <div class="scan-line"></div>
+            <i class="fas fa-qrcode"></i>
+            <span>Place finger on scanner</span>
+        </div>
+        <div class="holographic-divider">
+            <span>or use credentials</span>
+        </div>
+        <div class="holographic-input-group">
+            <div class="holographic-label">
+                <i class="fas fa-id-card"></i>
+                <span>USER ID</span>
+            </div>
+            <input type="text" placeholder="Enter your ID" required class="holographic-input">
+            <div class="holographic-glow"></div>
+        </div>
+        <div class="holographic-input-group">
+            <div class="holographic-label">
+                <i class="fas fa-key"></i>
+                <span>PASSKEY</span>
+            </div>
+            <input type="password" placeholder="Enter passkey" required class="holographic-input">
+            <button type="button" class="holographic-toggle">
+                <i class="fas fa-eye"></i>
+            </button>
+            <div class="holographic-glow"></div>
+        </div>
+        <label class="holographic-checkbox">
+            <input type="checkbox" checked>
+            <span class="holographic-checkmark">
+                <i class="fas fa-check"></i>
+            </span>
+            <span>Enable biometric sync</span>
+        </label>
+        <button type="submit" class="form-btn holographic-btn">
+            <span>VERIFY IDENTITY</span>
+            <i class="fas fa-scan"></i>
+            <div class="btn-hologram"></div>
+        </button>
+        <div class="holographic-status">
+            <span class="status-led"></span>
+            <span class="status-message">System secure · 256-bit encryption</span>
+        </div>
+    </form>
+</div>`,
+    css: `.holographic-bg {
+    background: linear-gradient(135deg, #0a192f, #112240);
+    border-radius: 16px;
+    padding: 25px;
+    color: #64ffda;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.1);
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.holographic-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(100, 255, 218, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100, 255, 218, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    transform: perspective(500px) rotateX(60deg);
+    transform-origin: top;
+    pointer-events: none;
+}
+
+.holographic-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.holographic-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #64ffda;
+    text-shadow: 0 0 10px #64ffda, 0 0 20px #64ffda;
+    animation: hologram-pulse 2s infinite;
+}
+
+@keyframes hologram-pulse {
+    0%, 100% { opacity: 1; text-shadow: 0 0 10px #64ffda, 0 0 20px #64ffda; }
+    50% { opacity: 0.8; text-shadow: 0 0 20px #64ffda, 0 0 40px #64ffda; }
+}
+
+.holographic-title {
+    text-align: center;
+    color: #64ffda;
+    font-size: 1rem;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 5px #64ffda;
+}
+
+.holographic-subtitle {
+    text-align: center;
+    color: #8892b0;
+    font-size: 0.7rem;
+    margin-bottom: 20px;
+}
+
+.holographic-scan-area {
+    background: rgba(100, 255, 218, 0.05);
+    border: 1px solid #64ffda;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.holographic-scan-area .scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #64ffda;
+    box-shadow: 0 0 10px #64ffda;
+    animation: scan-move 2s linear infinite;
+}
+
+@keyframes scan-move {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100px); }
+}
+
+.holographic-scan-area i {
+    font-size: 2rem;
+    color: #64ffda;
+    filter: drop-shadow(0 0 5px #64ffda);
+}
+
+.holographic-divider {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    color: #64ffda;
+    font-size: 0.7rem;
+}
+
+.holographic-divider::before,
+.holographic-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #64ffda, transparent);
+}
+
+.holographic-input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.holographic-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #64ffda;
+    font-size: 0.7rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.holographic-input {
+    width: 100%;
+    padding: 14px;
+    background: rgba(100, 255, 218, 0.03);
+    border: 1px solid #64ffda;
+    border-radius: 4px;
+    color: #64ffda;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.holographic-input:focus {
+    outline: none;
+    background: rgba(100, 255, 218, 0.1);
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
+}
+
+.holographic-glow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #64ffda;
+    box-shadow: 0 0 10px #64ffda;
+    transition: width 0.3s ease;
+}
+
+.holographic-input:focus ~ .holographic-glow {
+    width: 100%;
+}
+
+.holographic-toggle {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    background: none;
+    border: none;
+    color: #64ffda;
+    cursor: pointer;
+}
+
+.holographic-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #8892b0;
+    margin-bottom: 20px;
+}
+
+.holographic-checkbox input {
+    display: none;
+}
+
+.holographic-checkmark {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #64ffda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+}
+
+.holographic-checkbox input:checked + .holographic-checkmark {
+    background: #64ffda;
+    color: #0a192f;
+}
+
+.form-btn.holographic-btn {
+    position: relative;
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    color: #64ffda;
+    border: 1px solid #64ffda;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.btn-hologram {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+    top: 0;
+    left: -100%;
+    transition: left 0.5s ease;
+}
+
+.form-btn.holographic-btn:hover .btn-hologram {
+    left: 100%;
+}
+
+.holographic-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.status-led {
+    width: 6px;
+    height: 6px;
+    background: #64ffda;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #64ffda;
+    animation: led-blink 2s infinite;
+}
+
+@keyframes led-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.status-message {
+    color: #8892b0;
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+}`,
+    js: `// Holographic Futuristic Login
+document.addEventListener('DOMContentLoaded', function() {
+    const holographicForm = document.querySelector('.holographic-form');
+    
+    if (holographicForm) {
+        // Form submission
+        holographicForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const userId = this.querySelector('input[placeholder="Enter your ID"]').value;
+            const passkey = this.querySelector('input[placeholder="Enter passkey"]').value;
+            
+            if (!userId || !passkey) {
+                showHolographicNotification('IDENTITY VERIFICATION FAILED', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.holographic-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>VERIFYING...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>IDENTITY CONFIRMED</span> <i class="fas fa-check"></i>';
+                showHolographicNotification('Biometric scan successful', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('input[type="checkbox"]').checked = true;
+                }, 1500);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const holographicToggle = holographicForm.querySelector('.holographic-toggle');
+        if (holographicToggle) {
+            holographicToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.holographic-input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showHolographicNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0a192f;
+            border: 1px solid \${type === 'success' ? '#64ffda' : '#ff6b6b'};
+            color: \${type === 'success' ? '#64ffda' : '#ff6b6b'};
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 20px \${type === 'success' ? 'rgba(100, 255, 218, 0.3)' : 'rgba(255, 107, 107, 0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 37: Liquid Morph Login
+// ====================================================================
+form37: {
+    name: "Liquid Morph Login",
+    category: "login modern animated",
+    html: `<div class="form-container liquid-morph-bg">
+    <div class="liquid-blob"></div>
+    <div class="liquid-blob blob-2"></div>
+    <div class="liquid-blob blob-3"></div>
+    <div class="form-header">
+        <div class="liquid-icon">
+            <i class="fas fa-droplet"></i>
+        </div>
+        <h3>Fluid Access</h3>
+        <p>Seamless authentication</p>
+    </div>
+    <form class="liquid-form">
+        <div class="liquid-input-wrapper">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email address" required>
+            <div class="liquid-border"></div>
+        </div>
+        <div class="liquid-input-wrapper">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" required>
+            <button type="button" class="liquid-toggle">
+                <i class="fas fa-eye"></i>
+            </button>
+            <div class="liquid-border"></div>
+        </div>
+        <div class="liquid-options">
+            <label class="liquid-check">
+                <input type="checkbox">
+                <span class="liquid-checkmark">
+                    <i class="fas fa-check"></i>
+                </span>
+                <span>Stay signed in</span>
+            </label>
+            <a href="#" class="liquid-link">Recover</a>
+        </div>
+        <button type="submit" class="form-btn liquid-btn">
+            <span>Flow In</span>
+            <i class="fas fa-water"></i>
+            <div class="liquid-ripple"></div>
+        </button>
+        <div class="liquid-footer">
+            <span>Need an account?</span>
+            <a href="#" class="liquid-signup">Create one</a>
+        </div>
+    </form>
+</div>`,
+    css: `.liquid-morph-bg {
+    background: linear-gradient(145deg, #0f172a, #1e293b);
+    border-radius: 40px 40px 40px 40px;
+    padding: 25px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.liquid-blob {
+    position: absolute;
+    background: rgba(56, 189, 248, 0.1);
+    border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%;
+    animation: liquid-morph 15s infinite ease-in-out;
+    z-index: 1;
+}
+
+.liquid-blob:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    right: -50px;
+    background: rgba(56, 189, 248, 0.1);
+}
+
+.blob-2 {
+    width: 150px;
+    height: 150px;
+    bottom: -50px;
+    left: -50px;
+    background: rgba(139, 92, 246, 0.1);
+    animation-delay: -3s;
+}
+
+.blob-3 {
+    width: 120px;
+    height: 120px;
+    top: 40%;
+    left: 10%;
+    background: rgba(244, 114, 182, 0.1);
+    animation-delay: -7s;
+}
+
+@keyframes liquid-morph {
+    0%, 100% { border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%; }
+    33% { border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%; }
+    66% { border-radius: 70% 30% 60% 40% / 30% 70% 40% 60%; }
+}
+
+.liquid-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(56, 189, 248, 0.2);
+    border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: #38bdf8;
+    font-size: 1.3rem;
+    animation: liquid-rotate 10s infinite;
+}
+
+@keyframes liquid-rotate {
+    0%, 100% { transform: rotate(0deg); }
+    33% { transform: rotate(10deg); }
+    66% { transform: rotate(-5deg); }
+}
+
+.liquid-input-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.liquid-input-wrapper i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #38bdf8;
+    z-index: 2;
+}
+
+.liquid-input-wrapper input {
+    width: 100%;
+    padding: 16px 16px 16px 45px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.liquid-input-wrapper input:focus {
+    outline: none;
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+}
+
+.liquid-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #38bdf8;
+    border-radius: 30px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.liquid-input-wrapper input:focus ~ .liquid-border {
+    opacity: 0.3;
+}
+
+.liquid-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.liquid-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    z-index: 2;
+    position: relative;
+}
+
+.liquid-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+}
+
+.liquid-check input {
+    display: none;
+}
+
+.liquid-checkmark {
+    width: 18px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #38bdf8;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 0.7rem;
+}
+
+.liquid-check input:checked + .liquid-checkmark {
+    background: #38bdf8;
+    color: white;
+}
+
+.liquid-link {
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.form-btn.liquid-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: #38bdf8;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    z-index: 2;
+    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+}
+
+.liquid-ripple {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+    background-size: 10px 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.form-btn.liquid-btn:hover .liquid-ripple {
+    opacity: 0.2;
+}
+
+.liquid-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    z-index: 2;
+    position: relative;
+}
+
+.liquid-signup {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px;
+}`,
+    js: `// Liquid Morph Login
+document.addEventListener('DOMContentLoaded', function() {
+    const liquidForm = document.querySelector('.liquid-form');
+    
+    if (liquidForm) {
+        // Form submission
+        liquidForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            if (!email || !password) {
+                showLiquidNotification('Please fill all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.liquid-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Flowing...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome!</span> <i class="fas fa-check"></i>';
+                showLiquidNotification('Login successful!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 1500);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const liquidToggle = liquidForm.querySelector('.liquid-toggle');
+        if (liquidToggle) {
+            liquidToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showLiquidNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(145deg, #0f172a, #1e293b);
+            border: 1px solid \${type === 'success' ? '#38bdf8' : '#ef4444'};
+            border-radius: 30px;
+            color: white;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px \${type === 'success' ? 'rgba(56, 189, 248, 0.3)' : 'rgba(239, 68, 68, 0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+}
      
 
 
