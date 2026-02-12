@@ -15191,6 +15191,2554 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });`
 },
+// ====================================================================
+// TEMPLATE 43: Floating Card 3D Signup
+// ====================================================================
+form43: {
+    name: "Floating Card 3D Signup",
+    category: "signup modern 3d",
+    html: `<div class="form-container floating-3d-signup-bg">
+    <div class="floating-card">
+        <div class="card-glow"></div>
+        <div class="card-content">
+            <div class="form-header">
+                <div class="floating-icon">
+                    <i class="fas fa-cube"></i>
+                </div>
+                <h3>Create Account</h3>
+                <p>Join the 3D experience</p>
+            </div>
+            <form class="floating-3d-form">
+                <div class="floating-input-3d">
+                    <div class="input-face front">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Full name" required>
+                    </div>
+                    <div class="input-face back"></div>
+                </div>
+                
+                <div class="floating-input-3d">
+                    <div class="input-face front">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email address" required>
+                    </div>
+                    <div class="input-face back"></div>
+                </div>
+                
+                <div class="floating-input-3d">
+                    <div class="input-face front">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                        <button type="button" class="floating-3d-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="input-face back"></div>
+                </div>
+                
+                <div class="floating-checkbox-3d">
+                    <label class="checkbox-3d-label">
+                        <input type="checkbox" checked>
+                        <span class="checkbox-3d-box">
+                            <span class="checkbox-face front">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="checkbox-face back"></span>
+                        </span>
+                        <span class="checkbox-3d-text">I agree to terms</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="form-btn floating-3d-btn">
+                    <span>Sign Up</span>
+                    <i class="fas fa-arrow-right"></i>
+                    <div class="btn-3d-layers">
+                        <span class="layer layer-1"></span>
+                        <span class="layer layer-2"></span>
+                        <span class="layer layer-3"></span>
+                    </div>
+                </button>
+                
+                <div class="floating-footer-3d">
+                    <span>Already have an account?</span>
+                    <a href="#" class="floating-3d-link">Sign in</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>`,
+    css: `.floating-3d-signup-bg {
+    background: linear-gradient(145deg, #1a2639, #0e1a2b);
+    border-radius: 24px;
+    padding: 25px;
+    perspective: 1200px;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.floating-card {
+    position: relative;
+    transform-style: preserve-3d;
+    animation: float-3d 6s ease-in-out infinite;
+}
+
+@keyframes float-3d {
+    0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+    25% { transform: translateY(-5px) rotateX(2deg) rotateY(-2deg); }
+    75% { transform: translateY(5px) rotateX(-2deg) rotateY(2deg); }
+}
+
+.card-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle at 50% 50%, rgba(79, 172, 254, 0.2), transparent 70%);
+    filter: blur(15px);
+    border-radius: 30px;
+    z-index: 1;
+}
+
+.card-content {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateZ(20px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    z-index: 2;
+}
+
+.floating-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.8rem;
+    color: white;
+    transform: rotate(45deg) translateZ(30px);
+    box-shadow: 
+        0 10px 30px rgba(79, 172, 254, 0.4),
+        0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.floating-icon i {
+    transform: rotate(-45deg);
+}
+
+.floating-input-3d {
+    position: relative;
+    margin-bottom: 18px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.input-face {
+    position: relative;
+    backface-visibility: hidden;
+}
+
+.input-face.front {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0 16px;
+    transform: translateZ(10px);
+    transition: all 0.3s ease;
+}
+
+.input-face.front i {
+    color: #4facfe;
+    font-size: 0.95rem;
+    margin-right: 12px;
+}
+
+.input-face.front input {
+    width: 100%;
+    padding: 16px 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.input-face.front input:focus {
+    outline: none;
+}
+
+.input-face.front input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.floating-input-3d:hover {
+    transform: translateZ(15px);
+}
+
+.floating-input-3d:focus-within {
+    transform: translateZ(20px);
+}
+
+.floating-input-3d:focus-within .input-face.front {
+    border-color: #4facfe;
+    box-shadow: 0 0 20px rgba(79, 172, 254, 0.2);
+    background: rgba(79, 172, 254, 0.1);
+}
+
+.floating-3d-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.floating-checkbox-3d {
+    margin: 20px 0;
+}
+
+.checkbox-3d-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    perspective: 800px;
+}
+
+.checkbox-3d-label input {
+    display: none;
+}
+
+.checkbox-3d-box {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+}
+
+.checkbox-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox-face.front {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: transparent;
+    transform: rotateY(0deg);
+}
+
+.checkbox-face.back {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    transform: rotateY(180deg);
+    color: white;
+    font-size: 0.8rem;
+}
+
+.checkbox-3d-label input:checked + .checkbox-3d-box {
+    transform: rotateY(180deg);
+}
+
+.checkbox-3d-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+}
+
+.form-btn.floating-3d-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    transition: transform 0.3s ease;
+}
+
+.btn-3d-layers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border-radius: 12px;
+    opacity: 0.5;
+}
+
+.layer-1 { transform: translateZ(-5px); }
+.layer-2 { transform: translateZ(-10px); opacity: 0.3; }
+.layer-3 { transform: translateZ(-15px); opacity: 0.2; }
+
+.form-btn.floating-3d-btn:hover {
+    transform: translateZ(10px);
+}
+
+.floating-footer-3d {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.floating-3d-link {
+    color: #4facfe;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}`,
+    js: `// Floating Card 3D Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const floating3DForm = document.querySelector('.floating-3d-form');
+    
+    if (floating3DForm) {
+        floating3DForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[placeholder="Full name"]').value;
+            const email = this.querySelector('input[placeholder="Email address"]').value;
+            const password = this.querySelector('input[placeholder="Password"]').value;
+            
+            if (!name || !email || !password) {
+                show3DNotification('Please fill in all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.floating-3d-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Creating...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome to 3D!</span> <i class="fas fa-cube"></i>';
+                show3DNotification('Account created successfully!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('.checkbox-3d-label input').checked = true;
+                }, 2000);
+            }, 2000);
+        });
+        
+        // 3D Password toggle
+        const toggle3D = floating3DForm.querySelector('.floating-3d-toggle');
+        if (toggle3D) {
+            toggle3D.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                    
+                    // 3D effect
+                    this.parentElement.parentElement.style.transform = 'translateZ(25px)';
+                    setTimeout(() => {
+                        this.parentElement.parentElement.style.transform = '';
+                    }, 200);
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+        
+        // 3D Checkbox effect
+        const checkbox3D = floating3DForm.querySelector('.checkbox-3d-label');
+        if (checkbox3D) {
+            checkbox3D.addEventListener('click', function() {
+                const box = this.querySelector('.checkbox-3d-box');
+                box.style.transform = 'rotateY(180deg) scale(1.2)';
+                setTimeout(() => {
+                    box.style.transform = '';
+                }, 400);
+            });
+        }
+    }
+    
+    function show3DNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #1a2639, #0e1a2b);
+            border: 1px solid \${type === 'success' ? '#4facfe' : '#ef4444'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: translateZ(20px);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 44: Kinetic Typography Signup
+// ====================================================================
+form44: {
+    name: "Kinetic Typography Signup",
+    category: "signup modern kinetic",
+    html: `<div class="form-container kinetic-signup-bg">
+    <div class="kinetic-particles">
+        <span class="particle-text">W</span>
+        <span class="particle-text">E</span>
+        <span class="particle-text">L</span>
+        <span class="particle-text">C</span>
+        <span class="particle-text">O</span>
+        <span class="particle-text">M</span>
+        <span class="particle-text">E</span>
+    </div>
+    <div class="form-header">
+        <div class="kinetic-logo">
+            <span class="char" style="--char-index: 0">J</span>
+            <span class="char" style="--char-index: 1">O</span>
+            <span class="char" style="--char-index: 2">I</span>
+            <span class="char" style="--char-index: 3">N</span>
+        </div>
+        <h3 class="kinetic-title">
+            <span class="kinetic-word" data-word="Create">C</span>
+            <span class="kinetic-word" data-word="Your">Y</span>
+            <span class="kinetic-word" data-word="Account">A</span>
+        </h3>
+        <p class="kinetic-subtitle">Start your journey</p>
+    </div>
+    <form class="kinetic-form">
+        <div class="kinetic-input-group">
+            <div class="kinetic-label">
+                <span class="label-letter" style="--letter-index: 0">N</span>
+                <span class="label-letter" style="--letter-index: 1">A</span>
+                <span class="label-letter" style="--letter-index: 2">M</span>
+                <span class="label-letter" style="--letter-index: 3">E</span>
+            </div>
+            <input type="text" placeholder="Enter your name" required class="kinetic-input">
+            <div class="kinetic-underline"></div>
+        </div>
+        
+        <div class="kinetic-input-group">
+            <div class="kinetic-label">
+                <span class="label-letter" style="--letter-index: 0">E</span>
+                <span class="label-letter" style="--letter-index: 1">M</span>
+                <span class="label-letter" style="--letter-index: 2">A</span>
+                <span class="label-letter" style="--letter-index: 3">I</span>
+                <span class="label-letter" style="--letter-index: 4">L</span>
+            </div>
+            <input type="email" placeholder="Enter your email" required class="kinetic-input">
+            <div class="kinetic-underline"></div>
+        </div>
+        
+        <div class="kinetic-input-group">
+            <div class="kinetic-label">
+                <span class="label-letter" style="--letter-index: 0">P</span>
+                <span class="label-letter" style="--letter-index: 1">A</span>
+                <span class="label-letter" style="--letter-index: 2">S</span>
+                <span class="label-letter" style="--letter-index: 3">S</span>
+                <span class="label-letter" style="--letter-index: 4">W</span>
+                <span class="label-letter" style="--letter-index: 5">O</span>
+                <span class="label-letter" style="--letter-index: 6">R</span>
+                <span class="label-letter" style="--letter-index: 7">D</span>
+            </div>
+            <input type="password" placeholder="Create password" required class="kinetic-input">
+            <button type="button" class="kinetic-toggle">
+                <i class="fas fa-eye"></i>
+            </button>
+            <div class="kinetic-underline"></div>
+        </div>
+        
+        <div class="kinetic-strength">
+            <div class="strength-bar-kinetic"></div>
+        </div>
+        
+        <button type="submit" class="form-btn kinetic-submit-btn">
+            <span class="btn-char" style="--btn-index: 0">S</span>
+            <span class="btn-char" style="--btn-index: 1">I</span>
+            <span class="btn-char" style="--btn-index: 2">G</span>
+            <span class="btn-char" style="--btn-index: 3">N</span>
+            <span class="btn-char" style="--btn-index: 4"> </span>
+            <span class="btn-char" style="--btn-index: 5">U</span>
+            <span class="btn-char" style="--btn-index: 6">P</span>
+            <i class="fas fa-arrow-right"></i>
+        </button>
+        
+        <div class="kinetic-footer">
+            <span class="footer-text">Already member?</span>
+            <a href="#" class="kinetic-footer-link">
+                <span class="link-char" style="--link-index: 0">L</span>
+                <span class="link-char" style="--link-index: 1">o</span>
+                <span class="link-char" style="--link-index: 2">g</span>
+                <span class="link-char" style="--link-index: 3">i</span>
+                <span class="link-char" style="--link-index: 4">n</span>
+            </a>
+        </div>
+    </form>
+</div>`,
+    css: `.kinetic-signup-bg {
+    background: #0b0c10;
+    border-radius: 20px;
+    padding: 25px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.kinetic-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.particle-text {
+    position: absolute;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.03);
+    animation: kinetic-float 15s linear infinite;
+}
+
+.particle-text:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.particle-text:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; }
+.particle-text:nth-child(3) { top: 80%; left: 30%; animation-delay: 4s; }
+.particle-text:nth-child(4) { top: 40%; left: 70%; animation-delay: 6s; }
+.particle-text:nth-child(5) { top: 10%; left: 90%; animation-delay: 8s; }
+.particle-text:nth-child(6) { top: 70%; left: 20%; animation-delay: 10s; }
+.particle-text:nth-child(7) { top: 30%; left: 50%; animation-delay: 12s; }
+
+@keyframes kinetic-float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(100px, -100px) rotate(360deg); }
+}
+
+.kinetic-logo {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.char {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: char-bounce 2s ease infinite;
+    animation-delay: calc(var(--char-index) * 0.1s);
+}
+
+@keyframes char-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.kinetic-title {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.kinetic-word {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    position: relative;
+    animation: word-flicker 3s infinite;
+    animation-delay: calc(var(--char-index) * 0.2s);
+}
+
+@keyframes word-flicker {
+    0%, 100% { opacity: 1; text-shadow: 0 0 0 transparent; }
+    25% { opacity: 0.8; text-shadow: 0 0 8px rgba(255,255,255,0.5); }
+    75% { opacity: 0.9; text-shadow: 0 0 4px rgba(255,255,255,0.3); }
+}
+
+.kinetic-subtitle {
+    text-align: center;
+    color: #a0aec0;
+    font-size: 0.75rem;
+    margin-bottom: 20px;
+    animation: fade-slide 1s ease;
+}
+
+.kinetic-input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.kinetic-label {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 6px;
+}
+
+.label-letter {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #cbd5e0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: label-reveal 0.5s ease forwards;
+    animation-delay: calc(var(--letter-index) * 0.05s);
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+@keyframes label-reveal {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.kinetic-input {
+    width: 100%;
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.kinetic-input:focus {
+    outline: none;
+}
+
+.kinetic-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.85rem;
+}
+
+.kinetic-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+    background-size: 200% 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.kinetic-input:focus ~ .kinetic-underline {
+    transform: scaleX(1);
+    animation: gradient-shift 2s linear infinite;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+.kinetic-toggle {
+    position: absolute;
+    right: 0;
+    bottom: 14px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.kinetic-strength {
+    margin-bottom: 25px;
+}
+
+.strength-bar-kinetic {
+    height: 4px;
+    background: linear-gradient(90deg, #ef4444, #f59e0b, #10b981);
+    width: 0%;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.form-btn.kinetic-submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-char {
+    display: inline-block;
+    animation: btn-pop 2s infinite;
+    animation-delay: calc(var(--btn-index) * 0.1s);
+}
+
+@keyframes btn-pop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.form-btn.kinetic-submit-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.kinetic-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #a0aec0;
+}
+
+.kinetic-footer-link {
+    display: inline-flex;
+    gap: 2px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.link-char {
+    display: inline-block;
+    animation: link-hover 1s infinite;
+    animation-delay: calc(var(--link-index) * 0.1s);
+}
+
+@keyframes link-hover {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); color: #48dbfb; }
+}`,
+    js: `// Kinetic Typography Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const kineticForm = document.querySelector('.kinetic-form');
+    
+    if (kineticForm) {
+        // Password strength
+        const passwordInput = kineticForm.querySelector('input[type="password"]');
+        const strengthBar = kineticForm.querySelector('.strength-bar-kinetic');
+        
+        if (passwordInput && strengthBar) {
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                let strength = 0;
+                
+                if (password.length >= 8) strength += 25;
+                if (/[A-Z]/.test(password)) strength += 25;
+                if (/[0-9]/.test(password)) strength += 25;
+                if (/[^A-Za-z0-9]/.test(password)) strength += 25;
+                
+                strengthBar.style.width = strength + '%';
+                
+                // Animate strength bar
+                strengthBar.style.animation = 'none';
+                strengthBar.offsetHeight;
+                strengthBar.style.animation = 'gradient-shift 2s linear infinite';
+            });
+        }
+        
+        // Form submission
+        kineticForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[placeholder="Enter your name"]').value;
+            const email = this.querySelector('input[placeholder="Enter your email"]').value;
+            const password = this.querySelector('input[placeholder="Create password"]').value;
+            
+            if (!name || !email || !password) {
+                showKineticNotification('Please complete all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.kinetic-submit-btn');
+            const originalHTML = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span class="btn-char">C</span><span class="btn-char">r</span><span class="btn-char">e</span><span class="btn-char">a</span><span class="btn-char">t</span><span class="btn-char">i</span><span class="btn-char">n</span><span class="btn-char">g</span><span class="btn-char">.</span><span class="btn-char">.</span><span class="btn-char">.</span>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span class="btn-char">W</span><span class="btn-char">e</span><span class="btn-char">l</span><span class="btn-char">c</span><span class="btn-char">o</span><span class="btn-char">m</span><span class="btn-char">e</span><span class="btn-char">!</span>';
+                showKineticNotification('Account created successfully!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalHTML;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    strengthBar.style.width = '0%';
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const kineticToggle = kineticForm.querySelector('.kinetic-toggle');
+        if (kineticToggle) {
+            kineticToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+        
+        // Animate label letters on focus
+        kineticForm.querySelectorAll('.kinetic-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                const labels = this.parentElement.querySelectorAll('.label-letter');
+                labels.forEach((label, index) => {
+                    label.style.animation = 'none';
+                    label.offsetHeight;
+                    label.style.animation = \`label-reveal 0.5s ease forwards\`;
+                    label.style.animationDelay = \`\${index * 0.05}s\`;
+                });
+            });
+        });
+    }
+    
+    function showKineticNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0b0c10;
+            border: 1px solid \${type === 'success' ? '#48dbfb' : '#ff6b6b'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 20px \${type === 'success' ? 'rgba(72,219,251,0.3)' : 'rgba(255,107,107,0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 45: Morphing Blob Signup
+// ====================================================================
+form45: {
+    name: "Morphing Blob Signup",
+    category: "signup modern morphing",
+    html: `<div class="form-container morphing-blob-signup-bg">
+    <svg class="blob-svg" viewBox="0 0 500 500" width="100%" height="100%">
+        <defs>
+            <linearGradient id="blob-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#4158D0;stop-opacity:1" />
+                <stop offset="50%" style="stop-color:#C850C0;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FFCC70;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path class="morphing-blob" fill="url(#blob-gradient)" opacity="0.1">
+            <animate attributeName="d" dur="20s" repeatCount="indefinite"
+                values="M442.5,296Q423,342,387.5,379.5Q352,417,301,436Q250,455,197,439.5Q144,424,108.5,386.5Q73,349,50,299.5Q27,250,44,197.5Q61,145,102.5,108.5Q144,72,197,54Q250,36,303.5,53.5Q357,71,392.5,111Q428,151,441,200.5Q454,250,442.5,296Z;
+                    
+                    M433,295.5Q426,341,393,379.5Q360,418,305,433Q250,448,200,423.5Q150,399,108,368.5Q66,338,54,294Q42,250,52,205Q62,160,97.5,125Q133,90,183.5,71Q234,52,284.5,64Q335,76,375.5,109Q416,142,427.5,196Q439,250,433,295.5Z;
+                    
+                    M449,297Q434,344,402.5,384Q371,424,310.5,438Q250,452,197,424Q144,396,102,366Q60,336,52.5,293Q45,250,55,208.5Q65,167,104.5,139.5Q144,112,197,86Q250,60,303,86Q356,112,393.5,142.5Q431,173,446.5,211.5Q462,250,449,297Z;
+                    
+                    M442.5,296Q423,342,387.5,379.5Q352,417,301,436Q250,455,197,439.5Q144,424,108.5,386.5Q73,349,50,299.5Q27,250,44,197.5Q61,145,102.5,108.5Q144,72,197,54Q250,36,303.5,53.5Q357,71,392.5,111Q428,151,441,200.5Q454,250,442.5,296Z"
+            />
+        </path>
+    </svg>
+    
+    <div class="morphing-content">
+        <div class="form-header">
+            <div class="morph-icon">
+                <i class="fas fa-shapes"></i>
+            </div>
+            <h3>Create Account</h3>
+            <p>Be part of something beautiful</p>
+        </div>
+        
+        <form class="morphing-form">
+            <div class="morph-input-container">
+                <div class="morph-input-wrapper">
+                    <input type="text" placeholder="Full name" required class="morph-input">
+                    <div class="morph-border"></div>
+                    <div class="morph-corner tl"></div>
+                    <div class="morph-corner tr"></div>
+                    <div class="morph-corner bl"></div>
+                    <div class="morph-corner br"></div>
+                </div>
+            </div>
+            
+            <div class="morph-input-container">
+                <div class="morph-input-wrapper">
+                    <input type="email" placeholder="Email address" required class="morph-input">
+                    <div class="morph-border"></div>
+                    <div class="morph-corner tl"></div>
+                    <div class="morph-corner tr"></div>
+                    <div class="morph-corner bl"></div>
+                    <div class="morph-corner br"></div>
+                </div>
+            </div>
+            
+            <div class="morph-input-row">
+                <div class="morph-input-wrapper half">
+                    <input type="password" placeholder="Password" required class="morph-input">
+                    <button type="button" class="morph-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <div class="morph-border"></div>
+                    <div class="morph-corner tl"></div>
+                    <div class="morph-corner tr"></div>
+                    <div class="morph-corner bl"></div>
+                    <div class="morph-corner br"></div>
+                </div>
+                <div class="morph-input-wrapper half">
+                    <input type="password" placeholder="Confirm" required class="morph-input">
+                    <div class="morph-border"></div>
+                    <div class="morph-corner tl"></div>
+                    <div class="morph-corner tr"></div>
+                    <div class="morph-corner bl"></div>
+                    <div class="morph-corner br"></div>
+                </div>
+            </div>
+            
+            <div class="morph-checkbox-group">
+                <label class="morph-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="morph-checkmark">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 6L9 17L4 12" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span class="morph-checkbox-text">I agree to the terms</span>
+                </label>
+            </div>
+            
+            <button type="submit" class="form-btn morph-submit-btn">
+                <span>Sign Up</span>
+                <i class="fas fa-arrow-right"></i>
+                <div class="morph-ripple"></div>
+            </button>
+            
+            <div class="morph-footer">
+                <span>Already have an account?</span>
+                <a href="#" class="morph-link">Log in</a>
+            </div>
+        </form>
+    </div>
+</div>`,
+    css: `.morphing-blob-signup-bg {
+    background: #0f172a;
+    border-radius: 24px;
+    padding: 25px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.blob-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.morphing-blob {
+    animation: blob-rotate 20s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes blob-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.morphing-content {
+    position: relative;
+    z-index: 2;
+}
+
+.morph-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.8rem;
+    color: white;
+    animation: morph-icon 8s ease-in-out infinite;
+}
+
+@keyframes morph-icon {
+    0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    33% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+    66% { border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%; }
+}
+
+.morph-input-container {
+    margin-bottom: 16px;
+}
+
+.morph-input-wrapper {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+}
+
+.morph-input-wrapper.half {
+    width: calc(50% - 6px);
+}
+
+.morph-input-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.morph-input {
+    width: 100%;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 2;
+}
+
+.morph-input:focus {
+    outline: none;
+}
+
+.morph-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.morph-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.morph-input:focus ~ .morph-border {
+    border-color: #4158D0;
+    border-width: 2px;
+    box-shadow: 0 0 20px rgba(65, 88, 208, 0.3);
+}
+
+.morph-corner {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.morph-corner.tl { top: -2px; left: -2px; border-top-color: #4158D0; border-left-color: #4158D0; }
+.morph-corner.tr { top: -2px; right: -2px; border-top-color: #C850C0; border-right-color: #C850C0; }
+.morph-corner.bl { bottom: -2px; left: -2px; border-bottom-color: #FFCC70; border-left-color: #FFCC70; }
+.morph-corner.br { bottom: -2px; right: -2px; border-bottom-color: #4158D0; border-right-color: #C850C0; }
+
+.morph-input:focus ~ .morph-corner {
+    width: 12px;
+    height: 12px;
+}
+
+.morph-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    z-index: 3;
+}
+
+.morph-checkbox-group {
+    margin: 20px 0;
+}
+
+.morph-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.morph-checkbox input {
+    display: none;
+}
+
+.morph-checkmark {
+    width: 22px;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.morph-checkmark svg {
+    width: 14px;
+    height: 14px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.morph-checkbox input:checked + .morph-checkmark {
+    background: linear-gradient(145deg, #4158D0, #C850C0);
+    border-color: transparent;
+}
+
+.morph-checkbox input:checked + .morph-checkmark svg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.morph-checkbox-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+}
+
+.form-btn.morph-submit-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(145deg, #4158D0, #C850C0, #FFCC70);
+    background-size: 200% 100%;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    animation: gradient-shift 3s linear infinite;
+}
+
+.morph-ripple {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 100%);
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.form-btn.morph-submit-btn:hover .morph-ripple {
+    transform: scale(2);
+    opacity: 0.5;
+}
+
+.morph-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.morph-link {
+    color: #C850C0;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}`,
+    js: `// Morphing Blob Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const morphForm = document.querySelector('.morphing-form');
+    
+    if (morphForm) {
+        // Form submission
+        morphForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[placeholder="Full name"]').value;
+            const email = this.querySelector('input[placeholder="Email address"]').value;
+            const password = this.querySelector('input[placeholder="Password"]').value;
+            const confirm = this.querySelector('input[placeholder="Confirm"]').value;
+            
+            if (!name || !email || !password || !confirm) {
+                showMorphNotification('Please fill in all fields', 'error');
+                return;
+            }
+            
+            if (password !== confirm) {
+                showMorphNotification('Passwords do not match', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.morph-submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Creating...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome!</span> <i class="fas fa-shapes"></i>';
+                showMorphNotification('Account created successfully!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('.morph-checkbox input').checked = true;
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const morphToggle = morphForm.querySelector('.morph-toggle');
+        if (morphToggle) {
+            morphToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.morph-input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+        
+        // Animate corners on focus
+        morphForm.querySelectorAll('.morph-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                const corners = this.parentElement.querySelectorAll('.morph-corner');
+                corners.forEach(corner => {
+                    corner.style.width = '12px';
+                    corner.style.height = '12px';
+                });
+            });
+            
+            input.addEventListener('blur', function() {
+                const corners = this.parentElement.querySelectorAll('.morph-corner');
+                corners.forEach(corner => {
+                    corner.style.width = '8px';
+                    corner.style.height = '8px';
+                });
+            });
+        });
+    }
+    
+    function showMorphNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0f172a;
+            border: 1px solid \${type === 'success' ? '#C850C0' : '#ef4444'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px \${type === 'success' ? 'rgba(200,80,192,0.3)' : 'rgba(239,68,68,0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 46: Split Screen Visual Signup
+// ====================================================================
+form46: {
+    name: "Split Screen Visual Signup",
+    category: "signup modern split",
+    html: `<div class="form-container split-screen-signup-bg">
+    <div class="split-layout">
+        <div class="split-visual">
+            <div class="visual-content">
+                <div class="visual-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h4 class="visual-title">Launch Your Journey</h4>
+                <p class="visual-text">Join 10,000+ creators already on our platform</p>
+                <div class="visual-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10k+</span>
+                        <span class="stat-label">Users</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50k+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.9</span>
+                        <span class="stat-label">Rating</span>
+                    </div>
+                </div>
+                <div class="visual-testimonials">
+                    <div class="testimonial-avatars">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="user">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="user">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="user">
+                        <span class="avatar-more">+2k</span>
+                    </div>
+                    <span class="testimonial-text">Trusted by creators worldwide</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="split-form">
+            <div class="form-header">
+                <h3>Sign Up</h3>
+                <p>Create your free account</p>
+            </div>
+            
+            <form class="split-form-fields">
+                <div class="split-input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Full name" required>
+                </div>
+                
+                <div class="split-input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email address" required>
+                </div>
+                
+                <div class="split-input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" required>
+                    <button type="button" class="split-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                
+                <div class="split-options">
+                    <label class="split-checkbox">
+                        <input type="checkbox" checked>
+                        <span class="split-checkmark"></span>
+                        <span class="split-checkbox-text">Send me product updates</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="form-btn split-submit-btn">
+                    <span>Get Started</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                
+                <div class="split-divider">
+                    <span>or sign up with</span>
+                </div>
+                
+                <div class="split-social">
+                    <button type="button" class="split-social-btn google">
+                        <i class="fab fa-google"></i>
+                    </button>
+                    <button type="button" class="split-social-btn github">
+                        <i class="fab fa-github"></i>
+                    </button>
+                    <button type="button" class="split-social-btn twitter">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                </div>
+                
+                <div class="split-footer">
+                    <span>Already have an account?</span>
+                    <a href="#" class="split-link">Log in</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>`,
+    css: `.split-screen-signup-bg {
+    background: white;
+    border-radius: 24px;
+    padding: 0;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.split-layout {
+    display: flex;
+    min-height: 260px;
+}
+
+.split-visual {
+    flex: 1;
+    background: linear-gradient(145deg, #6366f1, #8b5cf6);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visual-content {
+    color: white;
+    text-align: center;
+}
+
+.visual-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 1.5rem;
+    backdrop-filter: blur(5px);
+}
+
+.visual-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.visual-text {
+    font-size: 0.7rem;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+.visual-stats {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.visual-testimonials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.testimonial-avatars {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-avatars img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-left: -8px;
+}
+
+.testimonial-avatars img:first-child {
+    margin-left: 0;
+}
+
+.avatar-more {
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 600;
+    margin-left: -8px;
+}
+
+.testimonial-text {
+    font-size: 0.65rem;
+    opacity: 0.9;
+}
+
+.split-form {
+    flex: 1;
+    padding: 20px;
+    background: white;
+}
+
+.split-form .form-header {
+    margin-bottom: 15px;
+}
+
+.split-form .form-header h3 {
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.split-form .form-header p {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.split-input-group {
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.split-input-group i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 0.8rem;
+}
+
+.split-input-group input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.split-input-group input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.split-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.split-options {
+    margin: 12px 0;
+}
+
+.split-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    color: #475569;
+}
+
+.split-checkbox input {
+    display: none;
+}
+
+.split-checkmark {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #cbd5e1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.2s ease;
+}
+
+.split-checkbox input:checked + .split-checkmark {
+    background: #6366f1;
+    border-color: #6366f1;
+    color: white;
+}
+
+.form-btn.split-submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.split-divider {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+    color: #94a3b8;
+    font-size: 0.7rem;
+}
+
+.split-divider::before,
+.split-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.split-divider span {
+    padding: 0 8px;
+}
+
+.split-social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.split-social-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: white;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.split-social-btn:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+}
+
+.split-social-btn.google:hover { color: #ea4335; border-color: #ea4335; }
+.split-social-btn.github:hover { color: #333; border-color: #333; }
+.split-social-btn.twitter:hover { color: #1da1f2; border-color: #1da1f2; }
+
+.split-footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.split-link {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 4px;
+}`,
+    js: `// Split Screen Visual Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const splitForm = document.querySelector('.split-form-fields');
+    
+    if (splitForm) {
+        // Form submission
+        splitForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[placeholder="Full name"]').value;
+            const email = this.querySelector('input[placeholder="Email address"]').value;
+            const password = this.querySelector('input[placeholder="Password"]').value;
+            
+            if (!name || !email || !password) {
+                showSplitNotification('Please fill in all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.split-submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Creating...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome Aboard!</span> <i class="fas fa-rocket"></i>';
+                showSplitNotification('Account created successfully!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('.split-checkbox input').checked = true;
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const splitToggle = splitForm.querySelector('.split-toggle');
+        if (splitToggle) {
+            splitToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+        
+        // Social buttons
+        splitForm.querySelectorAll('.split-social-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const provider = this.classList.contains('google') ? 'Google' :
+                               this.classList.contains('github') ? 'GitHub' : 'Twitter';
+                
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                
+                setTimeout(() => {
+                    this.innerHTML = \`<i class="fab fa-\${provider.toLowerCase()}"></i>\`;
+                    showSplitNotification(\`Connected with \${provider}\`, 'success');
+                }, 1000);
+            });
+        });
+    }
+    
+    function showSplitNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: 1px solid \${type === 'success' ? '#6366f1' : '#ef4444'};
+            color: \${type === 'success' ? '#6366f1' : '#ef4444'};
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 47: Micro-Interaction Signup
+// ====================================================================
+form47: {
+    name: "Micro-Interaction Signup",
+    category: "signup modern micro",
+    html: `<div class="form-container micro-interaction-signup-bg">
+    <div class="micro-header">
+        <div class="micro-progress">
+            <div class="progress-step active" data-step="1">
+                <div class="step-indicator">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span class="step-label">Info</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" data-step="2">
+                <div class="step-indicator">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <span class="step-label">Security</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" data-step="3">
+                <div class="step-indicator">
+                    <i class="fas fa-check"></i>
+                </div>
+                <span class="step-label">Done</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="micro-panel active" data-panel="1">
+        <div class="form-header">
+            <h3>Tell us about yourself</h3>
+            <p>We'll use this to personalize your experience</p>
+        </div>
+        <form class="micro-form micro-form-1">
+            <div class="micro-field">
+                <div class="micro-label">What's your name?</div>
+                <div class="micro-input-wrapper">
+                    <input type="text" placeholder="e.g. John Doe" required class="micro-input">
+                    <div class="micro-underline"></div>
+                </div>
+            </div>
+            
+            <div class="micro-field">
+                <div class="micro-label">Where should we email you?</div>
+                <div class="micro-input-wrapper">
+                    <input type="email" placeholder="hello@example.com" required class="micro-input">
+                    <div class="micro-underline"></div>
+                </div>
+            </div>
+            
+            <div class="micro-feedback"></div>
+            
+            <button type="button" class="micro-next-btn" data-next="2">
+                <span>Continue</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </form>
+    </div>
+    
+    <div class="micro-panel" data-panel="2">
+        <div class="form-header">
+            <h3>Secure your account</h3>
+            <p>Create a strong password</p>
+        </div>
+        <form class="micro-form micro-form-2">
+            <div class="micro-field">
+                <div class="micro-label">Create password</div>
+                <div class="micro-input-wrapper">
+                    <input type="password" placeholder="Enter password" required class="micro-input" id="micro-password">
+                    <button type="button" class="micro-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <div class="micro-underline"></div>
+                </div>
+            </div>
+            
+            <div class="micro-password-strength">
+                <div class="strength-meter">
+                    <div class="strength-segment"></div>
+                    <div class="strength-segment"></div>
+                    <div class="strength-segment"></div>
+                    <div class="strength-segment"></div>
+                </div>
+                <div class="strength-text">Enter a password</div>
+            </div>
+            
+            <div class="micro-field">
+                <div class="micro-label">Confirm password</div>
+                <div class="micro-input-wrapper">
+                    <input type="password" placeholder="Confirm password" required class="micro-input" id="micro-confirm">
+                    <div class="micro-underline"></div>
+                </div>
+            </div>
+            
+            <div class="micro-match-feedback"></div>
+            
+            <div class="micro-button-group">
+                <button type="button" class="micro-prev-btn" data-prev="1">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back</span>
+                </button>
+                <button type="button" class="micro-next-btn" data-next="3">
+                    <span>Continue</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="micro-panel" data-panel="3">
+        <div class="micro-success-animation">
+            <div class="success-checkmark">
+                <i class="fas fa-check"></i>
+            </div>
+        </div>
+        <div class="form-header">
+            <h3>You're all set!</h3>
+            <p>Your account has been created successfully</p>
+        </div>
+        
+        <div class="micro-welcome">
+            <div class="welcome-username">John Doe</div>
+            <div class="welcome-email">hello@example.com</div>
+        </div>
+        
+        <form class="micro-form micro-form-3">
+            <div class="micro-terms">
+                <label class="micro-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="micro-checkmark">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span>Stay signed in on this device</span>
+                </label>
+            </div>
+            
+            <button type="submit" class="micro-submit-btn">
+                <span>Go to Dashboard</span>
+                <i class="fas fa-rocket"></i>
+            </button>
+            
+            <div class="micro-footer">
+                <a href="#" class="micro-link">Take me to login instead</a>
+            </div>
+        </form>
+    </div>
+</div>`,
+    css: `.micro-interaction-signup-bg {
+    background: white;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+    border: 1px solid #f1f5f9;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.micro-progress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.step-indicator {
+    width: 36px;
+    height: 36px;
+    background: #f1f5f9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.progress-step.active .step-indicator {
+    background: #6366f1;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+}
+
+.step-label {
+    font-size: 0.6rem;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.progress-step.active .step-label {
+    color: #6366f1;
+}
+
+.progress-line {
+    flex: 1;
+    height: 2px;
+    background: #e2e8f0;
+    margin: 0 8px;
+    position: relative;
+    top: -10px;
+}
+
+.micro-panel {
+    display: none;
+    animation: micro-fade 0.4s ease;
+}
+
+.micro-panel.active {
+    display: block;
+}
+
+@keyframes micro-fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.micro-field {
+    margin-bottom: 20px;
+}
+
+.micro-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.micro-input-wrapper {
+    position: relative;
+}
+
+.micro-input {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 2px solid #e2e8f0;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.micro-input:focus {
+    outline: none;
+    border-bottom-color: #6366f1;
+}
+
+.micro-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #6366f1;
+    transition: width 0.3s ease;
+}
+
+.micro-input:focus ~ .micro-underline {
+    width: 100%;
+}
+
+.micro-feedback {
+    height: 20px;
+    margin-top: 5px;
+    font-size: 0.7rem;
+    color: #10b981;
+}
+
+.micro-password-strength {
+    margin: 15px 0;
+}
+
+.strength-meter {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.strength-segment {
+    flex: 1;
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.strength-segment.active {
+    background: #f59e0b;
+}
+
+.strength-text {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.micro-match-feedback {
+    font-size: 0.7rem;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    min-height: 20px;
+}
+
+.micro-button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.micro-prev-btn,
+.micro-next-btn,
+.micro-submit-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.micro-prev-btn {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.micro-prev-btn:hover {
+    background: #e2e8f0;
+}
+
+.micro-next-btn,
+.micro-submit-btn {
+    background: #6366f1;
+    color: white;
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+}
+
+.micro-next-btn:hover,
+.micro-submit-btn:hover {
+    background: #4f52e0;
+    transform: translateY(-2px);
+}
+
+.micro-toggle {
+    position: absolute;
+    right: 0;
+    bottom: 12px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.micro-success-animation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.success-checkmark {
+    width: 60px;
+    height: 60px;
+    background: #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: white;
+    animation: micro-success 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes micro-success {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+.micro-welcome {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.welcome-username {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.welcome-email {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.micro-terms {
+    margin-bottom: 20px;
+}
+
+.micro-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    color: #475569;
+}
+
+.micro-checkbox input {
+    display: none;
+}
+
+.micro-checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.2s ease;
+}
+
+.micro-checkbox input:checked + .micro-checkmark {
+    background: #6366f1;
+    border-color: #6366f1;
+    color: white;
+}
+
+.micro-footer {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.micro-link {
+    color: #6366f1;
+    text-decoration: none;
+    font-size: 0.75rem;
+}`,
+    js: `// Micro-Interaction Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const microContainer = document.querySelector('.micro-interaction-signup-bg');
+    
+    if (microContainer) {
+        const panels = microContainer.querySelectorAll('.micro-panel');
+        const progressSteps = microContainer.querySelectorAll('.progress-step');
+        const nameInput = microContainer.querySelector('.micro-panel[data-panel="1"] .micro-input[type="text"]');
+        const emailInput = microContainer.querySelector('.micro-panel[data-panel="1"] .micro-input[type="email"]');
+        const passwordInput = microContainer.querySelector('#micro-password');
+        const confirmInput = microContainer.querySelector('#micro-confirm');
+        const strengthSegments = microContainer.querySelectorAll('.strength-segment');
+        const strengthText = microContainer.querySelector('.strength-text');
+        
+        let currentPanel = 1;
+        
+        // Switch panel function
+        function switchPanel(panelNumber) {
+            panels.forEach(panel => panel.classList.remove('active'));
+            microContainer.querySelector(\`.micro-panel[data-panel="\${panelNumber}"]\`).classList.add('active');
+            
+            progressSteps.forEach((step, index) => {
+                if (index + 1 === panelNumber) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+            
+            currentPanel = panelNumber;
+        }
+        
+        // Next buttons
+        microContainer.querySelectorAll('.micro-next-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const nextPanel = this.getAttribute('data-next');
+                
+                if (currentPanel === 1) {
+                    const name = nameInput?.value;
+                    const email = emailInput?.value;
+                    const feedback = microContainer.querySelector('.micro-feedback');
+                    
+                    if (!name || !email) {
+                        feedback.textContent = 'Please fill in all fields';
+                        feedback.style.color = '#ef4444';
+                        nameInput?.focus();
+                        return;
+                    }
+                    
+                    if (!email.includes('@') || !email.includes('.')) {
+                        feedback.textContent = 'Please enter a valid email';
+                        feedback.style.color = '#ef4444';
+                        emailInput?.focus();
+                        return;
+                    }
+                    
+                    feedback.textContent = '✓ Looks good!';
+                    feedback.style.color = '#10b981';
+                    
+                    // Update welcome panel
+                    microContainer.querySelector('.welcome-username').textContent = name;
+                    microContainer.querySelector('.welcome-email').textContent = email;
+                }
+                
+                if (currentPanel === 2) {
+                    const password = passwordInput?.value;
+                    const confirm = confirmInput?.value;
+                    const matchFeedback = microContainer.querySelector('.micro-match-feedback');
+                    
+                    if (!password || !confirm) {
+                        matchFeedback.textContent = 'Please fill in all fields';
+                        matchFeedback.style.color = '#ef4444';
+                        return;
+                    }
+                    
+                    if (password !== confirm) {
+                        matchFeedback.textContent = 'Passwords do not match';
+                        matchFeedback.style.color = '#ef4444';
+                        return;
+                    }
+                    
+                    matchFeedback.textContent = '✓ Passwords match';
+                    matchFeedback.style.color = '#10b981';
+                }
+                
+                switchPanel(parseInt(nextPanel));
+            });
+        });
+        
+        // Previous buttons
+        microContainer.querySelectorAll('.micro-prev-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const prevPanel = this.getAttribute('data-prev');
+                switchPanel(parseInt(prevPanel));
+            });
+        });
+        
+        // Password strength meter
+        if (passwordInput) {
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                let strength = 0;
+                
+                if (password.length >= 8) strength++;
+                if (/[A-Z]/.test(password)) strength++;
+                if (/[0-9]/.test(password)) strength++;
+                if (/[^A-Za-z0-9]/.test(password)) strength++;
+                
+                strengthSegments.forEach((segment, index) => {
+                    if (index < strength) {
+                        segment.classList.add('active');
+                    } else {
+                        segment.classList.remove('active');
+                    }
+                });
+                
+                const strengthLevels = ['Weak', 'Fair', 'Good', 'Strong'];
+                const strengthColors = ['#ef4444', '#f59e0b', '#3b82f6', '#10b981'];
+                
+                if (strength > 0) {
+                    strengthText.textContent = strengthLevels[strength - 1];
+                    strengthText.style.color = strengthColors[strength - 1];
+                    
+                    strengthSegments.forEach((segment, index) => {
+                        if (index < strength) {
+                            segment.style.background = strengthColors[strength - 1];
+                        }
+                    });
+                } else {
+                    strengthText.textContent = 'Enter a password';
+                    strengthText.style.color = '#64748b';
+                }
+            });
+        }
+        
+        // Password match checker
+        if (confirmInput) {
+            confirmInput.addEventListener('input', function() {
+                const password = passwordInput?.value;
+                const confirm = this.value;
+                const matchFeedback = microContainer.querySelector('.micro-match-feedback');
+                
+                if (confirm.length === 0) {
+                    matchFeedback.textContent = '';
+                    return;
+                }
+                
+                if (password === confirm) {
+                    matchFeedback.textContent = '✓ Passwords match';
+                    matchFeedback.style.color = '#10b981';
+                    this.style.borderBottomColor = '#10b981';
+                } else {
+                    matchFeedback.textContent = '✗ Passwords do not match';
+                    matchFeedback.style.color = '#ef4444';
+                    this.style.borderBottomColor = '#ef4444';
+                }
+            });
+        }
+        
+        // Password toggle
+        const microToggle = microContainer.querySelector('.micro-toggle');
+        if (microToggle) {
+            microToggle.addEventListener('click', function() {
+                const input = document.getElementById('micro-password');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+        
+        // Final form submission
+        const finalForm = microContainer.querySelector('.micro-form-3');
+        if (finalForm) {
+            finalForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = this.querySelector('.micro-submit-btn');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<span>Redirecting...</span> <i class="fas fa-spinner fa-spin"></i>';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    showMicroNotification('Welcome to your dashboard!', 'success');
+                    
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        switchPanel(1);
+                        
+                        // Reset all forms
+                        microContainer.querySelectorAll('form').forEach(form => form.reset());
+                        microContainer.querySelectorAll('.progress-step').forEach((step, index) => {
+                            if (index === 0) step.classList.add('active');
+                            else step.classList.remove('active');
+                        });
+                        
+                        strengthSegments.forEach(segment => {
+                            segment.classList.remove('active');
+                            segment.style.background = '';
+                        });
+                        if (strengthText) {
+                            strengthText.textContent = 'Enter a password';
+                            strengthText.style.color = '#64748b';
+                        }
+                    }, 2000);
+                }, 2000);
+            });
+        }
+    }
+    
+    function showMicroNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: \${type === 'success' ? '#10b981' : '#ef4444'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
      
 
 
