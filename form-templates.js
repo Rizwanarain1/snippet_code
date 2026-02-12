@@ -12748,7 +12748,2449 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 });`
+},
+// ====================================================================
+// TEMPLATE 38: Multi-Step Signup Wizard
+// ====================================================================
+form38: {
+    name: "Multi-Step Signup Wizard",
+    category: "signup modern wizard",
+    html: `<div class="form-container multi-step-signup-bg">
+    <div class="step-indicator">
+        <div class="step-item active">
+            <div class="step-number">1</div>
+            <span class="step-label">Account</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item">
+            <div class="step-number">2</div>
+            <span class="step-label">Profile</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item">
+            <div class="step-number">3</div>
+            <span class="step-label">Confirm</span>
+        </div>
+    </div>
+    
+    <div class="step-content active" data-step="1">
+        <div class="form-header">
+            <h3>Create Account</h3>
+            <p>Step 1: Account information</p>
+        </div>
+        <form class="multi-step-form step-1-form">
+            <div class="step-input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email address" required>
+                <div class="input-highlight"></div>
+            </div>
+            <div class="step-input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" required>
+                <button type="button" class="step-password-toggle">
+                    <i class="fas fa-eye"></i>
+                </button>
+                <div class="input-highlight"></div>
+            </div>
+            <div class="step-input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Confirm password" required>
+                <div class="input-highlight"></div>
+            </div>
+            <div class="step-password-strength">
+                <div class="strength-label">Password strength</div>
+                <div class="strength-meter">
+                    <div class="strength-bar"></div>
+                </div>
+            </div>
+            <button type="button" class="step-next-btn">
+                <span>Continue</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </form>
+    </div>
+    
+    <div class="step-content" data-step="2">
+        <div class="form-header">
+            <h3>Profile Details</h3>
+            <p>Step 2: Tell us about yourself</p>
+        </div>
+        <form class="multi-step-form step-2-form">
+            <div class="step-input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Full name" required>
+                <div class="input-highlight"></div>
+            </div>
+            <div class="step-input-group">
+                <i class="fas fa-phone"></i>
+                <input type="tel" placeholder="Phone number">
+                <div class="input-highlight"></div>
+            </div>
+            <div class="step-radio-group">
+                <label class="step-radio">
+                    <input type="radio" name="account-type" value="personal" checked>
+                    <span class="step-radio-mark"></span>
+                    <span class="step-radio-label">Personal</span>
+                </label>
+                <label class="step-radio">
+                    <input type="radio" name="account-type" value="business">
+                    <span class="step-radio-mark"></span>
+                    <span class="step-radio-label">Business</span>
+                </label>
+            </div>
+            <div class="step-buttons">
+                <button type="button" class="step-prev-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back</span>
+                </button>
+                <button type="button" class="step-next-btn">
+                    <span>Continue</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="step-content" data-step="3">
+        <div class="form-header">
+            <h3>Almost Done!</h3>
+            <p>Step 3: Review and confirm</p>
+        </div>
+        <form class="multi-step-form step-3-form">
+            <div class="step-summary">
+                <div class="summary-row">
+                    <span class="summary-label">Email:</span>
+                    <span class="summary-value">user@example.com</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Name:</span>
+                    <span class="summary-value">John Doe</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Account:</span>
+                    <span class="summary-value">Personal</span>
+                </div>
+            </div>
+            <div class="step-checkbox-group">
+                <label class="step-checkbox">
+                    <input type="checkbox" required>
+                    <span class="step-checkmark">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                </label>
+            </div>
+            <div class="step-buttons">
+                <button type="button" class="step-prev-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back</span>
+                </button>
+                <button type="submit" class="step-submit-btn">
+                    <span>Create Account</span>
+                    <i class="fas fa-check"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>`,
+    css: `.multi-step-signup-bg {
+    background: white;
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    max-height: 280px;
+    overflow-y: auto;
 }
+
+.step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding: 0 5px;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+.step-number {
+    width: 32px;
+    height: 32px;
+    background: #f3f4f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6b7280;
+    transition: all 0.3s ease;
+}
+
+.step-item.active .step-number {
+    background: #6366f1;
+    color: white;
+    box-shadow: 0 6px 12px rgba(99, 102, 241, 0.2);
+}
+
+.step-label {
+    font-size: 0.65rem;
+    color: #9ca3af;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.step-item.active .step-label {
+    color: #6366f1;
+}
+
+.step-line {
+    flex: 0.5;
+    height: 2px;
+    background: #e5e7eb;
+    margin: 0 5px;
+    position: relative;
+    top: -8px;
+}
+
+.step-content {
+    display: none;
+}
+
+.step-content.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+.step-input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.step-input-group i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    z-index: 2;
+}
+
+.step-input-group input {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    border: 2px solid #f3f4f6;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.step-input-group input:focus {
+    outline: none;
+    border-color: #6366f1;
+    background: white;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+}
+
+.input-highlight {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #6366f1;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.step-input-group input:focus ~ .input-highlight {
+    width: calc(100% - 32px);
+}
+
+.step-password-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.step-password-strength {
+    margin-bottom: 25px;
+}
+
+.strength-label {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+.strength-meter {
+    height: 6px;
+    background: #f3f4f6;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.strength-bar {
+    width: 40%;
+    height: 100%;
+    background: #f59e0b;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.step-radio-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.step-radio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #4b5563;
+}
+
+.step-radio input {
+    display: none;
+}
+
+.step-radio-mark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #d1d5db;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.step-radio input:checked + .step-radio-mark {
+    border-color: #6366f1;
+    border-width: 6px;
+}
+
+.step-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.step-prev-btn,
+.step-next-btn,
+.step-submit-btn {
+    padding: 14px 24px;
+    border: none;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.step-prev-btn {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.step-prev-btn:hover {
+    background: #e5e7eb;
+}
+
+.step-next-btn {
+    background: #6366f1;
+    color: white;
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+}
+
+.step-next-btn:hover {
+    background: #4f52e0;
+    transform: translateY(-2px);
+}
+
+.step-submit-btn {
+    background: #10b981;
+    color: white;
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.2);
+}
+
+.step-submit-btn:hover {
+    background: #0ea271;
+    transform: translateY(-2px);
+}
+
+.step-summary {
+    background: #f9fafb;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+}
+
+.summary-label {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.summary-value {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.step-checkbox-group {
+    margin-bottom: 25px;
+}
+
+.step-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #4b5563;
+}
+
+.step-checkbox input {
+    display: none;
+}
+
+.step-checkmark {
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 2px solid #d1d5db;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 0.65rem;
+    flex-shrink: 0;
+}
+
+.step-checkbox input:checked + .step-checkmark {
+    background: #6366f1;
+    border-color: #6366f1;
+    color: white;
+}
+
+.step-checkbox a {
+    color: #6366f1;
+    text-decoration: none;
+}`,
+    js: `// Multi-Step Signup Wizard
+document.addEventListener('DOMContentLoaded', function() {
+    const stepContainer = document.querySelector('.multi-step-signup-bg');
+    if (!stepContainer) return;
+    
+    let currentStep = 1;
+    const stepContents = stepContainer.querySelectorAll('.step-content');
+    const stepItems = stepContainer.querySelectorAll('.step-item');
+    
+    function updateStep(step) {
+        // Update step content
+        stepContents.forEach(content => content.classList.remove('active'));
+        stepContainer.querySelector(\`.step-content[data-step="\${step}"]\`).classList.add('active');
+        
+        // Update step indicators
+        stepItems.forEach((item, index) => {
+            if (index + 1 === step) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+        
+        currentStep = step;
+    }
+    
+    // Password strength checker
+    const passwordInput = stepContainer.querySelector('.step-1-form input[type="password"]');
+    const strengthBar = stepContainer.querySelector('.strength-bar');
+    
+    if (passwordInput && strengthBar) {
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            let strength = 0;
+            
+            if (password.length >= 8) strength += 25;
+            if (/[A-Z]/.test(password)) strength += 25;
+            if (/[0-9]/.test(password)) strength += 25;
+            if (/[^A-Za-z0-9]/.test(password)) strength += 25;
+            
+            strengthBar.style.width = strength + '%';
+            
+            if (strength < 50) {
+                strengthBar.style.background = '#ef4444';
+            } else if (strength < 75) {
+                strengthBar.style.background = '#f59e0b';
+            } else {
+                strengthBar.style.background = '#10b981';
+            }
+        });
+    }
+    
+    // Next buttons
+    stepContainer.querySelectorAll('.step-next-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (currentStep < 3) {
+                // Simulate data transfer between steps
+                if (currentStep === 1) {
+                    const email = stepContainer.querySelector('.step-1-form input[type="email"]').value;
+                    if (email) {
+                        stepContainer.querySelector('.summary-row:first-child .summary-value').textContent = email;
+                    }
+                }
+                if (currentStep === 2) {
+                    const name = stepContainer.querySelector('.step-2-form input[type="text"]').value;
+                    const accountType = stepContainer.querySelector('input[name="account-type"]:checked + .step-radio-mark + .step-radio-label');
+                    if (name) {
+                        stepContainer.querySelector('.summary-row:nth-child(2) .summary-value').textContent = name;
+                    }
+                    if (accountType) {
+                        stepContainer.querySelector('.summary-row:nth-child(3) .summary-value').textContent = accountType.textContent;
+                    }
+                }
+                updateStep(currentStep + 1);
+            }
+        });
+    });
+    
+    // Previous buttons
+    stepContainer.querySelectorAll('.step-prev-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (currentStep > 1) {
+                updateStep(currentStep - 1);
+            }
+        });
+    });
+    
+    // Form submission
+    const submitBtn = stepContainer.querySelector('.step-submit-btn');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const checkbox = stepContainer.querySelector('.step-checkbox input');
+            if (checkbox && !checkbox.checked) {
+                showStepNotification('Please accept the terms and conditions', 'error');
+                return;
+            }
+            
+            this.innerHTML = '<span>Creating Account...</span> <i class="fas fa-spinner fa-spin"></i>';
+            this.disabled = true;
+            
+            setTimeout(() => {
+                this.innerHTML = '<span>Account Created!</span> <i class="fas fa-check"></i>';
+                showStepNotification('Welcome! Your account has been created', 'success');
+                
+                setTimeout(() => {
+                    this.innerHTML = '<span>Create Account</span> <i class="fas fa-check"></i>';
+                    this.disabled = false;
+                    updateStep(1);
+                    stepContainer.querySelectorAll('form').forEach(form => form.reset());
+                }, 1500);
+            }, 2000);
+        });
+    }
+    
+    // Password toggle
+    stepContainer.querySelectorAll('.step-password-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const input = this.parentElement.querySelector('input');
+            const icon = this.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+    });
+    
+    function showStepNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: \${type === 'success' ? '#10b981' : '#ef4444'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 39: Gamified Achievement Signup
+// ====================================================================
+form39: {
+    name: "Gamified Achievement Signup",
+    category: "signup modern gamified",
+    html: `<div class="form-container gamified-signup-bg">
+    <div class="achievement-badge">
+        <i class="fas fa-trophy"></i>
+        <span class="achievement-points">+100 XP</span>
+    </div>
+    <div class="form-header">
+        <div class="gamified-icon">
+            <i class="fas fa-gamepad"></i>
+        </div>
+        <h3>Level Up Your Account</h3>
+        <p>Complete challenges to unlock rewards</p>
+    </div>
+    <form class="gamified-form">
+        <div class="quest-item completed">
+            <div class="quest-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="quest-content">
+                <span class="quest-title">Choose username</span>
+                <span class="quest-xp">+50 XP</span>
+            </div>
+        </div>
+        <div class="gamified-input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Enter username" required class="gamified-input">
+            <div class="xp-progress"></div>
+            <span class="input-xp">+50</span>
+        </div>
+        
+        <div class="quest-item active">
+            <div class="quest-icon">
+                <i class="fas fa-lock-open"></i>
+            </div>
+            <div class="quest-content">
+                <span class="quest-title">Secure your account</span>
+                <span class="quest-xp">+100 XP</span>
+            </div>
+        </div>
+        <div class="gamified-input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email address" required class="gamified-input">
+            <span class="input-xp">+25</span>
+        </div>
+        <div class="gamified-input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" required class="gamified-input">
+            <button type="button" class="gamified-toggle">
+                <i class="fas fa-eye"></i>
+            </button>
+            <span class="input-xp">+50</span>
+        </div>
+        
+        <div class="quest-item locked">
+            <div class="quest-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="quest-content">
+                <span class="quest-title">Verify email</span>
+                <span class="quest-xp">+75 XP</span>
+            </div>
+        </div>
+        
+        <div class="gamified-rewards">
+            <div class="reward-badge">
+                <i class="fas fa-medal"></i>
+                <span>Bronze</span>
+            </div>
+            <div class="reward-progress">
+                <div class="progress-bar" style="width: 65%"></div>
+            </div>
+            <span class="reward-text">65/100 XP</span>
+        </div>
+        
+        <button type="submit" class="form-btn gamified-btn">
+            <span>START QUEST</span>
+            <i class="fas fa-arrow-right"></i>
+            <div class="btn-glow"></div>
+        </button>
+        <div class="gamified-footer">
+            <span>Already have an account?</span>
+            <a href="#" class="gamified-link">Login for bonus XP</a>
+        </div>
+    </form>
+</div>`,
+    css: `.gamified-signup-bg {
+    background: linear-gradient(145deg, #1a1e2c, #151928);
+    border-radius: 24px;
+    padding: 25px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.achievement-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    border-radius: 30px;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1a1e2c;
+    font-size: 0.7rem;
+    font-weight: 600;
+    box-shadow: 0 8px 16px rgba(245, 158, 11, 0.3);
+    animation: pulse-achievement 2s infinite;
+}
+
+@keyframes pulse-achievement {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.gamified-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.8rem;
+    color: white;
+    transform: rotate(10deg);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.4);
+}
+
+.quest-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quest-item.completed {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.quest-item.active {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+.quest-item.locked {
+    opacity: 0.5;
+    filter: grayscale(0.8);
+}
+
+.quest-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.quest-item.completed .quest-icon {
+    background: #10b981;
+}
+
+.quest-item.active .quest-icon {
+    background: #6366f1;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+}
+
+.quest-content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quest-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.quest-xp {
+    font-size: 0.7rem;
+    color: #fbbf24;
+    font-weight: 600;
+}
+
+.gamified-input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.gamified-input-group i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    z-index: 2;
+}
+
+.gamified-input {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.gamified-input:focus {
+    outline: none;
+    border-color: #6366f1;
+    background: rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+.xp-progress {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+}
+
+.gamified-input:focus ~ .xp-progress {
+    width: 100%;
+}
+
+.input-xp {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fbbf24;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 8px;
+    background: rgba(251, 191, 36, 0.1);
+    border-radius: 20px;
+}
+
+.gamified-toggle {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.gamified-rewards {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+}
+
+.reward-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #92400e, #b45309);
+    border-radius: 12px;
+}
+
+.reward-badge i {
+    font-size: 1rem;
+    color: #fbbf24;
+}
+
+.reward-badge span {
+    font-size: 0.55rem;
+    font-weight: 600;
+    color: white;
+}
+
+.reward-progress {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.reward-progress .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    border-radius: 4px;
+}
+
+.reward-text {
+    font-size: 0.7rem;
+    color: #fbbf24;
+    font-weight: 600;
+}
+
+.form-btn.gamified-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.4);
+}
+
+.btn-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: btn-glide 2s infinite;
+}
+
+@keyframes btn-glide {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.gamified-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.gamified-link {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}`,
+    js: `// Gamified Achievement Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const gamifiedForm = document.querySelector('.gamified-form');
+    
+    if (gamifiedForm) {
+        let xp = 65;
+        const xpDisplay = gamifiedForm.querySelector('.reward-text');
+        const progressBar = gamifiedForm.querySelector('.reward-progress .progress-bar');
+        
+        // Form submission
+        gamifiedForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = this.querySelector('input[placeholder="Enter username"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            if (!username || !email || !password) {
+                showGamifiedNotification('Complete all quests first!', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.gamified-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Add XP
+            xp += 100;
+            if (xp > 100) xp = 100;
+            progressBar.style.width = xp + '%';
+            xpDisplay.textContent = xp + '/100 XP';
+            
+            if (xp >= 100) {
+                gamifiedForm.querySelector('.quest-item.locked').classList.add('active');
+                gamifiedForm.querySelector('.reward-badge').innerHTML = '<i class="fas fa-crown"></i><span>Gold</span>';
+            }
+            
+            submitBtn.innerHTML = '<span>COMPLETING QUEST...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>QUEST COMPLETE!</span> <i class="fas fa-trophy"></i>';
+                showGamifiedNotification('+100 XP! Welcome to the game!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // XP gain on input
+        gamifiedForm.querySelectorAll('.gamified-input').forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.value.length > 0) {
+                    const xpValue = parseInt(this.parentElement.querySelector('.input-xp').textContent);
+                    xp = Math.min(xp + xpValue, 100);
+                    progressBar.style.width = xp + '%';
+                    xpDisplay.textContent = xp + '/100 XP';
+                    
+                    if (xp >= 100) {
+                        gamifiedForm.querySelector('.quest-item.locked').classList.add('active');
+                        gamifiedForm.querySelector('.reward-badge').innerHTML = '<i class="fas fa-crown"></i><span>Gold</span>';
+                    }
+                }
+            });
+        });
+        
+        // Password toggle
+        const gamifiedToggle = gamifiedForm.querySelector('.gamified-toggle');
+        if (gamifiedToggle) {
+            gamifiedToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.gamified-input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showGamifiedNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: \${type === 'success' ? '#10b981' : '#ef4444'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 40: Social Connect Signup
+// ====================================================================
+form40: {
+    name: "Social Connect Signup",
+    category: "signup modern social",
+    html: `<div class="form-container social-connect-bg">
+    <div class="social-illustration">
+        <i class="fas fa-share-alt"></i>
+    </div>
+    <div class="form-header">
+        <h3>Join the Community</h3>
+        <p>Connect with friends and discover more</p>
+    </div>
+    <form class="social-form">
+        <div class="social-buttons-grid">
+            <button type="button" class="social-connect-btn google">
+                <i class="fab fa-google"></i>
+                <span>Google</span>
+            </button>
+            <button type="button" class="social-connect-btn facebook">
+                <i class="fab fa-facebook-f"></i>
+                <span>Facebook</span>
+            </button>
+            <button type="button" class="social-connect-btn twitter">
+                <i class="fab fa-twitter"></i>
+                <span>Twitter</span>
+            </button>
+            <button type="button" class="social-connect-btn github">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </button>
+            <button type="button" class="social-connect-btn apple">
+                <i class="fab fa-apple"></i>
+                <span>Apple</span>
+            </button>
+            <button type="button" class="social-connect-btn discord">
+                <i class="fab fa-discord"></i>
+                <span>Discord</span>
+            </button>
+        </div>
+        
+        <div class="social-divider">
+            <span class="divider-line"></span>
+            <span class="divider-text">or sign up with email</span>
+            <span class="divider-line"></span>
+        </div>
+        
+        <div class="social-input-row">
+            <div class="social-input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Full name" required>
+            </div>
+            <div class="social-input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email address" required>
+            </div>
+        </div>
+        
+        <div class="social-input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Create password" required>
+            <button type="button" class="social-toggle">
+                <i class="fas fa-eye"></i>
+            </button>
+        </div>
+        
+        <div class="social-terms">
+            <label class="social-checkbox">
+                <input type="checkbox" checked>
+                <span class="social-checkmark">
+                    <i class="fas fa-check"></i>
+                </span>
+                <span>I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></span>
+            </label>
+        </div>
+        
+        <button type="submit" class="form-btn social-submit-btn">
+            <span>Create Account</span>
+            <i class="fas fa-handshake"></i>
+        </button>
+        
+        <div class="social-footer">
+            <span>Already have an account?</span>
+            <a href="#" class="social-link">Sign in</a>
+        </div>
+    </form>
+</div>`,
+    css: `.social-connect-bg {
+    background: white;
+    border-radius: 28px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+    border: 1px solid #f1f5f9;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.social-illustration {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(145deg, #f8fafc, #eef2f6);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 2rem;
+    color: #6366f1;
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+}
+
+.social-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.social-connect-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 8px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #334155;
+}
+
+.social-connect-btn i {
+    font-size: 1.2rem;
+}
+
+.social-connect-btn span {
+    font-size: 0.65rem;
+    font-weight: 500;
+}
+
+.social-connect-btn.google:hover {
+    background: #ea4335;
+    border-color: #ea4335;
+    color: white;
+}
+
+.social-connect-btn.facebook:hover {
+    background: #1877f2;
+    border-color: #1877f2;
+    color: white;
+}
+
+.social-connect-btn.twitter:hover {
+    background: #1da1f2;
+    border-color: #1da1f2;
+    color: white;
+}
+
+.social-connect-btn.github:hover {
+    background: #333;
+    border-color: #333;
+    color: white;
+}
+
+.social-connect-btn.apple:hover {
+    background: #000;
+    border-color: #000;
+    color: white;
+}
+
+.social-connect-btn.discord:hover {
+    background: #5865f2;
+    border-color: #5865f2;
+    color: white;
+}
+
+.social-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.divider-text {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.social-input-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.social-input-group {
+    position: relative;
+    flex: 1;
+    margin-bottom: 15px;
+}
+
+.social-input-group i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+.social-input-group input {
+    width: 100%;
+    padding: 14px 14px 14px 42px;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+}
+
+.social-input-group input:focus {
+    outline: none;
+    border-color: #6366f1;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.social-toggle {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.social-terms {
+    margin: 20px 0;
+}
+
+.social-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #475569;
+}
+
+.social-checkbox input {
+    display: none;
+}
+
+.social-checkmark {
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 2px solid #cbd5e1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 0.65rem;
+    flex-shrink: 0;
+}
+
+.social-checkbox input:checked + .social-checkmark {
+    background: #6366f1;
+    border-color: #6366f1;
+    color: white;
+}
+
+.social-checkbox a {
+    color: #6366f1;
+    text-decoration: none;
+}
+
+.form-btn.social-submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(145deg, #6366f1, #4f52e0);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.25);
+}
+
+.form-btn.social-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 30px rgba(99, 102, 241, 0.35);
+}
+
+.social-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.social-link {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}`,
+    js: `// Social Connect Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const socialForm = document.querySelector('.social-form');
+    
+    if (socialForm) {
+        // Form submission
+        socialForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[placeholder="Full name"]').value;
+            const email = this.querySelector('input[placeholder="Email address"]').value;
+            const password = this.querySelector('input[placeholder="Create password"]').value;
+            const terms = this.querySelector('.social-checkbox input').checked;
+            
+            if (!name || !email || !password) {
+                showSocialNotification('Please fill in all fields', 'error');
+                return;
+            }
+            
+            if (!terms) {
+                showSocialNotification('Please accept the terms and privacy policy', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.social-submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Creating Account...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome to the Community!</span> <i class="fas fa-handshake"></i>';
+                showSocialNotification('Account created successfully!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('.social-checkbox input').checked = true;
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Social login buttons
+        socialForm.querySelectorAll('.social-connect-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const provider = this.classList.contains('google') ? 'Google' :
+                               this.classList.contains('facebook') ? 'Facebook' :
+                               this.classList.contains('twitter') ? 'Twitter' :
+                               this.classList.contains('github') ? 'GitHub' :
+                               this.classList.contains('apple') ? 'Apple' : 'Discord';
+                
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Connecting...</span>';
+                
+                setTimeout(() => {
+                    this.innerHTML = \`<i class="fab fa-\${provider.toLowerCase()}"></i><span>\${provider}</span>\`;
+                    showSocialNotification(\`Connected with \${provider}!\`, 'success');
+                }, 1000);
+            });
+        });
+        
+        // Password toggle
+        const socialToggle = socialForm.querySelector('.social-toggle');
+        if (socialToggle) {
+            socialToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showSocialNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: \${type === 'success' ? '#10b981' : '#ef4444'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 14px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 41: Gradient Mesh Signup
+// ====================================================================
+form41: {
+    name: "Gradient Mesh Signup",
+    category: "signup modern gradient",
+    html: `<div class="form-container gradient-mesh-bg">
+    <div class="mesh-overlay"></div>
+    <div class="form-header">
+        <div class="mesh-icon">
+            <i class="fas fa-palette"></i>
+        </div>
+        <h3>Create Account</h3>
+        <p>Start your colorful journey</p>
+    </div>
+    <form class="mesh-form">
+        <div class="mesh-input-container">
+            <div class="mesh-input-wrapper">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Full name" required class="mesh-input">
+                <div class="mesh-border"></div>
+            </div>
+        </div>
+        
+        <div class="mesh-input-container">
+            <div class="mesh-input-wrapper">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email address" required class="mesh-input">
+                <div class="mesh-border"></div>
+            </div>
+        </div>
+        
+        <div class="mesh-input-row">
+            <div class="mesh-input-wrapper half">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" required class="mesh-input">
+                <button type="button" class="mesh-toggle">
+                    <i class="fas fa-eye"></i>
+                </button>
+                <div class="mesh-border"></div>
+            </div>
+            <div class="mesh-input-wrapper half">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Confirm" required class="mesh-input">
+                <div class="mesh-border"></div>
+            </div>
+        </div>
+        
+        <div class="mesh-preferences">
+            <span class="preferences-label">Interests (optional)</span>
+            <div class="mesh-tags">
+                <label class="mesh-tag">
+                    <input type="checkbox">
+                    <span class="tag-text">Design</span>
+                </label>
+                <label class="mesh-tag">
+                    <input type="checkbox">
+                    <span class="tag-text">Development</span>
+                </label>
+                <label class="mesh-tag">
+                    <input type="checkbox">
+                    <span class="tag-text">Marketing</span>
+                </label>
+                <label class="mesh-tag">
+                    <input type="checkbox">
+                    <span class="tag-text">Photography</span>
+                </label>
+                <label class="mesh-tag">
+                    <input type="checkbox">
+                    <span class="tag-text">Music</span>
+                </label>
+            </div>
+        </div>
+        
+        <label class="mesh-checkbox">
+            <input type="checkbox" checked>
+            <span class="mesh-checkmark">
+                <i class="fas fa-check"></i>
+            </span>
+            <span>I want to receive updates and newsletters</span>
+        </label>
+        
+        <button type="submit" class="form-btn mesh-btn">
+            <span>Sign Up</span>
+            <i class="fas fa-arrow-right"></i>
+            <div class="mesh-btn-glow"></div>
+        </button>
+        
+        <div class="mesh-footer">
+            <span>Already have an account?</span>
+            <a href="#" class="mesh-link">Log in</a>
+        </div>
+    </form>
+</div>`,
+    css: `.gradient-mesh-bg {
+    background: linear-gradient(145deg, #4158D0, #C850C0, #FFCC70);
+    background-size: 400% 400%;
+    animation: mesh-shift 10s ease infinite;
+    border-radius: 28px;
+    padding: 25px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+@keyframes mesh-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.mesh-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.mesh-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.8rem;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.mesh-input-container {
+    margin-bottom: 15px;
+}
+
+.mesh-input-wrapper {
+    position: relative;
+}
+
+.mesh-input-wrapper.half {
+    width: calc(50% - 6px);
+}
+
+.mesh-input-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.mesh-input-wrapper i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 2;
+    font-size: 0.9rem;
+}
+
+.mesh-input {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.mesh-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.mesh-input:focus {
+    outline: none;
+    border-color: white;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+.mesh-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.mesh-input:focus ~ .mesh-border {
+    border-color: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.mesh-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+.mesh-preferences {
+    margin: 20px 0;
+}
+
+.preferences-label {
+    display: block;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+}
+
+.mesh-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.mesh-tag {
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.mesh-tag input {
+    display: none;
+}
+
+.tag-text {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    font-size: 0.75rem;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.mesh-tag input:checked + .tag-text {
+    background: white;
+    color: #4158D0;
+    font-weight: 600;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.mesh-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+}
+
+.mesh-checkbox input {
+    display: none;
+}
+
+.mesh-checkmark {
+    width: 18px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 0.65rem;
+}
+
+.mesh-checkbox input:checked + .mesh-checkmark {
+    background: white;
+    border-color: white;
+    color: #4158D0;
+}
+
+.form-btn.mesh-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: white;
+    color: #4158D0;
+    border: none;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.mesh-btn-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(65, 88, 208, 0.1), transparent);
+    top: 0;
+    left: -100%;
+    transition: left 0.5s ease;
+}
+
+.form-btn.mesh-btn:hover .mesh-btn-glow {
+    left: 100%;
+}
+
+.mesh-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.mesh-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}`,
+    js: `// Gradient Mesh Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const meshForm = document.querySelector('.mesh-form');
+    
+    if (meshForm) {
+        // Form submission
+        meshForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[placeholder="Full name"]').value;
+            const email = this.querySelector('input[placeholder="Email address"]').value;
+            const password = this.querySelector('input[placeholder="Password"]').value;
+            const confirm = this.querySelector('input[placeholder="Confirm"]').value;
+            
+            if (!name || !email || !password || !confirm) {
+                showMeshNotification('Please fill in all fields', 'error');
+                return;
+            }
+            
+            if (password !== confirm) {
+                showMeshNotification('Passwords do not match', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.mesh-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Creating...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            // Get selected interests
+            const interests = [];
+            this.querySelectorAll('.mesh-tag input:checked').forEach(tag => {
+                interests.push(tag.parentElement.querySelector('.tag-text').textContent);
+            });
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome Aboard!</span> <i class="fas fa-palette"></i>';
+                showMeshNotification('Account created successfully!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('.mesh-checkbox input').checked = true;
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const meshToggle = meshForm.querySelector('.mesh-toggle');
+        if (meshToggle) {
+            meshToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.mesh-input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+        
+        // Tag selection animation
+        meshForm.querySelectorAll('.mesh-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                const input = this.querySelector('input');
+                const text = this.querySelector('.tag-text');
+                
+                if (input.checked) {
+                    text.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        text.style.transform = '';
+                    }, 200);
+                }
+            });
+        });
+    }
+    
+    function showMeshNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: \${type === 'success' ? '#10b981' : '#ef4444'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 42: Neumorphic Soft UI Signup
+// ====================================================================
+form42: {
+    name: "Neumorphic Soft UI Signup",
+    category: "signup modern neumorphic",
+    html: `<div class="form-container neumorphic-signup-bg">
+    <div class="neumorphic-logo">
+        <div class="logo-emboss">
+            <i class="fas fa-cube"></i>
+        </div>
+    </div>
+    <div class="form-header">
+        <h3>Create Account</h3>
+        <p>Soft and subtle registration</p>
+    </div>
+    <form class="neumorphic-form">
+        <div class="neumorphic-field">
+            <div class="neumorphic-input-wrapper">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Full name" required class="neumorphic-input">
+            </div>
+        </div>
+        
+        <div class="neumorphic-field">
+            <div class="neumorphic-input-wrapper">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email address" required class="neumorphic-input">
+            </div>
+        </div>
+        
+        <div class="neumorphic-field">
+            <div class="neumorphic-input-wrapper">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" required class="neumorphic-input">
+                <button type="button" class="neumorphic-toggle">
+                    <i class="fas fa-eye"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="neumorphic-field">
+            <div class="neumorphic-input-wrapper">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Confirm password" required class="neumorphic-input">
+            </div>
+        </div>
+        
+        <div class="neumorphic-option-group">
+            <div class="neumorphic-option-label">Account type</div>
+            <div class="neumorphic-options">
+                <label class="neumorphic-option">
+                    <input type="radio" name="neumorphic-account" value="personal" checked>
+                    <span class="neumorphic-option-mark"></span>
+                    <span class="neumorphic-option-text">Personal</span>
+                </label>
+                <label class="neumorphic-option">
+                    <input type="radio" name="neumorphic-account" value="business">
+                    <span class="neumorphic-option-mark"></span>
+                    <span class="neumorphic-option-text">Business</span>
+                </label>
+            </div>
+        </div>
+        
+        <label class="neumorphic-checkbox">
+            <input type="checkbox" required>
+            <span class="neumorphic-checkmark">
+                <i class="fas fa-check"></i>
+            </span>
+            <span class="neumorphic-checkbox-text">
+                I accept the <a href="#">Terms of Service</a>
+            </span>
+        </label>
+        
+        <button type="submit" class="form-btn neumorphic-btn">
+            <span>Register</span>
+            <i class="fas fa-arrow-right"></i>
+        </button>
+        
+        <div class="neumorphic-footer">
+            <span class="footer-text">Already registered?</span>
+            <a href="#" class="neumorphic-footer-link">Sign in</a>
+        </div>
+    </form>
+</div>`,
+    css: `.neumorphic-signup-bg {
+    background: #eef0f4;
+    border-radius: 32px;
+    padding: 25px;
+    color: #4a5568;
+    position: relative;
+    box-shadow: 
+        12px 12px 24px rgba(166, 180, 200, 0.2),
+        -12px -12px 24px rgba(255, 255, 255, 0.7);
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.neumorphic-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo-emboss {
+    width: 70px;
+    height: 70px;
+    background: #eef0f4;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #6366f1;
+    box-shadow: 
+        inset 8px 8px 16px rgba(166, 180, 200, 0.2),
+        inset -8px -8px 16px rgba(255, 255, 255, 0.7),
+        8px 8px 16px rgba(166, 180, 200, 0.2),
+        -8px -8px 16px rgba(255, 255, 255, 0.7);
+}
+
+.neumorphic-field {
+    margin-bottom: 18px;
+}
+
+.neumorphic-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #eef0f4;
+    border-radius: 20px;
+    box-shadow: 
+        inset 4px 4px 8px rgba(166, 180, 200, 0.2),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.7),
+        4px 4px 8px rgba(166, 180, 200, 0.2),
+        -4px -4px 8px rgba(255, 255, 255, 0.7);
+    transition: all 0.2s ease;
+}
+
+.neumorphic-input-wrapper:focus-within {
+    box-shadow: 
+        inset 6px 6px 12px rgba(166, 180, 200, 0.25),
+        inset -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.neumorphic-input-wrapper i {
+    position: absolute;
+    left: 16px;
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.neumorphic-input {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    background: transparent;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+.neumorphic-input:focus {
+    outline: none;
+}
+
+.neumorphic-input::placeholder {
+    color: #a0aec0;
+}
+
+.neumorphic-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.neumorphic-toggle:hover {
+    box-shadow: 
+        2px 2px 4px rgba(166, 180, 200, 0.2),
+        -2px -2px 4px rgba(255, 255, 255, 0.7);
+}
+
+.neumorphic-option-group {
+    margin-bottom: 20px;
+}
+
+.neumorphic-option-label {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.neumorphic-options {
+    display: flex;
+    gap: 20px;
+}
+
+.neumorphic-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.neumorphic-option input {
+    display: none;
+}
+
+.neumorphic-option-mark {
+    width: 22px;
+    height: 22px;
+    background: #eef0f4;
+    border-radius: 50%;
+    box-shadow: 
+        4px 4px 8px rgba(166, 180, 200, 0.2),
+        -4px -4px 8px rgba(255, 255, 255, 0.7);
+    transition: all 0.2s ease;
+}
+
+.neumorphic-option input:checked + .neumorphic-option-mark {
+    background: #6366f1;
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.1),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.neumorphic-option-text {
+    font-size: 0.85rem;
+    color: #4a5568;
+}
+
+.neumorphic-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.neumorphic-checkbox input {
+    display: none;
+}
+
+.neumorphic-checkmark {
+    width: 22px;
+    height: 22px;
+    background: #eef0f4;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 0.7rem;
+    box-shadow: 
+        inset 2px 2px 4px rgba(166, 180, 200, 0.1),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+        4px 4px 8px rgba(166, 180, 200, 0.2),
+        -4px -4px 8px rgba(255, 255, 255, 0.7);
+}
+
+.neumorphic-checkbox input:checked + .neumorphic-checkmark {
+    background: #6366f1;
+    color: white;
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.1),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.neumorphic-checkbox-text {
+    font-size: 0.8rem;
+    color: #4a5568;
+}
+
+.neumorphic-checkbox-text a {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-btn.neumorphic-btn {
+    width: 100%;
+    padding: 16px;
+    background: #eef0f4;
+    color: #4a5568;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    box-shadow: 
+        8px 8px 16px rgba(166, 180, 200, 0.2),
+        -8px -8px 16px rgba(255, 255, 255, 0.7);
+    transition: all 0.2s ease;
+}
+
+.form-btn.neumorphic-btn:hover {
+    box-shadow: 
+        inset 4px 4px 8px rgba(166, 180, 200, 0.2),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+    color: #6366f1;
+}
+
+.neumorphic-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.neumorphic-footer-link {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+    padding: 6px 12px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.neumorphic-footer-link:hover {
+    box-shadow: 
+        4px 4px 8px rgba(166, 180, 200, 0.2),
+        -4px -4px 8px rgba(255, 255, 255, 0.7);
+}`,
+    js: `// Neumorphic Soft UI Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const neumorphicForm = document.querySelector('.neumorphic-form');
+    
+    if (neumorphicForm) {
+        // Form submission
+        neumorphicForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[placeholder="Full name"]').value;
+            const email = this.querySelector('input[placeholder="Email address"]').value;
+            const password = this.querySelector('input[placeholder="Password"]').value;
+            const confirm = this.querySelector('input[placeholder="Confirm password"]').value;
+            const terms = this.querySelector('.neumorphic-checkbox input').checked;
+            
+            if (!name || !email || !password || !confirm) {
+                showNeumorphicNotification('Please fill in all fields', 'error');
+                return;
+            }
+            
+            if (password !== confirm) {
+                showNeumorphicNotification('Passwords do not match', 'error');
+                return;
+            }
+            
+            if (!terms) {
+                showNeumorphicNotification('Please accept the Terms of Service', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.neumorphic-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Registering...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome!</span> <i class="fas fa-check"></i>';
+                showNeumorphicNotification('Account created successfully!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('input[name="neumorphic-account"][value="personal"]').checked = true;
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const neumorphicToggle = neumorphicForm.querySelector('.neumorphic-toggle');
+        if (neumorphicToggle) {
+            neumorphicToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.neumorphic-input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                    
+                    // Neumorphic press effect
+                    this.style.boxShadow = 'inset 2px 2px 4px rgba(166,180,200,0.2), inset -2px -2px 4px rgba(255,255,255,0.7)';
+                    setTimeout(() => {
+                        this.style.boxShadow = '';
+                    }, 200);
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+        
+        // Neumorphic radio button effect
+        neumorphicForm.querySelectorAll('.neumorphic-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const mark = this.querySelector('.neumorphic-option-mark');
+                mark.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    mark.style.transform = '';
+                }, 200);
+            });
+        });
+    }
+    
+    function showNeumorphicNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #eef0f4;
+            color: \${type === 'success' ? '#10b981' : '#ef4444'};
+            padding: 16px 28px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 
+                8px 8px 16px rgba(166, 180, 200, 0.2),
+                -8px -8px 16px rgba(255, 255, 255, 0.7);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
      
 
 
