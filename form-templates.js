@@ -17739,6 +17739,16282 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });`
 },
+// ====================================================================
+// TEMPLATE 48: Aurora Glassmorphism Login
+// ====================================================================
+form48: {
+    name: "Aurora Glassmorphism Login",
+    category: "login modern glassmorphism",
+    html: `<div class="form-container aurora-glass-bg">
+    <div class="aurora-overlay"></div>
+    <div class="aurora-layers">
+        <div class="aurora-layer"></div>
+        <div class="aurora-layer"></div>
+        <div class="aurora-layer"></div>
+        <div class="aurora-layer"></div>
+    </div>
+    <div class="glass-card">
+        <div class="glass-reflection"></div>
+        <div class="form-header">
+            <div class="aurora-icon">
+                <i class="fas fa-aurora"></i>
+                <i class="fas fa-circle-notch"></i>
+            </div>
+            <h3>Aurora Access</h3>
+            <p>Sign in to the light</p>
+        </div>
+        <form class="aurora-form">
+            <div class="aurora-input-group">
+                <div class="input-aurora-bg"></div>
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email address" required>
+                <div class="aurora-glow"></div>
+            </div>
+            <div class="aurora-input-group">
+                <div class="input-aurora-bg"></div>
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" required>
+                <button type="button" class="aurora-toggle">
+                    <i class="fas fa-eye"></i>
+                </button>
+                <div class="aurora-glow"></div>
+            </div>
+            
+            <div class="aurora-options">
+                <label class="aurora-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="aurora-checkmark">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span class="aurora-checkbox-text">Remember light</span>
+                </label>
+                <a href="#" class="aurora-link">Forgot password?</a>
+            </div>
+            
+            <button type="submit" class="form-btn aurora-btn">
+                <span>Illuminate</span>
+                <i class="fas fa-sun"></i>
+                <div class="aurora-btn-glow"></div>
+            </button>
+            
+            <div class="aurora-divider">
+                <span class="divider-line"></span>
+                <span class="divider-text">New to aurora?</span>
+                <span class="divider-line"></span>
+            </div>
+            
+            <div class="aurora-footer">
+                <a href="#" class="aurora-signup-link">
+                    <span>Create account</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>`,
+    css: `.aurora-glass-bg {
+    background: #0a0f1e;
+    border-radius: 32px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.aurora-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 40%, rgba(46, 213, 115, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(0, 184, 148, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 90% 20%, rgba(9, 132, 227, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.aurora-layers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.aurora-layer {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(46, 213, 115, 0.1) 50%,
+        rgba(0, 184, 148, 0.1) 60%,
+        transparent 70%
+    );
+    animation: aurora-flow 15s linear infinite;
+    opacity: 0.3;
+}
+
+.aurora-layer:nth-child(2) {
+    background: linear-gradient(
+        135deg,
+        transparent 30%,
+        rgba(9, 132, 227, 0.1) 50%,
+        rgba(108, 92, 231, 0.1) 60%,
+        transparent 70%
+    );
+    animation-delay: -5s;
+    opacity: 0.2;
+}
+
+.aurora-layer:nth-child(3) {
+    background: linear-gradient(
+        225deg,
+        transparent 30%,
+        rgba(232, 67, 147, 0.1) 50%,
+        rgba(214, 48, 49, 0.1) 60%,
+        transparent 70%
+    );
+    animation-delay: -10s;
+    opacity: 0.15;
+}
+
+.aurora-layer:nth-child(4) {
+    background: linear-gradient(
+        315deg,
+        transparent 30%,
+        rgba(255, 118, 117, 0.1) 50%,
+        rgba(255, 186, 8, 0.1) 60%,
+        transparent 70%
+    );
+    animation-delay: -15s;
+    opacity: 0.1;
+}
+
+@keyframes aurora-flow {
+    0% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(5deg) translateY(-5%); }
+    100% { transform: rotate(0deg) translateY(0); }
+}
+
+.glass-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    z-index: 10;
+}
+
+.glass-reflection {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.aurora-icon {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aurora-icon i:first-child {
+    position: absolute;
+    font-size: 3rem;
+    color: rgba(46, 213, 115, 0.5);
+    filter: blur(5px);
+    animation: aurora-pulse 3s infinite;
+}
+
+.aurora-icon i:last-child {
+    position: relative;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 0 0 20px rgba(46, 213, 115, 0.8);
+    animation: aurora-spin 10s linear infinite;
+}
+
+@keyframes aurora-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+@keyframes aurora-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.aurora-input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-aurora-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.aurora-input-group i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.5);
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.aurora-input-group input {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 2;
+}
+
+.aurora-input-group input:focus {
+    outline: none;
+}
+
+.aurora-input-group input:focus ~ .input-aurora-bg {
+    background: rgba(46, 213, 115, 0.05);
+    border-color: rgba(46, 213, 115, 0.3);
+    box-shadow: 0 0 20px rgba(46, 213, 115, 0.1);
+}
+
+.aurora-input-group input:focus + i {
+    color: #2ed573;
+}
+
+.aurora-glow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #2ed573, #00b894, #0984e3);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.aurora-input-group input:focus ~ .aurora-glow {
+    width: 100%;
+}
+
+.aurora-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    z-index: 3;
+}
+
+.aurora-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.aurora-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+}
+
+.aurora-checkbox input {
+    display: none;
+}
+
+.aurora-checkmark {
+    width: 18px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.2s ease;
+}
+
+.aurora-checkbox input:checked + .aurora-checkmark {
+    background: #2ed573;
+    border-color: #2ed573;
+    color: white;
+}
+
+.aurora-link {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.aurora-link:hover {
+    color: #2ed573;
+}
+
+.form-btn.aurora-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: rgba(46, 213, 115, 0.1);
+    color: white;
+    border: 1px solid rgba(46, 213, 115, 0.3);
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.aurora-btn-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(46, 213, 115, 0.3), transparent);
+    top: 0;
+    left: -100%;
+    animation: aurora-scan 3s infinite;
+}
+
+@keyframes aurora-scan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.form-btn.aurora-btn:hover {
+    background: rgba(46, 213, 115, 0.2);
+    border-color: rgba(46, 213, 115, 0.6);
+    transform: translateY(-2px);
+}
+
+.aurora-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.divider-text {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.aurora-footer {
+    text-align: center;
+}
+
+.aurora-signup-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.aurora-signup-link:hover {
+    color: #2ed573;
+    gap: 12px;
+}`,
+    js: `// Aurora Glassmorphism Login
+document.addEventListener('DOMContentLoaded', function() {
+    const auroraForm = document.querySelector('.aurora-form');
+    
+    if (auroraForm) {
+        auroraForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            if (!email || !password) {
+                showAuroraNotification('Please enter your credentials', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.aurora-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Illuminating...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome to Aurora!</span> <i class="fas fa-sun"></i>';
+                showAuroraNotification('Login successful! The light welcomes you.', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('.aurora-checkbox input').checked = true;
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const auroraToggle = auroraForm.querySelector('.aurora-toggle');
+        if (auroraToggle) {
+            auroraToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showAuroraNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(10, 15, 30, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid \${type === 'success' ? '#2ed573' : '#ff6b6b'};
+            border-radius: 16px;
+            color: white;
+            padding: 16px 28px;
+            font-size: 0.9rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 49: Circuit Board Login
+// ====================================================================
+form49: {
+    name: "Circuit Board Login",
+    category: "login modern tech",
+    html: `<div class="form-container circuit-board-bg">
+    <div class="circuit-paths">
+        <div class="path vertical"></div>
+        <div class="path horizontal"></div>
+        <div class="path diagonal"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="trace"></div>
+    </div>
+    <div class="circuit-core">
+        <div class="form-header">
+            <div class="circuit-logo">
+                <i class="fas fa-microchip"></i>
+            </div>
+            <h3>System Login</h3>
+            <p>Secure core access</p>
+        </div>
+        <form class="circuit-form">
+            <div class="circuit-input-field">
+                <div class="field-label">
+                    <span class="label-text">USER_ID</span>
+                    <span class="label-status">[REQUIRED]</span>
+                </div>
+                <div class="circuit-input-wrapper">
+                    <i class="fas fa-id-card"></i>
+                    <input type="text" placeholder="Enter user ID" required>
+                    <div class="input-trace"></div>
+                </div>
+            </div>
+            
+            <div class="circuit-input-field">
+                <div class="field-label">
+                    <span class="label-text">PASSKEY</span>
+                    <span class="label-status">[ENCRYPTED]</span>
+                </div>
+                <div class="circuit-input-wrapper">
+                    <i class="fas fa-key"></i>
+                    <input type="password" placeholder="Enter passkey" required>
+                    <button type="button" class="circuit-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <div class="input-trace"></div>
+                </div>
+            </div>
+            
+            <div class="circuit-options">
+                <label class="circuit-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="circuit-checkmark"></span>
+                    <span class="circuit-checkbox-text">Establish secure session</span>
+                </label>
+                <a href="#" class="circuit-link">
+                    <i class="fas fa-shield"></i>
+                    Reset
+                </a>
+            </div>
+            
+            <button type="submit" class="form-btn circuit-btn">
+                <span>INITIALIZE</span>
+                <i class="fas fa-power-off"></i>
+                <div class="circuit-pulse"></div>
+            </button>
+            
+            <div class="circuit-footer">
+                <span class="footer-signal">📶 SIGNAL STRONG</span>
+                <div class="footer-links">
+                    <a href="#" class="circuit-footer-link">Diagnostic</a>
+                    <span class="separator">|</span>
+                    <a href="#" class="circuit-footer-link">Recovery</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>`,
+    css: `.circuit-board-bg {
+    background: #0b0e14;
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #2a3a4a;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.circuit-paths {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.path {
+    position: absolute;
+    background: rgba(0, 255, 157, 0.1);
+}
+
+.path.vertical {
+    width: 1px;
+    height: 100%;
+    left: 20%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 255, 157, 0.2), transparent);
+}
+
+.path.horizontal {
+    width: 100%;
+    height: 1px;
+    top: 30%;
+    background: linear-gradient(to right, transparent, rgba(0, 255, 157, 0.2), transparent);
+}
+
+.path.diagonal {
+    width: 2px;
+    height: 100%;
+    left: 70%;
+    transform: rotate(45deg);
+    background: linear-gradient(to bottom, transparent, rgba(0, 255, 157, 0.15), transparent);
+}
+
+.node {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #00ff9d;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff9d;
+}
+
+.node:nth-child(4) { top: 20%; left: 20%; animation: node-pulse 2s infinite; }
+.node:nth-child(5) { top: 60%; left: 45%; animation: node-pulse 2s infinite 0.5s; }
+.node:nth-child(6) { top: 40%; left: 75%; animation: node-pulse 2s infinite 1s; }
+.node:nth-child(7) { top: 80%; left: 30%; animation: node-pulse 2s infinite 1.5s; }
+
+@keyframes node-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+}
+
+.trace {
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: rgba(0, 255, 157, 0.1);
+    top: 25%;
+    right: 15%;
+    transform: rotate(45deg);
+}
+
+.trace::before,
+.trace::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #00ff9d;
+    border-radius: 50%;
+    top: -2px;
+}
+
+.trace::before { left: -3px; }
+.trace::after { right: -3px; }
+
+.circuit-core {
+    position: relative;
+    z-index: 10;
+}
+
+.circuit-logo {
+    width: 70px;
+    height: 70px;
+    background: rgba(0, 255, 157, 0.05);
+    border: 2px solid rgba(0, 255, 157, 0.3);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 2rem;
+    color: #00ff9d;
+    position: relative;
+}
+
+.circuit-logo::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 1px solid rgba(0, 255, 157, 0.3);
+    border-radius: 17px;
+    animation: circuit-pulse 2s infinite;
+}
+
+@keyframes circuit-pulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+.circuit-input-field {
+    margin-bottom: 20px;
+}
+
+.field-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.label-text {
+    color: #00ff9d;
+    font-weight: 600;
+}
+
+.label-status {
+    color: rgba(0, 255, 157, 0.5);
+    font-size: 0.6rem;
+}
+
+.circuit-input-wrapper {
+    position: relative;
+    background: rgba(0, 255, 157, 0.03);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    border-radius: 8px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+}
+
+.circuit-input-wrapper i {
+    color: rgba(0, 255, 157, 0.5);
+    font-size: 0.9rem;
+}
+
+.circuit-input-wrapper input {
+    width: 100%;
+    padding: 14px 12px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+}
+
+.circuit-input-wrapper input:focus {
+    outline: none;
+}
+
+.circuit-input-wrapper:focus-within {
+    border-color: #00ff9d;
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+}
+
+.input-trace {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #00ff9d;
+    box-shadow: 0 0 10px #00ff9d;
+    transition: width 0.3s ease;
+}
+
+.circuit-input-wrapper:focus-within .input-trace {
+    width: 100%;
+}
+
+.circuit-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(0, 255, 157, 0.5);
+    cursor: pointer;
+}
+
+.circuit-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.circuit-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: rgba(0, 255, 157, 0.8);
+    font-size: 0.75rem;
+    font-family: 'Courier New', monospace;
+}
+
+.circuit-checkbox input {
+    display: none;
+}
+
+.circuit-checkmark {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #00ff9d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    color: transparent;
+}
+
+.circuit-checkbox input:checked + .circuit-checkmark {
+    background: #00ff9d;
+    color: #0b0e14;
+}
+
+.circuit-link {
+    color: rgba(0, 255, 157, 0.7);
+    text-decoration: none;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.form-btn.circuit-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    color: #00ff9d;
+    border: 1px solid #00ff9d;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.circuit-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 255, 157, 0.1);
+    top: 0;
+    left: -100%;
+    transition: left 0.3s ease;
+}
+
+.form-btn.circuit-btn:hover .circuit-pulse {
+    left: 0;
+}
+
+.circuit-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.65rem;
+    font-family: 'Courier New', monospace;
+}
+
+.footer-signal {
+    color: #00ff9d;
+    animation: signal-blink 2s infinite;
+}
+
+@keyframes signal-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.footer-links {
+    display: flex;
+    gap: 8px;
+}
+
+.circuit-footer-link {
+    color: rgba(0, 255, 157, 0.5);
+    text-decoration: none;
+}
+
+.separator {
+    color: rgba(0, 255, 157, 0.2);
+}`,
+    js: `// Circuit Board Login
+document.addEventListener('DOMContentLoaded', function() {
+    const circuitForm = document.querySelector('.circuit-form');
+    
+    if (circuitForm) {
+        circuitForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const userId = this.querySelector('input[placeholder="Enter user ID"]').value;
+            const passkey = this.querySelector('input[placeholder="Enter passkey"]').value;
+            
+            if (!userId || !passkey) {
+                showCircuitNotification('ACCESS DENIED: Missing credentials', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.circuit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>INITIALIZING...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>ACCESS GRANTED</span> <i class="fas fa-check"></i>';
+                showCircuitNotification('Secure connection established', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('.circuit-checkbox input').checked = true;
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const circuitToggle = circuitForm.querySelector('.circuit-toggle');
+        if (circuitToggle) {
+            circuitToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showCircuitNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0b0e14;
+            border: 1px solid \${type === 'success' ? '#00ff9d' : '#ff6b6b'};
+            color: \${type === 'success' ? '#00ff9d' : '#ff6b6b'};
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: 'Courier New', monospace;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 20px \${type === 'success' ? 'rgba(0, 255, 157, 0.3)' : 'rgba(255, 107, 107, 0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 50: Claymorphism Login
+// ====================================================================
+form50: {
+    name: "Claymorphism Login",
+    category: "login modern clay",
+    html: `<div class="form-container claymorphism-bg">
+    <div class="clay-shapes">
+        <div class="clay-circle"></div>
+        <div class="clay-rect"></div>
+        <div class="clay-blob"></div>
+    </div>
+    <div class="clay-card">
+        <div class="form-header">
+            <div class="clay-icon">
+                <i class="fas fa-hand-peace"></i>
+            </div>
+            <h3>Welcome back</h3>
+            <p>Sign in to your clay world</p>
+        </div>
+        <form class="clay-form">
+            <div class="clay-input-container">
+                <div class="clay-input-wrapper">
+                    <div class="clay-input-inner">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email address" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="clay-input-container">
+                <div class="clay-input-wrapper">
+                    <div class="clay-input-inner">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                        <button type="button" class="clay-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="clay-options">
+                <label class="clay-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="clay-checkmark">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span class="clay-checkbox-text">Keep me signed in</span>
+                </label>
+            </div>
+            
+            <button type="submit" class="form-btn clay-btn">
+                <span>Sign In</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            
+            <div class="clay-links">
+                <a href="#" class="clay-link">Forgot password?</a>
+                <span class="clay-divider">•</span>
+                <a href="#" class="clay-link">Create account</a>
+            </div>
+            
+            <div class="clay-social">
+                <span class="social-label">Or continue with</span>
+                <div class="social-icons">
+                    <button type="button" class="clay-social-btn">
+                        <i class="fab fa-google"></i>
+                    </button>
+                    <button type="button" class="clay-social-btn">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                    <button type="button" class="clay-social-btn">
+                        <i class="fab fa-apple"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>`,
+    css: `.claymorphism-bg {
+    background: #f4e4d4;
+    border-radius: 40px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.clay-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.clay-circle {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: #ffb88c;
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+    opacity: 0.3;
+    filter: blur(30px);
+}
+
+.clay-rect {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: #a5d8ff;
+    border-radius: 60% 40% 50% 50% / 40% 50% 50% 60%;
+    bottom: -80px;
+    left: -80px;
+    opacity: 0.3;
+    filter: blur(40px);
+}
+
+.clay-blob {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: #ffd3b6;
+    border-radius: 70% 30% 60% 40% / 50% 60% 40% 50%;
+    top: 40%;
+    left: 20%;
+    opacity: 0.2;
+    filter: blur(30px);
+}
+
+.clay-card {
+    position: relative;
+    background: #ffe8d6;
+    border-radius: 40px;
+    padding: 20px;
+    box-shadow: 
+        20px 20px 40px rgba(163, 137, 119, 0.2),
+        -10px -10px 30px rgba(255, 255, 255, 0.7),
+        inset 2px 2px 5px rgba(255, 255, 255, 0.5),
+        inset -3px -3px 7px rgba(163, 137, 119, 0.1);
+    z-index: 10;
+}
+
+.clay-icon {
+    width: 70px;
+    height: 70px;
+    background: #ffe8d6;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 2rem;
+    color: #a7826e;
+    box-shadow: 
+        12px 12px 24px rgba(163, 137, 119, 0.2),
+        -12px -12px 24px rgba(255, 255, 255, 0.7),
+        inset 4px 4px 8px rgba(255, 255, 255, 0.5),
+        inset -4px -4px 8px rgba(163, 137, 119, 0.1);
+}
+
+.clay-input-container {
+    margin-bottom: 20px;
+}
+
+.clay-input-wrapper {
+    background: #ffe8d6;
+    border-radius: 50px;
+    padding: 4px;
+    box-shadow: 
+        inset 6px 6px 12px rgba(163, 137, 119, 0.1),
+        inset -6px -6px 12px rgba(255, 255, 255, 0.5);
+}
+
+.clay-input-inner {
+    display: flex;
+    align-items: center;
+    background: #ffe8d6;
+    border-radius: 50px;
+    padding: 0 20px;
+    box-shadow: 
+        6px 6px 12px rgba(163, 137, 119, 0.1),
+        -6px -6px 12px rgba(255, 255, 255, 0.5);
+}
+
+.clay-input-inner i {
+    color: #a7826e;
+    font-size: 0.95rem;
+    margin-right: 12px;
+}
+
+.clay-input-inner input {
+    width: 100%;
+    padding: 16px 0;
+    background: transparent;
+    border: none;
+    color: #4a3b30;
+    font-size: 0.95rem;
+}
+
+.clay-input-inner input:focus {
+    outline: none;
+}
+
+.clay-input-inner input::placeholder {
+    color: #c0a392;
+}
+
+.clay-toggle {
+    background: none;
+    border: none;
+    color: #a7826e;
+    cursor: pointer;
+}
+
+.clay-options {
+    margin: 25px 0;
+}
+
+.clay-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    color: #5e4b3c;
+    font-size: 0.85rem;
+}
+
+.clay-checkbox input {
+    display: none;
+}
+
+.clay-checkmark {
+    width: 22px;
+    height: 22px;
+    background: #ffe8d6;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 0.7rem;
+    box-shadow: 
+        4px 4px 8px rgba(163, 137, 119, 0.1),
+        -4px -4px 8px rgba(255, 255, 255, 0.5),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+        inset -2px -2px 4px rgba(163, 137, 119, 0.1);
+}
+
+.clay-checkbox input:checked + .clay-checkmark {
+    background: #a7826e;
+    color: white;
+    box-shadow: 
+        inset 4px 4px 8px rgba(75, 59, 48, 0.2),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.form-btn.clay-btn {
+    width: 100%;
+    padding: 18px;
+    background: #ffe8d6;
+    color: #4a3b30;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    box-shadow: 
+        12px 12px 24px rgba(163, 137, 119, 0.2),
+        -12px -12px 24px rgba(255, 255, 255, 0.7),
+        inset 2px 2px 5px rgba(255, 255, 255, 0.5),
+        inset -3px -3px 7px rgba(163, 137, 119, 0.1);
+    transition: all 0.2s ease;
+}
+
+.form-btn.clay-btn:hover {
+    box-shadow: 
+        inset 8px 8px 16px rgba(163, 137, 119, 0.2),
+        inset -8px -8px 16px rgba(255, 255, 255, 0.7);
+    color: #a7826e;
+}
+
+.clay-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.clay-link {
+    color: #a7826e;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.clay-divider {
+    color: #d4b6a4;
+}
+
+.clay-social {
+    text-align: center;
+}
+
+.social-label {
+    display: block;
+    color: #a7826e;
+    font-size: 0.75rem;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.clay-social-btn {
+    width: 48px;
+    height: 48px;
+    background: #ffe8d6;
+    border: none;
+    border-radius: 25px;
+    color: #a7826e;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 
+        8px 8px 16px rgba(163, 137, 119, 0.1),
+        -8px -8px 16px rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+}
+
+.clay-social-btn:hover {
+    box-shadow: 
+        inset 6px 6px 12px rgba(163, 137, 119, 0.1),
+        inset -6px -6px 12px rgba(255, 255, 255, 0.5);
+    color: #8b6b5a;
+}`,
+    js: `// Claymorphism Login
+document.addEventListener('DOMContentLoaded', function() {
+    const clayForm = document.querySelector('.clay-form');
+    
+    if (clayForm) {
+        clayForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            if (!email || !password) {
+                showClayNotification('Please mold your credentials', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.clay-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Shaping...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome back!</span> <i class="fas fa-hand-peace"></i>';
+                showClayNotification('Signed in successfully!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('.clay-checkbox input').checked = true;
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const clayToggle = clayForm.querySelector('.clay-toggle');
+        if (clayToggle) {
+            clayToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                    
+                    // Clay press effect
+                    this.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+        
+        // Social buttons
+        clayForm.querySelectorAll('.clay-social-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+    }
+    
+    function showClayNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ffe8d6;
+            border-radius: 50px;
+            color: \${type === 'success' ? '#5e4b3c' : '#ff6b6b'};
+            padding: 16px 28px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 
+                12px 12px 24px rgba(163, 137, 119, 0.2),
+                -12px -12px 24px rgba(255, 255, 255, 0.7);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 51: Floating Island Login
+// ====================================================================
+form51: {
+    name: "Floating Island Login",
+    category: "login modern whimsical",
+    html: `<div class="form-container floating-island-bg">
+    <div class="sky">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+    <div class="floating-island">
+        <div class="island-base">
+            <div class="island-grass"></div>
+            <div class="island-shadow"></div>
+        </div>
+        <div class="tree">
+            <div class="tree-trunk"></div>
+            <div class="tree-leaves"></div>
+        </div>
+        <div class="island-content">
+            <div class="form-header">
+                <div class="island-icon">
+                    <i class="fas fa-feather"></i>
+                </div>
+                <h3>Welcome to the Island</h3>
+                <p>Sign in to your paradise</p>
+            </div>
+            <form class="island-form">
+                <div class="island-input-group">
+                    <div class="input-sand">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email address" required>
+                    </div>
+                </div>
+                
+                <div class="island-input-group">
+                    <div class="input-sand">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                        <button type="button" class="island-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="island-options">
+                    <label class="island-checkbox">
+                        <input type="checkbox" checked>
+                        <span class="island-checkmark"></span>
+                        <span class="island-checkbox-text">Stay on the island</span>
+                    </label>
+                    <a href="#" class="island-link">Lost password?</a>
+                </div>
+                
+                <button type="submit" class="form-btn island-btn">
+                    <span>Arrive</span>
+                    <i class="fas fa-sailboat"></i>
+                </button>
+                
+                <div class="island-footer">
+                    <span>New to the island?</span>
+                    <a href="#" class="island-signup-link">Build your hut</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="sea">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+</div>`,
+    css: `.floating-island-bg {
+    background: linear-gradient(180deg, #87CEEB 0%, #B0E0E6 100%);
+    border-radius: 32px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50px;
+    opacity: 0.4;
+}
+
+.cloud-1 {
+    width: 60px;
+    height: 25px;
+    top: 20%;
+    left: 10%;
+    animation: float-cloud 20s linear infinite;
+}
+
+.cloud-2 {
+    width: 80px;
+    height: 30px;
+    top: 15%;
+    right: 15%;
+    animation: float-cloud 25s linear infinite;
+}
+
+.cloud-3 {
+    width: 50px;
+    height: 20px;
+    bottom: 30%;
+    left: 20%;
+    animation: float-cloud 18s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: 10px;
+}
+
+.cloud::after {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 25px;
+}
+
+@keyframes float-cloud {
+    from { transform: translateX(-50px); }
+    to { transform: translateX(150px); }
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 6px white;
+}
+
+.star:nth-child(4) { top: 30%; right: 20%; animation: twinkle 2s infinite; }
+.star:nth-child(5) { top: 50%; left: 15%; animation: twinkle 2s infinite 0.5s; }
+.star:nth-child(6) { bottom: 40%; right: 30%; animation: twinkle 2s infinite 1s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+}
+
+.floating-island {
+    position: relative;
+    z-index: 20;
+    animation: float-island 6s ease-in-out infinite;
+}
+
+@keyframes float-island {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.island-base {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #8B4513;
+    border-radius: 50% 50% 30px 30px;
+    z-index: 1;
+}
+
+.island-grass {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background: #90EE90;
+    border-radius: 50% 50% 0 0;
+    z-index: 2;
+}
+
+.island-shadow {
+    position: absolute;
+    bottom: -10px;
+    left: 10%;
+    width: 80%;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    filter: blur(5px);
+    z-index: 0;
+}
+
+.tree {
+    position: absolute;
+    bottom: 35px;
+    right: 20px;
+    z-index: 5;
+}
+
+.tree-trunk {
+    width: 12px;
+    height: 35px;
+    background: #8B4513;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.tree-leaves {
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    width: 60px;
+    height: 40px;
+    background: #228B22;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 0 0 0 8px rgba(34, 139, 34, 0.2);
+}
+
+.island-content {
+    position: relative;
+    background: rgba(255, 248, 220, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 30px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    z-index: 10;
+}
+
+.island-icon {
+    width: 60px;
+    height: 60px;
+    background: #FFD700;
+    border-radius: 50% 50% 0 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 1.8rem;
+    transform: rotate(15deg);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+}
+
+.island-input-group {
+    margin-bottom: 18px;
+}
+
+.input-sand {
+    position: relative;
+    background: rgba(244, 164, 96, 0.2);
+    border: 2px solid rgba(244, 164, 96, 0.3);
+    border-radius: 30px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.input-sand i {
+    color: #CD853F;
+    font-size: 0.9rem;
+    margin-right: 12px;
+}
+
+.input-sand input {
+    width: 100%;
+    padding: 16px 0;
+    background: transparent;
+    border: none;
+    color: #5D3A1A;
+    font-size: 0.9rem;
+}
+
+.input-sand input:focus {
+    outline: none;
+}
+
+.input-sand input::placeholder {
+    color: #A0522D;
+}
+
+.island-toggle {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #CD853F;
+    cursor: pointer;
+}
+
+.island-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.island-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #5D3A1A;
+    font-size: 0.8rem;
+}
+
+.island-checkbox input {
+    display: none;
+}
+
+.island-checkmark {
+    width: 18px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid #CD853F;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.2s ease;
+}
+
+.island-checkbox input:checked + .island-checkmark {
+    background: #CD853F;
+    border-color: #CD853F;
+    color: white;
+}
+
+.island-link {
+    color: #8B4513;
+    text-decoration: none;
+    font-size: 0.8rem;
+    border-bottom: 1px dashed #CD853F;
+}
+
+.form-btn.island-btn {
+    width: 100%;
+    padding: 16px;
+    background: #FFD700;
+    color: #5D3A1A;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.form-btn.island-btn:hover {
+    background: #FFC800;
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
+}
+
+.island-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #5D3A1A;
+}
+
+.island-signup-link {
+    color: #8B4513;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 5px;
+    border-bottom: 2px solid #FFD700;
+}
+
+.sea {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #4682B4;
+    opacity: 0.3;
+    z-index: 5;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: rgba(70, 130, 180, 0.2);
+    border-radius: 50% 50% 0 0;
+    animation: wave-move 8s linear infinite;
+}
+
+.wave:nth-child(2) {
+    bottom: 5px;
+    opacity: 0.2;
+    animation-delay: -2s;
+}
+
+.wave:nth-child(3) {
+    bottom: 10px;
+    opacity: 0.1;
+    animation-delay: -4s;
+}
+
+@keyframes wave-move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}`,
+    js: `// Floating Island Login
+document.addEventListener('DOMContentLoaded', function() {
+    const islandForm = document.querySelector('.island-form');
+    
+    if (islandForm) {
+        islandForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            if (!email || !password) {
+                showIslandNotification('Please enter your credentials', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.island-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Sailing...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome to the island!</span> <i class="fas fa-feather"></i>';
+                showIslandNotification('Arrived successfully!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('.island-checkbox input').checked = true;
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const islandToggle = islandForm.querySelector('.island-toggle');
+        if (islandToggle) {
+            islandToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showIslandNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 248, 220, 0.95);
+            backdrop-filter: blur(5px);
+            border: 2px solid \${type === 'success' ? '#FFD700' : '#CD853F'};
+            border-radius: 30px;
+            color: \${type === 'success' ? '#5D3A1A' : '#8B4513'};
+            padding: 16px 28px;
+            font-size: 0.9rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 52: Terminal Matrix Login
+// ====================================================================
+form52: {
+    name: "Terminal Matrix Login",
+    category: "login modern matrix",
+    html: `<div class="form-container terminal-matrix-bg">
+    <canvas class="matrix-canvas"></canvas>
+    <div class="matrix-overlay"></div>
+    <div class="terminal-window">
+        <div class="terminal-bar">
+            <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <span class="terminal-path">root@matrix:~</span>
+        </div>
+        <div class="terminal-content">
+            <div class="matrix-header">
+                <div class="matrix-glitch">>_ MATRIX LOGIN</div>
+                <div class="matrix-subtitle">Identify yourself</div>
+            </div>
+            
+            <form class="matrix-form">
+                <div class="matrix-line">
+                    <span class="prompt">$</span>
+                    <span class="command">login --user</span>
+                </div>
+                <div class="matrix-input-line">
+                    <span class="prompt">></span>
+                    <input type="text" placeholder="enter username" required class="matrix-input" id="matrix-username">
+                    <span class="cursor"></span>
+                </div>
+                
+                <div class="matrix-line">
+                    <span class="prompt">$</span>
+                    <span class="command">login --pass</span>
+                </div>
+                <div class="matrix-input-line">
+                    <span class="prompt">#</span>
+                    <input type="password" placeholder="enter password" required class="matrix-input" id="matrix-password">
+                    <button type="button" class="matrix-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <span class="cursor"></span>
+                </div>
+                
+                <div class="matrix-options">
+                    <label class="matrix-checkbox">
+                        <input type="checkbox" checked>
+                        <span class="matrix-checkmark">[ ]</span>
+                        <span class="matrix-checkbox-text">remember_session</span>
+                    </label>
+                </div>
+                
+                <div class="matrix-buttons">
+                    <button type="submit" class="matrix-btn">
+                        <span>[ EXECUTE ]</span>
+                    </button>
+                    <button type="button" class="matrix-reset-btn">
+                        <span>[ RESET ]</span>
+                    </button>
+                </div>
+                
+                <div class="matrix-footer">
+                    <span class="matrix-status">🟢 SYSTEM SECURE</span>
+                    <span class="matrix-time">$(date)</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>`,
+    css: `.terminal-matrix-bg {
+    background: #000000;
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.1);
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.matrix-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.matrix-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 255, 0, 0.05) 1px,
+        rgba(0, 0, 0, 0.1) 2px
+    );
+    pointer-events: none;
+}
+
+.terminal-window {
+    position: relative;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 12px;
+    border: 1px solid #00ff00;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    z-index: 10;
+}
+
+.terminal-bar {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(0, 255, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 8px;
+    margin-right: 15px;
+}
+
+.terminal-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-dots .dot.red { background: #ff5f56; }
+.terminal-dots .dot.yellow { background: #ffbd2e; }
+.terminal-dots .dot.green { background: #27c93f; }
+
+.terminal-path {
+    color: #00ff00;
+    font-size: 0.7rem;
+    font-family: 'Courier New', monospace;
+    opacity: 0.8;
+}
+
+.terminal-content {
+    padding: 20px;
+}
+
+.matrix-header {
+    margin-bottom: 20px;
+}
+
+.matrix-glitch {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: matrix-glitch 3s infinite;
+    position: relative;
+}
+
+@keyframes matrix-glitch {
+    0%, 100% { text-shadow: 0 0 5px #00ff00; }
+    25% { text-shadow: -2px 0 #ff0000, 2px 2px #0000ff; }
+    75% { text-shadow: 2px 0 #00ff00, -2px -2px #ff00ff; }
+}
+
+.matrix-subtitle {
+    color: #008000;
+    font-size: 0.7rem;
+    font-family: 'Courier New', monospace;
+    margin-top: 5px;
+}
+
+.matrix-line {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+}
+
+.prompt {
+    color: #00ff00;
+    font-weight: 700;
+}
+
+.command {
+    color: #008000;
+}
+
+.matrix-input-line {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 8px;
+    background: rgba(0, 255, 0, 0.02);
+    border: 1px solid rgba(0, 255, 0, 0.1);
+}
+
+.matrix-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    font-size: 0.85rem;
+    font-family: 'Courier New', monospace;
+    padding: 8px 0;
+}
+
+.matrix-input:focus {
+    outline: none;
+}
+
+.matrix-input::placeholder {
+    color: rgba(0, 255, 0, 0.3);
+    font-family: 'Courier New', monospace;
+}
+
+.cursor {
+    position: absolute;
+    right: 12px;
+    width: 8px;
+    height: 18px;
+    background: #00ff00;
+    animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.matrix-toggle {
+    position: absolute;
+    right: 30px;
+    background: none;
+    border: none;
+    color: #00ff00;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.matrix-options {
+    margin: 20px 0;
+}
+
+.matrix-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #00ff00;
+    font-size: 0.75rem;
+    font-family: 'Courier New', monospace;
+}
+
+.matrix-checkbox input {
+    display: none;
+}
+
+.matrix-checkmark {
+    display: inline-block;
+    width: 20px;
+}
+
+.matrix-checkbox input:checked + .matrix-checkmark {
+    color: #00ff00;
+}
+
+.matrix-buttons {
+    display: flex;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.matrix-btn,
+.matrix-reset-btn {
+    flex: 1;
+    padding: 12px;
+    background: transparent;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.matrix-btn:hover {
+    background: #00ff00;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.matrix-reset-btn {
+    opacity: 0.5;
+}
+
+.matrix-reset-btn:hover {
+    opacity: 1;
+    border-color: #ff0000;
+    color: #ff0000;
+}
+
+.matrix-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 255, 0, 0.2);
+    font-size: 0.65rem;
+    font-family: 'Courier New', monospace;
+}
+
+.matrix-status {
+    color: #00ff00;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.matrix-status i {
+    animation: status-pulse 2s infinite;
+}
+
+@keyframes status-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.matrix-time {
+    color: rgba(0, 255, 0, 0.5);
+}`,
+    js: `// Terminal Matrix Login
+document.addEventListener('DOMContentLoaded', function() {
+    const matrixForm = document.querySelector('.matrix-form');
+    
+    // Matrix rain effect
+    const canvas = document.querySelector('.matrix-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
+        
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+{}:<>?';
+        const fontSize = 12;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0f0';
+            ctx.font = fontSize + 'px monospace';
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        
+        const matrixInterval = setInterval(drawMatrix, 50);
+        
+        // Clear interval when page unloads
+        window.addEventListener('beforeunload', function() {
+            clearInterval(matrixInterval);
+        });
+    }
+    
+    if (matrixForm) {
+        matrixForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('matrix-username').value;
+            const password = document.getElementById('matrix-password').value;
+            
+            if (!username || !password) {
+                showMatrixNotification('ACCESS DENIED: Missing credentials', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.matrix-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>[ PROCESSING ]</span>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>[ ACCESS GRANTED ]</span>';
+                showMatrixNotification('Welcome to the Matrix', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('.matrix-checkbox input').checked = true;
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const matrixToggle = matrixForm.querySelector('.matrix-toggle');
+        if (matrixToggle) {
+            matrixToggle.addEventListener('click', function() {
+                const input = document.getElementById('matrix-password');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+        
+        // Reset button
+        const resetBtn = matrixForm.querySelector('.matrix-reset-btn');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', function() {
+                matrixForm.reset();
+                showMatrixNotification('System reset', 'info');
+            });
+        }
+    }
+    
+    function showMatrixNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #000000;
+            border: 1px solid \${type === 'success' ? '#00ff00' : '#ff0000'};
+            color: \${type === 'success' ? '#00ff00' : '#ff0000'};
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: 'Courier New', monospace;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 20px \${type === 'success' ? 'rgba(0,255,0,0.3)' : 'rgba(255,0,0,0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+// ====================================================================
+// TEMPLATE 53: Modern Minimal Contact Form
+// ====================================================================
+form53: {
+    name: "Modern Minimal Contact",
+    category: "contact modern minimal",
+    html: `<div class="form-container modern-minimal-contact-bg">
+    <div class="form-header">
+        <div class="contact-icon-wrapper">
+            <div class="contact-icon">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+        </div>
+        <h3>Get in Touch</h3>
+        <p>We'd love to hear from you</p>
+    </div>
+    <form class="modern-minimal-contact-form">
+        <div class="form-row">
+            <div class="contact-input-group half">
+                <div class="input-minimal-wrapper">
+                    <input type="text" placeholder="First name" required>
+                    <span class="input-highlight"></span>
+                </div>
+            </div>
+            <div class="contact-input-group half">
+                <div class="input-minimal-wrapper">
+                    <input type="text" placeholder="Last name" required>
+                    <span class="input-highlight"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-input-group">
+            <div class="input-minimal-wrapper">
+                <input type="email" placeholder="Email address" required>
+                <span class="input-highlight"></span>
+            </div>
+        </div>
+        
+        <div class="contact-input-group">
+            <div class="input-minimal-wrapper">
+                <select required class="minimal-select">
+                    <option value="" disabled selected>Select subject</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="support">Technical Support</option>
+                    <option value="sales">Sales & Pricing</option>
+                    <option value="partnership">Partnership</option>
+                    <option value="other">Other</option>
+                </select>
+                <span class="input-highlight"></span>
+            </div>
+        </div>
+        
+        <div class="contact-input-group">
+            <div class="input-minimal-wrapper">
+                <textarea placeholder="Your message" rows="3" required></textarea>
+                <span class="input-highlight"></span>
+            </div>
+            <div class="char-counter">0/500</div>
+        </div>
+        
+        <div class="contact-options">
+            <label class="contact-checkbox">
+                <input type="checkbox" checked>
+                <span class="contact-checkmark">
+                    <i class="fas fa-check"></i>
+                </span>
+                <span class="contact-checkbox-text">Send me a copy</span>
+            </label>
+        </div>
+        
+        <button type="submit" class="form-btn minimal-contact-btn">
+            <span>Send Message</span>
+            <i class="fas fa-paper-plane"></i>
+        </button>
+        
+        <div class="contact-alt-info">
+            <span class="alt-text">Prefer email?</span>
+            <a href="mailto:hello@example.com" class="alt-email">hello@example.com</a>
+        </div>
+    </form>
+</div>`,
+    css: `.modern-minimal-contact-bg {
+    background: white;
+    border-radius: 32px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+    border: 1px solid #f0f0f0;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.contact-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.contact-icon {
+    width: 70px;
+    height: 70px;
+    background: #f8fafc;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #3b82f6;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.contact-input-group {
+    margin-bottom: 20px;
+}
+
+.contact-input-group.half {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.input-minimal-wrapper {
+    position: relative;
+}
+
+.input-minimal-wrapper input,
+.input-minimal-wrapper select,
+.input-minimal-wrapper textarea {
+    width: 100%;
+    padding: 14px 0;
+    border: none;
+    border-bottom: 2px solid #e2e8f0;
+    background: transparent;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    color: #1e293b;
+}
+
+.input-minimal-wrapper select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0 center;
+    background-size: 16px;
+}
+
+.input-minimal-wrapper textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.input-minimal-wrapper input:focus,
+.input-minimal-wrapper select:focus,
+.input-minimal-wrapper textarea:focus {
+    outline: none;
+    border-bottom-color: #3b82f6;
+}
+
+.input-minimal-wrapper input::placeholder,
+.input-minimal-wrapper textarea::placeholder {
+    color: #94a3b8;
+}
+
+.input-highlight {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #3b82f6;
+    transition: width 0.3s ease;
+}
+
+.input-minimal-wrapper input:focus ~ .input-highlight,
+.input-minimal-wrapper select:focus ~ .input-highlight,
+.input-minimal-wrapper textarea:focus ~ .input-highlight {
+    width: 100%;
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 0.7rem;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.contact-options {
+    margin: 20px 0;
+}
+
+.contact-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #475569;
+}
+
+.contact-checkbox input {
+    display: none;
+}
+
+.contact-checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.2s ease;
+}
+
+.contact-checkbox input:checked + .contact-checkmark {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+}
+
+.form-btn.minimal-contact-btn {
+    width: 100%;
+    padding: 16px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.form-btn.minimal-contact-btn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.contact-alt-info {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.alt-email {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px;
+}`,
+    js: `// Modern Minimal Contact Form
+document.addEventListener('DOMContentLoaded', function() {
+    const minimalContactForm = document.querySelector('.modern-minimal-contact-form');
+    
+    if (minimalContactForm) {
+        // Character counter
+        const textarea = minimalContactForm.querySelector('textarea');
+        const counter = minimalContactForm.querySelector('.char-counter');
+        
+        if (textarea && counter) {
+            textarea.addEventListener('input', function() {
+                const length = this.value.length;
+                counter.textContent = \`\${length}/500\`;
+                
+                if (length > 450) {
+                    counter.style.color = '#ef4444';
+                } else if (length > 400) {
+                    counter.style.color = '#f59e0b';
+                } else {
+                    counter.style.color = '#94a3b8';
+                }
+            });
+        }
+        
+        // Form submission
+        minimalContactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const firstName = this.querySelector('input[placeholder="First name"]').value;
+            const lastName = this.querySelector('input[placeholder="Last name"]').value;
+            const email = this.querySelector('input[placeholder="Email address"]').value;
+            const subject = this.querySelector('select').value;
+            const message = this.querySelector('textarea').value;
+            
+            if (!firstName || !lastName || !email || !subject || !message) {
+                showContactNotification('Please fill in all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.minimal-contact-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Message Sent!</span> <i class="fas fa-check"></i>';
+                showContactNotification('Thank you for contacting us!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('.contact-checkbox input').checked = true;
+                    counter.textContent = '0/500';
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    function showContactNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: \${type === 'success' ? '#10b981' : '#ef4444'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 54: Floating Label Contact Form
+// ====================================================================
+form54: {
+    name: "Floating Label Contact",
+    category: "contact modern floating",
+    html: `<div class="form-container floating-label-contact-bg">
+    <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    <div class="form-header">
+        <div class="floating-contact-icon">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <h3>Drop us a line</h3>
+        <p>We typically reply within 24 hours</p>
+    </div>
+    <form class="floating-label-form">
+        <div class="floating-input-group">
+            <div class="floating-label-wrapper">
+                <input type="text" id="floating-name" required class="floating-input">
+                <label for="floating-name">Your full name</label>
+                <div class="floating-border"></div>
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+        
+        <div class="floating-input-group">
+            <div class="floating-label-wrapper">
+                <input type="email" id="floating-email" required class="floating-input">
+                <label for="floating-email">Email address</label>
+                <div class="floating-border"></div>
+                <i class="fas fa-envelope"></i>
+            </div>
+        </div>
+        
+        <div class="floating-input-group">
+            <div class="floating-label-wrapper">
+                <select id="floating-subject" required class="floating-select">
+                    <option value="" disabled selected></option>
+                    <option value="question">Question</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="support">Support</option>
+                    <option value="collaboration">Collaboration</option>
+                </select>
+                <label for="floating-subject">Select subject</label>
+                <div class="floating-border"></div>
+                <i class="fas fa-tag"></i>
+            </div>
+        </div>
+        
+        <div class="floating-input-group">
+            <div class="floating-label-wrapper">
+                <textarea id="floating-message" required class="floating-textarea" rows="3"></textarea>
+                <label for="floating-message">Your message</label>
+                <div class="floating-border"></div>
+                <i class="fas fa-pencil-alt"></i>
+            </div>
+            <div class="floating-counter">0/500</div>
+        </div>
+        
+        <div class="floating-actions">
+            <button type="submit" class="form-btn floating-contact-btn">
+                <span>Send</span>
+                <i class="fas fa-paper-plane"></i>
+                <div class="btn-floating-effect"></div>
+            </button>
+        </div>
+        
+        <div class="floating-footer">
+            <span class="response-time">
+                <i class="fas fa-clock"></i>
+                Average response: 2.4h
+            </span>
+        </div>
+    </form>
+</div>`,
+    css: `.floating-label-contact-bg {
+    background: linear-gradient(145deg, #0f172a, #1e293b);
+    border-radius: 28px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.floating-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.floating-particles .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(59, 130, 246, 0.2);
+    border-radius: 50%;
+    animation: float-particle 15s linear infinite;
+}
+
+.floating-particles .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.floating-particles .particle:nth-child(2) { top: 60%; left: 80%; animation-delay: 3s; }
+.floating-particles .particle:nth-child(3) { top: 80%; left: 30%; animation-delay: 6s; }
+.floating-particles .particle:nth-child(4) { top: 40%; left: 70%; animation-delay: 9s; }
+
+@keyframes float-particle {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.2; }
+    50% { transform: translateY(-20px) scale(1.5); opacity: 0.5; }
+}
+
+.floating-contact-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 2rem;
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.floating-input-group {
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.floating-label-wrapper {
+    position: relative;
+}
+
+.floating-label-wrapper i {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.floating-input,
+.floating-select,
+.floating-textarea {
+    width: 100%;
+    padding: 16px 0 16px 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.floating-textarea {
+    resize: vertical;
+    min-height: 50px;
+}
+
+.floating-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0 center;
+    background-size: 16px;
+}
+
+.floating-select option {
+    background: #1e293b;
+    color: white;
+}
+
+.floating-input:focus,
+.floating-select:focus,
+.floating-textarea:focus {
+    outline: none;
+    border-bottom-color: #3b82f6;
+}
+
+.floating-label-wrapper label {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.floating-textarea + label {
+    top: 16px;
+    transform: none;
+}
+
+.floating-input:focus + label,
+.floating-select:focus + label,
+.floating-textarea:focus + label,
+.floating-input:not(:placeholder-shown) + label,
+.floating-select:not([value=""]):valid + label,
+.floating-textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 0;
+    font-size: 0.7rem;
+    color: #3b82f6;
+}
+
+.floating-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #3b82f6;
+    transition: width 0.3s ease;
+}
+
+.floating-input:focus ~ .floating-border,
+.floating-select:focus ~ .floating-border,
+.floating-textarea:focus ~ .floating-border {
+    width: 100%;
+}
+
+.floating-counter {
+    text-align: right;
+    font-size: 0.7rem;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.form-btn.floating-contact-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-floating-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 100%);
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.form-btn.floating-contact-btn:hover .btn-floating-effect {
+    transform: scale(2);
+    opacity: 0.5;
+}
+
+.floating-footer {
+    text-align: center;
+}
+
+.response-time {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.response-time i {
+    color: #3b82f6;
+}`,
+    js: `// Floating Label Contact Form
+document.addEventListener('DOMContentLoaded', function() {
+    const floatingForm = document.querySelector('.floating-label-form');
+    
+    if (floatingForm) {
+        // Character counter
+        const textarea = floatingForm.querySelector('.floating-textarea');
+        const counter = floatingForm.querySelector('.floating-counter');
+        
+        if (textarea && counter) {
+            textarea.addEventListener('input', function() {
+                const length = this.value.length;
+                counter.textContent = \`\${length}/500\`;
+            });
+        }
+        
+        // Form submission
+        floatingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('floating-name').value;
+            const email = document.getElementById('floating-email').value;
+            const subject = document.getElementById('floating-subject').value;
+            const message = document.getElementById('floating-message').value;
+            
+            if (!name || !email || !subject || !message) {
+                showFloatingNotification('Please complete all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.floating-contact-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Sent!</span> <i class="fas fa-check"></i>';
+                showFloatingNotification('Your message has been sent', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    counter.textContent = '0/500';
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    function showFloatingNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(145deg, #0f172a, #1e293b);
+            border: 1px solid \${type === 'success' ? '#3b82f6' : '#ef4444'};
+            border-radius: 12px;
+            color: white;
+            padding: 12px 24px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 55: Gradient Card Contact Form
+// ====================================================================
+form55: {
+    name: "Gradient Card Contact",
+    category: "contact modern gradient",
+    html: `<div class="form-container gradient-card-contact-bg">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+    <div class="gradient-card">
+        <div class="card-shine"></div>
+        <div class="form-header">
+            <div class="gradient-contact-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h3>We're here to help</h3>
+            <p>Send us a message anytime</p>
+        </div>
+        
+        <div class="contact-info-bar">
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>San Francisco, CA</span>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>+1 (555) 123-4567</span>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <span>hello@company.com</span>
+            </div>
+        </div>
+        
+        <form class="gradient-contact-form">
+            <div class="gradient-input-row">
+                <div class="gradient-input-group">
+                    <div class="gradient-input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Full name" required>
+                        <div class="gradient-border"></div>
+                    </div>
+                </div>
+                <div class="gradient-input-group">
+                    <div class="gradient-input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" required>
+                        <div class="gradient-border"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gradient-input-group">
+                <div class="gradient-input-wrapper">
+                    <i class="fas fa-heading"></i>
+                    <input type="text" placeholder="Subject" required>
+                    <div class="gradient-border"></div>
+                </div>
+            </div>
+            
+            <div class="gradient-input-group">
+                <div class="gradient-input-wrapper">
+                    <i class="fas fa-comment"></i>
+                    <textarea placeholder="Your message..." rows="3" required></textarea>
+                    <div class="gradient-border"></div>
+                </div>
+                <div class="gradient-char-counter">0/500</div>
+            </div>
+            
+            <div class="gradient-attachment">
+                <label class="attachment-label">
+                    <i class="fas fa-paperclip"></i>
+                    <span>Attach file (max 10MB)</span>
+                    <input type="file" class="attachment-input">
+                </label>
+            </div>
+            
+            <button type="submit" class="form-btn gradient-contact-btn">
+                <span>Send Message</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </form>
+        
+        <div class="gradient-social">
+            <span class="social-text">Connect with us:</span>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</div>`,
+    css: `.gradient-card-contact-bg {
+    background: #0b0e14;
+    border-radius: 32px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.orb-1 {
+    width: 200px;
+    height: 200px;
+    background: #4158D0;
+    top: -50px;
+    right: -50px;
+    opacity: 0.3;
+}
+
+.orb-2 {
+    width: 250px;
+    height: 250px;
+    background: #C850C0;
+    bottom: -80px;
+    left: -80px;
+    opacity: 0.2;
+}
+
+.orb-3 {
+    width: 150px;
+    height: 150px;
+    background: #FFCC70;
+    top: 30%;
+    left: 20%;
+    opacity: 0.15;
+}
+
+.gradient-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+}
+
+.card-shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 80%);
+    pointer-events: none;
+}
+
+.gradient-contact-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(145deg, #4158D0, #C850C0);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.8rem;
+    color: white;
+    transform: rotate(5deg);
+}
+
+.contact-info-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 50px;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+}
+
+.info-item i {
+    color: #C850C0;
+    font-size: 0.8rem;
+}
+
+.info-divider {
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.gradient-input-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.gradient-input-group {
+    flex: 1;
+    margin-bottom: 15px;
+}
+
+.gradient-input-wrapper {
+    position: relative;
+}
+
+.gradient-input-wrapper i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    z-index: 2;
+}
+
+.gradient-input-wrapper input,
+.gradient-input-wrapper textarea {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.gradient-input-wrapper textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.gradient-input-wrapper input:focus,
+.gradient-input-wrapper textarea:focus {
+    outline: none;
+    border-color: #4158D0;
+    background: rgba(65, 88, 208, 0.1);
+}
+
+.gradient-border {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.gradient-input-wrapper input:focus ~ .gradient-border,
+.gradient-input-wrapper textarea:focus ~ .gradient-border {
+    border-color: linear-gradient(45deg, #4158D0, #C850C0);
+}
+
+.gradient-char-counter {
+    text-align: right;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 5px;
+}
+
+.gradient-attachment {
+    margin: 15px 0;
+}
+
+.attachment-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.attachment-label:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #C850C0;
+}
+
+.attachment-label i {
+    color: #C850C0;
+}
+
+.attachment-input {
+    display: none;
+}
+
+.form-btn.gradient-contact-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(45deg, #4158D0, #C850C0);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.form-btn.gradient-contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(65, 88, 208, 0.4);
+}
+
+.gradient-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.75rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icons .social-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icons .social-icon:hover {
+    background: linear-gradient(45deg, #4158D0, #C850C0);
+    color: white;
+    transform: translateY(-3px);
+}`,
+    js: `// Gradient Card Contact Form
+document.addEventListener('DOMContentLoaded', function() {
+    const gradientForm = document.querySelector('.gradient-contact-form');
+    
+    if (gradientForm) {
+        // Character counter
+        const textarea = gradientForm.querySelector('textarea');
+        const counter = gradientForm.querySelector('.gradient-char-counter');
+        
+        if (textarea && counter) {
+            textarea.addEventListener('input', function() {
+                const length = this.value.length;
+                counter.textContent = \`\${length}/500\`;
+            });
+        }
+        
+        // File attachment
+        const fileInput = gradientForm.querySelector('.attachment-input');
+        const fileLabel = gradientForm.querySelector('.attachment-label span');
+        
+        if (fileInput && fileLabel) {
+            fileInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    fileLabel.textContent = this.files[0].name;
+                } else {
+                    fileLabel.textContent = 'Attach file (max 10MB)';
+                }
+            });
+        }
+        
+        // Form submission
+        gradientForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[placeholder="Full name"]').value;
+            const email = this.querySelector('input[placeholder="Email"]').value;
+            const subject = this.querySelector('input[placeholder="Subject"]').value;
+            const message = this.querySelector('textarea').value;
+            
+            if (!name || !email || !subject || !message) {
+                showGradientNotification('Please fill in all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.gradient-contact-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Message Sent!</span> <i class="fas fa-check"></i>';
+                showGradientNotification('Your message has been delivered', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    counter.textContent = '0/500';
+                    fileLabel.textContent = 'Attach file (max 10MB)';
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    function showGradientNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(145deg, #4158D0, #C850C0);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(65,88,208,0.4);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 56: Interactive Map Contact Form
+// ====================================================================
+form56: {
+    name: "Interactive Map Contact",
+    category: "contact modern interactive",
+    html: `<div class="form-container interactive-map-contact-bg">
+    <div class="map-container">
+        <div class="map-placeholder">
+            <div class="map-grid"></div>
+            <div class="map-marker">
+                <i class="fas fa-map-pin"></i>
+                <span class="marker-pulse"></span>
+            </div>
+            <div class="map-location-detail">
+                <span class="location-name">SnippetCodeHub HQ</span>
+                <span class="location-address">123 Code Street, San Francisco</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="contact-panel">
+        <div class="form-header">
+            <h3>Visit our office</h3>
+            <p>Or send us a message</p>
+        </div>
+        
+        <div class="quick-contact-info">
+            <div class="quick-info-item">
+                <div class="info-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="info-detail">
+                    <span class="info-label">Call us</span>
+                    <span class="info-value">+1 (555) 987-6543</span>
+                </div>
+            </div>
+            <div class="quick-info-item">
+                <div class="info-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="info-detail">
+                    <span class="info-label">Working hours</span>
+                    <span class="info-value">Mon-Fri 9am-6pm</span>
+                </div>
+            </div>
+        </div>
+        
+        <form class="interactive-contact-form">
+            <div class="interactive-input-row">
+                <div class="interactive-input-group">
+                    <input type="text" placeholder="Name" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="interactive-input-group">
+                    <input type="email" placeholder="Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+            </div>
+            
+            <div class="interactive-input-group">
+                <input type="text" placeholder="Subject" required>
+                <i class="fas fa-tag"></i>
+            </div>
+            
+            <div class="interactive-input-group">
+                <textarea placeholder="How can we help?" rows="2" required></textarea>
+                <i class="fas fa-comment"></i>
+            </div>
+            
+            <div class="interactive-urgency">
+                <span class="urgency-label">How urgent is this?</span>
+                <div class="urgency-options">
+                    <label class="urgency-option">
+                        <input type="radio" name="urgency" value="low">
+                        <span class="urgency-dot"></span>
+                        <span class="urgency-text">Low</span>
+                    </label>
+                    <label class="urgency-option">
+                        <input type="radio" name="urgency" value="medium" checked>
+                        <span class="urgency-dot"></span>
+                        <span class="urgency-text">Medium</span>
+                    </label>
+                    <label class="urgency-option">
+                        <input type="radio" name="urgency" value="high">
+                        <span class="urgency-dot"></span>
+                        <span class="urgency-text">High</span>
+                    </label>
+                </div>
+            </div>
+            
+            <button type="submit" class="form-btn interactive-contact-btn">
+                <span>Send Inquiry</span>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+</div>`,
+    css: `.interactive-map-contact-bg {
+    background: white;
+    border-radius: 24px;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.map-container {
+    height: 100px;
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    position: relative;
+    overflow: hidden;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.map-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.map-marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map-marker i {
+    font-size: 1.8rem;
+    color: #ef4444;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+    animation: marker-bounce 1.5s infinite;
+}
+
+@keyframes marker-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.marker-pulse {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: rgba(239, 68, 68, 0.3);
+    border-radius: 50%;
+    animation: marker-pulse 2s infinite;
+}
+
+@keyframes marker-pulse {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+.map-location-detail {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.location-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.location-address {
+    font-size: 0.6rem;
+    color: #64748b;
+}
+
+.contact-panel {
+    padding: 20px;
+}
+
+.quick-contact-info {
+    display: flex;
+    gap: 20px;
+    margin: 15px 0 20px;
+}
+
+.quick-info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.info-icon {
+    width: 40px;
+    height: 40px;
+    background: #f1f5f9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3b82f6;
+}
+
+.info-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-size: 0.65rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.interactive-input-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.interactive-input-group {
+    position: relative;
+    flex: 1;
+    margin-bottom: 12px;
+}
+
+.interactive-input-group i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+.interactive-input-group input,
+.interactive-input-group textarea {
+    width: 100%;
+    padding: 12px 12px 12px 42px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.interactive-input-group textarea {
+    resize: vertical;
+    min-height: 50px;
+    padding-top: 12px;
+}
+
+.interactive-input-group input:focus,
+.interactive-input-group textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.interactive-urgency {
+    margin: 15px 0;
+}
+
+.urgency-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 10px;
+}
+
+.urgency-options {
+    display: flex;
+    gap: 20px;
+}
+
+.urgency-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.urgency-option input {
+    display: none;
+}
+
+.urgency-dot {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #cbd5e1;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.urgency-option input:checked + .urgency-dot {
+    border-color: #3b82f6;
+    border-width: 5px;
+}
+
+.urgency-text {
+    font-size: 0.75rem;
+    color: #475569;
+}
+
+.form-btn.interactive-contact-btn {
+    width: 100%;
+    padding: 14px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.form-btn.interactive-contact-btn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}`,
+    js: `// Interactive Map Contact Form
+document.addEventListener('DOMContentLoaded', function() {
+    const interactiveForm = document.querySelector('.interactive-contact-form');
+    
+    if (interactiveForm) {
+        // Form submission
+        interactiveForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[placeholder="Name"]').value;
+            const email = this.querySelector('input[placeholder="Email"]').value;
+            const subject = this.querySelector('input[placeholder="Subject"]').value;
+            const message = this.querySelector('textarea').value;
+            const urgency = this.querySelector('input[name="urgency"]:checked')?.value;
+            
+            if (!name || !email || !subject || !message) {
+                showMapNotification('Please fill in all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.interactive-contact-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Inquiry Sent!</span> <i class="fas fa-check"></i>';
+                showMapNotification('We\'ll get back to you soon!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('input[value="medium"]').checked = true;
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Map marker animation
+        const marker = document.querySelector('.map-marker i');
+        if (marker) {
+            setInterval(() => {
+                marker.style.transform = 'translateY(-8px)';
+                setTimeout(() => {
+                    marker.style.transform = 'translateY(0)';
+                }, 150);
+            }, 1500);
+        }
+    }
+    
+    function showMapNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: \${type === 'success' ? '#10b981' : '#ef4444'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 57: Customer Support Contact Form
+// ====================================================================
+form57: {
+    name: "Customer Support Contact",
+    category: "contact modern support",
+    html: `<div class="form-container support-contact-bg">
+    <div class="support-header">
+        <div class="support-avatar">
+            <i class="fas fa-headset"></i>
+        </div>
+        <div class="support-title">
+            <h3>Customer Support</h3>
+            <p>We're here 24/7 to assist you</p>
+        </div>
+        <div class="support-status">
+            <span class="status-dot"></span>
+            <span class="status-text">Online</span>
+        </div>
+    </div>
+    
+    <div class="support-ticket-panel">
+        <div class="ticket-prefill">
+            <span class="ticket-label">Common topics:</span>
+            <div class="topic-chips">
+                <button type="button" class="topic-chip" data-topic="billing">💰 Billing</button>
+                <button type="button" class="topic-chip" data-topic="technical">🔧 Technical</button>
+                <button type="button" class="topic-chip" data-topic="account">👤 Account</button>
+                <button type="button" class="topic-chip" data-topic="feature">✨ Feature request</button>
+            </div>
+        </div>
+        
+        <form class="support-form">
+            <div class="support-input-row">
+                <div class="support-input-group">
+                    <label>Full name</label>
+                    <div class="support-input-wrapper">
+                        <input type="text" placeholder="John Doe" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="support-input-group">
+                    <label>Email address</label>
+                    <div class="support-input-wrapper">
+                        <input type="email" placeholder="john@example.com" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="support-input-group">
+                <label>Order/Account ID (optional)</label>
+                <div class="support-input-wrapper">
+                    <input type="text" placeholder="#SCH-12345">
+                    <i class="fas fa-hashtag"></i>
+                </div>
+            </div>
+            
+            <div class="support-input-group">
+                <label>Subject</label>
+                <div class="support-input-wrapper">
+                    <input type="text" placeholder="Brief summary of your issue" required>
+                    <i class="fas fa-heading"></i>
+                </div>
+            </div>
+            
+            <div class="support-input-group">
+                <label>Message</label>
+                <div class="support-input-wrapper">
+                    <textarea placeholder="Please describe your issue in detail..." rows="3" required></textarea>
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <div class="support-char-counter">0/1000</div>
+            </div>
+            
+            <div class="support-attachment-row">
+                <div class="support-attachment">
+                    <label class="support-file-label">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span class="file-label-text">Attach screenshot</span>
+                        <span class="file-hint">PNG, JPG up to 5MB</span>
+                        <input type="file" accept="image/*" class="support-file-input">
+                    </label>
+                </div>
+                <div class="support-priority">
+                    <label class="priority-label">Priority</label>
+                    <select class="priority-select">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="support-options">
+                <label class="support-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="support-checkmark"></span>
+                    <span class="support-checkbox-text">Send me a confirmation email</span>
+                </label>
+            </div>
+            
+            <button type="submit" class="form-btn support-submit-btn">
+                <span>Create Ticket</span>
+                <i class="fas fa-ticket-alt"></i>
+            </button>
+        </form>
+        
+        <div class="support-footer">
+            <span class="live-chat-link">
+                <i class="fas fa-comment"></i>
+                Need immediate help? <a href="#">Start live chat</a>
+            </span>
+            <span class="support-hours">
+                <i class="fas fa-clock"></i>
+                Avg. response: 15 min
+            </span>
+        </div>
+    </div>
+</div>`,
+    css: `.support-contact-bg {
+    background: white;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+    border: 1px solid #f0f0f0;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.support-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.support-avatar {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(145deg, #3b82f6, #2563eb);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.support-title {
+    flex: 1;
+}
+
+.support-title h3 {
+    font-size: 1rem;
+    color: #1e293b;
+    margin-bottom: 2px;
+}
+
+.support-title p {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.support-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 30px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: status-pulse 2s infinite;
+}
+
+@keyframes status-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+.status-text {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #10b981;
+}
+
+.support-ticket-panel {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.ticket-prefill {
+    margin-bottom: 20px;
+}
+
+.ticket-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 10px;
+}
+
+.topic-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.topic-chip {
+    padding: 8px 14px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.topic-chip:hover {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+.support-input-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.support-input-group {
+    flex: 1;
+    margin-bottom: 15px;
+}
+
+.support-input-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.support-input-wrapper {
+    position: relative;
+}
+
+.support-input-wrapper i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+.support-input-wrapper input,
+.support-input-wrapper select,
+.support-input-wrapper textarea {
+    width: 100%;
+    padding: 12px 12px 12px 42px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.support-input-wrapper textarea {
+    resize: vertical;
+    min-height: 60px;
+    padding-top: 12px;
+}
+
+.support-input-wrapper input:focus,
+.support-input-wrapper select:focus,
+.support-input-wrapper textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.support-char-counter {
+    text-align: right;
+    font-size: 0.65rem;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.support-attachment-row {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.support-attachment {
+    flex: 1;
+}
+
+.support-file-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.support-file-label:hover {
+    border-color: #3b82f6;
+    background: #f8fafc;
+}
+
+.support-file-label i {
+    font-size: 1.2rem;
+    color: #3b82f6;
+    margin-bottom: 5px;
+}
+
+.file-label-text {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.file-hint {
+    font-size: 0.6rem;
+    color: #94a3b8;
+}
+
+.support-file-input {
+    display: none;
+}
+
+.support-priority {
+    flex: 0.5;
+}
+
+.priority-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.priority-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #1e293b;
+    background: white;
+    cursor: pointer;
+}
+
+.priority-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.support-options {
+    margin: 15px 0;
+}
+
+.support-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    color: #475569;
+}
+
+.support-checkbox input {
+    display: none;
+}
+
+.support-checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.2s ease;
+}
+
+.support-checkbox input:checked + .support-checkmark {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+}
+
+.form-btn.support-submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.form-btn.support-submit-btn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.support-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.live-chat-link {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.live-chat-link i {
+    color: #3b82f6;
+}
+
+.live-chat-link a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.support-hours {
+    font-size: 0.7rem;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.support-hours i {
+    color: #3b82f6;
+}`,
+    js: `// Customer Support Contact Form
+document.addEventListener('DOMContentLoaded', function() {
+    const supportForm = document.querySelector('.support-form');
+    
+    if (supportForm) {
+        // Character counter
+        const textarea = supportForm.querySelector('textarea');
+        const counter = supportForm.querySelector('.support-char-counter');
+        
+        if (textarea && counter) {
+            textarea.addEventListener('input', function() {
+                const length = this.value.length;
+                counter.textContent = \`\${length}/1000\`;
+                
+                if (length > 950) {
+                    counter.style.color = '#ef4444';
+                } else if (length > 800) {
+                    counter.style.color = '#f59e0b';
+                } else {
+                    counter.style.color = '#94a3b8';
+                }
+            });
+        }
+        
+        // Topic chips
+        const topicChips = document.querySelectorAll('.topic-chip');
+        topicChips.forEach(chip => {
+            chip.addEventListener('click', function() {
+                const topic = this.dataset.topic;
+                const subjectInput = supportForm.querySelector('input[placeholder="Brief summary of your issue"]');
+                
+                if (subjectInput) {
+                    if (topic === 'billing') subjectInput.value = 'Billing inquiry';
+                    if (topic === 'technical') subjectInput.value = 'Technical support needed';
+                    if (topic === 'account') subjectInput.value = 'Account issue';
+                    if (topic === 'feature') subjectInput.value = 'Feature request';
+                }
+                
+                // Visual feedback
+                this.style.background = '#3b82f6';
+                this.style.color = 'white';
+                
+                setTimeout(() => {
+                    this.style.background = '';
+                    this.style.color = '';
+                }, 200);
+            });
+        });
+        
+        // File attachment
+        const fileInput = supportForm.querySelector('.support-file-input');
+        const fileLabel = supportForm.querySelector('.file-label-text');
+        
+        if (fileInput && fileLabel) {
+            fileInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    fileLabel.textContent = this.files[0].name;
+                } else {
+                    fileLabel.textContent = 'Attach screenshot';
+                }
+            });
+        }
+        
+        // Form submission
+        supportForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[placeholder="John Doe"]').value;
+            const email = this.querySelector('input[placeholder="john@example.com"]').value;
+            const subject = this.querySelector('input[placeholder="Brief summary of your issue"]').value;
+            const message = this.querySelector('textarea').value;
+            
+            if (!name || !email || !subject || !message) {
+                showSupportNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.support-submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Creating Ticket...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Ticket Created!</span> <i class="fas fa-check"></i>';
+                showSupportNotification('Your support ticket has been submitted', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('.support-checkbox input').checked = true;
+                    counter.textContent = '0/1000';
+                    fileLabel.textContent = 'Attach screenshot';
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    function showSupportNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: \${type === 'success' ? '#10b981' : '#ef4444'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+// ====================================================================
+// TEMPLATE 58: Quantum 3D Cube Login
+// ====================================================================
+form58: {
+    name: "Quantum 3D Cube Login",
+    category: "login 3d quantum",
+    html: `<div class="form-container quantum-3d-cube-bg">
+    <div class="quantum-particles" id="quantum-particles-58"></div>
+    <div class="cube-3d-container">
+        <div class="cube-3d-wrapper">
+            <div class="cube-face front">
+                <div class="cube-content">
+                    <div class="quantum-logo">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3 class="quantum-title">QUANTUM<span>ACCESS</span></h3>
+                    <form class="quantum-form">
+                        <div class="quantum-input-field">
+                            <div class="quantum-input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" placeholder="Quantum ID" required>
+                                <div class="quantum-glow"></div>
+                            </div>
+                        </div>
+                        <div class="quantum-input-field">
+                            <div class="quantum-input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" placeholder="Entanglement Key" required>
+                                <button type="button" class="quantum-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="quantum-glow"></div>
+                            </div>
+                        </div>
+                        <div class="quantum-options">
+                            <label class="quantum-checkbox">
+                                <input type="checkbox" checked>
+                                <span class="quantum-checkmark"></span>
+                                <span>Quantum Memory</span>
+                            </label>
+                            <a href="#" class="quantum-link">Decoherence?</a>
+                        </div>
+                        <button type="submit" class="quantum-btn">
+                            <span>ENTANGLE</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <div class="quantum-pulse"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="cube-face back">
+                <div class="cube-back-content">
+                    <i class="fas fa-cube"></i>
+                    <h4>SECURE NODE</h4>
+                    <p>256-bit Quantum Encryption</p>
+                </div>
+            </div>
+            <div class="cube-face right">
+                <div class="cube-side-content">
+                    <span class="side-digit">01</span>
+                    <span class="side-label">QUANTUM</span>
+                </div>
+            </div>
+            <div class="cube-face left">
+                <div class="cube-side-content">
+                    <span class="side-digit">02</span>
+                    <span class="side-label">ENTANGLE</span>
+                </div>
+            </div>
+            <div class="cube-face top">
+                <div class="cube-side-content">
+                    <span class="side-digit">03</span>
+                    <span class="side-label">OBSERVE</span>
+                </div>
+            </div>
+            <div class="cube-face bottom">
+                <div class="cube-side-content">
+                    <span class="side-digit">04</span>
+                    <span class="side-label">COLLAPSE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="quantum-footer">
+        <span class="quantum-status">⚛ QUANTUM STATE: SUPERPOSITION</span>
+    </div>
+</div>`,
+    css: `.quantum-3d-cube-bg {
+    background: radial-gradient(circle at 50% 50%, #0a0c12, #030507);
+    border-radius: 24px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    perspective: 1200px;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.quantum-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cube-3d-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    z-index: 10;
+}
+
+.cube-3d-wrapper {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    transform-style: preserve-3d;
+    transform: rotateX(-15deg) rotateY(30deg);
+    animation: cube-float 6s infinite ease-in-out;
+}
+
+@keyframes cube-float {
+    0%, 100% { transform: rotateX(-15deg) rotateY(30deg) translateZ(0); }
+    50% { transform: rotateX(-18deg) rotateY(33deg) translateZ(15px); }
+}
+
+.cube-face {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: rgba(10, 20, 40, 0.85);
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+.cube-face.front {
+    transform: translateZ(90px);
+    background: linear-gradient(145deg, rgba(0, 150, 255, 0.1), rgba(0, 100, 255, 0.2));
+}
+
+.cube-face.back {
+    transform: rotateY(180deg) translateZ(90px);
+    background: rgba(20, 30, 50, 0.9);
+}
+
+.cube-face.right {
+    transform: rotateY(90deg) translateZ(90px);
+    background: rgba(10, 30, 60, 0.8);
+}
+
+.cube-face.left {
+    transform: rotateY(-90deg) translateZ(90px);
+    background: rgba(10, 30, 60, 0.8);
+}
+
+.cube-face.top {
+    transform: rotateX(90deg) translateZ(90px);
+    background: rgba(0, 200, 255, 0.1);
+}
+
+.cube-face.bottom {
+    transform: rotateX(-90deg) translateZ(90px);
+    background: rgba(0, 50, 100, 0.8);
+}
+
+.cube-content {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: white;
+    transform: translateZ(10px);
+}
+
+.quantum-logo {
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 1.5rem;
+    color: #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    animation: quantum-spin 10s linear infinite;
+}
+
+@keyframes quantum-spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+.quantum-title {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.quantum-title span {
+    color: #00ffff;
+    margin-left: 5px;
+}
+
+.quantum-input-field {
+    margin-bottom: 15px;
+}
+
+.quantum-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 0 12px;
+    transition: all 0.3s ease;
+}
+
+.quantum-input-wrapper i {
+    color: #00ffff;
+    font-size: 0.85rem;
+    margin-right: 10px;
+}
+
+.quantum-input-wrapper input {
+    width: 100%;
+    padding: 12px 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.quantum-input-wrapper input:focus {
+    outline: none;
+}
+
+.quantum-input-wrapper:focus-within {
+    border-color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+.quantum-glow {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00ffff;
+    box-shadow: 0 0 10px #00ffff;
+    transition: width 0.3s ease;
+}
+
+.quantum-input-wrapper:focus-within .quantum-glow {
+    width: 100%;
+}
+
+.quantum-toggle {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: rgba(0, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.quantum-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.quantum-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.quantum-checkbox input {
+    display: none;
+}
+
+.quantum-checkmark {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #00ffff;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.2s ease;
+}
+
+.quantum-checkbox input:checked + .quantum-checkmark {
+    background: #00ffff;
+    color: #000;
+}
+
+.quantum-link {
+    color: rgba(0, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.7rem;
+}
+
+.quantum-btn {
+    position: relative;
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.quantum-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 255, 255, 0.2);
+    top: 0;
+    left: -100%;
+    transition: left 0.3s ease;
+}
+
+.quantum-btn:hover .quantum-pulse {
+    left: 0;
+}
+
+.cube-back-content,
+.cube-side-content {
+    color: white;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+.cube-back-content i {
+    font-size: 2rem;
+    color: #00ffff;
+    margin-bottom: 10px;
+}
+
+.cube-back-content h4 {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.cube-side-content .side-digit {
+    font-size: 1.5rem;
+    color: #00ffff;
+    display: block;
+}
+
+.cube-side-content .side-label {
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.7);
+}
+
+.quantum-footer {
+    position: relative;
+    z-index: 20;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.quantum-status {
+    color: rgba(0, 255, 255, 0.6);
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    animation: quantum-blink 2s infinite;
+}
+
+@keyframes quantum-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}`,
+    js: `// Quantum 3D Cube Login
+document.addEventListener('DOMContentLoaded', function() {
+    const quantumForm = document.querySelector('.quantum-form');
+    
+    if (quantumForm) {
+        // Cube rotation on mouse move
+        const cube = document.querySelector('.cube-3d-wrapper');
+        if (cube) {
+            document.addEventListener('mousemove', function(e) {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                cube.style.transform = \`rotateY(\${xAxis}deg) rotateX(\${-yAxis}deg)\`;
+            });
+        }
+        
+        // Form submission
+        quantumForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[placeholder="Quantum ID"]').value;
+            const password = this.querySelector('input[placeholder="Entanglement Key"]').value;
+            
+            if (!email || !password) {
+                showQuantumNotification('QUANTUM STATE: INCOMPLETE', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.quantum-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>ENTANGLING...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>OBSERVED!</span> <i class="fas fa-check"></i>';
+                showQuantumNotification('QUANTUM STATE: COLLAPSED - ACCESS GRANTED', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const quantumToggle = quantumForm.querySelector('.quantum-toggle');
+        if (quantumToggle) {
+            quantumToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+        
+        // Quantum particles
+        const particlesContainer = document.getElementById('quantum-particles-58');
+        if (particlesContainer) {
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 3 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = 'rgba(0, 255, 255, ' + (Math.random() * 0.3) + ')';
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animation = \`quantum-float \${5 + Math.random() * 10}s linear infinite\`;
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+    }
+    
+    function showQuantumNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #030507;
+            border: 1px solid \${type === 'success' ? '#00ffff' : '#ff00ff'};
+            color: \${type === 'success' ? '#00ffff' : '#ff00ff'};
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 20px \${type === 'success' ? 'rgba(0,255,255,0.3)' : 'rgba(255,0,255,0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+    
+    // Add keyframes for quantum particles
+    const style = document.createElement('style');
+    style.textContent = \`
+        @keyframes quantum-float {
+            0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-50px) translateX(30px) scale(1.5); opacity: 0.8; }
+            100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.3; }
+        }
+    \`;
+    document.head.appendChild(style);
+});`
+},
+
+// ====================================================================
+// TEMPLATE 59: Holographic Portal 3D Login
+// ====================================================================
+form59: {
+    name: "Holographic Portal 3D Login",
+    category: "login 3d holographic",
+    html: `<div class="form-container holographic-portal-3d-bg">
+    <div class="portal-3d-container">
+        <div class="portal-ring portal-ring-1"></div>
+        <div class="portal-ring portal-ring-2"></div>
+        <div class="portal-ring portal-ring-3"></div>
+        <div class="portal-ring portal-ring-4"></div>
+        <div class="portal-core">
+            <div class="portal-content">
+                <div class="holographic-badge">⚡ HOLOGRAPHIC ACCESS</div>
+                <div class="portal-logo">
+                    <i class="fas fa-portal"></i>
+                    <i class="fas fa-circle-notch"></i>
+                </div>
+                <h3 class="portal-title">ENTER THE PORTAL</h3>
+                <form class="portal-form">
+                    <div class="portal-input-3d">
+                        <div class="portal-input-field">
+                            <div class="portal-input-front">
+                                <i class="fas fa-fingerprint"></i>
+                                <input type="text" placeholder="Identity Code" required>
+                            </div>
+                            <div class="portal-input-back"></div>
+                        </div>
+                    </div>
+                    <div class="portal-input-3d">
+                        <div class="portal-input-field">
+                            <div class="portal-input-front">
+                                <i class="fas fa-key"></i>
+                                <input type="password" placeholder="Portal Key" required>
+                                <button type="button" class="portal-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="portal-input-back"></div>
+                        </div>
+                    </div>
+                    <div class="portal-3d-checkbox">
+                        <label class="portal-checkbox-3d">
+                            <input type="checkbox" checked>
+                            <span class="portal-checkbox-box">
+                                <span class="checkbox-face front">✓</span>
+                                <span class="checkbox-face back"></span>
+                            </span>
+                            <span class="portal-checkbox-text">Establish wormhole</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="portal-3d-btn">
+                        <span class="btn-text">TRANSMIT</span>
+                        <span class="btn-3d-layers">
+                            <span class="layer"></span>
+                            <span class="layer"></span>
+                            <span class="layer"></span>
+                        </span>
+                        <i class="fas fa-portal"></i>
+                    </button>
+                </form>
+                <div class="portal-stats">
+                    <div class="stat-3d">
+                        <span class="stat-value">88%</span>
+                        <span class="stat-label">STABLE</span>
+                    </div>
+                    <div class="stat-3d">
+                        <span class="stat-value">3.7s</span>
+                        <span class="stat-label">LATENCY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <canvas class="portal-canvas" id="portal-canvas-59"></canvas>
+</div>`,
+    css: `.holographic-portal-3d-bg {
+    background: #05070a;
+    border-radius: 28px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    perspective: 1500px;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.portal-3d-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.portal-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 200, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.1);
+    transform-style: preserve-3d;
+}
+
+.portal-ring-1 {
+    width: 200px;
+    height: 200px;
+    border-width: 3px;
+    border-color: rgba(0, 255, 255, 0.2);
+    transform: rotateX(60deg) rotateY(20deg) translateZ(0);
+    animation: portal-rotate 20s linear infinite;
+}
+
+.portal-ring-2 {
+    width: 160px;
+    height: 160px;
+    border-width: 2px;
+    border-color: rgba(100, 0, 255, 0.2);
+    transform: rotateX(45deg) rotateY(-30deg) translateZ(30px);
+    animation: portal-rotate-reverse 15s linear infinite;
+}
+
+.portal-ring-3 {
+    width: 120px;
+    height: 120px;
+    border-width: 2px;
+    border-color: rgba(255, 0, 200, 0.2);
+    transform: rotateX(30deg) rotateY(40deg) translateZ(-20px);
+    animation: portal-rotate 12s linear infinite;
+}
+
+.portal-ring-4 {
+    width: 80px;
+    height: 80px;
+    border-width: 1px;
+    border-color: rgba(0, 255, 150, 0.2);
+    transform: rotateX(75deg) rotateY(-15deg) translateZ(50px);
+    animation: portal-rotate-reverse 18s linear infinite;
+}
+
+@keyframes portal-rotate {
+    from { transform: rotateX(60deg) rotateY(0deg) translateZ(0); }
+    to { transform: rotateX(60deg) rotateY(360deg) translateZ(0); }
+}
+
+@keyframes portal-rotate-reverse {
+    from { transform: rotateX(45deg) rotateY(0deg) translateZ(30px); }
+    to { transform: rotateX(45deg) rotateY(-360deg) translateZ(30px); }
+}
+
+.portal-core {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 50% 50%, rgba(0,200,255,0.2), transparent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateZ(80px);
+    backdrop-filter: blur(5px);
+}
+
+.portal-content {
+    width: 100%;
+    padding: 15px;
+    color: white;
+}
+
+.holographic-badge {
+    background: rgba(0, 200, 255, 0.1);
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    border-radius: 30px;
+    padding: 4px 12px;
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #00ffff;
+}
+
+.portal-logo {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portal-logo i:first-child {
+    position: absolute;
+    font-size: 2.2rem;
+    color: rgba(0, 200, 255, 0.3);
+    filter: blur(3px);
+    animation: portal-pulse 2s infinite;
+}
+
+.portal-logo i:last-child {
+    position: relative;
+    font-size: 1.5rem;
+    color: #00ffff;
+    animation: portal-spin 8s linear infinite;
+}
+
+@keyframes portal-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.2); opacity: 0.6; }
+}
+
+@keyframes portal-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.portal-title {
+    font-size: 0.9rem;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.portal-input-3d {
+    margin-bottom: 15px;
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+.portal-input-field {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.portal-input-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    backdrop-filter: blur(5px);
+    transform: translateZ(10px);
+}
+
+.portal-input-front i {
+    color: #00ffff;
+    margin-right: 10px;
+    font-size: 0.85rem;
+}
+
+.portal-input-front input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.portal-input-front input:focus {
+    outline: none;
+}
+
+.portal-input-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: rgba(0, 100, 255, 0.2);
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    border-radius: 8px;
+    transform: translateZ(-5px);
+}
+
+.portal-input-3d:hover .portal-input-field {
+    transform: translateZ(5px);
+}
+
+.portal-toggle {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #00ffff;
+    cursor: pointer;
+}
+
+.portal-3d-checkbox {
+    margin: 15px 0;
+}
+
+.portal-checkbox-3d {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    perspective: 500px;
+}
+
+.portal-checkbox-3d input {
+    display: none;
+}
+
+.portal-checkbox-box {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+}
+
+.checkbox-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+}
+
+.checkbox-face.front {
+    background: rgba(0, 200, 255, 0.1);
+    border: 1px solid #00ffff;
+    color: #00ffff;
+    transform: rotateY(0deg);
+}
+
+.checkbox-face.back {
+    background: #00ffff;
+    border: 1px solid #00ffff;
+    color: #000;
+    transform: rotateY(180deg);
+}
+
+.portal-checkbox-3d input:checked + .portal-checkbox-box {
+    transform: rotateY(180deg);
+}
+
+.portal-checkbox-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+}
+
+.portal-3d-btn {
+    position: relative;
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+}
+
+.btn-3d-layers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+}
+
+.btn-3d-layers .layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 200, 255, 0.2);
+    border-radius: 30px;
+}
+
+.btn-3d-layers .layer:nth-child(1) { transform: translateZ(-5px); }
+.btn-3d-layers .layer:nth-child(2) { transform: translateZ(-10px); opacity: 0.5; }
+.btn-3d-layers .layer:nth-child(3) { transform: translateZ(-15px); opacity: 0.3; }
+
+.portal-3d-btn:hover {
+    transform: translateZ(5px);
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.3);
+}
+
+.portal-stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.stat-3d {
+    transform: translateZ(20px);
+}
+
+.stat-value {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #00ffff;
+}
+
+.stat-label {
+    font-size: 0.55rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+}
+
+.portal-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.2;
+}`,
+    js: `// Holographic Portal 3D Login
+document.addEventListener('DOMContentLoaded', function() {
+    const portalForm = document.querySelector('.portal-form');
+    
+    if (portalForm) {
+        // Portal rotation animation
+        const rings = document.querySelectorAll('.portal-ring');
+        let rotation = 0;
+        
+        function animateRings() {
+            rotation += 0.1;
+            rings.forEach((ring, index) => {
+                const speed = 1 + (index * 0.2);
+                ring.style.transform = \`rotateX(60deg) rotateY(\${rotation * speed}deg) translateZ(0)\`;
+            });
+            requestAnimationFrame(animateRings);
+        }
+        // animateRings(); // Uncomment for continuous animation
+        
+        // Form submission
+        portalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const identity = this.querySelector('input[placeholder="Identity Code"]').value;
+            const key = this.querySelector('input[placeholder="Portal Key"]').value;
+            
+            if (!identity || !key) {
+                showPortalNotification('PORTAL: ACCESS DENIED - MISSING CREDENTIALS', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.portal-3d-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>TRANSMITTING...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>WORMHOLE ESTABLISHED</span> <i class="fas fa-check"></i>';
+                showPortalNotification('PORTAL: ACCESS GRANTED - WELCOME', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const portalToggle = portalForm.querySelector('.portal-toggle');
+        if (portalToggle) {
+            portalToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+        
+        // Portal canvas effect
+        const canvas = document.getElementById('portal-canvas-59');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+            
+            function drawPortalEffect() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw energy particles
+                for (let i = 0; i < 30; i++) {
+                    ctx.beginPath();
+                    ctx.arc(
+                        Math.random() * canvas.width,
+                        Math.random() * canvas.height,
+                        Math.random() * 2,
+                        0,
+                        Math.PI * 2
+                    );
+                    ctx.fillStyle = 'rgba(0, 255, 255, ' + (Math.random() * 0.3) + ')';
+                    ctx.fill();
+                }
+                
+                // Draw energy waves
+                ctx.beginPath();
+                ctx.arc(
+                    canvas.width / 2,
+                    canvas.height / 2,
+                    30 + Math.sin(Date.now() / 500) * 10,
+                    0,
+                    Math.PI * 2
+                );
+                ctx.strokeStyle = 'rgba(0, 255, 255, 0.1)';
+                ctx.stroke();
+                
+                requestAnimationFrame(drawPortalEffect);
+            }
+            
+            drawPortalEffect();
+        }
+    }
+    
+    function showPortalNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #05070a;
+            border: 1px solid \${type === 'success' ? '#00ffff' : '#ff00ff'};
+            color: \${type === 'success' ? '#00ffff' : '#ff00ff'};
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px \${type === 'success' ? 'rgba(0,255,255,0.3)' : 'rgba(255,0,255,0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 60: Parallax Depth 3D Login
+// ====================================================================
+form60: {
+    name: "Parallax Depth 3D Login",
+    category: "login 3d parallax",
+    html: `<div class="form-container parallax-depth-3d-bg">
+    <div class="parallax-layers">
+        <div class="layer layer-bg" data-depth="0.1"></div>
+        <div class="layer layer-mountains" data-depth="0.3"></div>
+        <div class="layer layer-forest" data-depth="0.5"></div>
+        <div class="layer layer-trees" data-depth="0.7"></div>
+        <div class="layer layer-particles" data-depth="0.9"></div>
+    </div>
+    <div class="parallax-card-container" id="parallax-card">
+        <div class="parallax-card">
+            <div class="card-3d-layer card-glow"></div>
+            <div class="card-3d-layer card-content">
+                <div class="parallax-logo">
+                    <i class="fas fa-mountain"></i>
+                    <span>DEPTH</span>
+                </div>
+                <h3 class="parallax-title">Ascend to the Summit</h3>
+                <form class="parallax-form">
+                    <div class="parallax-input-3d">
+                        <div class="input-3d-layer input-bg"></div>
+                        <div class="input-3d-layer input-content">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" placeholder="Email address" required>
+                        </div>
+                        <div class="input-3d-layer input-shadow"></div>
+                    </div>
+                    <div class="parallax-input-3d">
+                        <div class="input-3d-layer input-bg"></div>
+                        <div class="input-3d-layer input-content">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password" required>
+                            <button type="button" class="parallax-toggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="input-3d-layer input-shadow"></div>
+                    </div>
+                    <div class="parallax-3d-options">
+                        <label class="parallax-3d-checkbox">
+                            <input type="checkbox" checked>
+                            <span class="parallax-checkbox-3d">
+                                <span class="checkbox-layer front">✓</span>
+                                <span class="checkbox-layer back"></span>
+                            </span>
+                            <span>Remember this peak</span>
+                        </label>
+                        <a href="#" class="parallax-3d-link">Lost trail?</a>
+                    </div>
+                    <button type="submit" class="parallax-3d-btn">
+                        <span class="btn-layer front">CLIMB</span>
+                        <span class="btn-layer back">GO</span>
+                        <span class="btn-layer shadow"></span>
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="parallax-footer">
+        <span>⚡ 3D PARALLAX ENGINE v2.0</span>
+    </div>
+</div>`,
+    css: `.parallax-depth-3d-bg {
+    background: #080c14;
+    border-radius: 28px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    perspective: 1800px;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.parallax-layers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transform-style: preserve-3d;
+}
+
+.layer-bg {
+    background: linear-gradient(to bottom, #0a1a2f, #1a2a3f);
+    transform: translateZ(-50px) scale(1.1);
+}
+
+.layer-mountains {
+    background: linear-gradient(to top, transparent 60%, rgba(50, 80, 120, 0.3) 100%);
+    clip-path: polygon(0% 70%, 15% 50%, 30% 60%, 45% 40%, 60% 55%, 75% 35%, 90% 50%, 100% 40%, 100% 100%, 0% 100%);
+    transform: translateZ(-30px) scale(1.05);
+    opacity: 0.4;
+}
+
+.layer-forest {
+    background: linear-gradient(to top, transparent 70%, rgba(30, 70, 50, 0.3) 100%);
+    clip-path: polygon(0% 80%, 8% 75%, 18% 82%, 28% 75%, 38% 78%, 48% 72%, 58% 77%, 68% 70%, 78% 75%, 88% 68%, 100% 73%, 100% 100%, 0% 100%);
+    transform: translateZ(-10px);
+    opacity: 0.3;
+}
+
+.layer-trees {
+    background: repeating-linear-gradient(90deg, rgba(60, 120, 80, 0.2) 0px, transparent 15px);
+    transform: translateZ(0px);
+    opacity: 0.2;
+}
+
+.layer-particles {
+    background: radial-gradient(circle at 30% 40%, rgba(100, 200, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(200, 100, 255, 0.1) 0%, transparent 50%);
+    transform: translateZ(20px);
+}
+
+.parallax-card-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    z-index: 50;
+}
+
+.parallax-card {
+    position: relative;
+    width: 200px;
+    height: 220px;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease;
+}
+
+.card-3d-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.card-glow {
+    background: radial-gradient(circle at 50% 50%, rgba(100, 200, 255, 0.2), transparent 70%);
+    transform: translateZ(-30px);
+    filter: blur(20px);
+    opacity: 0.6;
+}
+
+.card-content {
+    background: rgba(20, 30, 50, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    transform: translateZ(20px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.parallax-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #4ec0e9;
+    margin-bottom: 10px;
+}
+
+.parallax-logo i {
+    font-size: 1.5rem;
+}
+
+.parallax-logo span {
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+}
+
+.parallax-title {
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.parallax-input-3d {
+    position: relative;
+    margin-bottom: 15px;
+    height: 45px;
+    transform-style: preserve-3d;
+}
+
+.input-3d-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.input-bg {
+    background: rgba(30, 40, 60, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateZ(5px);
+    backdrop-filter: blur(5px);
+}
+
+.input-content {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    transform: translateZ(10px);
+}
+
+.input-content i {
+    color: #4ec0e9;
+    margin-right: 10px;
+    font-size: 0.85rem;
+}
+
+.input-content input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.input-content input:focus {
+    outline: none;
+}
+
+.input-shadow {
+    background: rgba(0, 0, 0, 0.3);
+    transform: translateZ(-5px);
+    filter: blur(4px);
+}
+
+.parallax-toggle {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #4ec0e9;
+    cursor: pointer;
+}
+
+.parallax-3d-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.parallax-3d-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+}
+
+.parallax-3d-checkbox input {
+    display: none;
+}
+
+.parallax-checkbox-3d {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.checkbox-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+}
+
+.checkbox-layer.front {
+    background: rgba(78, 192, 233, 0.1);
+    border: 1px solid #4ec0e9;
+    color: #4ec0e9;
+    transform: translateZ(2px);
+}
+
+.checkbox-layer.back {
+    background: #4ec0e9;
+    border: 1px solid #4ec0e9;
+    color: #000;
+    transform: translateZ(-2px) rotateY(180deg);
+}
+
+.parallax-3d-checkbox input:checked + .parallax-checkbox-3d {
+    transform: rotateY(180deg);
+}
+
+.parallax-3d-link {
+    color: #4ec0e9;
+    text-decoration: none;
+    font-size: 0.7rem;
+}
+
+.parallax-3d-btn {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease;
+}
+
+.btn-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    backface-visibility: hidden;
+}
+
+.btn-layer.front {
+    background: linear-gradient(145deg, #4ec0e9, #2a6f8a);
+    color: white;
+    transform: translateZ(10px);
+}
+
+.btn-layer.back {
+    background: #2a6f8a;
+    color: white;
+    transform: translateZ(-5px) rotateY(180deg);
+}
+
+.btn-layer.shadow {
+    background: rgba(0, 0, 0, 0.3);
+    transform: translateZ(-10px);
+    filter: blur(5px);
+}
+
+.parallax-3d-btn i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 20;
+}
+
+.parallax-3d-btn:hover {
+    transform: translateY(-2px);
+}
+
+.parallax-footer {
+    position: relative;
+    z-index: 100;
+    text-align: center;
+    color: rgba(78, 192, 233, 0.6);
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}`,
+    js: `// Parallax Depth 3D Login
+document.addEventListener('DOMContentLoaded', function() {
+    const parallaxForm = document.querySelector('.parallax-form');
+    const parallaxCard = document.getElementById('parallax-card');
+    
+    if (parallaxForm) {
+        // Parallax effect on mouse move
+        if (parallaxCard) {
+            document.addEventListener('mousemove', function(e) {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 30;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 30;
+                
+                parallaxCard.style.transform = \`rotateY(\${xAxis}deg) rotateX(\${yAxis}deg)\`;
+                
+                // Move layers based on depth
+                const layers = document.querySelectorAll('.layer');
+                layers.forEach(layer => {
+                    const depth = parseFloat(layer.getAttribute('data-depth') || 0);
+                    const moveX = (window.innerWidth / 2 - e.pageX) * depth * 0.1;
+                    const moveY = (window.innerHeight / 2 - e.pageY) * depth * 0.1;
+                    layer.style.transform = \`translateX(\${moveX}px) translateY(\${moveY}px) translateZ(\${depth * 100}px)\`;
+                });
+            });
+        }
+        
+        // Form submission
+        parallaxForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[placeholder="Email address"]').value;
+            const password = this.querySelector('input[placeholder="Password"]').value;
+            
+            if (!email || !password) {
+                showParallaxNotification('Cannot ascend: Missing gear', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.parallax-3d-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span class="btn-layer front">CLIMBING...</span><span class="btn-layer back">UP</span><span class="btn-layer shadow"></span><i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span class="btn-layer front">SUMMIT!</span><span class="btn-layer back">DONE</span><span class="btn-layer shadow"></span><i class="fas fa-check"></i>';
+                showParallaxNotification('Peak reached! Welcome back.', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const parallaxToggle = parallaxForm.querySelector('.parallax-toggle');
+        if (parallaxToggle) {
+            parallaxToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showParallaxNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #080c14;
+            border: 1px solid \${type === 'success' ? '#4ec0e9' : '#e94e4e'};
+            border-radius: 8px;
+            color: \${type === 'success' ? '#4ec0e9' : '#e94e4e'};
+            padding: 12px 24px;
+            font-size: 0.8rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            transform: translateZ(50px);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 61: Isometric 3D City Login
+// ====================================================================
+form61: {
+    name: "Isometric 3D City Login",
+    category: "login 3d isometric",
+    html: `<div class="form-container isometric-city-3d-bg">
+    <div class="isometric-grid"></div>
+    <div class="isometric-city">
+        <div class="building building-1">
+            <div class="building-face front"></div>
+            <div class="building-face side"></div>
+            <div class="building-face top"></div>
+        </div>
+        <div class="building building-2">
+            <div class="building-face front"></div>
+            <div class="building-face side"></div>
+            <div class="building-face top"></div>
+        </div>
+        <div class="building building-3">
+            <div class="building-face front"></div>
+            <div class="building-face side"></div>
+            <div class="building-face top"></div>
+        </div>
+        <div class="building building-4">
+            <div class="building-face front"></div>
+            <div class="building-face side"></div>
+            <div class="building-face top"></div>
+        </div>
+        <div class="isometric-platform">
+            <div class="platform-top"></div>
+            <div class="platform-side"></div>
+        </div>
+    </div>
+    <div class="isometric-card">
+        <div class="isometric-card-inner">
+            <div class="isometric-logo">
+                <i class="fas fa-city"></i>
+            </div>
+            <h3 class="isometric-title">METROPOLIS</h3>
+            <p class="isometric-subtitle">Access your digital domain</p>
+            <form class="isometric-form">
+                <div class="isometric-input-3d">
+                    <div class="isometric-input-container">
+                        <div class="isometric-input-front">
+                            <i class="fas fa-id-card"></i>
+                            <input type="text" placeholder="Citizen ID" required>
+                        </div>
+                        <div class="isometric-input-side"></div>
+                        <div class="isometric-input-bottom"></div>
+                    </div>
+                </div>
+                <div class="isometric-input-3d">
+                    <div class="isometric-input-container">
+                        <div class="isometric-input-front">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Security Key" required>
+                            <button type="button" class="isometric-toggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="isometric-input-side"></div>
+                        <div class="isometric-input-bottom"></div>
+                    </div>
+                </div>
+                <div class="isometric-3d-checkbox">
+                    <label class="isometric-checkbox-3d">
+                        <input type="checkbox" checked>
+                        <span class="isometric-checkbox-box">
+                            <span class="box-face front">✓</span>
+                            <span class="box-face side"></span>
+                            <span class="box-face bottom"></span>
+                        </span>
+                        <span>Maintain connection</span>
+                    </label>
+                </div>
+                <button type="submit" class="isometric-3d-btn">
+                    <span class="btn-front">ENTER CITY</span>
+                    <span class="btn-side"></span>
+                    <span class="btn-bottom"></span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="isometric-footer">
+        <span class="grid-coords">X: 42 Y: 73 Z: 19</span>
+        <span class="city-status">⚡ DISTRICT 7 - SECURE</span>
+    </div>
+</div>`,
+    css: `.isometric-city-3d-bg {
+    background: #1a2634;
+    border-radius: 24px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1200px;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.isometric-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(100, 200, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(100, 200, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
+    transform-origin: center;
+    transform-style: preserve-3d;
+}
+
+.isometric-city {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%) rotateX(60deg) rotateZ(-45deg);
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 200px;
+}
+
+.building {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    transform-style: preserve-3d;
+}
+
+.building-1 {
+    bottom: 0;
+    left: 20px;
+    width: 25px;
+    height: 60px;
+}
+
+.building-2 {
+    bottom: 0;
+    right: 20px;
+    width: 30px;
+    height: 80px;
+}
+
+.building-3 {
+    top: 30px;
+    left: 60px;
+    width: 20px;
+    height: 45px;
+}
+
+.building-4 {
+    top: 50px;
+    right: 60px;
+    width: 25px;
+    height: 55px;
+}
+
+.building-face {
+    position: absolute;
+    border: 1px solid rgba(100, 200, 255, 0.2);
+}
+
+.building-face.front {
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 60, 90, 0.7);
+    transform: translateZ(10px);
+}
+
+.building-face.side {
+    width: 20px;
+    height: 100%;
+    background: rgba(20, 50, 80, 0.7);
+    transform: rotateY(90deg) translateX(-10px);
+}
+
+.building-face.top {
+    width: 100%;
+    height: 20px;
+    background: rgba(50, 100, 150, 0.7);
+    transform: rotateX(90deg) translateY(-10px) translateZ(10px);
+}
+
+.isometric-platform {
+    position: absolute;
+    bottom: -20px;
+    left: -40px;
+    width: 120px;
+    height: 20px;
+    transform-style: preserve-3d;
+}
+
+.platform-top {
+    width: 100%;
+    height: 100%;
+    background: rgba(40, 80, 120, 0.5);
+    border: 1px solid rgba(100, 200, 255, 0.2);
+    transform: translateZ(5px);
+}
+
+.platform-side {
+    width: 20px;
+    height: 100%;
+    background: rgba(20, 60, 100, 0.5);
+    transform: rotateY(90deg) translateX(-10px);
+}
+
+.isometric-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    transform-style: preserve-3d;
+}
+
+.isometric-card-inner {
+    width: 200px;
+    padding: 20px;
+    background: rgba(20, 30, 45, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 200, 255, 0.2);
+    transform: rotateX(10deg) rotateY(-10deg) translateZ(30px);
+    transform-style: preserve-3d;
+    box-shadow: 
+        -10px 10px 20px rgba(0,0,0,0.3),
+        0 0 0 1px rgba(100,200,255,0.1);
+}
+
+.isometric-logo {
+    width: 50px;
+    height: 50px;
+    background: rgba(100, 200, 255, 0.1);
+    border: 1px solid rgba(100, 200, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 1.5rem;
+    color: #64c8ff;
+    transform: translateZ(10px);
+}
+
+.isometric-title {
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.isometric-subtitle {
+    color: rgba(100, 200, 255, 0.7);
+    font-size: 0.6rem;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.isometric-input-3d {
+    margin-bottom: 15px;
+    transform-style: preserve-3d;
+}
+
+.isometric-input-container {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    transform-style: preserve-3d;
+}
+
+.isometric-input-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(100, 200, 255, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    transform: translateZ(10px);
+    backdrop-filter: blur(5px);
+}
+
+.isometric-input-front i {
+    color: #64c8ff;
+    margin-right: 10px;
+    font-size: 0.85rem;
+}
+
+.isometric-input-front input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.isometric-input-front input:focus {
+    outline: none;
+}
+
+.isometric-input-side {
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: rgba(0, 30, 50, 0.5);
+    border: 1px solid rgba(100, 200, 255, 0.2);
+    transform: rotateY(90deg) translateX(-10px) translateZ(10px);
+}
+
+.isometric-input-bottom {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background: rgba(0, 20, 40, 0.5);
+    border: 1px solid rgba(100, 200, 255, 0.2);
+    transform: rotateX(90deg) translateY(-10px) translateZ(10px);
+}
+
+.isometric-toggle {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #64c8ff;
+    cursor: pointer;
+}
+
+.isometric-3d-checkbox {
+    margin: 15px 0;
+}
+
+.isometric-checkbox-3d {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+}
+
+.isometric-checkbox-3d input {
+    display: none;
+}
+
+.isometric-checkbox-box {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    transform-style: preserve-3d;
+}
+
+.box-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    backface-visibility: hidden;
+}
+
+.box-face.front {
+    background: rgba(100, 200, 255, 0.1);
+    border: 1px solid #64c8ff;
+    color: #64c8ff;
+    transform: translateZ(5px);
+}
+
+.box-face.side {
+    width: 10px;
+    background: rgba(50, 150, 200, 0.3);
+    border: 1px solid #64c8ff;
+    transform: rotateY(90deg) translateX(-5px);
+}
+
+.box-face.bottom {
+    height: 10px;
+    background: rgba(30, 100, 150, 0.3);
+    border: 1px solid #64c8ff;
+    transform: rotateX(90deg) translateY(-5px) translateZ(5px);
+}
+
+.isometric-3d-btn {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    margin-top: 10px;
+}
+
+.btn-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #64c8ff, #2a6f8a);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transform: translateZ(10px);
+}
+
+.btn-side {
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: #2a6f8a;
+    transform: rotateY(90deg) translateX(-10px);
+}
+
+.btn-bottom {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background: #1a4f6a;
+    transform: rotateX(90deg) translateY(-10px);
+}
+
+.isometric-3d-btn i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 20;
+}
+
+.isometric-3d-btn:hover .btn-front {
+    background: linear-gradient(145deg, #7ad0ff, #3a8fab);
+}
+
+.isometric-footer {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(100, 200, 255, 0.5);
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+}`,
+    js: `// Isometric 3D City Login
+document.addEventListener('DOMContentLoaded', function() {
+    const isometricForm = document.querySelector('.isometric-form');
+    
+    if (isometricForm) {
+        // Isometric tilt on mouse move
+        const card = document.querySelector('.isometric-card-inner');
+        if (card) {
+            document.addEventListener('mousemove', function(e) {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 40;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 40;
+                
+                card.style.transform = \`rotateX(\${-yAxis}deg) rotateY(\${xAxis}deg) translateZ(30px)\`;
+            });
+        }
+        
+        // Form submission
+        isometricForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const citizenId = this.querySelector('input[placeholder="Citizen ID"]').value;
+            const securityKey = this.querySelector('input[placeholder="Security Key"]').value;
+            
+            if (!citizenId || !securityKey) {
+                showIsometricNotification('IDENTITY VERIFICATION FAILED', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.isometric-3d-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span class="btn-front">ENTERING...</span><span class="btn-side"></span><span class="btn-bottom"></span><i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span class="btn-front">WELCOME</span><span class="btn-side"></span><span class="btn-bottom"></span><i class="fas fa-check"></i>';
+                showIsometricNotification('ACCESS GRANTED - WELCOME TO METROPOLIS', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const isometricToggle = isometricForm.querySelector('.isometric-toggle');
+        if (isometricToggle) {
+            isometricToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showIsometricNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1a2634;
+            border: 1px solid \${type === 'success' ? '#64c8ff' : '#ff6464'};
+            color: \${type === 'success' ? '#64c8ff' : '#ff6464'};
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            transform: rotateX(10deg) rotateY(-10deg);
+            box-shadow: -5px 5px 20px rgba(0,0,0,0.5);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 62: Tesseract Hypercube 4D Login
+// ====================================================================
+form62: {
+    name: "Tesseract Hypercube 4D Login",
+    category: "login 3d hypercube",
+    html: `<div class="form-container tesseract-hypercube-bg">
+    <canvas class="tesseract-canvas" id="tesseract-canvas-62"></canvas>
+    <div class="hypercube-overlay"></div>
+    <div class="tesseract-container">
+        <div class="tesseract-3d">
+            <div class="tesseract-wireframe">
+                <div class="cube-outer">
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                </div>
+                <div class="cube-inner">
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                    <div class="cube-line"></div>
+                </div>
+                <div class="connector-lines">
+                    <span class="connector"></span>
+                    <span class="connector"></span>
+                    <span class="connector"></span>
+                    <span class="connector"></span>
+                    <span class="connector"></span>
+                    <span class="connector"></span>
+                    <span class="connector"></span>
+                    <span class="connector"></span>
+                </div>
+            </div>
+        </div>
+        <div class="tesseract-core">
+            <div class="hypercube-logo">
+                <i class="fas fa-cube"></i>
+                <i class="fas fa-cube"></i>
+                <i class="fas fa-cube"></i>
+            </div>
+            <h3 class="hypercube-title">TESSERACT</h3>
+            <p class="hypercube-subtitle">4th Dimensional Access</p>
+            <form class="hypercube-form">
+                <div class="hypercube-input-4d">
+                    <div class="input-dimension dim-1">
+                        <input type="text" placeholder="X Dimension" required>
+                        <i class="fas fa-vector-square"></i>
+                    </div>
+                    <div class="input-dimension dim-2">
+                        <input type="email" placeholder="Y Dimension" required>
+                        <i class="fas fa-vector-square"></i>
+                    </div>
+                </div>
+                <div class="hypercube-input-4d">
+                    <div class="input-dimension dim-3">
+                        <input type="password" placeholder="Z Dimension" required>
+                        <button type="button" class="hypercube-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <i class="fas fa-vector-square"></i>
+                    </div>
+                    <div class="input-dimension dim-4">
+                        <input type="password" placeholder="W Dimension" required>
+                        <i class="fas fa-vector-square"></i>
+                    </div>
+                </div>
+                <div class="hypercube-4d-checkbox">
+                    <label class="hypercube-checkbox-4d">
+                        <input type="checkbox" checked>
+                        <span class="hypercube-checkbox-box">
+                            <span class="box-vertex"></span>
+                            <span class="box-vertex"></span>
+                            <span class="box-vertex"></span>
+                            <span class="box-vertex"></span>
+                            <span class="box-edge"></span>
+                        </span>
+                        <span>Project to 4D</span>
+                    </label>
+                </div>
+                <button type="submit" class="hypercube-4d-btn">
+                    <span>TRANSCEND</span>
+                    <i class="fas fa-arrow-right"></i>
+                    <div class="btn-dimension"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="hypercube-footer">
+        <span>4D ROTATION • WARP STABLE</span>
+    </div>
+</div>`,
+    css: `.tesseract-hypercube-bg {
+    background: #000000;
+    border-radius: 24px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid rgba(100, 0, 255, 0.2);
+}
+
+.tesseract-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.hypercube-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(100, 0, 255, 0.05), transparent 70%);
+    pointer-events: none;
+}
+
+.tesseract-container {
+    position: relative;
+    width: 100%;
+    min-height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.tesseract-3d {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: tesseract-rotate 30s linear infinite;
+}
+
+@keyframes tesseract-rotate {
+    from { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+.tesseract-wireframe {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.cube-outer,
+.cube-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.cube-line {
+    position: absolute;
+    background: rgba(100, 0, 255, 0.3);
+    box-shadow: 0 0 10px rgba(100, 0, 255, 0.3);
+}
+
+.cube-outer .cube-line:nth-child(1) {
+    width: 2px;
+    height: 100%;
+    left: 0;
+    background: linear-gradient(to bottom, transparent, #6400ff, transparent);
+}
+
+.cube-outer .cube-line:nth-child(2) {
+    width: 2px;
+    height: 100%;
+    right: 0;
+    background: linear-gradient(to bottom, transparent, #6400ff, transparent);
+}
+
+.cube-outer .cube-line:nth-child(3) {
+    width: 100%;
+    height: 2px;
+    top: 0;
+    background: linear-gradient(to right, transparent, #6400ff, transparent);
+}
+
+.cube-outer .cube-line:nth-child(4) {
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    background: linear-gradient(to right, transparent, #6400ff, transparent);
+}
+
+.cube-outer .cube-line:nth-child(5) {
+    width: 2px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to bottom, transparent, #6400ff, transparent);
+    opacity: 0.3;
+}
+
+.cube-outer .cube-line:nth-child(6) {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(to right, transparent, #6400ff, transparent);
+    opacity: 0.3;
+}
+
+.cube-inner {
+    transform: scale(0.6);
+}
+
+.connector-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.connector {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: rgba(100, 0, 255, 0.1);
+    transform-origin: center;
+}
+
+.connector:nth-child(1) { transform: rotateY(45deg) translateX(50px); }
+.connector:nth-child(2) { transform: rotateY(-45deg) translateX(-50px); }
+.connector:nth-child(3) { transform: rotateX(45deg) translateY(50px); }
+.connector:nth-child(4) { transform: rotateX(-45deg) translateY(-50px); }
+
+.tesseract-core {
+    position: relative;
+    width: 200px;
+    padding: 20px;
+    background: rgba(10, 0, 20, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 0, 255, 0.3);
+    border-radius: 16px;
+    z-index: 20;
+    transform: translateZ(50px);
+}
+
+.hypercube-logo {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.hypercube-logo i {
+    font-size: 1.2rem;
+    color: #6400ff;
+    text-shadow: 0 0 15px #6400ff;
+    animation: cube-pulse 2s infinite;
+}
+
+.hypercube-logo i:nth-child(2) {
+    animation-delay: 0.3s;
+    font-size: 1.5rem;
+}
+
+.hypercube-logo i:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes cube-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.hypercube-title {
+    color: #a07aff;
+    font-size: 0.9rem;
+    text-align: center;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+}
+
+.hypercube-subtitle {
+    color: rgba(160, 122, 255, 0.6);
+    font-size: 0.6rem;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.hypercube-input-4d {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-dimension {
+    position: relative;
+    flex: 1;
+}
+
+.input-dimension i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6400ff;
+    font-size: 0.75rem;
+}
+
+.input-dimension input {
+    width: 100%;
+    padding: 12px 12px 12px 30px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(100, 0, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.75rem;
+}
+
+.input-dimension input:focus {
+    outline: none;
+    border-color: #6400ff;
+    box-shadow: 0 0 15px rgba(100, 0, 255, 0.2);
+}
+
+.hypercube-toggle {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6400ff;
+    cursor: pointer;
+}
+
+.hypercube-4d-checkbox {
+    margin: 15px 0;
+}
+
+.hypercube-checkbox-4d {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+}
+
+.hypercube-checkbox-4d input {
+    display: none;
+}
+
+.hypercube-checkbox-box {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    transform-style: preserve-3d;
+}
+
+.box-vertex {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #6400ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #6400ff;
+}
+
+.box-vertex:nth-child(1) { top: 0; left: 0; }
+.box-vertex:nth-child(2) { top: 0; right: 0; }
+.box-vertex:nth-child(3) { bottom: 0; left: 0; }
+.box-vertex:nth-child(4) { bottom: 0; right: 0; }
+
+.box-edge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #6400ff, transparent);
+    transform: translate(-50%, -50%);
+}
+
+.hypercube-checkbox-4d input:checked ~ .hypercube-checkbox-box .box-vertex {
+    background: #a07aff;
+    box-shadow: 0 0 15px #a07aff;
+}
+
+.hypercube-4d-btn {
+    position: relative;
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    color: #a07aff;
+    border: 1px solid #6400ff;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-dimension {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(100, 0, 255, 0.1);
+    top: 0;
+    left: -100%;
+    transition: left 0.3s ease;
+}
+
+.hypercube-4d-btn:hover .btn-dimension {
+    left: 0;
+}
+
+.hypercube-footer {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: rgba(100, 0, 255, 0.5);
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+}`,
+    js: `// Tesseract Hypercube 4D Login
+document.addEventListener('DOMContentLoaded', function() {
+    const hypercubeForm = document.querySelector('.hypercube-form');
+    
+    if (hypercubeForm) {
+        // Tesseract rotation
+        const tesseract = document.querySelector('.tesseract-3d');
+        let rotation = 0;
+        
+        function rotateTesseract() {
+            rotation += 0.5;
+            if (tesseract) {
+                tesseract.style.transform = \`rotateX(\${rotation}deg) rotateY(\${rotation}deg) rotateZ(\${rotation * 0.5}deg)\`;
+            }
+            requestAnimationFrame(rotateTesseract);
+        }
+        rotateTesseract();
+        
+        // Canvas animation
+        const canvas = document.getElementById('tesseract-canvas-62');
+        if (canvas) {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+            
+            const ctx = canvas.getContext('2d');
+            
+            function drawTesseractField() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw grid points
+                for (let i = 0; i < 100; i++) {
+                    const x = (Math.sin(Date.now() * 0.001 + i) * 50 + i * 20) % canvas.width;
+                    const y = (Math.cos(Date.now() * 0.001 + i) * 50 + i * 15) % canvas.height;
+                    
+                    ctx.beginPath();
+                    ctx.arc(x, y, 1, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(100, 0, 255, 0.2)';
+                    ctx.fill();
+                    
+                    // Draw connections
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
+                    ctx.lineTo(x + 20, y + 20);
+                    ctx.strokeStyle = 'rgba(100, 0, 255, 0.05)';
+                    ctx.stroke();
+                }
+                
+                requestAnimationFrame(drawTesseractField);
+            }
+            
+            drawTesseractField();
+        }
+        
+        // Form submission
+        hypercubeForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const xDim = this.querySelector('.dim-1 input').value;
+            const yDim = this.querySelector('.dim-2 input').value;
+            const zDim = this.querySelector('.dim-3 input').value;
+            const wDim = this.querySelector('.dim-4 input').value;
+            
+            if (!xDim || !yDim || !zDim || !wDim) {
+                showHypercubeNotification('4D PROJECTION: INCOMPLETE', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.hypercube-4d-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>PROJECTING...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>TRANSCENDED</span> <i class="fas fa-check"></i>';
+                showHypercubeNotification('4D ACCESS GRANTED - WELCOME TO THE TESSERACT', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const hypercubeToggle = hypercubeForm.querySelector('.hypercube-toggle');
+        if (hypercubeToggle) {
+            hypercubeToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showHypercubeNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #000000;
+            border: 1px solid \${type === 'success' ? '#a07aff' : '#ff00ff'};
+            color: \${type === 'success' ? '#a07aff' : '#ff00ff'};
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px \${type === 'success' ? 'rgba(160,122,255,0.3)' : 'rgba(255,0,255,0.3)'};
+            transform: rotateX(10deg) rotateY(10deg);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+// ====================================================================
+// TEMPLATE 63: Corporate Professional Signup
+// ====================================================================
+form63: {
+    name: "Corporate Professional Signup",
+    category: "signup professional corporate",
+    html: `<div class="form-container corporate-signup-bg">
+    <div class="corporate-header">
+        <div class="company-badge">
+            <i class="fas fa-building"></i>
+            <span>ENTERPRISE</span>
+        </div>
+        <h3>Create Business Account</h3>
+        <p>Start your 14-day free trial • No credit card required</p>
+    </div>
+    
+    <div class="corporate-tabs">
+        <button class="corporate-tab active" data-type="individual">Individual</button>
+        <button class="corporate-tab" data-type="business">Business</button>
+        <button class="corporate-tab" data-type="enterprise">Enterprise</button>
+    </div>
+    
+    <form class="corporate-form">
+        <div class="form-row">
+            <div class="corporate-input-group">
+                <label>Full name</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="John Doe" required>
+                </div>
+            </div>
+            <div class="corporate-input-group">
+                <label>Job title</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-briefcase"></i>
+                    <input type="text" placeholder="Product Manager">
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="corporate-input-group">
+                <label>Work email</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="john@company.com" required>
+                </div>
+            </div>
+            <div class="corporate-input-group">
+                <label>Phone number</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" placeholder="+1 (555) 000-0000">
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="corporate-input-group">
+                <label>Company name</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-building"></i>
+                    <input type="text" placeholder="Acme Inc." required>
+                </div>
+            </div>
+            <div class="corporate-input-group">
+                <label>Company size</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-users"></i>
+                    <select required>
+                        <option value="" disabled selected>Select size</option>
+                        <option value="1-10">1-10 employees</option>
+                        <option value="11-50">11-50 employees</option>
+                        <option value="51-200">51-200 employees</option>
+                        <option value="201-500">201-500 employees</option>
+                        <option value="500+">500+ employees</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="corporate-password-row">
+            <div class="corporate-input-group">
+                <label>Password</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Create password" required id="corporate-password">
+                    <button type="button" class="corporate-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="corporate-password-strength">
+                <div class="strength-meter">
+                    <div class="strength-segment"></div>
+                    <div class="strength-segment"></div>
+                    <div class="strength-segment"></div>
+                    <div class="strength-segment"></div>
+                </div>
+                <span class="strength-text">Password strength</span>
+            </div>
+        </div>
+        
+        <div class="corporate-checkbox-group">
+            <label class="corporate-checkbox">
+                <input type="checkbox" checked>
+                <span class="checkmark">
+                    <i class="fas fa-check"></i>
+                </span>
+                <span class="checkbox-text">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+            </label>
+            
+            <label class="corporate-checkbox">
+                <input type="checkbox" checked>
+                <span class="checkmark">
+                    <i class="fas fa-check"></i>
+                </span>
+                <span class="checkbox-text">Send me product updates and newsletters</span>
+            </label>
+        </div>
+        
+        <button type="submit" class="corporate-submit-btn">
+            <span>Create Business Account</span>
+            <i class="fas fa-arrow-right"></i>
+        </button>
+        
+        <div class="corporate-footer">
+            <span class="footer-text">Already have an account?</span>
+            <a href="#" class="corporate-link">Sign in</a>
+            <span class="divider">•</span>
+            <a href="#" class="corporate-link">Contact sales</a>
+        </div>
+    </form>
+    
+    <div class="corporate-trust-badge">
+        <i class="fas fa-shield-alt"></i>
+        <span>Enterprise-grade security • SOC2 Type II compliant</span>
+    </div>
+</div>`,
+    css: `.corporate-signup-bg {
+    background: white;
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+    border: 1px solid #eef2f6;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.corporate-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.company-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f0f5ff;
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+}
+
+.company-badge i {
+    color: #2563eb;
+    font-size: 0.9rem;
+}
+
+.company-badge span {
+    color: #2563eb;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.corporate-header h3 {
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.corporate-header p {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.corporate-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 25px;
+    background: #f8fafc;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.corporate-tab {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.corporate-tab.active {
+    background: white;
+    color: #2563eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.corporate-input-group {
+    flex: 1;
+}
+
+.corporate-input-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 14px;
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+.input-wrapper input,
+.input-wrapper select {
+    width: 100%;
+    padding: 12px 12px 12px 42px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    background: white;
+    color: #1e293b;
+}
+
+.input-wrapper select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 14px;
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.corporate-password-row {
+    margin-bottom: 20px;
+}
+
+.corporate-password-strength {
+    margin-top: 10px;
+}
+
+.strength-meter {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 5px;
+}
+
+.strength-segment {
+    flex: 1;
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.strength-text {
+    font-size: 0.65rem;
+    color: #64748b;
+}
+
+.corporate-toggle {
+    position: absolute;
+    right: 14px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.corporate-checkbox-group {
+    margin: 20px 0;
+}
+
+.corporate-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.corporate-checkbox input {
+    display: none;
+}
+
+.corporate-checkbox .checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.corporate-checkbox input:checked + .checkmark {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+}
+
+.checkbox-text {
+    font-size: 0.75rem;
+    color: #475569;
+    line-height: 1.5;
+}
+
+.checkbox-text a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.corporate-submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.corporate-submit-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.corporate-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.corporate-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 5px;
+}
+
+.divider {
+    color: #cbd5e1;
+}
+
+.corporate-trust-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0;
+    color: #64748b;
+    font-size: 0.65rem;
+}
+
+.corporate-trust-badge i {
+    color: #2563eb;
+}`,
+    js: `// Corporate Professional Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const corporateForm = document.querySelector('.corporate-form');
+    const passwordInput = document.getElementById('corporate-password');
+    const strengthSegments = document.querySelectorAll('.strength-segment');
+    const strengthText = document.querySelector('.strength-text');
+    
+    // Account type tabs
+    const tabs = document.querySelectorAll('.corporate-tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            tabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            showCorporateNotification(\`Switched to \${this.dataset.type} account\`, 'info');
+        });
+    });
+    
+    // Password strength meter
+    if (passwordInput) {
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            let strength = 0;
+            
+            if (password.length >= 8) strength += 25;
+            if (/[A-Z]/.test(password)) strength += 25;
+            if (/[0-9]/.test(password)) strength += 25;
+            if (/[^A-Za-z0-9]/.test(password)) strength += 25;
+            
+            strengthSegments.forEach((segment, index) => {
+                if (index < strength / 25) {
+                    segment.style.background = 
+                        strength < 50 ? '#ef4444' : 
+                        strength < 75 ? '#f59e0b' : '#10b981';
+                } else {
+                    segment.style.background = '#e2e8f0';
+                }
+            });
+            
+            if (strength === 0) strengthText.textContent = 'Password strength';
+            else if (strength < 50) strengthText.textContent = 'Weak password';
+            else if (strength < 75) strengthText.textContent = 'Good password';
+            else strengthText.textContent = 'Strong password';
+        });
+    }
+    
+    // Form submission
+    if (corporateForm) {
+        corporateForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = this.querySelector('input[placeholder="John Doe"]').value;
+            const email = this.querySelector('input[placeholder="john@company.com"]').value;
+            const password = passwordInput.value;
+            
+            if (!fullName || !email || !password) {
+                showCorporateNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.corporate-submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Creating Account...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Account Created!</span> <i class="fas fa-check"></i>';
+                showCorporateNotification('Your business account has been created', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    strengthSegments.forEach(s => s.style.background = '#e2e8f0');
+                    strengthText.textContent = 'Password strength';
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    // Password toggle
+    const corporateToggle = document.querySelector('.corporate-toggle');
+    if (corporateToggle) {
+        corporateToggle.addEventListener('click', function() {
+            const input = document.getElementById('corporate-password');
+            const icon = this.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+    }
+    
+    function showCorporateNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: 1px solid \${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#2563eb'};
+            color: \${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#2563eb'};
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 64: SaaS Product Signup
+// ====================================================================
+form64: {
+    name: "SaaS Product Signup",
+    category: "signup professional saas",
+    html: `<div class="form-container saas-signup-bg">
+    <div class="saas-header">
+        <div class="saas-logo">
+            <i class="fas fa-cloud"></i>
+            <span>CLOUDSUITE</span>
+        </div>
+        <h3>Start your free trial</h3>
+        <p>Join 10,000+ teams already shipping faster</p>
+    </div>
+    
+    <div class="saas-pricing-tag">
+        <span class="plan-name">Professional Plan</span>
+        <span class="plan-price">$29</span>
+        <span class="plan-period">/month after trial</span>
+    </div>
+    
+    <form class="saas-form">
+        <div class="saas-input-row">
+            <div class="saas-input-group">
+                <label>Work email</label>
+                <input type="email" placeholder="you@company.com" required>
+            </div>
+        </div>
+        
+        <div class="saas-input-row">
+            <div class="saas-input-group half">
+                <label>First name</label>
+                <input type="text" placeholder="John" required>
+            </div>
+            <div class="saas-input-group half">
+                <label>Last name</label>
+                <input type="text" placeholder="Doe" required>
+            </div>
+        </div>
+        
+        <div class="saas-input-row">
+            <div class="saas-input-group">
+                <label>Company name</label>
+                <input type="text" placeholder="Acme Corporation" required>
+            </div>
+        </div>
+        
+        <div class="saas-input-row">
+            <div class="saas-input-group">
+                <label>Password</label>
+                <div class="saas-password-wrapper">
+                    <input type="password" placeholder="Create password" required id="saas-password">
+                    <button type="button" class="saas-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="saas-password-requirements">
+            <div class="requirement" data-requirement="length">
+                <i class="far fa-circle"></i>
+                <span>At least 8 characters</span>
+            </div>
+            <div class="requirement" data-requirement="number">
+                <i class="far fa-circle"></i>
+                <span>Contains a number</span>
+            </div>
+            <div class="requirement" data-requirement="uppercase">
+                <i class="far fa-circle"></i>
+                <span>Contains uppercase letter</span>
+            </div>
+        </div>
+        
+        <div class="saas-checkbox-group">
+            <label class="saas-checkbox">
+                <input type="checkbox" checked>
+                <span class="checkmark"></span>
+                <span class="checkbox-text">I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></span>
+            </label>
+        </div>
+        
+        <button type="submit" class="saas-submit-btn">
+            <span>Start 14-day free trial</span>
+            <i class="fas fa-arrow-right"></i>
+        </button>
+        
+        <div class="saas-divider">
+            <span>Or sign up with</span>
+        </div>
+        
+        <div class="saas-social">
+            <button type="button" class="saas-social-btn google">
+                <i class="fab fa-google"></i>
+                <span>Google</span>
+            </button>
+            <button type="button" class="saas-social-btn github">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </button>
+        </div>
+    </form>
+    
+    <div class="saas-footer">
+        <span>Already have an account?</span>
+        <a href="#">Sign in</a>
+    </div>
+</div>`,
+    css: `.saas-signup-bg {
+    background: linear-gradient(145deg, #0b1120, #1a2639);
+    border-radius: 24px;
+    padding: 25px;
+    color: white;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.saas-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.saas-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.saas-logo i {
+    font-size: 1.5rem;
+    color: #3b82f6;
+}
+
+.saas-logo span {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.saas-header h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.saas-header p {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.saas-pricing-tag {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.plan-name {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.plan-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #3b82f6;
+}
+
+.plan-period {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.saas-input-row {
+    margin-bottom: 20px;
+}
+
+.saas-input-group {
+    flex: 1;
+}
+
+.saas-input-group.half {
+    display: inline-block;
+    width: calc(50% - 7.5px);
+}
+
+.saas-input-group.half:first-child {
+    margin-right: 15px;
+}
+
+.saas-input-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-bottom: 6px;
+}
+
+.saas-input-group input,
+.saas-input-group select {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.saas-input-group input:focus,
+.saas-input-group select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.saas-password-wrapper {
+    position: relative;
+}
+
+.saas-password-wrapper input {
+    padding-right: 50px;
+}
+
+.saas-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.saas-password-requirements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 15px 0 25px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.requirement {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
+
+.requirement i {
+    font-size: 0.65rem;
+}
+
+.requirement.valid i {
+    color: #10b981;
+}
+
+.saas-checkbox-group {
+    margin-bottom: 25px;
+}
+
+.saas-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.saas-checkbox input {
+    display: none;
+}
+
+.saas-checkbox .checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+}
+
+.saas-checkbox input:checked + .checkmark {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+}
+
+.saas-checkbox .checkbox-text {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+}
+
+.saas-checkbox .checkbox-text a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.saas-submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.saas-submit-btn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.saas-divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #64748b;
+    font-size: 0.7rem;
+}
+
+.saas-divider::before,
+.saas-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.saas-divider span {
+    padding: 0 15px;
+}
+
+.saas-social {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.saas-social-btn {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.saas-social-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.saas-social-btn.google:hover {
+    background: #ea4335;
+    border-color: #ea4335;
+}
+
+.saas-social-btn.github:hover {
+    background: #333;
+    border-color: #333;
+}
+
+.saas-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.saas-footer a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px;
+}`,
+    js: `// SaaS Product Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const saasForm = document.querySelector('.saas-form');
+    const passwordInput = document.getElementById('saas-password');
+    const requirements = document.querySelectorAll('.requirement');
+    
+    if (passwordInput) {
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            
+            // Length check
+            const lengthReq = document.querySelector('[data-requirement="length"]');
+            if (password.length >= 8) {
+                lengthReq.classList.add('valid');
+                lengthReq.querySelector('i').className = 'fas fa-check-circle';
+            } else {
+                lengthReq.classList.remove('valid');
+                lengthReq.querySelector('i').className = 'far fa-circle';
+            }
+            
+            // Number check
+            const numberReq = document.querySelector('[data-requirement="number"]');
+            if (/[0-9]/.test(password)) {
+                numberReq.classList.add('valid');
+                numberReq.querySelector('i').className = 'fas fa-check-circle';
+            } else {
+                numberReq.classList.remove('valid');
+                numberReq.querySelector('i').className = 'far fa-circle';
+            }
+            
+            // Uppercase check
+            const upperReq = document.querySelector('[data-requirement="uppercase"]');
+            if (/[A-Z]/.test(password)) {
+                upperReq.classList.add('valid');
+                upperReq.querySelector('i').className = 'fas fa-check-circle';
+            } else {
+                upperReq.classList.remove('valid');
+                upperReq.querySelector('i').className = 'far fa-circle';
+            }
+        });
+    }
+    
+    // Form submission
+    if (saasForm) {
+        saasForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[placeholder="you@company.com"]').value;
+            const firstName = this.querySelector('input[placeholder="John"]').value;
+            const lastName = this.querySelector('input[placeholder="Doe"]').value;
+            const company = this.querySelector('input[placeholder="Acme Corporation"]').value;
+            const password = passwordInput?.value;
+            
+            if (!email || !firstName || !lastName || !company || !password) {
+                showSaaSNotification('Please fill in all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.saas-submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Creating Trial...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Trial Started!</span> <i class="fas fa-check"></i>';
+                showSaaSNotification('Your 14-day free trial has been activated', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    requirements.forEach(req => {
+                        req.classList.remove('valid');
+                        req.querySelector('i').className = 'far fa-circle';
+                    });
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    // Password toggle
+    const saasToggle = document.querySelector('.saas-toggle');
+    if (saasToggle) {
+        saasToggle.addEventListener('click', function() {
+            const input = document.getElementById('saas-password');
+            const icon = this.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+    }
+    
+    // Social buttons
+    const socialBtns = document.querySelectorAll('.saas-social-btn');
+    socialBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const provider = this.classList.contains('google') ? 'Google' : 'GitHub';
+            showSaaSNotification(\`Signing up with \${provider}\`, 'info');
+        });
+    });
+    
+    function showSaaSNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0b1120;
+            border: 1px solid \${type === 'success' ? '#3b82f6' : type === 'error' ? '#ef4444' : '#94a3b8'};
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 65: Professional Services Signup
+// ====================================================================
+form65: {
+    name: "Professional Services Signup",
+    category: "signup professional services",
+    html: `<div class="form-container services-signup-bg">
+    <div class="services-sidebar">
+        <div class="services-icon">
+            <i class="fas fa-handshake"></i>
+        </div>
+        <h4 class="services-sidebar-title">Why join us?</h4>
+        <ul class="services-benefits">
+            <li><i class="fas fa-check-circle"></i> 24/7 dedicated support</li>
+            <li><i class="fas fa-check-circle"></i> Free consultation</li>
+            <li><i class="fas fa-check-circle"></i> No long-term contracts</li>
+            <li><i class="fas fa-check-circle"></i> Money-back guarantee</li>
+        </ul>
+        <div class="services-testimonial">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">The best decision we made for our business. Their platform transformed our workflow.</p>
+            <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+                <div class="author-info">
+                    <span class="author-name">Sarah Johnson</span>
+                    <span class="author-title">CEO, TechStart</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="services-main">
+        <div class="form-header">
+            <h3>Create your account</h3>
+            <p>Get started with your free consultation</p>
+        </div>
+        
+        <form class="services-form">
+            <div class="services-input-row">
+                <div class="services-input-group">
+                    <label>Full name</label>
+                    <input type="text" placeholder="Enter your full name" required>
+                </div>
+            </div>
+            
+            <div class="services-input-row">
+                <div class="services-input-group">
+                    <label>Email address</label>
+                    <input type="email" placeholder="you@example.com" required>
+                </div>
+            </div>
+            
+            <div class="services-input-row">
+                <div class="services-input-group">
+                    <label>Phone number</label>
+                    <input type="tel" placeholder="+1 (555) 123-4567" required>
+                </div>
+            </div>
+            
+            <div class="services-input-row">
+                <div class="services-input-group">
+                    <label>Company name (optional)</label>
+                    <input type="text" placeholder="Your company">
+                </div>
+            </div>
+            
+            <div class="services-input-row">
+                <div class="services-input-group">
+                    <label>How can we help?</label>
+                    <select>
+                        <option value="" disabled selected>Select a service</option>
+                        <option value="consulting">Business Consulting</option>
+                        <option value="development">Software Development</option>
+                        <option value="marketing">Digital Marketing</option>
+                        <option value="design">UI/UX Design</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="services-input-row">
+                <div class="services-input-group">
+                    <label>Password</label>
+                    <div class="services-password-wrapper">
+                        <input type="password" placeholder="Create password" required id="services-password">
+                        <button type="button" class="services-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="services-terms">
+                <label class="services-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="checkmark"></span>
+                    <span class="checkbox-text">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                </label>
+            </div>
+            
+            <button type="submit" class="services-submit-btn">
+                <span>Schedule Free Consultation</span>
+                <i class="fas fa-calendar-alt"></i>
+            </button>
+            
+            <div class="services-login-link">
+                <span>Already have an account?</span>
+                <a href="#">Log in</a>
+            </div>
+        </form>
+    </div>
+</div>`,
+    css: `.services-signup-bg {
+    background: white;
+    border-radius: 24px;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.services-sidebar {
+    width: 40%;
+    background: linear-gradient(145deg, #2563eb, #1d4ed8);
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.services-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.services-sidebar-title {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.services-benefits {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.services-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 0.8rem;
+}
+
+.services-benefits i {
+    color: #86efac;
+    font-size: 0.9rem;
+}
+
+.services-testimonial {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 15px;
+    margin-top: auto;
+}
+
+.testimonial-quote {
+    font-size: 2rem;
+    line-height: 1;
+    opacity: 0.5;
+    margin-bottom: 5px;
+}
+
+.testimonial-text {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.testimonial-author img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.author-title {
+    font-size: 0.6rem;
+    opacity: 0.8;
+}
+
+.services-main {
+    width: 60%;
+    padding: 20px;
+}
+
+.services-main .form-header {
+    margin-bottom: 20px;
+}
+
+.services-main .form-header h3 {
+    font-size: 1.1rem;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.services-main .form-header p {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.services-input-row {
+    margin-bottom: 15px;
+}
+
+.services-input-group {
+    width: 100%;
+}
+
+.services-input-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 5px;
+}
+
+.services-input-group input,
+.services-input-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.services-input-group input:focus,
+.services-input-group select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.services-password-wrapper {
+    position: relative;
+}
+
+.services-password-wrapper input {
+    padding-right: 45px;
+}
+
+.services-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.services-terms {
+    margin: 20px 0;
+}
+
+.services-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.services-checkbox input {
+    display: none;
+}
+
+.services-checkbox .checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.services-checkbox input:checked + .checkmark {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+}
+
+.services-checkbox .checkbox-text {
+    font-size: 0.75rem;
+    color: #475569;
+}
+
+.services-checkbox a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.services-submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.services-submit-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+.services-login-link {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.services-login-link a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px;
+}`,
+    js: `// Professional Services Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const servicesForm = document.querySelector('.services-form');
+    
+    if (servicesForm) {
+        servicesForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = this.querySelector('input[placeholder="Enter your full name"]').value;
+            const email = this.querySelector('input[placeholder="you@example.com"]').value;
+            const phone = this.querySelector('input[placeholder="+1 (555) 123-4567"]').value;
+            const password = document.getElementById('services-password').value;
+            
+            if (!fullName || !email || !phone || !password) {
+                showServicesNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.services-submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Scheduling...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Consultation Scheduled!</span> <i class="fas fa-check"></i>';
+                showServicesNotification('Your free consultation has been scheduled', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    // Password toggle
+    const servicesToggle = document.querySelector('.services-toggle');
+    if (servicesToggle) {
+        servicesToggle.addEventListener('click', function() {
+            const input = document.getElementById('services-password');
+            const icon = this.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+    }
+    
+    function showServicesNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: 1px solid \${type === 'success' ? '#2563eb' : '#ef4444'};
+            color: \${type === 'success' ? '#2563eb' : '#ef4444'};
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 66: Multi-step Professional Signup
+// ====================================================================
+form66: {
+    name: "Multi-step Professional Signup",
+    category: "signup professional multi-step",
+    html: `<div class="form-container multi-step-pro-signup-bg">
+    <div class="step-progress">
+        <div class="step-item active" data-step="1">
+            <div class="step-number">1</div>
+            <span class="step-label">Account</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" data-step="2">
+            <div class="step-number">2</div>
+            <span class="step-label">Profile</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" data-step="3">
+            <div class="step-number">3</div>
+            <span class="step-label">Company</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" data-step="4">
+            <div class="step-number">4</div>
+            <span class="step-label">Confirm</span>
+        </div>
+    </div>
+    
+    <div class="step-panel active" data-step="1">
+        <div class="panel-header">
+            <h3>Create your account</h3>
+            <p>Step 1 of 4: Account information</p>
+        </div>
+        <form class="step-form step-1-form">
+            <div class="form-group">
+                <label>Email address</label>
+                <input type="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <div class="password-field">
+                    <input type="password" placeholder="Create password" required id="step1-password">
+                    <button type="button" class="step-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="password-hint">Must be at least 8 characters</div>
+            </div>
+            <div class="form-group">
+                <label>Confirm password</label>
+                <div class="password-field">
+                    <input type="password" placeholder="Confirm password" required id="step1-confirm">
+                </div>
+            </div>
+            <button type="button" class="step-next-btn" data-next="2">Continue</button>
+        </form>
+    </div>
+    
+    <div class="step-panel" data-step="2">
+        <div class="panel-header">
+            <h3>Personal details</h3>
+            <p>Step 2 of 4: Tell us about yourself</p>
+        </div>
+        <form class="step-form step-2-form">
+            <div class="form-row">
+                <div class="form-group half">
+                    <label>First name</label>
+                    <input type="text" placeholder="John" required>
+                </div>
+                <div class="form-group half">
+                    <label>Last name</label>
+                    <input type="text" placeholder="Doe" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Phone number</label>
+                <input type="tel" placeholder="+1 (555) 000-0000">
+            </div>
+            <div class="form-group">
+                <label>Job title</label>
+                <input type="text" placeholder="e.g. Product Manager">
+            </div>
+            <div class="form-buttons">
+                <button type="button" class="step-prev-btn" data-prev="1">Back</button>
+                <button type="button" class="step-next-btn" data-next="3">Continue</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="step-panel" data-step="3">
+        <div class="panel-header">
+            <h3>Company information</h3>
+            <p>Step 3 of 4: Tell us about your business</p>
+        </div>
+        <form class="step-form step-3-form">
+            <div class="form-group">
+                <label>Company name</label>
+                <input type="text" placeholder="Acme Inc." required>
+            </div>
+            <div class="form-group">
+                <label>Company size</label>
+                <select required>
+                    <option value="" disabled selected>Select size</option>
+                    <option value="1-10">1-10 employees</option>
+                    <option value="11-50">11-50 employees</option>
+                    <option value="51-200">51-200 employees</option>
+                    <option value="201-500">201-500 employees</option>
+                    <option value="500+">500+ employees</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Industry</label>
+                <select>
+                    <option value="" disabled selected>Select industry</option>
+                    <option value="technology">Technology</option>
+                    <option value="finance">Finance</option>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="education">Education</option>
+                    <option value="retail">Retail</option>
+                </select>
+            </div>
+            <div class="form-buttons">
+                <button type="button" class="step-prev-btn" data-prev="2">Back</button>
+                <button type="button" class="step-next-btn" data-next="4">Continue</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="step-panel" data-step="4">
+        <div class="panel-header">
+            <h3>Review & confirm</h3>
+            <p>Step 4 of 4: Verify your information</p>
+        </div>
+        <div class="review-summary">
+            <div class="summary-section">
+                <h4>Account</h4>
+                <div class="summary-row"><span>Email:</span> <span class="summary-value">john@example.com</span></div>
+            </div>
+            <div class="summary-section">
+                <h4>Personal</h4>
+                <div class="summary-row"><span>Name:</span> <span class="summary-value">John Doe</span></div>
+                <div class="summary-row"><span>Phone:</span> <span class="summary-value">+1 (555) 123-4567</span></div>
+            </div>
+            <div class="summary-section">
+                <h4>Company</h4>
+                <div class="summary-row"><span>Company:</span> <span class="summary-value">Acme Inc.</span></div>
+                <div class="summary-row"><span>Size:</span> <span class="summary-value">11-50 employees</span></div>
+            </div>
+        </div>
+        
+        <form class="step-form step-4-form">
+            <div class="terms-group">
+                <label class="terms-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="checkmark"></span>
+                    <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                </label>
+                <label class="terms-checkbox">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span>Send me product updates (optional)</span>
+                </label>
+            </div>
+            
+            <div class="form-buttons">
+                <button type="button" class="step-prev-btn" data-prev="3">Back</button>
+                <button type="submit" class="step-submit-btn">Create Account</button>
+            </div>
+        </form>
+    </div>
+</div>`,
+    css: `.multi-step-pro-signup-bg {
+    background: white;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+    border: 1px solid #eef2f6;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.step-progress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding: 0 5px;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+.step-number {
+    width: 32px;
+    height: 32px;
+    background: #f1f5f9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+    transition: all 0.3s ease;
+}
+
+.step-item.active .step-number {
+    background: #2563eb;
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.step-label {
+    font-size: 0.6rem;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.step-item.active .step-label {
+    color: #2563eb;
+}
+
+.step-line {
+    flex: 0.5;
+    height: 2px;
+    background: #e2e8f0;
+    margin: 0 5px;
+    position: relative;
+    top: -8px;
+}
+
+.step-panel {
+    display: none;
+}
+
+.step-panel.active {
+    display: block;
+    animation: stepFade 0.4s ease;
+}
+
+@keyframes stepFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-header {
+    margin-bottom: 20px;
+}
+
+.panel-header h3 {
+    font-size: 1.1rem;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.panel-header p {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.step-form .form-group {
+    margin-bottom: 20px;
+}
+
+.step-form .form-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.step-form .form-group input,
+.step-form .form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.step-form .form-group input:focus,
+.step-form .form-group select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 50px;
+}
+
+.step-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.password-hint {
+    font-size: 0.65rem;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group.half {
+    flex: 1;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.step-prev-btn,
+.step-next-btn,
+.step-submit-btn {
+    padding: 14px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.step-prev-btn {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.step-prev-btn:hover {
+    background: #e2e8f0;
+}
+
+.step-next-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.step-next-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+.step-submit-btn {
+    background: #10b981;
+    color: white;
+}
+
+.step-submit-btn:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+}
+
+.review-summary {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.summary-section {
+    margin-bottom: 15px;
+}
+
+.summary-section h4 {
+    font-size: 0.8rem;
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.75rem;
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+}
+
+.summary-value {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.terms-group {
+    margin: 20px 0;
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.terms-checkbox input {
+    display: none;
+}
+
+.terms-checkbox .checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.terms-checkbox input:checked + .checkmark {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+}
+
+.terms-checkbox span {
+    font-size: 0.75rem;
+    color: #475569;
+}
+
+.terms-checkbox a {
+    color: #2563eb;
+    text-decoration: none;
+}`,
+    js: `// Multi-step Professional Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const stepContainer = document.querySelector('.multi-step-pro-signup-bg');
+    if (!stepContainer) return;
+    
+    let currentStep = 1;
+    const stepPanels = stepContainer.querySelectorAll('.step-panel');
+    const stepItems = stepContainer.querySelectorAll('.step-item');
+    const formData = {
+        email: '',
+        password: '',
+        firstName: '',
+        lastName: '',
+        phone: '',
+        jobTitle: '',
+        company: '',
+        size: '',
+        industry: ''
+    };
+    
+    // Switch panel function
+    function switchStep(step) {
+        stepPanels.forEach(panel => panel.classList.remove('active'));
+        stepContainer.querySelector(\`.step-panel[data-step="\${step}"]\`).classList.add('active');
+        
+        stepItems.forEach((item, index) => {
+            if (index + 1 === step) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+        
+        currentStep = step;
+    }
+    
+    // Collect data from step 1
+    function collectStep1() {
+        const email = stepContainer.querySelector('.step-1-form input[type="email"]').value;
+        const password = document.getElementById('step1-password').value;
+        const confirm = document.getElementById('step1-confirm').value;
+        
+        if (!email || !password || !confirm) {
+            showStepNotification('Please fill in all fields', 'error');
+            return false;
+        }
+        
+        if (password !== confirm) {
+            showStepNotification('Passwords do not match', 'error');
+            return false;
+        }
+        
+        if (password.length < 8) {
+            showStepNotification('Password must be at least 8 characters', 'error');
+            return false;
+        }
+        
+        formData.email = email;
+        formData.password = password;
+        
+        // Update summary
+        stepContainer.querySelector('.summary-section:first-child .summary-value').textContent = email;
+        return true;
+    }
+    
+    // Collect data from step 2
+    function collectStep2() {
+        const firstName = stepContainer.querySelector('.step-2-form input[placeholder="John"]').value;
+        const lastName = stepContainer.querySelector('.step-2-form input[placeholder="Doe"]').value;
+        const phone = stepContainer.querySelector('.step-2-form input[type="tel"]').value;
+        const jobTitle = stepContainer.querySelector('.step-2-form input[placeholder="e.g. Product Manager"]').value;
+        
+        if (!firstName || !lastName) {
+            showStepNotification('Please enter your name', 'error');
+            return false;
+        }
+        
+        formData.firstName = firstName;
+        formData.lastName = lastName;
+        formData.phone = phone || 'Not provided';
+        formData.jobTitle = jobTitle || 'Not specified';
+        
+        // Update summary
+        stepContainer.querySelector('.summary-section:nth-child(2) .summary-value').textContent = 
+            \`\${firstName} \${lastName}\`;
+        return true;
+    }
+    
+    // Collect data from step 3
+    function collectStep3() {
+        const company = stepContainer.querySelector('.step-3-form input[placeholder="Acme Inc."]').value;
+        const size = stepContainer.querySelector('.step-3-form select').value;
+        const industry = stepContainer.querySelectorAll('.step-3-form select')[1].value;
+        
+        if (!company || !size) {
+            showStepNotification('Please enter company information', 'error');
+            return false;
+        }
+        
+        formData.company = company;
+        formData.size = size;
+        formData.industry = industry || 'Not specified';
+        
+        // Update summary
+        stepContainer.querySelector('.summary-section:last-child .summary-value').textContent = company;
+        return true;
+    }
+    
+    // Next buttons
+    stepContainer.querySelectorAll('.step-next-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const nextStep = parseInt(this.dataset.next);
+            
+            let canProceed = true;
+            if (currentStep === 1) canProceed = collectStep1();
+            else if (currentStep === 2) canProceed = collectStep2();
+            else if (currentStep === 3) canProceed = collectStep3();
+            
+            if (canProceed) {
+                switchStep(nextStep);
+            }
+        });
+    });
+    
+    // Previous buttons
+    stepContainer.querySelectorAll('.step-prev-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const prevStep = parseInt(this.dataset.prev);
+            switchStep(prevStep);
+        });
+    });
+    
+    // Password toggle
+    const stepToggle = stepContainer.querySelector('.step-toggle');
+    if (stepToggle) {
+        stepToggle.addEventListener('click', function() {
+            const input = document.getElementById('step1-password');
+            const icon = this.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+    }
+    
+    // Final form submission
+    const finalForm = stepContainer.querySelector('.step-4-form');
+    if (finalForm) {
+        finalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const termsChecked = this.querySelector('.terms-checkbox:first-child input').checked;
+            
+            if (!termsChecked) {
+                showStepNotification('Please accept the Terms of Service', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.step-submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Creating Account...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Account Created!</span> <i class="fas fa-check"></i>';
+                showStepNotification('Welcome! Your account has been created', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    switchStep(1);
+                    stepContainer.querySelectorAll('form').forEach(form => form.reset());
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    function showStepNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: 1px solid \${type === 'success' ? '#10b981' : '#ef4444'};
+            color: \${type === 'success' ? '#10b981' : '#ef4444'};
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 67: B2B Enterprise Signup
+// ====================================================================
+form67: {
+    name: "B2B Enterprise Signup",
+    category: "signup professional b2b",
+    html: `<div class="form-container b2b-enterprise-signup-bg">
+    <div class="b2b-header">
+        <div class="b2b-logo">
+            <i class="fas fa-chart-line"></i>
+            <span>ENTERPRISE</span>
+        </div>
+        <h3>Request Enterprise Demo</h3>
+        <p>See how our platform can scale with your business</p>
+    </div>
+    
+    <div class="b2b-features">
+        <div class="feature">
+            <i class="fas fa-shield-alt"></i>
+            <span>SOC2 Type II</span>
+        </div>
+        <div class="feature">
+            <i class="fas fa-clock"></i>
+            <span>99.9% Uptime SLA</span>
+        </div>
+        <div class="feature">
+            <i class="fas fa-users"></i>
+            <span>Unlimited users</span>
+        </div>
+        <div class="feature">
+            <i class="fas fa-headset"></i>
+            <span>24/7 Support</span>
+        </div>
+    </div>
+    
+    <form class="b2b-form">
+        <div class="b2b-form-row">
+            <div class="b2b-input-group">
+                <label>Full name</label>
+                <input type="text" placeholder="John Doe" required>
+            </div>
+            <div class="b2b-input-group">
+                <label>Work email</label>
+                <input type="email" placeholder="john.doe@company.com" required>
+            </div>
+        </div>
+        
+        <div class="b2b-form-row">
+            <div class="b2b-input-group">
+                <label>Company name</label>
+                <input type="text" placeholder="Acme Corporation" required>
+            </div>
+            <div class="b2b-input-group">
+                <label>Job title</label>
+                <input type="text" placeholder="CTO / VP of Engineering" required>
+            </div>
+        </div>
+        
+        <div class="b2b-form-row">
+            <div class="b2b-input-group">
+                <label>Phone number</label>
+                <input type="tel" placeholder="+1 (555) 000-0000" required>
+            </div>
+            <div class="b2b-input-group">
+                <label>Employee count</label>
+                <select required>
+                    <option value="" disabled selected>Select range</option>
+                    <option value="1-50">1-50</option>
+                    <option value="51-200">51-200</option>
+                    <option value="201-1000">201-1000</option>
+                    <option value="1000+">1000+</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="b2b-form-row">
+            <div class="b2b-input-group full">
+                <label>How do you plan to use our platform?</label>
+                <textarea rows="2" placeholder="Tell us about your use case..."></textarea>
+            </div>
+        </div>
+        
+        <div class="b2b-checkbox-group">
+            <label class="b2b-checkbox">
+                <input type="checkbox" checked>
+                <span class="checkmark"></span>
+                <span>I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></span>
+            </label>
+            <label class="b2b-checkbox">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <span>Contact me about enterprise offers</span>
+            </label>
+        </div>
+        
+        <button type="submit" class="b2b-submit-btn">
+            <span>Request Demo</span>
+            <i class="fas fa-calendar-check"></i>
+        </button>
+        
+        <div class="b2b-security-note">
+            <i class="fas fa-lock"></i>
+            <span>Your information is protected by enterprise-grade security</span>
+        </div>
+    </form>
+    
+    <div class="b2b-footer">
+        <span>Already have an account?</span>
+        <a href="#">Sign in</a>
+        <span class="divider">|</span>
+        <a href="#">Contact sales</a>
+    </div>
+</div>`,
+    css: `.b2b-enterprise-signup-bg {
+    background: white;
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+    border: 1px solid #e9edf2;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.b2b-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.b2b-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f0f5ff;
+    padding: 8px 20px;
+    border-radius: 40px;
+    margin-bottom: 15px;
+}
+
+.b2b-logo i {
+    color: #2563eb;
+}
+
+.b2b-logo span {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.b2b-header h3 {
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.b2b-header p {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.b2b-features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    color: #475569;
+}
+
+.feature i {
+    color: #2563eb;
+    font-size: 0.8rem;
+}
+
+.b2b-form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.b2b-input-group {
+    flex: 1;
+}
+
+.b2b-input-group.full {
+    width: 100%;
+}
+
+.b2b-input-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.b2b-input-group input,
+.b2b-input-group select,
+.b2b-input-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.b2b-input-group textarea {
+    resize: vertical;
+    min-height: 50px;
+    font-family: inherit;
+}
+
+.b2b-input-group input:focus,
+.b2b-input-group select:focus,
+.b2b-input-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.b2b-checkbox-group {
+    margin: 20px 0;
+}
+
+.b2b-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.b2b-checkbox input {
+    display: none;
+}
+
+.b2b-checkbox .checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.b2b-checkbox input:checked + .checkmark {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+}
+
+.b2b-checkbox span {
+    font-size: 0.75rem;
+    color: #475569;
+}
+
+.b2b-checkbox a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.b2b-submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.b2b-submit-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.b2b-security-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.b2b-security-note i {
+    color: #10b981;
+}
+
+.b2b-footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #64748b;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.b2b-footer a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 5px;
+}`,
+    js: `// B2B Enterprise Signup
+document.addEventListener('DOMContentLoaded', function() {
+    const b2bForm = document.querySelector('.b2b-form');
+    
+    if (b2bForm) {
+        b2bForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = this.querySelector('input[placeholder="John Doe"]').value;
+            const email = this.querySelector('input[placeholder="john.doe@company.com"]').value;
+            const company = this.querySelector('input[placeholder="Acme Corporation"]').value;
+            const jobTitle = this.querySelector('input[placeholder="CTO / VP of Engineering"]').value;
+            const phone = this.querySelector('input[placeholder="+1 (555) 000-0000"]').value;
+            const employeeCount = this.querySelector('select').value;
+            
+            if (!fullName || !email || !company || !jobTitle || !phone || !employeeCount) {
+                showB2BNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.b2b-submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Requesting Demo...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Demo Requested!</span> <i class="fas fa-check"></i>';
+                showB2BNotification('An enterprise sales representative will contact you within 24 hours', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                    this.querySelector('.b2b-checkbox:first-child input').checked = true;
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    function showB2BNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border-left: 4px solid \${type === 'success' ? '#10b981' : '#ef4444'};
+            color: #1e293b;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+// ====================================================================
+// TEMPLATE 68: Crystal Glass Morphism Login
+// ====================================================================
+form68: {
+    name: "Crystal Glass Morphism Login",
+    category: "login modern glass crystal",
+    html: `<div class="form-container crystal-glass-bg">
+    <div class="crystal-shards">
+        <div class="shard"></div>
+        <div class="shard"></div>
+        <div class="shard"></div>
+        <div class="shard"></div>
+        <div class="shard"></div>
+        <div class="shard"></div>
+    </div>
+    <div class="crystal-card">
+        <div class="crystal-reflection"></div>
+        <div class="crystal-content">
+            <div class="crystal-logo">
+                <i class="fas fa-gem"></i>
+                <span>CRYSTAL</span>
+            </div>
+            <h3 class="crystal-title">Luminous Access</h3>
+            <p class="crystal-subtitle">Experience pure clarity</p>
+            
+            <form class="crystal-form">
+                <div class="crystal-input-group">
+                    <div class="crystal-input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Enter your email" required>
+                        <div class="input-glow"></div>
+                    </div>
+                </div>
+                
+                <div class="crystal-input-group">
+                    <div class="crystal-input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Enter password" required>
+                        <button type="button" class="crystal-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="input-glow"></div>
+                    </div>
+                </div>
+                
+                <div class="crystal-options">
+                    <label class="crystal-checkbox">
+                        <input type="checkbox" checked>
+                        <span class="crystal-checkmark">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <span class="crystal-checkbox-text">Keep me radiant</span>
+                    </label>
+                    <a href="#" class="crystal-link">Refract password?</a>
+                </div>
+                
+                <button type="submit" class="crystal-btn">
+                    <span>Illuminate</span>
+                    <i class="fas fa-arrow-right"></i>
+                    <div class="btn-crystal-effect"></div>
+                </button>
+            </form>
+            
+            <div class="crystal-divider">
+                <span class="line"></span>
+                <span class="text">or continue with</span>
+                <span class="line"></span>
+            </div>
+            
+            <div class="crystal-social">
+                <button class="crystal-social-btn">
+                    <i class="fab fa-google"></i>
+                    <div class="social-glow"></div>
+                </button>
+                <button class="crystal-social-btn">
+                    <i class="fab fa-apple"></i>
+                    <div class="social-glow"></div>
+                </button>
+                <button class="crystal-social-btn">
+                    <i class="fab fa-microsoft"></i>
+                    <div class="social-glow"></div>
+                </button>
+            </div>
+            
+            <div class="crystal-footer">
+                <span>New to the crystal?</span>
+                <a href="#">Create account</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="floating-crystals">
+        <div class="floating-crystal"></div>
+        <div class="floating-crystal"></div>
+        <div class="floating-crystal"></div>
+        <div class="floating-crystal"></div>
+    </div>
+</div>`,
+    css: `.crystal-glass-bg {
+    background: linear-gradient(145deg, #0a0f1f, #1a1f2f);
+    border-radius: 32px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.crystal-shards {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.shard {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transform-origin: center;
+}
+
+.shard:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    top: -20px;
+    left: -20px;
+    transform: rotate(15deg);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background: linear-gradient(45deg, rgba(255,255,255,0.02), rgba(100,200,255,0.02));
+}
+
+.shard:nth-child(2) {
+    width: 120px;
+    height: 120px;
+    bottom: -40px;
+    right: -40px;
+    transform: rotate(45deg);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background: linear-gradient(135deg, rgba(200,100,255,0.02), rgba(255,255,255,0.02));
+}
+
+.shard:nth-child(3) {
+    width: 60px;
+    height: 60px;
+    top: 40%;
+    left: 10%;
+    transform: rotate(60deg);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background: rgba(100, 200, 255, 0.03);
+}
+
+.shard:nth-child(4) {
+    width: 100px;
+    height: 100px;
+    bottom: 20%;
+    left: 20%;
+    transform: rotate(30deg);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background: rgba(255, 100, 200, 0.02);
+}
+
+.shard:nth-child(5) {
+    width: 70px;
+    height: 70px;
+    top: 20%;
+    right: 15%;
+    transform: rotate(75deg);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background: rgba(200, 255, 100, 0.02);
+}
+
+.shard:nth-child(6) {
+    width: 90px;
+    height: 90px;
+    bottom: 10%;
+    right: 10%;
+    transform: rotate(90deg);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background: rgba(255, 200, 100, 0.02);
+}
+
+.crystal-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 28px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    z-index: 10;
+    animation: crystal-float 6s ease-in-out infinite;
+}
+
+@keyframes crystal-float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.01); }
+}
+
+.crystal-reflection {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 60%);
+    transform: rotate(30deg);
+    animation: crystal-shine 8s linear infinite;
+}
+
+@keyframes crystal-shine {
+    0% { transform: rotate(30deg) translateX(-30%); }
+    100% { transform: rotate(30deg) translateX(30%); }
+}
+
+.crystal-content {
+    position: relative;
+    z-index: 20;
+}
+
+.crystal-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.crystal-logo i {
+    font-size: 2rem;
+    color: rgba(100, 200, 255, 0.8);
+    filter: drop-shadow(0 0 15px rgba(100, 200, 255, 0.5));
+    animation: crystal-pulse 3s infinite;
+}
+
+@keyframes crystal-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+.crystal-logo span {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, #fff, #aaddff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.crystal-title {
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.crystal-subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.7rem;
+    margin-bottom: 20px;
+}
+
+.crystal-input-group {
+    margin-bottom: 20px;
+}
+
+.crystal-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 0 16px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.crystal-input-wrapper i {
+    color: rgba(100, 200, 255, 0.5);
+    font-size: 0.9rem;
+    margin-right: 12px;
+    z-index: 2;
+}
+
+.crystal-input-wrapper input {
+    width: 100%;
+    padding: 16px 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.crystal-input-wrapper input:focus {
+    outline: none;
+}
+
+.crystal-input-wrapper input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.crystal-input-wrapper:focus-within {
+    border-color: rgba(100, 200, 255, 0.3);
+    box-shadow: 0 0 20px rgba(100, 200, 255, 0.1);
+}
+
+.input-glow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #64c8ff, #ff64c8, #c864ff);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px #64c8ff;
+}
+
+.crystal-input-wrapper:focus-within .input-glow {
+    width: 100%;
+}
+
+.crystal-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.crystal-toggle:hover {
+    color: #64c8ff;
+}
+
+.crystal-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.crystal-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+}
+
+.crystal-checkbox input {
+    display: none;
+}
+
+.crystal-checkmark {
+    width: 18px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(100, 200, 255, 0.3);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.2s ease;
+}
+
+.crystal-checkbox input:checked + .crystal-checkmark {
+    background: #64c8ff;
+    border-color: #64c8ff;
+    color: white;
+}
+
+.crystal-link {
+    color: rgba(100, 200, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.crystal-link:hover {
+    color: #64c8ff;
+    text-shadow: 0 0 8px #64c8ff;
+}
+
+.crystal-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(100, 200, 255, 0.3);
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-crystal-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.2), transparent);
+    top: 0;
+    left: -100%;
+    transition: left 0.5s ease;
+}
+
+.crystal-btn:hover {
+    border-color: #64c8ff;
+    box-shadow: 0 0 20px rgba(100, 200, 255, 0.2);
+}
+
+.crystal-btn:hover .btn-crystal-effect {
+    left: 100%;
+}
+
+.crystal-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.crystal-divider .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+}
+
+.crystal-divider .text {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.7rem;
+}
+
+.crystal-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.crystal-social-btn {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.social-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #64c8ff, transparent);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.crystal-social-btn:hover {
+    border-color: #64c8ff;
+    transform: translateY(-3px);
+}
+
+.crystal-social-btn:hover .social-glow {
+    opacity: 0.3;
+}
+
+.crystal-footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.crystal-footer a {
+    color: #64c8ff;
+    text-decoration: none;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.crystal-footer a:hover {
+    text-shadow: 0 0 8px #64c8ff;
+}
+
+.floating-crystals {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.floating-crystal {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(100, 200, 255, 0.3);
+    border-radius: 1px;
+    animation: float-crystal 10s linear infinite;
+}
+
+.floating-crystal:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.floating-crystal:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; }
+.floating-crystal:nth-child(3) { top: 80%; left: 30%; animation-delay: 4s; }
+.floating-crystal:nth-child(4) { top: 40%; left: 70%; animation-delay: 6s; }
+
+@keyframes float-crystal {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+    50% { transform: translateY(-30px) rotate(180deg); opacity: 0.8; }
+    100% { transform: translateY(0) rotate(360deg); opacity: 0.3; }
+}`,
+    js: `// Crystal Glass Morphism Login
+document.addEventListener('DOMContentLoaded', function() {
+    const crystalForm = document.querySelector('.crystal-form');
+    
+    if (crystalForm) {
+        crystalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            if (!email || !password) {
+                showCrystalNotification('Please illuminate all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.crystal-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Illuminating...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Radiant!</span> <i class="fas fa-gem"></i>';
+                showCrystalNotification('Welcome to the crystal realm!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const crystalToggle = crystalForm.querySelector('.crystal-toggle');
+        if (crystalToggle) {
+            crystalToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+        
+        // Social buttons
+        const socialBtns = crystalForm.querySelectorAll('.crystal-social-btn');
+        socialBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const provider = this.querySelector('i').className.includes('google') ? 'Google' :
+                               this.querySelector('i').className.includes('apple') ? 'Apple' : 'Microsoft';
+                showCrystalNotification(\`Connecting to \${provider}\`, 'info');
+            });
+        });
+    }
+    
+    function showCrystalNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(10, 15, 31, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid \${type === 'success' ? '#64c8ff' : type === 'error' ? '#ff64c8' : '#c864ff'};
+            border-radius: 16px;
+            color: white;
+            padding: 12px 24px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px \${type === 'success' ? '#64c8ff' : type === 'error' ? '#ff64c8' : '#c864ff'}33;
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 69: Bioluminescent Nature Login
+// ====================================================================
+form69: {
+    name: "Bioluminescent Nature Login",
+    category: "login modern nature bioluminescent",
+    html: `<div class="form-container bioluminescent-bg">
+    <div class="forest-depth">
+        <div class="tree-layer layer-1"></div>
+        <div class="tree-layer layer-2"></div>
+        <div class="tree-layer layer-3"></div>
+    </div>
+    <div class="glow-worms">
+        <div class="worm"></div>
+        <div class="worm"></div>
+        <div class="worm"></div>
+        <div class="worm"></div>
+        <div class="worm"></div>
+    </div>
+    <div class="glowing-mushrooms">
+        <div class="mushroom"></div>
+        <div class="mushroom"></div>
+        <div class="mushroom"></div>
+    </div>
+    <div class="floating-fireflies">
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+        <div class="firefly"></div>
+    </div>
+    
+    <div class="bioluminescent-card">
+        <div class="card-aura"></div>
+        <div class="card-content">
+            <div class="nature-logo">
+                <i class="fas fa-leaf"></i>
+                <i class="fas fa-circle small"></i>
+                <i class="fas fa-circle medium"></i>
+            </div>
+            <h3 class="nature-title">Awaken</h3>
+            <p class="nature-subtitle">Enter the glowing forest</p>
+            
+            <form class="bioluminescent-form">
+                <div class="glowing-input">
+                    <div class="input-container">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Your essence" required>
+                        <div class="glow-bar"></div>
+                    </div>
+                    <div class="input-glow-effect"></div>
+                </div>
+                
+                <div class="glowing-input">
+                    <div class="input-container">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Your secret" required>
+                        <button type="button" class="nature-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="glow-bar"></div>
+                    </div>
+                    <div class="input-glow-effect"></div>
+                </div>
+                
+                <div class="nature-options">
+                    <label class="nature-checkbox">
+                        <input type="checkbox" checked>
+                        <span class="nature-checkmark">
+                            <i class="fas fa-seedling"></i>
+                        </span>
+                        <span>Remember the path</span>
+                    </label>
+                    <a href="#" class="nature-link">Lost in woods?</a>
+                </div>
+                
+                <button type="submit" class="nature-btn">
+                    <span>Enter the Grove</span>
+                    <i class="fas fa-tree"></i>
+                    <div class="btn-glow-pulse"></div>
+                </button>
+            </form>
+            
+            <div class="nature-footer">
+                <span class="footer-text">Don't have an account?</span>
+                <a href="#" class="footer-link">Plant a seed</a>
+            </div>
+        </div>
+    </div>
+</div>`,
+    css: `.bioluminescent-bg {
+    background: #0a1a0a;
+    border-radius: 32px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.forest-depth {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tree-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.layer-1 {
+    background: linear-gradient(to top, transparent, rgba(20, 80, 20, 0.2));
+    clip-path: polygon(0% 70%, 10% 60%, 20% 65%, 30% 55%, 40% 60%, 50% 50%, 60% 55%, 70% 45%, 80% 50%, 90% 40%, 100% 45%, 100% 100%, 0% 100%);
+}
+
+.layer-2 {
+    background: linear-gradient(to top, transparent, rgba(40, 120, 40, 0.3));
+    clip-path: polygon(0% 75%, 15% 70%, 25% 72%, 35% 68%, 45% 70%, 55% 65%, 65% 68%, 75% 62%, 85% 65%, 95% 60%, 100% 63%, 100% 100%, 0% 100%);
+}
+
+.layer-3 {
+    background: linear-gradient(to top, transparent, rgba(60, 160, 60, 0.4));
+    clip-path: polygon(0% 80%, 20% 78%, 30% 80%, 40% 76%, 50% 78%, 60% 74%, 70% 76%, 80% 72%, 90% 74%, 100% 70%, 100% 100%, 0% 100%);
+}
+
+.glow-worms {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.worm {
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: #7cfc00;
+    filter: blur(2px);
+    animation: worm-glow 2s infinite;
+}
+
+.worm:nth-child(1) { bottom: 20%; left: 15%; animation-delay: 0s; }
+.worm:nth-child(2) { bottom: 30%; left: 35%; animation-delay: 0.4s; }
+.worm:nth-child(3) { bottom: 15%; left: 55%; animation-delay: 0.8s; }
+.worm:nth-child(4) { bottom: 25%; left: 75%; animation-delay: 1.2s; }
+.worm:nth-child(5) { bottom: 18%; left: 90%; animation-delay: 1.6s; }
+
+@keyframes worm-glow {
+    0%, 100% { opacity: 0.3; height: 15px; }
+    50% { opacity: 1; height: 20px; box-shadow: 0 0 15px #7cfc00; }
+}
+
+.glowing-mushrooms {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mushroom {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #ff9f00;
+    border-radius: 50%;
+    filter: blur(3px);
+    animation: mushroom-glow 3s infinite;
+}
+
+.mushroom:nth-child(1) { bottom: 10%; left: 20%; animation-delay: 0s; }
+.mushroom:nth-child(2) { bottom: 15%; right: 25%; animation-delay: 1s; }
+.mushroom:nth-child(3) { bottom: 12%; left: 70%; animation-delay: 2s; }
+
+@keyframes mushroom-glow {
+    0%, 100% { box-shadow: 0 0 10px #ff9f00; transform: scale(1); }
+    50% { box-shadow: 0 0 25px #ff9f00; transform: scale(1.3); }
+}
+
+.floating-fireflies {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.firefly {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #ffd700;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: firefly-float 8s infinite;
+}
+
+.firefly:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.firefly:nth-child(2) { top: 40%; left: 85%; animation-delay: 1s; }
+.firefly:nth-child(3) { top: 70%; left: 30%; animation-delay: 2s; }
+.firefly:nth-child(4) { top: 50%; left: 60%; animation-delay: 3s; }
+.firefly:nth-child(5) { top: 85%; left: 45%; animation-delay: 4s; }
+.firefly:nth-child(6) { top: 15%; left: 75%; animation-delay: 5s; }
+
+@keyframes firefly-float {
+    0% { transform: translate(0, 0); opacity: 0.3; }
+    25% { transform: translate(20px, -20px); opacity: 1; }
+    50% { transform: translate(40px, 0); opacity: 0.6; }
+    75% { transform: translate(20px, 20px); opacity: 1; }
+    100% { transform: translate(0, 0); opacity: 0.3; }
+}
+
+.bioluminescent-card {
+    position: relative;
+    background: rgba(10, 30, 10, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 32px;
+    padding: 20px;
+    border: 1px solid rgba(124, 252, 0, 0.2);
+    z-index: 20;
+    overflow: hidden;
+}
+
+.card-aura {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(124, 252, 0, 0.1), transparent 70%);
+    animation: aura-pulse 4s infinite;
+}
+
+@keyframes aura-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.2); opacity: 0.6; }
+}
+
+.nature-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.nature-logo i:first-child {
+    font-size: 2rem;
+    color: #7cfc00;
+    filter: drop-shadow(0 0 15px #7cfc00);
+    animation: leaf-float 3s infinite;
+}
+
+@keyframes leaf-float {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+}
+
+.nature-logo .small {
+    font-size: 0.5rem;
+    color: #ffd700;
+    animation: glow-pulse 2s infinite;
+}
+
+.nature-logo .medium {
+    font-size: 0.8rem;
+    color: #ff9f00;
+    animation: glow-pulse 2s infinite 0.5s;
+}
+
+.nature-title {
+    text-align: center;
+    color: #e0ffe0;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-shadow: 0 0 15px #7cfc00;
+}
+
+.nature-subtitle {
+    text-align: center;
+    color: #a0d0a0;
+    font-size: 0.7rem;
+    margin-bottom: 20px;
+}
+
+.glowing-input {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 20, 0, 0.4);
+    border: 1px solid rgba(124, 252, 0, 0.2);
+    border-radius: 20px;
+    padding: 0 16px;
+    transition: all 0.3s ease;
+}
+
+.input-container i {
+    color: #7cfc00;
+    font-size: 0.9rem;
+    margin-right: 12px;
+    filter: drop-shadow(0 0 5px #7cfc00);
+}
+
+.input-container input {
+    width: 100%;
+    padding: 16px 0;
+    background: transparent;
+    border: none;
+    color: #e0ffe0;
+    font-size: 0.9rem;
+}
+
+.input-container input:focus {
+    outline: none;
+}
+
+.input-container input::placeholder {
+    color: rgba(124, 252, 0, 0.3);
+}
+
+.glow-bar {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #7cfc00;
+    box-shadow: 0 0 15px #7cfc00;
+    transition: width 0.3s ease;
+}
+
+.input-container:focus-within .glow-bar {
+    width: 100%;
+}
+
+.input-glow-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #7cfc00, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    filter: blur(15px);
+}
+
+.input-container:focus-within ~ .input-glow-effect {
+    opacity: 0.2;
+}
+
+.nature-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #7cfc00;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.nature-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.nature-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #c0e0c0;
+    font-size: 0.75rem;
+}
+
+.nature-checkbox input {
+    display: none;
+}
+
+.nature-checkmark {
+    width: 20px;
+    height: 20px;
+    background: rgba(124, 252, 0, 0.1);
+    border: 1px solid #7cfc00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.2s ease;
+}
+
+.nature-checkbox input:checked + .nature-checkmark {
+    background: #7cfc00;
+    color: #0a1a0a;
+    box-shadow: 0 0 15px #7cfc00;
+}
+
+.nature-link {
+    color: #7cfc00;
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.nature-link:hover {
+    text-shadow: 0 0 8px #7cfc00;
+}
+
+.nature-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: rgba(124, 252, 0, 0.1);
+    color: #e0ffe0;
+    border: 1px solid #7cfc00;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-glow-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #7cfc00, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.nature-btn:hover {
+    background: rgba(124, 252, 0, 0.2);
+    box-shadow: 0 0 30px rgba(124, 252, 0, 0.3);
+}
+
+.nature-btn:hover .btn-glow-pulse {
+    opacity: 0.3;
+}
+
+.nature-footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #a0d0a0;
+}
+
+.footer-link {
+    color: #7cfc00;
+    text-decoration: none;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    text-shadow: 0 0 8px #7cfc00;
+}`,
+    js: `// Bioluminescent Nature Login
+document.addEventListener('DOMContentLoaded', function() {
+    const natureForm = document.querySelector('.bioluminescent-form');
+    
+    if (natureForm) {
+        natureForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[placeholder="Your essence"]').value;
+            const password = this.querySelector('input[placeholder="Your secret"]').value;
+            
+            if (!email || !password) {
+                showNatureNotification('The forest whispers: fill all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.nature-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Awakening...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome to the Grove!</span> <i class="fas fa-tree"></i>';
+                showNatureNotification('The forest welcomes you!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const natureToggle = natureForm.querySelector('.nature-toggle');
+        if (natureToggle) {
+            natureToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showNatureNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(10, 26, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid \${type === 'success' ? '#7cfc00' : type === 'error' ? '#ff6347' : '#ffd700'};
+            border-radius: 20px;
+            color: white;
+            padding: 12px 24px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px \${type === 'success' ? '#7cfc00' : type === 'error' ? '#ff6347' : '#ffd700'}33;
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 70: Cosmic Nebula 3D Login
+// ====================================================================
+form70: {
+    name: "Cosmic Nebula 3D Login",
+    category: "login modern cosmic 3d",
+    html: `<div class="form-container cosmic-nebula-bg">
+    <div class="nebula-layers">
+        <div class="nebula-layer layer-1"></div>
+        <div class="nebula-layer layer-2"></div>
+        <div class="nebula-layer layer-3"></div>
+        <div class="star-field"></div>
+        <div class="shooting-stars">
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+        </div>
+    </div>
+    
+    <div class="planets">
+        <div class="planet planet-1">
+            <div class="planet-ring"></div>
+        </div>
+        <div class="planet planet-2"></div>
+        <div class="planet planet-3"></div>
+        <div class="moon"></div>
+    </div>
+    
+    <div class="cosmic-card-container">
+        <div class="cosmic-card">
+            <div class="card-3d-effect">
+                <div class="effect-layer"></div>
+                <div class="effect-layer"></div>
+                <div class="effect-layer"></div>
+            </div>
+            <div class="cosmic-content">
+                <div class="cosmic-logo">
+                    <i class="fas fa-meteor"></i>
+                    <span>NEBULA</span>
+                </div>
+                <h3 class="cosmic-title">Galactic Gateway</h3>
+                <p class="cosmic-subtitle">Journey through the stars</p>
+                
+                <form class="cosmic-form">
+                    <div class="cosmic-input-3d">
+                        <div class="input-star-field"></div>
+                        <div class="cosmic-input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" placeholder="Stellar ID" required>
+                        </div>
+                    </div>
+                    
+                    <div class="cosmic-input-3d">
+                        <div class="input-star-field"></div>
+                        <div class="cosmic-input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Nebula Key" required>
+                            <button type="button" class="cosmic-toggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="cosmic-options">
+                        <label class="cosmic-checkbox">
+                            <input type="checkbox" checked>
+                            <span class="cosmic-checkmark">
+                                <i class="fas fa-star"></i>
+                            </span>
+                            <span>Orbit this device</span>
+                        </label>
+                        <a href="#" class="cosmic-link">Gravitational pull?</a>
+                    </div>
+                    
+                    <button type="submit" class="cosmic-btn">
+                        <span>Launch</span>
+                        <i class="fas fa-rocket"></i>
+                        <div class="btn-trail"></div>
+                    </button>
+                </form>
+                
+                <div class="cosmic-constellation">
+                    <div class="stars">
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                    </div>
+                    <div class="constellation-text">
+                        <span>New to the universe?</span>
+                        <a href="#">Create constellation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`,
+    css: `.cosmic-nebula-bg {
+    background: #03050a;
+    border-radius: 32px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.nebula-layers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.nebula-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: screen;
+}
+
+.layer-1 {
+    background: radial-gradient(circle at 30% 40%, #ff4d4d, transparent 70%);
+    opacity: 0.3;
+    animation: nebula-drift 20s infinite;
+}
+
+.layer-2 {
+    background: radial-gradient(circle at 70% 60%, #4d79ff, transparent 70%);
+    opacity: 0.3;
+    animation: nebula-drift 25s infinite reverse;
+}
+
+.layer-3 {
+    background: radial-gradient(circle at 50% 50%, #aa4dff, transparent 70%);
+    opacity: 0.2;
+    animation: nebula-drift 30s infinite;
+}
+
+@keyframes nebula-drift {
+    0% { transform: scale(1) translate(0, 0); }
+    50% { transform: scale(1.2) translate(2%, 2%); }
+    100% { transform: scale(1) translate(0, 0); }
+}
+
+.star-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(2px 2px at 10px 10px, white, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 30px 40px, white, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 50px 80px, white, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 80px 20px, white, rgba(0,0,0,0)),
+                      radial-gradient(2px 2px at 120px 60px, white, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: stars-twinkle 2s infinite;
+}
+
+@keyframes stars-twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+.shooting-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, white, transparent);
+    transform: rotate(45deg);
+    animation: shoot 5s linear infinite;
+    opacity: 0;
+}
+
+.shooting-star:nth-child(1) { top: 10%; left: -10%; animation-delay: 0s; }
+.shooting-star:nth-child(2) { top: 30%; left: -10%; animation-delay: 2s; }
+.shooting-star:nth-child(3) { top: 60%; left: -10%; animation-delay: 4s; }
+
+@keyframes shoot {
+    0% { transform: rotate(45deg) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: rotate(45deg) translateX(500px); opacity: 0; }
+}
+
+.planets {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffaa00, #aa5500);
+    filter: blur(2px);
+    animation: planet-orbit 30s linear infinite;
+}
+
+.planet-1 {
+    width: 30px;
+    height: 30px;
+    top: 15%;
+    right: 15%;
+    background: radial-gradient(circle at 30% 30%, #ffaa00, #aa5500);
+}
+
+.planet-ring {
+    position: absolute;
+    width: 45px;
+    height: 10px;
+    border: 2px solid rgba(255, 200, 100, 0.3);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.planet-2 {
+    width: 20px;
+    height: 20px;
+    bottom: 20%;
+    left: 20%;
+    background: radial-gradient(circle at 30% 30%, #4d79ff, #0022aa);
+    animation: planet-orbit 20s linear infinite reverse;
+}
+
+.planet-3 {
+    width: 15px;
+    height: 15px;
+    top: 40%;
+    left: 30%;
+    background: radial-gradient(circle at 30% 30%, #ff4d4d, #aa0000);
+    animation: planet-orbit 25s linear infinite;
+}
+
+.moon {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    border-radius: 50%;
+    top: 25%;
+    right: 25%;
+    filter: blur(1px);
+    animation: moon-orbit 10s linear infinite;
+}
+
+@keyframes planet-orbit {
+    from { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(20px) rotate(-360deg); }
+}
+
+@keyframes moon-orbit {
+    from { transform: rotate(0deg) translateX(40px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
+}
+
+.cosmic-card-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 220px;
+    z-index: 30;
+    perspective: 1000px;
+}
+
+.cosmic-card {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    transform-style: preserve-3d;
+    animation: card-float 6s ease-in-out infinite;
+}
+
+@keyframes card-float {
+    0%, 100% { transform: rotateY(0deg) rotateX(5deg) translateZ(0); }
+    50% { transform: rotateY(5deg) rotateX(0deg) translateZ(20px); }
+}
+
+.card-3d-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.effect-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    background: rgba(20, 30, 50, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.effect-layer:nth-child(1) { transform: translateZ(20px); }
+.effect-layer:nth-child(2) { transform: translateZ(10px); opacity: 0.7; }
+.effect-layer:nth-child(3) { transform: translateZ(0px); opacity: 0.4; }
+
+.cosmic-content {
+    position: relative;
+    padding: 20px;
+    transform: translateZ(30px);
+}
+
+.cosmic-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.cosmic-logo i {
+    font-size: 1.8rem;
+    color: #ffaa00;
+    filter: drop-shadow(0 0 15px #ffaa00);
+    animation: meteor-spin 8s linear infinite;
+}
+
+@keyframes meteor-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.cosmic-logo span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: white;
+    text-shadow: 0 0 10px #ffaa00;
+}
+
+.cosmic-title {
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.cosmic-subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.6rem;
+    margin-bottom: 15px;
+}
+
+.cosmic-input-3d {
+    position: relative;
+    margin-bottom: 15px;
+    transform-style: preserve-3d;
+}
+
+.input-star-field {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent);
+    border-radius: 12px;
+    transform: translateZ(-5px);
+    filter: blur(5px);
+}
+
+.cosmic-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0 12px;
+    backdrop-filter: blur(5px);
+    transform: translateZ(5px);
+}
+
+.cosmic-input-wrapper i {
+    color: #ffaa00;
+    font-size: 0.85rem;
+    margin-right: 10px;
+}
+
+.cosmic-input-wrapper input {
+    width: 100%;
+    padding: 12px 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.cosmic-input-wrapper input:focus {
+    outline: none;
+}
+
+.cosmic-toggle {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.cosmic-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.cosmic-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+}
+
+.cosmic-checkbox input {
+    display: none;
+}
+
+.cosmic-checkmark {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ffaa00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.2s ease;
+}
+
+.cosmic-checkbox input:checked + .cosmic-checkmark {
+    background: #ffaa00;
+    color: #000;
+}
+
+.cosmic-link {
+    color: #ffaa00;
+    text-decoration: none;
+    font-size: 0.7rem;
+}
+
+.cosmic-btn {
+    position: relative;
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: white;
+    border: 1px solid #ffaa00;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.btn-trail {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 170, 0, 0.3), transparent);
+    top: 0;
+    left: -100%;
+    animation: trail-move 3s infinite;
+}
+
+@keyframes trail-move {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.cosmic-btn:hover {
+    background: rgba(255, 170, 0, 0.1);
+    box-shadow: 0 0 30px rgba(255, 170, 0, 0.3);
+}
+
+.cosmic-constellation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.stars {
+    display: flex;
+    gap: 15px;
+}
+
+.star {
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: star-twinkle 1.5s infinite;
+}
+
+.star:nth-child(1) { animation-delay: 0s; }
+.star:nth-child(2) { animation-delay: 0.5s; }
+.star:nth-child(3) { animation-delay: 1s; }
+
+.constellation-text {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.constellation-text a {
+    color: #ffaa00;
+    text-decoration: none;
+    margin-left: 5px;
+}`,
+    js: `// Cosmic Nebula 3D Login
+document.addEventListener('DOMContentLoaded', function() {
+    const cosmicForm = document.querySelector('.cosmic-form');
+    
+    if (cosmicForm) {
+        cosmicForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const stellarId = this.querySelector('input[placeholder="Stellar ID"]').value;
+            const nebulaKey = this.querySelector('input[placeholder="Nebula Key"]').value;
+            
+            if (!stellarId || !nebulaKey) {
+                showCosmicNotification('Insufficient stellar coordinates', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.cosmic-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Launching...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome to the Nebula!</span> <i class="fas fa-rocket"></i>';
+                showCosmicNotification('Warp successful! You have entered the galaxy.', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const cosmicToggle = cosmicForm.querySelector('.cosmic-toggle');
+        if (cosmicToggle) {
+            cosmicToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showCosmicNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(3, 5, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid \${type === 'success' ? '#ffaa00' : type === 'error' ? '#ff4d4d' : '#aa4dff'};
+            border-radius: 12px;
+            color: white;
+            padding: 12px 24px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px \${type === 'success' ? '#ffaa00' : type === 'error' ? '#ff4d4d' : '#aa4dff'}33;
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 71: Art Deco Geometric Login
+// ====================================================================
+form71: {
+    name: "Art Deco Geometric Login",
+    category: "login modern artdeco geometric",
+    html: `<div class="form-container artdeco-geometric-bg">
+    <div class="geometric-patterns">
+        <div class="pattern sunburst"></div>
+        <div class="pattern zigzag"></div>
+        <div class="pattern chevron"></div>
+        <div class="pattern fan"></div>
+        <div class="pattern border-deco"></div>
+    </div>
+    
+    <div class="golden-lines">
+        <div class="line-vertical"></div>
+        <div class="line-horizontal"></div>
+        <div class="line-diagonal"></div>
+    </div>
+    
+    <div class="artdeco-card">
+        <div class="card-gold-border">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+        </div>
+        
+        <div class="artdeco-content">
+            <div class="artdeco-logo">
+                <i class="fas fa-crown"></i>
+                <span>ART DECO</span>
+            </div>
+            <h3 class="artdeco-title">The Gatsby Era</h3>
+            <p class="artdeco-subtitle">Timeless elegance awaits</p>
+            
+            <form class="artdeco-form">
+                <div class="artdeco-input-group">
+                    <div class="artdeco-input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email address" required>
+                    </div>
+                    <div class="input-decoration"></div>
+                </div>
+                
+                <div class="artdeco-input-group">
+                    <div class="artdeco-input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                        <button type="button" class="artdeco-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="input-decoration"></div>
+                </div>
+                
+                <div class="artdeco-options">
+                    <label class="artdeco-checkbox">
+                        <input type="checkbox" checked>
+                        <span class="artdeco-checkmark">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="artdeco-link">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="artdeco-btn">
+                    <span>Enter</span>
+                    <i class="fas fa-arrow-right"></i>
+                    <div class="btn-golden-shine"></div>
+                </button>
+            </form>
+            
+            <div class="artdeco-divider">
+                <span class="divider-line"></span>
+                <span class="divider-icon">✦</span>
+                <span class="divider-line"></span>
+            </div>
+            
+            <div class="artdeco-social">
+                <button class="artdeco-social-btn">
+                    <i class="fab fa-facebook-f"></i>
+                </button>
+                <button class="artdeco-social-btn">
+                    <i class="fab fa-twitter"></i>
+                </button>
+                <button class="artdeco-social-btn">
+                    <i class="fab fa-instagram"></i>
+                </button>
+            </div>
+            
+            <div class="artdeco-footer">
+                <span class="footer-text">New to the era?</span>
+                <a href="#" class="footer-link">Join the society</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="geometric-footer">
+        <span>✦ 1920-2025 ✦</span>
+    </div>
+</div>`,
+    css: `.artdeco-geometric-bg {
+    background: #1a120b;
+    border-radius: 32px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.geometric-patterns {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.pattern {
+    position: absolute;
+    opacity: 0.1;
+}
+
+.sunburst {
+    top: -20px;
+    right: -20px;
+    width: 200px;
+    height: 200px;
+    background: repeating-radial-gradient(circle at 100% 0%, #d4af37 2px, transparent 4px);
+    transform: rotate(15deg);
+}
+
+.zigzag {
+    bottom: 20px;
+    left: 20px;
+    width: 150px;
+    height: 100px;
+    background: repeating-linear-gradient(45deg, #d4af37 0px, #d4af37 2px, transparent 2px, transparent 8px);
+}
+
+.chevron {
+    top: 40%;
+    left: 10%;
+    width: 120px;
+    height: 60px;
+    background: repeating-linear-gradient(135deg, #d4af37 0px, #d4af37 2px, transparent 2px, transparent 12px);
+}
+
+.fan {
+    bottom: 10%;
+    right: 15%;
+    width: 100px;
+    height: 100px;
+    background: conic-gradient(from 0deg, #d4af37 0deg 15deg, transparent 15deg 30deg);
+    background-size: 30px 30px;
+}
+
+.border-deco {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg, #d4af37 0px, #d4af37 1px, transparent 1px, transparent 10px),
+                repeating-linear-gradient(90deg, #d4af37 0px, #d4af37 1px, transparent 1px, transparent 10px);
+    pointer-events: none;
+}
+
+.golden-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.line-vertical {
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, #d4af37, transparent);
+    left: 20%;
+}
+
+.line-horizontal {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
+    top: 40%;
+}
+
+.line-diagonal {
+    position: absolute;
+    width: 200%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
+    transform: rotate(45deg);
+    top: 30%;
+    left: -50%;
+}
+
+.artdeco-card {
+    position: relative;
+    background: rgba(26, 18, 11, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 25px;
+    border: 2px solid #d4af37;
+    z-index: 20;
+}
+
+.card-gold-border {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    pointer-events: none;
+}
+
+.corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d4af37;
+}
+
+.corner.top-left {
+    top: -2px;
+    left: -2px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.corner.top-right {
+    top: -2px;
+    right: -2px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.corner.bottom-left {
+    bottom: -2px;
+    left: -2px;
+    border-right: none;
+    border-top: none;
+}
+
+.corner.bottom-right {
+    bottom: -2px;
+    right: -2px;
+    border-left: none;
+    border-top: none;
+}
+
+.artdeco-content {
+    position: relative;
+}
+
+.artdeco-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.artdeco-logo i {
+    font-size: 2rem;
+    color: #d4af37;
+}
+
+.artdeco-logo span {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #d4af37;
+}
+
+.artdeco-title {
+    text-align: center;
+    color: #f0e6d2;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+}
+
+.artdeco-subtitle {
+    text-align: center;
+    color: #b8a99a;
+    font-size: 0.7rem;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.artdeco-input-group {
+    margin-bottom: 20px;
+}
+
+.artdeco-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid #d4af37;
+    padding: 0 16px;
+}
+
+.artdeco-input-wrapper i {
+    color: #d4af37;
+    font-size: 0.9rem;
+    margin-right: 12px;
+}
+
+.artdeco-input-wrapper input {
+    width: 100%;
+    padding: 16px 0;
+    background: transparent;
+    border: none;
+    color: #f0e6d2;
+    font-size: 0.9rem;
+}
+
+.artdeco-input-wrapper input:focus {
+    outline: none;
+}
+
+.artdeco-input-wrapper input::placeholder {
+    color: #7a6b5c;
+}
+
+.input-decoration {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #d4af37, transparent);
+}
+
+.artdeco-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #d4af37;
+    cursor: pointer;
+}
+
+.artdeco-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 0;
+}
+
+.artdeco-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #c0b1a2;
+    font-size: 0.8rem;
+}
+
+.artdeco-checkbox input {
+    display: none;
+}
+
+.artdeco-checkmark {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #d4af37;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    background: transparent;
+}
+
+.artdeco-checkbox input:checked + .artdeco-checkmark {
+    background: #d4af37;
+    color: #1a120b;
+}
+
+.artdeco-link {
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.artdeco-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: #d4af37;
+    color: #1a120b;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-golden-shine {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    top: 0;
+    left: -100%;
+    transition: left 0.5s ease;
+}
+
+.artdeco-btn:hover .btn-golden-shine {
+    left: 100%;
+}
+
+.artdeco-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+.divider-icon {
+    color: #d4af37;
+    font-size: 1.2rem;
+}
+
+.artdeco-social {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.artdeco-social-btn {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid #d4af37;
+    border-radius: 0;
+    color: #d4af37;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform: rotate(45deg);
+}
+
+.artdeco-social-btn i {
+    transform: rotate(-45deg);
+}
+
+.artdeco-social-btn:hover {
+    background: #d4af37;
+    color: #1a120b;
+}
+
+.artdeco-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #b8a99a;
+}
+
+.footer-link {
+    color: #d4af37;
+    text-decoration: none;
+    margin-left: 5px;
+    font-weight: 600;
+}
+
+.geometric-footer {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: rgba(212, 175, 55, 0.3);
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+}`,
+    js: `// Art Deco Geometric Login
+document.addEventListener('DOMContentLoaded', function() {
+    const artdecoForm = document.querySelector('.artdeco-form');
+    
+    if (artdecoForm) {
+        artdecoForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[placeholder="Email address"]').value;
+            const password = this.querySelector('input[placeholder="Password"]').value;
+            
+            if (!email || !password) {
+                showArtDecoNotification('Please complete the form', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.artdeco-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Entering...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Welcome to the Era!</span> <i class="fas fa-crown"></i>';
+                showArtDecoNotification('Access granted. The Gatsby Era welcomes you.', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const artdecoToggle = artdecoForm.querySelector('.artdeco-toggle');
+        if (artdecoToggle) {
+            artdecoToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+        
+        // Social buttons
+        const socialBtns = artdecoForm.querySelectorAll('.artdeco-social-btn');
+        socialBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                showArtDecoNotification('Social connection coming soon', 'info');
+            });
+        });
+    }
+    
+    function showArtDecoNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1a120b;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 12px 24px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 72: Liquid Metal Chrome Login
+// ====================================================================
+form72: {
+    name: "Liquid Metal Chrome Login",
+    category: "login modern liquid chrome",
+    html: `<div class="form-container liquid-metal-chrome-bg">
+    <div class="liquid-waves">
+        <div class="wave metal-wave-1"></div>
+        <div class="wave metal-wave-2"></div>
+        <div class="wave metal-wave-3"></div>
+    </div>
+    
+    <div class="chrome-spheres">
+        <div class="sphere sphere-1"></div>
+        <div class="sphere sphere-2"></div>
+        <div class="sphere sphere-3"></div>
+        <div class="sphere sphere-4"></div>
+    </div>
+    
+    <div class="liquid-metal-card">
+        <div class="metal-shine"></div>
+        <div class="metal-card-content">
+            <div class="metal-logo">
+                <i class="fas fa-droplet"></i>
+                <span>LIQUID METAL</span>
+            </div>
+            <h3 class="metal-title">Molten Access</h3>
+            <p class="metal-subtitle">Fluid like mercury</p>
+            
+            <form class="liquid-metal-form">
+                <div class="metal-input-container">
+                    <div class="metal-input-wrapper">
+                        <div class="metal-input-highlight"></div>
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                </div>
+                
+                <div class="metal-input-container">
+                    <div class="metal-input-wrapper">
+                        <div class="metal-input-highlight"></div>
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                        <button type="button" class="metal-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="metal-options">
+                    <label class="metal-checkbox">
+                        <input type="checkbox" checked>
+                        <span class="metal-checkmark">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <span class="metal-checkbox-text">Flow with me</span>
+                    </label>
+                    <a href="#" class="metal-link">Meltdown?</a>
+                </div>
+                
+                <button type="submit" class="metal-btn">
+                    <span>Flow In</span>
+                    <i class="fas fa-water"></i>
+                    <div class="btn-liquid-effect"></div>
+                </button>
+            </form>
+            
+            <div class="metal-drip"></div>
+        </div>
+    </div>
+    
+    <div class="liquid-footer">
+        <span class="liquid-text">⚡ 99.9% PURE CHROME ⚡</span>
+    </div>
+</div>`,
+    css: `.liquid-metal-chrome-bg {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    border-radius: 32px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.liquid-waves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.wave {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(192, 192, 192, 0.1) 50%, transparent 70%);
+    animation: wave-flow 10s linear infinite;
+}
+
+.metal-wave-1 {
+    top: -50%;
+    left: -50%;
+    transform: rotate(30deg);
+    animation: wave-flow 15s linear infinite;
+}
+
+.metal-wave-2 {
+    bottom: -50%;
+    right: -50%;
+    transform: rotate(-45deg);
+    animation: wave-flow 20s linear infinite reverse;
+}
+
+.metal-wave-3 {
+    top: 0;
+    left: 0;
+    transform: rotate(15deg);
+    animation: wave-flow 25s linear infinite;
+}
+
+@keyframes wave-flow {
+    0% { transform: rotate(30deg) translateX(0); }
+    100% { transform: rotate(30deg) translateX(50%); }
+}
+
+.chrome-spheres {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.sphere {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff, #aaa, #666);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: sphere-float 8s infinite;
+}
+
+.sphere-1 {
+    width: 40px;
+    height: 40px;
+    top: 10%;
+    left: 10%;
+    animation: sphere-float 6s infinite;
+}
+
+.sphere-2 {
+    width: 25px;
+    height: 25px;
+    bottom: 15%;
+    right: 15%;
+    animation: sphere-float 7s infinite reverse;
+}
+
+.sphere-3 {
+    width: 30px;
+    height: 30px;
+    top: 40%;
+    right: 20%;
+    animation: sphere-float 8s infinite;
+}
+
+.sphere-4 {
+    width: 20px;
+    height: 20px;
+    bottom: 30%;
+    left: 20%;
+    animation: sphere-float 5s infinite reverse;
+}
+
+@keyframes sphere-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.liquid-metal-card {
+    position: relative;
+    background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+    border-radius: 32px;
+    padding: 25px;
+    overflow: hidden;
+    z-index: 20;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.5),
+        inset 0 1px 1px rgba(255,255,255,0.2),
+        inset 0 -2px 2px rgba(0,0,0,0.3);
+}
+
+.metal-shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2), transparent 70%);
+    animation: metal-shine 5s linear infinite;
+}
+
+@keyframes metal-shine {
+    0% { transform: rotate(0deg) scale(1); opacity: 0.3; }
+    50% { transform: rotate(5deg) scale(1.1); opacity: 0.6; }
+    100% { transform: rotate(0deg) scale(1); opacity: 0.3; }
+}
+
+.metal-card-content {
+    position: relative;
+    z-index: 30;
+}
+
+.metal-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.metal-logo i {
+    font-size: 2rem;
+    color: #c0c0c0;
+    text-shadow: 
+        0 1px 2px rgba(255,255,255,0.3),
+        0 -1px 2px rgba(0,0,0,0.5);
+    animation: droplet-pulse 3s infinite;
+}
+
+@keyframes droplet-pulse {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.1); filter: brightness(1.2); }
+}
+
+.metal-logo span {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, #fff, #aaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.metal-title {
+    text-align: center;
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.metal-subtitle {
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 0.7rem;
+    margin-bottom: 25px;
+}
+
+.metal-input-container {
+    margin-bottom: 20px;
+}
+
+.metal-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(145deg, #2d2d2d, #222);
+    border-radius: 16px;
+    padding: 0 16px;
+    box-shadow: 
+        inset 0 2px 5px rgba(0,0,0,0.5),
+        inset 0 -1px 2px rgba(255,255,255,0.1);
+}
+
+.metal-input-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.metal-input-wrapper:focus-within .metal-input-highlight {
+    opacity: 1;
+}
+
+.metal-input-wrapper i {
+    color: #c0c0c0;
+    font-size: 0.9rem;
+    margin-right: 12px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.metal-input-wrapper input {
+    width: 100%;
+    padding: 16px 0;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.metal-input-wrapper input:focus {
+    outline: none;
+}
+
+.metal-input-wrapper input::placeholder {
+    color: #707070;
+}
+
+.metal-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #c0c0c0;
+    cursor: pointer;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.metal-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.metal-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #c0c0c0;
+    font-size: 0.8rem;
+}
+
+.metal-checkbox input {
+    display: none;
+}
+
+.metal-checkmark {
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    box-shadow: 
+        inset 0 1px 2px rgba(255,255,255,0.1),
+        inset 0 -1px 2px rgba(0,0,0,0.3);
+}
+
+.metal-checkbox input:checked + .metal-checkmark {
+    background: linear-gradient(145deg, #c0c0c0, #a0a0a0);
+    color: #2a2a2a;
+}
+
+.metal-link {
+    color: #c0c0c0;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.metal-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+    color: #c0c0c0;
+    border: none;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+    box-shadow: 
+        0 5px 15px rgba(0,0,0,0.3),
+        inset 0 1px 2px rgba(255,255,255,0.1),
+        inset 0 -2px 2px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-liquid-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3), transparent);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.metal-btn:hover {
+    background: linear-gradient(145deg, #4a4a4a, #3a3a3a);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 20px rgba(0,0,0,0.4),
+        inset 0 1px 2px rgba(255,255,255,0.2),
+        inset 0 -2px 2px rgba(0,0,0,0.3);
+}
+
+.metal-btn:hover .btn-liquid-effect {
+    opacity: 0.2;
+}
+
+.metal-drip {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(to bottom, #3a3a3a, #2a2a2a);
+    border-radius: 50%;
+    filter: blur(10px);
+    transform: translateX(-50%);
+    animation: drip 3s infinite;
+}
+
+@keyframes drip {
+    0% { transform: translateX(-50%) scale(1); opacity: 0.3; }
+    50% { transform: translateX(-50%) scale(1.5); opacity: 0.6; }
+    100% { transform: translateX(-50%) scale(1); opacity: 0.3; }
+}
+
+.liquid-footer {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: rgba(192, 192, 192, 0.3);
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+}`,
+    js: `// Liquid Metal Chrome Login
+document.addEventListener('DOMContentLoaded', function() {
+    const metalForm = document.querySelector('.liquid-metal-form');
+    
+    if (metalForm) {
+        metalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[placeholder="Email"]').value;
+            const password = this.querySelector('input[placeholder="Password"]').value;
+            
+            if (!email || !password) {
+                showMetalNotification('Please fill all fields', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.metal-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Flowing...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Merged!</span> <i class="fas fa-water"></i>';
+                showMetalNotification('You have become one with the liquid metal', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const metalToggle = metalForm.querySelector('.metal-toggle');
+        if (metalToggle) {
+            metalToggle.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showMetalNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border: 1px solid #c0c0c0;
+            border-radius: 16px;
+            color: #c0c0c0;
+            padding: 12px 24px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px rgba(192, 192, 192, 0.3);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+// ====================================================================
+// TEMPLATE 73: Retro Cassette Player Form
+// ====================================================================
+form73: {
+    name: "Retro Cassette Player Form",
+    category: "creative retro cassette",
+    html: `<div class="form-container cassette-player-bg">
+    <div class="cassette-body">
+        <div class="cassette-label">
+            <div class="label-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="label-text">
+                <span>MIXTAPE</span>
+                <span>VOL.1</span>
+            </div>
+        </div>
+        
+        <div class="cassette-holes">
+            <div class="hole left"></div>
+            <div class="hole right"></div>
+        </div>
+        
+        <div class="tape-reels">
+            <div class="reel left-reel">
+                <div class="reel-spindle"></div>
+                <div class="reel-teeth"></div>
+                <div class="reel-teeth"></div>
+                <div class="reel-teeth"></div>
+                <div class="reel-teeth"></div>
+            </div>
+            <div class="tape-path">
+                <div class="tape"></div>
+            </div>
+            <div class="reel right-reel">
+                <div class="reel-spindle"></div>
+                <div class="reel-teeth"></div>
+                <div class="reel-teeth"></div>
+                <div class="reel-teeth"></div>
+                <div class="reel-teeth"></div>
+            </div>
+        </div>
+        
+        <div class="cassette-screws">
+            <div class="screw"></div>
+            <div class="screw"></div>
+            <div class="screw"></div>
+            <div class="screw"></div>
+        </div>
+        
+        <div class="cassette-interface">
+            <div class="cassette-header">
+                <span class="model">T-120</span>
+                <div class="led red"></div>
+                <div class="led green"></div>
+            </div>
+            
+            <form class="cassette-form">
+                <div class="track-display">
+                    <span class="track-label">SIDE A</span>
+                    <div class="track-meters">
+                        <div class="meter"></div>
+                        <div class="meter"></div>
+                        <div class="meter"></div>
+                        <div class="meter"></div>
+                        <div class="meter"></div>
+                    </div>
+                </div>
+                
+                <div class="cassette-input">
+                    <div class="input-channel left">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <input type="email" placeholder="RECORD EMAIL" class="cassette-field">
+                    <div class="input-channel right">
+                        <span class="db">dB</span>
+                    </div>
+                </div>
+                
+                <div class="cassette-input">
+                    <div class="input-channel left">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <input type="password" placeholder="RECORD PASSWORD" class="cassette-field" id="cassette-password">
+                    <button type="button" class="cassette-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <div class="input-channel right">
+                        <span class="db">dB</span>
+                    </div>
+                </div>
+                
+                <div class="cassette-controls">
+                    <div class="control-group">
+                        <label class="cassette-check">
+                            <input type="checkbox" checked>
+                            <span class="cassette-checkmark">⏺</span>
+                            <span>REC</span>
+                        </label>
+                    </div>
+                    <div class="control-buttons">
+                        <button type="button" class="ctrl-btn play">▶</button>
+                        <button type="submit" class="ctrl-btn record">●</button>
+                        <button type="button" class="ctrl-btn pause">⏸</button>
+                        <button type="button" class="ctrl-btn eject">⏏</button>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="cassette-footer">
+                <div class="tape-counter">0000</div>
+                <div class="audio-levels">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cassette-reflection"></div>
+</div>`,
+    css: `.cassette-player-bg {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 2px solid #444;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.cassette-body {
+    position: relative;
+    background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+    border-radius: 15px;
+    padding: 15px;
+    border: 1px solid #555;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.cassette-label {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 50px;
+    background: linear-gradient(145deg, #f0f0f0, #d0d0d0);
+    border-radius: 5px;
+    border: 2px solid #888;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.label-lines {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.label-lines span {
+    width: 80%;
+    height: 2px;
+    background: #888;
+}
+
+.label-text {
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.6rem;
+}
+
+.label-text span:first-child {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+.cassette-holes {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 4;
+}
+
+.hole {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.5);
+    border: 2px solid #555;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.tape-reels {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.reel {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #666, #444);
+    border: 3px solid #888;
+    box-shadow: inset 0 -2px 5px rgba(0,0,0,0.5);
+    animation: reel-spin 3s linear infinite;
+}
+
+@keyframes reel-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.reel-spindle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #222;
+    border: 2px solid #888;
+    z-index: 2;
+}
+
+.reel-teeth {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #888;
+    border-radius: 2px;
+}
+
+.reel-teeth:nth-child(2) { top: -5px; left: 50%; transform: translateX(-50%); }
+.reel-teeth:nth-child(3) { bottom: -5px; left: 50%; transform: translateX(-50%); }
+.reel-teeth:nth-child(4) { left: -5px; top: 50%; transform: translateY(-50%); }
+.reel-teeth:nth-child(5) { right: -5px; top: 50%; transform: translateY(-50%); }
+
+.tape-path {
+    flex: 1;
+    height: 20px;
+    background: rgba(0,0,0,0.3);
+    margin: 0 10px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tape {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #8b4513, #c19a6b, #8b4513);
+    background-size: 200% 100%;
+    animation: tape-move 2s linear infinite;
+}
+
+@keyframes tape-move {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.cassette-screws {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    pointer-events: none;
+}
+
+.screw {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #888;
+    border: 1px solid #aaa;
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3);
+}
+
+.screw:nth-child(1) { top: 0; left: 0; }
+.screw:nth-child(2) { top: 0; right: 0; }
+.screw:nth-child(3) { bottom: 0; left: 0; }
+.screw:nth-child(4) { bottom: 0; right: 0; }
+
+.cassette-interface {
+    position: relative;
+    z-index: 10;
+}
+
+.cassette-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.model {
+    color: #c0c0c0;
+    font-size: 0.6rem;
+    font-family: 'Courier New', monospace;
+    background: rgba(0,0,0,0.3);
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+.led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.led.red {
+    background: #ff4444;
+    box-shadow: 0 0 10px #ff4444;
+    animation: led-blink 1s infinite;
+}
+
+.led.green {
+    background: #44ff44;
+    box-shadow: 0 0 10px #44ff44;
+}
+
+@keyframes led-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.track-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    background: rgba(0,0,0,0.3);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.track-label {
+    color: #ffaa00;
+    font-size: 0.7rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.track-meters {
+    display: flex;
+    gap: 3px;
+    flex: 1;
+}
+
+.meter {
+    flex: 1;
+    height: 15px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.meter::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to top, #ffaa00, #ffdd00);
+    animation: meter-level 2s infinite;
+}
+
+@keyframes meter-level {
+    0% { height: 20%; }
+    50% { height: 80%; }
+    100% { height: 40%; }
+}
+
+.cassette-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.input-channel {
+    width: 30px;
+    height: 30px;
+    background: #444;
+    border: 2px solid #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffaa00;
+    font-size: 0.8rem;
+}
+
+.input-channel.left {
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.input-channel.right {
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+}
+
+.cassette-field {
+    flex: 1;
+    padding: 12px;
+    background: #222;
+    border: 2px solid #666;
+    border-left: none;
+    border-right: none;
+    color: #0f0;
+    font-size: 0.8rem;
+    font-family: 'Courier New', monospace;
+    outline: none;
+}
+
+.cassette-field:focus {
+    background: #2a2a2a;
+    color: #ff0;
+}
+
+.cassette-toggle {
+    position: absolute;
+    right: 40px;
+    background: none;
+    border: none;
+    color: #ffaa00;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.cassette-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+}
+
+.cassette-check {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #c0c0c0;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.cassette-check input {
+    display: none;
+}
+
+.cassette-checkmark {
+    width: 25px;
+    height: 25px;
+    background: #444;
+    border: 2px solid #666;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffaa00;
+    font-size: 0.9rem;
+}
+
+.cassette-check input:checked + .cassette-checkmark {
+    background: #ffaa00;
+    color: #222;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.ctrl-btn {
+    width: 35px;
+    height: 35px;
+    background: #444;
+    border: 2px solid #666;
+    border-radius: 50%;
+    color: #c0c0c0;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.ctrl-btn:hover {
+    background: #ffaa00;
+    color: #222;
+    border-color: #ffaa00;
+}
+
+.ctrl-btn.record {
+    color: #ff4444;
+}
+
+.ctrl-btn.record:hover {
+    background: #ff4444;
+    color: white;
+}
+
+.cassette-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #444;
+}
+
+.tape-counter {
+    color: #ffaa00;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    background: #222;
+    padding: 3px 8px;
+    border-radius: 5px;
+}
+
+.audio-levels {
+    display: flex;
+    gap: 3px;
+}
+
+.audio-levels span {
+    width: 5px;
+    height: 15px;
+    background: #444;
+    border-radius: 2px;
+    animation: audio-level 1s infinite;
+}
+
+.audio-levels span:nth-child(1) { animation-delay: 0s; }
+.audio-levels span:nth-child(2) { animation-delay: 0.2s; }
+.audio-levels span:nth-child(3) { animation-delay: 0.4s; }
+.audio-levels span:nth-child(4) { animation-delay: 0.6s; }
+.audio-levels span:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes audio-level {
+    0%, 100% { height: 5px; background: #44ff44; }
+    50% { height: 15px; background: #ffaa00; }
+}
+
+.cassette-reflection {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent);
+    pointer-events: none;
+}`,
+    js: `// Retro Cassette Player Form
+document.addEventListener('DOMContentLoaded', function() {
+    const cassetteForm = document.querySelector('.cassette-form');
+    
+    if (cassetteForm) {
+        cassetteForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[placeholder="RECORD EMAIL"]').value;
+            const password = document.getElementById('cassette-password').value;
+            
+            if (!email || !password) {
+                showCassetteNotification('Please record all tracks', 'error');
+                return;
+            }
+            
+            const recordBtn = this.querySelector('.ctrl-btn.record');
+            const originalText = recordBtn.innerHTML;
+            
+            recordBtn.innerHTML = '⏺';
+            recordBtn.style.background = '#44ff44';
+            recordBtn.disabled = true;
+            
+            setTimeout(() => {
+                recordBtn.innerHTML = originalText;
+                recordBtn.style.background = '';
+                recordBtn.disabled = false;
+                showCassetteNotification('Recording saved! Welcome to the mixtape!', 'success');
+                this.reset();
+            }, 2000);
+        });
+        
+        // Play button
+        const playBtn = cassetteForm.querySelector('.ctrl-btn.play');
+        if (playBtn) {
+            playBtn.addEventListener('click', function() {
+                showCassetteNotification('▶ Playing...', 'info');
+            });
+        }
+        
+        // Pause button
+        const pauseBtn = cassetteForm.querySelector('.ctrl-btn.pause');
+        if (pauseBtn) {
+            pauseBtn.addEventListener('click', function() {
+                showCassetteNotification('⏸ Paused', 'info');
+            });
+        }
+        
+        // Eject button
+        const ejectBtn = cassetteForm.querySelector('.ctrl-btn.eject');
+        if (ejectBtn) {
+            ejectBtn.addEventListener('click', function() {
+                showCassetteNotification('⏏ Ejecting tape', 'info');
+            });
+        }
+        
+        // Password toggle
+        const cassetteToggle = cassetteForm.querySelector('.cassette-toggle');
+        if (cassetteToggle) {
+            cassetteToggle.addEventListener('click', function() {
+                const input = document.getElementById('cassette-password');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showCassetteNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2a2a2a;
+            border: 2px solid \${type === 'success' ? '#44ff44' : type === 'error' ? '#ff4444' : '#ffaa00'};
+            border-radius: 5px;
+            color: white;
+            padding: 12px 24px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 20px \${type === 'success' ? '#44ff44' : type === 'error' ? '#ff4444' : '#ffaa00'}66;
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 74: Steampunk Victorian Form
+// ====================================================================
+form74: {
+    name: "Steampunk Victorian Form",
+    category: "creative steampunk victorian",
+    html: `<div class="form-container steampunk-bg">
+    <div class="brass-gears">
+        <div class="gear gear-1">
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-center"></div>
+        </div>
+        <div class="gear gear-2">
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-center"></div>
+        </div>
+        <div class="gear gear-3">
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-teeth"></div>
+            <div class="gear-center"></div>
+        </div>
+        <div class="piston"></div>
+        <div class="valve"></div>
+    </div>
+    
+    <div class="brass-pipes">
+        <div class="pipe vertical"></div>
+        <div class="pipe horizontal"></div>
+        <div class="pipe curved"></div>
+        <div class="pressure-gauge">
+            <div class="gauge-needle"></div>
+            <span>PSI</span>
+        </div>
+    </div>
+    
+    <div class="steampunk-card">
+        <div class="riveted-border">
+            <div class="rivet"></div>
+            <div class="rivet"></div>
+            <div class="rivet"></div>
+            <div class="rivet"></div>
+            <div class="rivet"></div>
+            <div class="rivet"></div>
+            <div class="rivet"></div>
+            <div class="rivet"></div>
+        </div>
+        
+        <div class="steampunk-content">
+            <div class="steampunk-logo">
+                <i class="fas fa-cog"></i>
+                <span>VICTORIAN</span>
+                <i class="fas fa-clock"></i>
+            </div>
+            <h3 class="steampunk-title">The Aeronaut's Log</h3>
+            <p class="steampunk-subtitle">Register your airship</p>
+            
+            <form class="steampunk-form">
+                <div class="brass-input">
+                    <div class="input-plate">
+                        <i class="fas fa-feather"></i>
+                        <input type="text" placeholder="Pilot's name" required>
+                        <div class="brass-knob"></div>
+                    </div>
+                </div>
+                
+                <div class="brass-input">
+                    <div class="input-plate">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Telegraph address" required>
+                        <div class="brass-knob"></div>
+                    </div>
+                </div>
+                
+                <div class="brass-input">
+                    <div class="input-plate">
+                        <i class="fas fa-key"></i>
+                        <input type="password" placeholder="Cipher key" required id="steampunk-password">
+                        <button type="button" class="steampunk-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="brass-knob"></div>
+                    </div>
+                </div>
+                
+                <div class="steampunk-options">
+                    <label class="steampunk-check">
+                        <input type="checkbox" checked>
+                        <span class="steampunk-checkmark">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <span>Remember this airship</span>
+                    </label>
+                    <a href="#" class="steampunk-link">
+                        <i class="fas fa-wrench"></i> Forgot key?
+                    </a>
+                </div>
+                
+                <div class="pressure-controls">
+                    <div class="pressure-level">
+                        <div class="pressure-bar"></div>
+                    </div>
+                    <button type="submit" class="steampunk-btn">
+                        <span>ENGAGE</span>
+                        <i class="fas fa-cog fa-spin"></i>
+                    </button>
+                </div>
+            </form>
+            
+            <div class="steampunk-footer">
+                <span class="manometer">⚡ 220 PSI</span>
+                <span class="temperature">🔥 180°C</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="steam-vents">
+        <div class="steam"></div>
+        <div class="steam"></div>
+        <div class="steam"></div>
+    </div>
+</div>`,
+    css: `.steampunk-bg {
+    background: linear-gradient(145deg, #3a2a1a, #2a1a0a);
+    border-radius: 30px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 3px solid #b8860b;
+    box-shadow: inset 0 0 20px #8b4513;
+}
+
+.brass-gears {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.gear {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #b8860b, #8b4513);
+    border: 3px solid #daa520;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    animation: gear-rotate 10s linear infinite;
+}
+
+.gear-1 {
+    top: 10%;
+    left: 5%;
+    width: 50px;
+    height: 50px;
+}
+
+.gear-2 {
+    bottom: 15%;
+    right: 5%;
+    width: 70px;
+    height: 70px;
+    animation-direction: reverse;
+}
+
+.gear-3 {
+    top: 40%;
+    right: 10%;
+    width: 40px;
+    height: 40px;
+    animation-duration: 15s;
+}
+
+@keyframes gear-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.gear-teeth {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #daa520;
+    border-radius: 3px;
+}
+
+.gear-1 .gear-teeth:nth-child(1) { top: -8px; left: 50%; transform: translateX(-50%); }
+.gear-1 .gear-teeth:nth-child(2) { bottom: -8px; left: 50%; transform: translateX(-50%); }
+.gear-1 .gear-teeth:nth-child(3) { left: -8px; top: 50%; transform: translateY(-50%); }
+.gear-1 .gear-teeth:nth-child(4) { right: -8px; top: 50%; transform: translateY(-50%); }
+
+.gear-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #8b4513;
+    border: 2px solid #daa520;
+}
+
+.piston {
+    position: absolute;
+    bottom: 20%;
+    left: 20%;
+    width: 30px;
+    height: 60px;
+    background: linear-gradient(145deg, #b8860b, #8b4513);
+    border: 2px solid #daa520;
+    border-radius: 10px;
+    animation: piston-move 2s ease-in-out infinite;
+}
+
+@keyframes piston-move {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.valve {
+    position: absolute;
+    top: 15%;
+    right: 15%;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(145deg, #b8860b, #8b4513);
+    border: 2px solid #daa520;
+    border-radius: 10px 10px 5px 5px;
+    transform: rotate(15deg);
+}
+
+.brass-pipes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.pipe {
+    position: absolute;
+    background: linear-gradient(145deg, #b8860b, #8b4513);
+    border: 2px solid #daa520;
+}
+
+.pipe.vertical {
+    width: 10px;
+    height: 100px;
+    left: 80%;
+    top: 10%;
+}
+
+.pipe.horizontal {
+    height: 10px;
+    width: 100px;
+    left: 60%;
+    top: 30%;
+}
+
+.pipe.curved {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-top: 5px solid #daa520;
+    border-right: 5px solid #daa520;
+    border-bottom: none;
+    border-left: none;
+    background: transparent;
+    transform: rotate(45deg);
+    left: 70%;
+    top: 15%;
+}
+
+.pressure-gauge {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    border: 3px solid #b8860b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gauge-needle {
+    width: 2px;
+    height: 20px;
+    background: #8b0000;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    transform: rotate(30deg);
+    animation: gauge-move 3s infinite;
+}
+
+@keyframes gauge-move {
+    0% { transform: rotate(10deg); }
+    50% { transform: rotate(50deg); }
+    100% { transform: rotate(10deg); }
+}
+
+.steampunk-card {
+    position: relative;
+    background: rgba(42, 26, 10, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 25px;
+    padding: 20px;
+    z-index: 20;
+    border: 2px solid #b8860b;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.riveted-border {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    pointer-events: none;
+}
+
+.rivet {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #b8860b, #8b4513);
+    border: 1px solid #daa520;
+}
+
+.rivet:nth-child(1) { top: -4px; left: 10%; }
+.rivet:nth-child(2) { top: -4px; right: 10%; }
+.rivet:nth-child(3) { bottom: -4px; left: 10%; }
+.rivet:nth-child(4) { bottom: -4px; right: 10%; }
+
+.steampunk-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.steampunk-logo i {
+    font-size: 1.5rem;
+    color: #b8860b;
+    filter: drop-shadow(0 0 5px #daa520);
+}
+
+.steampunk-logo span {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #daa520;
+    font-family: 'Cinzel', serif;
+}
+
+.steampunk-title {
+    text-align: center;
+    color: #f0e68c;
+    font-size: 1rem;
+    margin-bottom: 3px;
+    font-family: 'Cinzel', serif;
+}
+
+.steampunk-subtitle {
+    text-align: center;
+    color: #c0b0a0;
+    font-size: 0.65rem;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.brass-input {
+    margin-bottom: 15px;
+}
+
+.input-plate {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(145deg, #3a2a1a, #2a1a0a);
+    border: 2px solid #b8860b;
+    border-radius: 30px;
+    padding: 0 15px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.input-plate i {
+    color: #b8860b;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.input-plate input {
+    flex: 1;
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    color: #f0e68c;
+    font-size: 0.85rem;
+    font-family: 'Courier New', monospace;
+}
+
+.input-plate input:focus {
+    outline: none;
+}
+
+.input-plate input::placeholder {
+    color: #8b7355;
+}
+
+.brass-knob {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #b8860b, #8b4513);
+    border: 2px solid #daa520;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.brass-knob:hover {
+    transform: rotate(45deg);
+}
+
+.steampunk-toggle {
+    position: absolute;
+    right: 45px;
+    background: none;
+    border: none;
+    color: #b8860b;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.steampunk-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.steampunk-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #c0b0a0;
+    font-size: 0.75rem;
+}
+
+.steampunk-check input {
+    display: none;
+}
+
+.steampunk-checkmark {
+    width: 20px;
+    height: 20px;
+    background: #2a1a0a;
+    border: 2px solid #b8860b;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+}
+
+.steampunk-check input:checked + .steampunk-checkmark {
+    background: #b8860b;
+    color: #2a1a0a;
+}
+
+.steampunk-link {
+    color: #b8860b;
+    text-decoration: none;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pressure-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.pressure-level {
+    flex: 1;
+    height: 10px;
+    background: #2a1a0a;
+    border: 2px solid #b8860b;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.pressure-bar {
+    height: 100%;
+    width: 70%;
+    background: linear-gradient(90deg, #ff4444, #ffaa00);
+    animation: pressure-pulse 2s infinite;
+}
+
+@keyframes pressure-pulse {
+    0%, 100% { width: 70%; }
+    50% { width: 80%; }
+}
+
+.steampunk-btn {
+    padding: 12px 25px;
+    background: linear-gradient(145deg, #b8860b, #8b4513);
+    border: 2px solid #daa520;
+    border-radius: 30px;
+    color: #f0e68c;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.steampunk-btn:hover {
+    background: linear-gradient(145deg, #daa520, #b8860b);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #b8860b;
+}
+
+.steampunk-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 2px solid #b8860b;
+    color: #c0b0a0;
+    font-size: 0.65rem;
+    font-family: 'Courier New', monospace;
+}
+
+.steam-vents {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.steam {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    filter: blur(10px);
+    animation: steam-rise 3s infinite;
+}
+
+.steam:nth-child(1) { left: 20%; animation-delay: 0s; }
+.steam:nth-child(2) { left: 50%; animation-delay: 1s; }
+.steam:nth-child(3) { left: 80%; animation-delay: 2s; }
+
+@keyframes steam-rise {
+    0% { transform: translateY(0) scale(1); opacity: 0.3; }
+    100% { transform: translateY(-50px) scale(2); opacity: 0; }
+}`,
+    js: `// Steampunk Victorian Form
+document.addEventListener('DOMContentLoaded', function() {
+    const steampunkForm = document.querySelector('.steampunk-form');
+    
+    if (steampunkForm) {
+        steampunkForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const pilotName = this.querySelector('input[placeholder="Pilot\'s name"]').value;
+            const telegraph = this.querySelector('input[placeholder="Telegraph address"]').value;
+            const cipher = document.getElementById('steampunk-password').value;
+            
+            if (!pilotName || !telegraph || !cipher) {
+                showSteampunkNotification('Pressure insufficient! Fill all gauges!', 'error');
+                return;
+            }
+            
+            const engageBtn = this.querySelector('.steampunk-btn');
+            const originalText = engageBtn.innerHTML;
+            
+            engageBtn.innerHTML = '<span>ENGAGING...</span> <i class="fas fa-cog fa-spin"></i>';
+            engageBtn.disabled = true;
+            
+            setTimeout(() => {
+                engageBtn.innerHTML = '<span>LIFT OFF!</span> <i class="fas fa-rocket"></i>';
+                showSteampunkNotification('Airship registered! Welcome aboard, pilot!', 'success');
+                
+                setTimeout(() => {
+                    engageBtn.innerHTML = originalText;
+                    engageBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Knob rotation
+        const knobs = steampunkForm.querySelectorAll('.brass-knob');
+        knobs.forEach(knob => {
+            knob.addEventListener('click', function() {
+                this.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+            });
+        });
+        
+        // Password toggle
+        const steampunkToggle = steampunkForm.querySelector('.steampunk-toggle');
+        if (steampunkToggle) {
+            steampunkToggle.addEventListener('click', function() {
+                const input = document.getElementById('steampunk-password');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showSteampunkNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(145deg, #3a2a1a, #2a1a0a);
+            border: 2px solid \${type === 'success' ? '#daa520' : type === 'error' ? '#b22222' : '#b8860b'};
+            border-radius: 5px;
+            color: #f0e68c;
+            padding: 12px 24px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px \${type === 'success' ? '#daa520' : type === 'error' ? '#b22222' : '#b8860b'}66;
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 75: Pixel Art 8-bit Game Form
+// ====================================================================
+form75: {
+    name: "Pixel Art 8-bit Game Form",
+    category: "creative pixel retro",
+    html: `<div class="form-container pixel-game-bg">
+    <div class="game-screen">
+        <div class="scanlines"></div>
+        <div class="pixel-sky">
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="sun"></div>
+        </div>
+        <div class="pixel-ground">
+            <div class="grass-block"></div>
+            <div class="grass-block"></div>
+            <div class="grass-block"></div>
+            <div class="grass-block"></div>
+        </div>
+        
+        <div class="pixel-castle">
+            <div class="castle-tower left"></div>
+            <div class="castle-wall"></div>
+            <div class="castle-tower right"></div>
+            <div class="castle-door"></div>
+        </div>
+        
+        <div class="pixel-character">
+            <div class="character-head"></div>
+            <div class="character-body"></div>
+            <div class="character-legs">
+                <div class="leg"></div>
+                <div class="leg"></div>
+            </div>
+        </div>
+        
+        <div class="pixel-ui">
+            <div class="pixel-hearts">
+                <span>❤️</span><span>❤️</span><span>❤️</span>
+            </div>
+            <div class="pixel-score">SCORE: 0000</div>
+        </div>
+        
+        <div class="pixel-form-container">
+            <div class="pixel-header">
+                <span class="pixel-title">▶ NEW GAME ◀</span>
+                <span class="pixel-subtitle">Enter your hero name</span>
+            </div>
+            
+            <form class="pixel-form">
+                <div class="pixel-input-block">
+                    <span class="pixel-label">NAME</span>
+                    <div class="pixel-input-wrapper">
+                        <input type="text" placeholder="HERO" class="pixel-input" maxlength="8">
+                        <div class="pixel-cursor"></div>
+                    </div>
+                </div>
+                
+                <div class="pixel-input-block">
+                    <span class="pixel-label">PASSWORD</span>
+                    <div class="pixel-input-wrapper">
+                        <input type="password" placeholder="●●●●●●" class="pixel-input" id="pixel-password">
+                        <button type="button" class="pixel-toggle">👁️</button>
+                        <div class="pixel-cursor"></div>
+                    </div>
+                </div>
+                
+                <div class="pixel-class-select">
+                    <span class="select-label">CLASS</span>
+                    <div class="pixel-options">
+                        <label class="pixel-option">
+                            <input type="radio" name="class" value="warrior" checked>
+                            <span class="pixel-option-box">⚔️</span>
+                            <span class="pixel-option-text">WARRIOR</span>
+                        </label>
+                        <label class="pixel-option">
+                            <input type="radio" name="class" value="mage">
+                            <span class="pixel-option-box">🔮</span>
+                            <span class="pixel-option-text">MAGE</span>
+                        </label>
+                        <label class="pixel-option">
+                            <input type="radio" name="class" value="rogue">
+                            <span class="pixel-option-box">🗡️</span>
+                            <span class="pixel-option-text">ROGUE</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="pixel-checkbox-block">
+                    <label class="pixel-checkbox">
+                        <input type="checkbox" checked>
+                        <span class="pixel-checkbox-box">☐</span>
+                        <span class="pixel-checkbox-text">Save game</span>
+                    </label>
+                    <label class="pixel-checkbox">
+                        <input type="checkbox">
+                        <span class="pixel-checkbox-box">☐</span>
+                        <span class="pixel-checkbox-text">Enable cheats</span>
+                    </label>
+                </div>
+                
+                <div class="pixel-buttons">
+                    <button type="submit" class="pixel-btn start">▶ START</button>
+                    <button type="button" class="pixel-btn reset">⟲ RESET</button>
+                </div>
+            </form>
+            
+            <div class="pixel-footer">
+                <span class="pixel-lives">LIVES: 3</span>
+                <span class="pixel-level">LEVEL 1</span>
+            </div>
+        </div>
+    </div>
+</div>`,
+    css: `.pixel-game-bg {
+    background: #1a3355;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    border: 4px solid #ffaa00;
+}
+
+.game-screen {
+    position: relative;
+    background: #87CEEB;
+    border: 4px solid #000;
+    padding: 15px;
+    image-rendering: pixelated;
+}
+
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.1) 0px,
+        rgba(0,0,0,0.1) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+    z-index: 10;
+}
+
+.pixel-sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    pointer-events: none;
+}
+
+.cloud {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background: white;
+    border: 2px solid #ddd;
+    image-rendering: pixelated;
+}
+
+.cloud:nth-child(1) {
+    top: 20px;
+    left: 20px;
+    animation: cloud-move 20s linear infinite;
+}
+
+.cloud:nth-child(2) {
+    top: 40px;
+    right: 20px;
+    animation: cloud-move 25s linear infinite reverse;
+}
+
+@keyframes cloud-move {
+    from { transform: translateX(-100px); }
+    to { transform: translateX(300px); }
+}
+
+.sun {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: #ffff00;
+    border: 2px solid #ffaa00;
+    border-radius: 0;
+    image-rendering: pixelated;
+}
+
+.pixel-ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: #8b4513;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grass-block {
+    width: 16px;
+    height: 8px;
+    background: #228B22;
+    border: 1px solid #006400;
+}
+
+.pixel-castle {
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-end;
+    image-rendering: pixelated;
+}
+
+.castle-tower {
+    width: 30px;
+    height: 80px;
+    background: #aaa;
+    border: 2px solid #666;
+    border-top: 10px solid #c0c0c0;
+}
+
+.castle-wall {
+    width: 60px;
+    height: 50px;
+    background: #aaa;
+    border: 2px solid #666;
+    border-top: 10px solid #c0c0c0;
+}
+
+.castle-door {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 25px;
+    background: #8b4513;
+    border: 2px solid #5a2e0e;
+}
+
+.pixel-character {
+    position: absolute;
+    bottom: 40%;
+    left: 20%;
+    image-rendering: pixelated;
+}
+
+.character-head {
+    width: 16px;
+    height: 16px;
+    background: #ffdbac;
+    border: 2px solid #8b5a2b;
+    margin-left: 8px;
+}
+
+.character-body {
+    width: 20px;
+    height: 25px;
+    background: #ff0000;
+    border: 2px solid #8b0000;
+}
+
+.character-legs {
+    display: flex;
+    gap: 4px;
+}
+
+.leg {
+    width: 8px;
+    height: 15px;
+    background: #0000ff;
+    border: 2px solid #00008b;
+}
+
+.pixel-ui {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 20;
+    image-rendering: pixelated;
+}
+
+.pixel-hearts {
+    display: flex;
+    gap: 5px;
+    font-size: 1.2rem;
+    filter: drop-shadow(2px 2px 0 #000);
+}
+
+.pixel-score {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 0 #000;
+    margin-top: 5px;
+}
+
+.pixel-form-container {
+    position: relative;
+    background: #000;
+    border: 4px solid #c0c0c0;
+    padding: 15px;
+    margin-top: 20px;
+    image-rendering: pixelated;
+    z-index: 30;
+}
+
+.pixel-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.pixel-title {
+    display: block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    color: #ffff00;
+    text-shadow: 2px 2px 0 #ff0000;
+    margin-bottom: 5px;
+}
+
+.pixel-subtitle {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    color: #0f0;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.pixel-input-block {
+    margin-bottom: 15px;
+}
+
+.pixel-label {
+    display: block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.pixel-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.pixel-input {
+    flex: 1;
+    padding: 10px;
+    background: #000;
+    border: 2px solid #c0c0c0;
+    color: #0f0;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+}
+
+.pixel-input:focus {
+    outline: none;
+    border-color: #ffff00;
+}
+
+.pixel-cursor {
+    position: absolute;
+    right: 10px;
+    width: 10px;
+    height: 15px;
+    background: #0f0;
+    animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.pixel-toggle {
+    position: absolute;
+    right: 30px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.pixel-class-select {
+    margin-bottom: 15px;
+}
+
+.select-label {
+    display: block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.pixel-options {
+    display: flex;
+    gap: 10px;
+}
+
+.pixel-option {
+    flex: 1;
+    cursor: pointer;
+}
+
+.pixel-option input {
+    display: none;
+}
+
+.pixel-option-box {
+    display: block;
+    padding: 8px;
+    background: #000;
+    border: 2px solid #c0c0c0;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.pixel-option input:checked + .pixel-option-box {
+    background: #ffaa00;
+    border-color: #ffff00;
+}
+
+.pixel-option-text {
+    display: block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.4rem;
+    color: #fff;
+    text-align: center;
+}
+
+.pixel-checkbox-block {
+    margin-bottom: 15px;
+}
+
+.pixel-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.pixel-checkbox input {
+    display: none;
+}
+
+.pixel-checkbox-box {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.pixel-checkbox input:checked + .pixel-checkbox-box {
+    color: #0f0;
+}
+
+.pixel-checkbox-text {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    color: #fff;
+}
+
+.pixel-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.pixel-btn {
+    flex: 1;
+    padding: 10px;
+    background: #000;
+    border: 2px solid #c0c0c0;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.pixel-btn.start {
+    background: #0f0;
+    color: #000;
+    border-color: #00ff00;
+}
+
+.pixel-btn.start:hover {
+    background: #00ff00;
+}
+
+.pixel-btn.reset:hover {
+    background: #ff0000;
+    border-color: #ff0000;
+}
+
+.pixel-footer {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    color: #fff;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid #c0c0c0;
+}`,
+    js: `// Pixel Art 8-bit Game Form
+document.addEventListener('DOMContentLoaded', function() {
+    const pixelForm = document.querySelector('.pixel-form');
+    
+    if (pixelForm) {
+        pixelForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const heroName = this.querySelector('input[placeholder="HERO"]').value;
+            const password = document.getElementById('pixel-password').value;
+            const charClass = this.querySelector('input[name="class"]:checked').value;
+            
+            if (!heroName) {
+                showPixelNotification('ENTER YOUR NAME, HERO!', 'error');
+                return;
+            }
+            
+            const startBtn = this.querySelector('.pixel-btn.start');
+            const originalText = startBtn.innerHTML;
+            
+            startBtn.innerHTML = '▶ LOADING...';
+            startBtn.disabled = true;
+            
+            setTimeout(() => {
+                startBtn.innerHTML = '▶ GAME START!';
+                showPixelNotification(\`Welcome, \${heroName} the \${charClass.toUpperCase()}!\`, 'success');
+                
+                setTimeout(() => {
+                    startBtn.innerHTML = originalText;
+                    startBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Reset button
+        const resetBtn = pixelForm.querySelector('.pixel-btn.reset');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', function() {
+                pixelForm.reset();
+                showPixelNotification('Game reset! Start over?', 'info');
+            });
+        }
+        
+        // Password toggle
+        const pixelToggle = pixelForm.querySelector('.pixel-toggle');
+        if (pixelToggle) {
+            pixelToggle.addEventListener('click', function() {
+                const input = document.getElementById('pixel-password');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    this.textContent = '🔒';
+                } else {
+                    input.type = 'password';
+                    this.textContent = '👁️';
+                }
+            });
+        }
+    }
+    
+    function showPixelNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #000;
+            border: 4px solid \${type === 'success' ? '#0f0' : type === 'error' ? '#f00' : '#ff0'};
+            color: \${type === 'success' ? '#0f0' : type === 'error' ? '#f00' : '#ff0'};
+            padding: 15px;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.6rem;
+            image-rendering: pixelated;
+            z-index: 9999;
+            animation: slideIn 0.1s step-end;
+            box-shadow: 4px 4px 0 #000;
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.1s step-end';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 76: Origami Paper Craft Form
+// ====================================================================
+form76: {
+    name: "Origami Paper Craft Form",
+    category: "creative origami paper",
+    html: `<div class="form-container origami-bg">
+    <div class="paper-texture"></div>
+    <div class="origami-folds">
+        <div class="fold fold-1"></div>
+        <div class="fold fold-2"></div>
+        <div class="fold fold-3"></div>
+        <div class="fold fold-4"></div>
+    </div>
+    
+    <div class="origami-creatures">
+        <div class="crane crane-1">
+            <div class="crane-wing"></div>
+            <div class="crane-wing"></div>
+            <div class="crane-head"></div>
+        </div>
+        <div class="crane crane-2">
+            <div class="crane-wing"></div>
+            <div class="crane-wing"></div>
+            <div class="crane-head"></div>
+        </div>
+        <div class="origami-frog"></div>
+    </div>
+    
+    <div class="origami-card">
+        <div class="paper-fold-corner top-left"></div>
+        <div class="paper-fold-corner top-right"></div>
+        <div class="paper-fold-corner bottom-left"></div>
+        <div class="paper-fold-corner bottom-right"></div>
+        
+        <div class="origami-content">
+            <div class="origami-logo">
+                <span class="folded-letter">O</span>
+                <span class="folded-letter">R</span>
+                <span class="folded-letter">I</span>
+                <span class="folded-letter">G</span>
+                <span class="folded-letter">A</span>
+                <span class="folded-letter">M</span>
+                <span class="folded-letter">I</span>
+            </div>
+            <h3 class="origami-title">Fold Your Dreams</h3>
+            <p class="origami-subtitle">Create something beautiful</p>
+            
+            <form class="origami-form">
+                <div class="paper-input">
+                    <div class="paper-input-inner">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Your name" required>
+                        <div class="paper-edge"></div>
+                    </div>
+                </div>
+                
+                <div class="paper-input">
+                    <div class="paper-input-inner">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email address" required>
+                        <div class="paper-edge"></div>
+                    </div>
+                </div>
+                
+                <div class="paper-input">
+                    <div class="paper-input-inner">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Secret fold" required id="origami-password">
+                        <button type="button" class="origami-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="paper-edge"></div>
+                    </div>
+                </div>
+                
+                <div class="origami-options">
+                    <label class="origami-check">
+                        <input type="checkbox" checked>
+                        <span class="origami-checkmark">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <span>Remember my folds</span>
+                    </label>
+                    <a href="#" class="origami-link">Unfold password?</a>
+                </div>
+                
+                <div class="origami-colors">
+                    <span class="color-label">Paper color:</span>
+                    <div class="color-palette">
+                        <label class="color-option">
+                            <input type="radio" name="color" value="white" checked>
+                            <span class="color-dot white"></span>
+                        </label>
+                        <label class="color-option">
+                            <input type="radio" name="color" value="red">
+                            <span class="color-dot red"></span>
+                        </label>
+                        <label class="color-option">
+                            <input type="radio" name="color" value="blue">
+                            <span class="color-dot blue"></span>
+                        </label>
+                        <label class="color-option">
+                            <input type="radio" name="color" value="green">
+                            <span class="color-dot green"></span>
+                        </label>
+                        <label class="color-option">
+                            <input type="radio" name="color" value="yellow">
+                            <span class="color-dot yellow"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="origami-btn">
+                    <span>Fold & Send</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+            
+            <div class="origami-footer">
+                <span class="fold-count">✨ 1000 cranes folded ✨</span>
+            </div>
+        </div>
+    </div>
+</div>`,
+    css: `.origami-bg {
+    background: #f5f5dc;
+    border-radius: 30px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 3px solid #d2b48c;
+}
+
+.paper-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(45deg, rgba(210, 180, 140, 0.1) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(210, 180, 140, 0.1) 25%, transparent 25%);
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+.origami-folds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.fold {
+    position: absolute;
+    border-style: solid;
+    border-width: 0 0 50px 50px;
+    border-color: transparent transparent rgba(210, 180, 140, 0.2) transparent;
+}
+
+.fold-1 {
+    top: 0;
+    right: 0;
+    transform: rotate(90deg);
+}
+
+.fold-2 {
+    bottom: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+.fold-3 {
+    top: 30%;
+    left: 10%;
+    transform: rotate(45deg);
+}
+
+.fold-4 {
+    bottom: 20%;
+    right: 10%;
+    transform: rotate(-135deg);
+}
+
+.origami-creatures {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.crane {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    animation: crane-float 6s ease-in-out infinite;
+}
+
+.crane-1 {
+    top: 15%;
+    left: 10%;
+}
+
+.crane-2 {
+    bottom: 20%;
+    right: 10%;
+    animation-delay: -2s;
+}
+
+@keyframes crane-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+.crane-wing {
+    position: absolute;
+    width: 25px;
+    height: 10px;
+    background: linear-gradient(145deg, #ffb6c1, #ff69b4);
+    border: 2px solid #d45d7a;
+    border-radius: 10px 10px 0 0;
+}
+
+.crane-wing:first-child {
+    top: 10px;
+    left: 5px;
+    transform: rotate(-30deg);
+}
+
+.crane-wing:last-child {
+    top: 10px;
+    right: 5px;
+    transform: rotate(30deg);
+}
+
+.crane-head {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 15px;
+    background: #ff69b4;
+    border: 2px solid #d45d7a;
+    border-radius: 5px 5px 0 0;
+}
+
+.origami-frog {
+    position: absolute;
+    bottom: 30%;
+    left: 20%;
+    width: 25px;
+    height: 15px;
+    background: #98fb98;
+    border: 2px solid #32cd32;
+    border-radius: 50% 50% 30% 30%;
+}
+
+.origami-card {
+    position: relative;
+    background: #fff8dc;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    z-index: 20;
+    border: 2px solid #d2b48c;
+}
+
+.paper-fold-corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #fff8dc 50%, #d2b48c 50%);
+}
+
+.paper-fold-corner.top-left {
+    top: -2px;
+    left: -2px;
+    transform: rotate(0deg);
+}
+
+.paper-fold-corner.top-right {
+    top: -2px;
+    right: -2px;
+    transform: rotate(90deg);
+}
+
+.paper-fold-corner.bottom-left {
+    bottom: -2px;
+    left: -2px;
+    transform: rotate(270deg);
+}
+
+.paper-fold-corner.bottom-right {
+    bottom: -2px;
+    right: -2px;
+    transform: rotate(180deg);
+}
+
+.origami-logo {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.folded-letter {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d2b48c;
+    transform: rotate(-5deg);
+    display: inline-block;
+    animation: letter-flutter 3s infinite;
+}
+
+.folded-letter:nth-child(even) {
+    transform: rotate(5deg);
+    animation-delay: 0.2s;
+}
+
+@keyframes letter-flutter {
+    0%, 100% { transform: rotate(-5deg) translateY(0); }
+    50% { transform: rotate(-5deg) translateY(-3px); }
+}
+
+.origami-title {
+    text-align: center;
+    color: #8b4513;
+    font-size: 1rem;
+    margin-bottom: 3px;
+    font-family: 'Crafty Girls', cursive;
+}
+
+.origami-subtitle {
+    text-align: center;
+    color: #a0522d;
+    font-size: 0.65rem;
+    margin-bottom: 20px;
+}
+
+.paper-input {
+    margin-bottom: 15px;
+}
+
+.paper-input-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #fff8dc;
+    border: 2px solid #d2b48c;
+    padding: 0 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.paper-input-inner i {
+    color: #8b4513;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.paper-input-inner input {
+    flex: 1;
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    color: #5a3e1b;
+    font-size: 0.85rem;
+    font-family: 'Crafty Girls', cursive;
+}
+
+.paper-input-inner input:focus {
+    outline: none;
+}
+
+.paper-input-inner input::placeholder {
+    color: #c0a080;
+}
+
+.paper-edge {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #d2b48c, #8b4513, #d2b48c);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.paper-input-inner:focus-within .paper-edge {
+    opacity: 1;
+}
+
+.origami-toggle {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #8b4513;
+    cursor: pointer;
+}
+
+.origami-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.origami-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #8b4513;
+    font-size: 0.75rem;
+}
+
+.origami-check input {
+    display: none;
+}
+
+.origami-checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #d2b48c;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    background: #fff8dc;
+}
+
+.origami-check input:checked + .origami-checkmark {
+    background: #d2b48c;
+    color: #fff8dc;
+}
+
+.origami-link {
+    color: #8b4513;
+    text-decoration: none;
+    font-size: 0.75rem;
+    border-bottom: 1px dashed #d2b48c;
+}
+
+.origami-colors {
+    margin: 20px 0;
+}
+
+.color-label {
+    display: block;
+    color: #8b4513;
+    font-size: 0.7rem;
+    margin-bottom: 8px;
+}
+
+.color-palette {
+    display: flex;
+    gap: 10px;
+}
+
+.color-option {
+    cursor: pointer;
+}
+
+.color-option input {
+    display: none;
+}
+
+.color-dot {
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #d2b48c;
+    transition: all 0.2s ease;
+}
+
+.color-dot.white { background: #fff; }
+.color-dot.red { background: #ff6b6b; }
+.color-dot.blue { background: #6b9eff; }
+.color-dot.green { background: #6bff6b; }
+.color-dot.yellow { background: #ffff6b; }
+
+.color-option input:checked + .color-dot {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #d2b48c;
+    border-color: #8b4513;
+}
+
+.origami-btn {
+    width: 100%;
+    padding: 16px;
+    background: #d2b48c;
+    color: #5a3e1b;
+    border: 2px solid #8b4513;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.origami-btn:hover {
+    background: #8b4513;
+    color: #d2b48c;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+}
+
+.origami-footer {
+    text-align: center;
+    margin-top: 15px;
+    color: #a0522d;
+    font-size: 0.65rem;
+}`,
+    js: `// Origami Paper Craft Form
+document.addEventListener('DOMContentLoaded', function() {
+    const origamiForm = document.querySelector('.origami-form');
+    
+    if (origamiForm) {
+        origamiForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[placeholder="Your name"]').value;
+            const email = this.querySelector('input[placeholder="Email address"]').value;
+            const password = document.getElementById('origami-password').value;
+            const color = this.querySelector('input[name="color"]:checked').value;
+            
+            if (!name || !email || !password) {
+                showOrigamiNotification('Please complete all folds!', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.origami-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>Folding...</span> <i class="fas fa-spinner fa-pulse"></i>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<span>Folded with love!</span> <i class="fas fa-heart"></i>';
+                showOrigamiNotification('Your origami creation is complete!', 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Paper color selection animation
+        const colorOptions = origamiForm.querySelectorAll('.color-option');
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                const dot = this.querySelector('.color-dot');
+                dot.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    dot.style.transform = '';
+                }, 200);
+            });
+        });
+        
+        // Password toggle
+        const origamiToggle = origamiForm.querySelector('.origami-toggle');
+        if (origamiToggle) {
+            origamiToggle.addEventListener('click', function() {
+                const input = document.getElementById('origami-password');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showOrigamiNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #fff8dc;
+            border: 3px solid \${type === 'success' ? '#8b4513' : type === 'error' ? '#b22222' : '#d2b48c'};
+            border-radius: 5px;
+            color: #5a3e1b;
+            padding: 15px 25px;
+            font-family: 'Crafty Girls', cursive;
+            font-size: 0.8rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            transform: rotate(-1deg);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 77: Underwater Ocean Form
+// ====================================================================
+form77: {
+    name: "Underwater Ocean Form",
+    category: "creative underwater ocean",
+    html: `<div class="form-container underwater-ocean-bg">
+    <div class="ocean-layers">
+        <div class="water-layer surface"></div>
+        <div class="water-layer mid"></div>
+        <div class="water-layer deep"></div>
+    </div>
+    
+    <div class="sun-rays">
+        <div class="ray"></div>
+        <div class="ray"></div>
+        <div class="ray"></div>
+        <div class="ray"></div>
+    </div>
+    
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    
+    <div class="sea-life">
+        <div class="fish fish-1">
+            <div class="fish-body"></div>
+            <div class="fish-eye"></div>
+            <div class="fish-fin"></div>
+        </div>
+        <div class="fish fish-2">
+            <div class="fish-body"></div>
+            <div class="fish-eye"></div>
+            <div class="fish-fin"></div>
+        </div>
+        <div class="jellyfish">
+            <div class="jelly-bell"></div>
+            <div class="jelly-tentacles"></div>
+            <div class="jelly-tentacles"></div>
+            <div class="jelly-tentacles"></div>
+        </div>
+        <div class="seaweed"></div>
+        <div class="seaweed"></div>
+        <div class="starfish"></div>
+        <div class="coral"></div>
+    </div>
+    
+    <div class="sunken-ship"></div>
+    
+    <div class="treasure-chest">
+        <div class="chest-lid"></div>
+        <div class="chest-base"></div>
+        <div class="gold-coins"></div>
+    </div>
+    
+    <div class="pearl-card">
+        <div class="pearl-shine"></div>
+        <div class="pearl-content">
+            <div class="seashell-icon">
+                <i class="fas fa-shell"></i>
+            </div>
+            <h3 class="ocean-title">Ocean Depths</h3>
+            <p class="ocean-subtitle">Dive into the unknown</p>
+            
+            <form class="ocean-form">
+                <div class="coral-input">
+                    <div class="coral-input-wrapper">
+                        <i class="fas fa-fish"></i>
+                        <input type="text" placeholder="Diver's name" required>
+                    </div>
+                </div>
+                
+                <div class="coral-input">
+                    <div class="coral-input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Bubble message" required>
+                    </div>
+                </div>
+                
+                <div class="coral-input">
+                    <div class="coral-input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Deep secret" required id="ocean-password">
+                        <button type="button" class="ocean-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ocean-options">
+                    <label class="ocean-checkbox">
+                        <input type="checkbox" checked>
+                        <span class="ocean-checkmark">🌊</span>
+                        <span>Float on surface</span>
+                    </label>
+                    <a href="#" class="ocean-link">Lost pearl?</a>
+                </div>
+                
+                <div class="depth-selector">
+                    <span class="depth-label">Dive depth:</span>
+                    <div class="depth-bar">
+                        <div class="depth-fill"></div>
+                        <div class="depth-marker" style="left: 30%"></div>
+                    </div>
+                    <span class="depth-value">30m</span>
+                </div>
+                
+                <button type="submit" class="ocean-btn">
+                    <span>Dive In</span>
+                    <i class="fas fa-water"></i>
+                    <div class="bubble-effect"></div>
+                </button>
+            </form>
+            
+            <div class="ocean-footer">
+                <span class="depth">🌊 -50m</span>
+                <span class="temperature">🌡️ 22°C</span>
+                <span class="pressure">⚡ 5atm</span>
+            </div>
+        </div>
+    </div>
+</div>`,
+    css: `.underwater-ocean-bg {
+    background: linear-gradient(180deg, #006994, #003366);
+    border-radius: 30px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.ocean-layers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.water-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: overlay;
+}
+
+.surface {
+    background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1), transparent);
+    animation: surface-ripple 5s ease-in-out infinite;
+}
+
+.mid {
+    background: radial-gradient(circle at 70% 60%, rgba(100,200,255,0.1), transparent);
+    animation: surface-ripple 7s ease-in-out infinite reverse;
+}
+
+.deep {
+    background: radial-gradient(circle at 50% 50%, rgba(0,50,100,0.3), transparent);
+}
+
+@keyframes surface-ripple {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.sun-rays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.ray {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 2px;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    transform: rotate(15deg);
+    animation: ray-move 8s infinite;
+}
+
+.ray:nth-child(2) { left: 40%; transform: rotate(25deg); animation-delay: 1s; }
+.ray:nth-child(3) { left: 60%; transform: rotate(5deg); animation-delay: 2s; }
+.ray:nth-child(4) { left: 80%; transform: rotate(35deg); animation-delay: 3s; }
+
+@keyframes ray-move {
+    0%, 100% { opacity: 0.3; transform: rotate(15deg) scaleY(1); }
+    50% { opacity: 0.8; transform: rotate(15deg) scaleY(1.2); }
+}
+
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.3);
+    animation: bubble-rise 5s linear infinite;
+}
+
+.bubble:nth-child(1) { left: 10%; animation-delay: 0s; }
+.bubble:nth-child(2) { left: 30%; animation-delay: 1s; width: 15px; }
+.bubble:nth-child(3) { left: 50%; animation-delay: 2s; width: 8px; }
+.bubble:nth-child(4) { left: 70%; animation-delay: 3s; width: 20px; }
+.bubble:nth-child(5) { left: 90%; animation-delay: 4s; width: 12px; }
+
+@keyframes bubble-rise {
+    0% { bottom: -10%; opacity: 0.3; }
+    100% { bottom: 110%; opacity: 0; transform: translateX(20px); }
+}
+
+.sea-life {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.fish {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    animation: fish-swim 15s linear infinite;
+}
+
+.fish-1 {
+    top: 20%;
+    left: -10%;
+    animation: fish-swim 12s linear infinite;
+}
+
+.fish-2 {
+    bottom: 30%;
+    right: -10%;
+    animation: fish-swim 15s linear infinite reverse;
+}
+
+@keyframes fish-swim {
+    from { transform: translateX(-100px); }
+    to { transform: translateX(300px); }
+}
+
+.fish-body {
+    width: 30px;
+    height: 15px;
+    background: #ffa07a;
+    border-radius: 50% 50% 50% 50% / 60% 40% 40% 60%;
+    position: relative;
+}
+
+.fish-eye {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 4px;
+    height: 4px;
+    background: black;
+    border-radius: 50%;
+}
+
+.fish-fin {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 10px;
+    height: 15px;
+    background: #ff8c69;
+    border-radius: 50%;
+    transform: rotate(15deg);
+}
+
+.jellyfish {
+    position: absolute;
+    bottom: 40%;
+    left: 20%;
+    animation: jelly-float 8s ease-in-out infinite;
+}
+
+.jelly-bell {
+    width: 25px;
+    height: 30px;
+    background: rgba(255,192,203,0.5);
+    border-radius: 50% 50% 40% 40%;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.jelly-tentacles {
+    width: 2px;
+    height: 20px;
+    background: rgba(255,192,203,0.5);
+    margin: 0 auto;
+    transform-origin: top;
+    animation: tentacle-wave 2s infinite;
+}
+
+.jelly-tentacles:nth-child(2) { transform: rotate(5deg); animation-delay: 0.2s; }
+.jelly-tentacles:nth-child(3) { transform: rotate(-5deg); animation-delay: 0.4s; }
+
+@keyframes tentacle-wave {
+    0%, 100% { transform: rotate(0deg) scaleY(1); }
+    50% { transform: rotate(10deg) scaleY(1.2); }
+}
+
+.seaweed {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 10px;
+    height: 50px;
+    background: #2e8b57;
+    border-radius: 10px;
+    transform-origin: bottom;
+    animation: seaweed-sway 3s ease-in-out infinite;
+}
+
+.seaweed:nth-child(6) { left: 80%; animation-delay: 1s; }
+
+@keyframes seaweed-sway {
+    0%, 100% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+}
+
+.starfish {
+    position: absolute;
+    bottom: 10%;
+    right: 15%;
+    width: 20px;
+    height: 20px;
+    background: #ff6b6b;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: starfish-pulse 2s infinite;
+}
+
+@keyframes starfish-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.coral {
+    position: absolute;
+    bottom: 0;
+    right: 20%;
+    width: 30px;
+    height: 40px;
+    background: #ff7f50;
+    clip-path: polygon(50% 0%, 80% 30%, 60% 50%, 90% 80%, 50% 100%, 10% 80%, 40% 50%, 20% 30%);
+}
+
+.sunken-ship {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    width: 50px;
+    height: 20px;
+    background: #8b4513;
+    border-radius: 20px 20px 0 0;
+    transform: rotate(-5deg);
+}
+
+.treasure-chest {
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    width: 30px;
+    height: 20px;
+    background: #daa520;
+    border: 2px solid #b8860b;
+}
+
+.chest-lid {
+    position: absolute;
+    top: -10px;
+    left: -2px;
+    width: 34px;
+    height: 10px;
+    background: #daa520;
+    border: 2px solid #b8860b;
+    border-radius: 5px 5px 0 0;
+    transform-origin: bottom;
+    animation: chest-open 3s infinite;
+}
+
+@keyframes chest-open {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+}
+
+.gold-coins {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 8px;
+    background: #ffd700;
+    border-radius: 50%;
+    box-shadow: 10px 0 #ffd700, 5px 5px #ffd700;
+}
+
+.pearl-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    z-index: 30;
+    overflow: hidden;
+}
+
+.pearl-shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2), transparent);
+    animation: pearl-shine 5s linear infinite;
+}
+
+@keyframes pearl-shine {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.pearl-content {
+    position: relative;
+    z-index: 40;
+}
+
+.seashell-icon {
+    text-align: center;
+    font-size: 2rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+.ocean-title {
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 3px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.ocean-subtitle {
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.65rem;
+    margin-bottom: 20px;
+}
+
+.coral-input {
+    margin-bottom: 15px;
+}
+
+.coral-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+    padding: 0 16px;
+    backdrop-filter: blur(5px);
+}
+
+.coral-input-wrapper i {
+    color: #7fffd4;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.coral-input-wrapper input {
+    flex: 1;
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.85rem;
+}
+
+.coral-input-wrapper input:focus {
+    outline: none;
+}
+
+.coral-input-wrapper input::placeholder {
+    color: rgba(255,255,255,0.3);
+}
+
+.ocean-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+}
+
+.ocean-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.ocean-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.75rem;
+}
+
+.ocean-checkbox input {
+    display: none;
+}
+
+.ocean-checkmark {
+    font-size: 1rem;
+    filter: drop-shadow(0 0 5px #7fffd4);
+}
+
+.ocean-link {
+    color: #7fffd4;
+    text-decoration: none;
+    font-size: 0.75rem;
+}
+
+.depth-selector {
+    margin: 20px 0;
+}
+
+.depth-label {
+    display: block;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.7rem;
+    margin-bottom: 8px;
+}
+
+.depth-bar {
+    position: relative;
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.depth-fill {
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(90deg, #7fffd4, #006994);
+    border-radius: 3px;
+    animation: depth-wave 3s infinite;
+}
+
+@keyframes depth-wave {
+    0%, 100% { width: 70%; }
+    50% { width: 80%; }
+}
+
+.depth-marker {
+    position: absolute;
+    top: -4px;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border: 2px solid #7fffd4;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.depth-value {
+    position: absolute;
+    right: 0;
+    top: -15px;
+    color: white;
+    font-size: 0.7rem;
+}
+
+.ocean-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(90deg, #006994, #003366);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.bubble-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2), transparent);
+    top: 0;
+    left: -100%;
+    transition: left 0.5s ease;
+}
+
+.ocean-btn:hover .bubble-effect {
+    left: 100%;
+}
+
+.ocean-footer {
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.6rem;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}`,
+    js: `// Underwater Ocean Form
+document.addEventListener('DOMContentLoaded', function() {
+    const oceanForm = document.querySelector('.ocean-form');
+    
+    if (oceanForm) {
+        // Depth marker interaction
+        const depthBar = oceanForm.querySelector('.depth-bar');
+        const depthMarker = oceanForm.querySelector('.depth-marker');
+        const depthValue = oceanForm.querySelector('.depth-value');
+        
+        if (depthBar && depthMarker) {
+            depthBar.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const percentage = (x / rect.width) * 100;
+                
+                if (percentage >= 0 && percentage <= 100) {
+                    depthMarker.style.left = percentage + '%';
+                    depthValue.textContent = Math.round(percentage) + 'm';
+                }
+            });
+        }
+        
+        // Form submission
+        oceanForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const diverName = this.querySelector('input[placeholder="Diver\'s name"]').value;
+            const bubbleMessage = this.querySelector('input[placeholder="Bubble message"]').value;
+            const deepSecret = document.getElementById('ocean-password').value;
+            
+            if (!diverName || !bubbleMessage || !deepSecret) {
+                showOceanNotification('The ocean requires all offerings!', 'error');
+                return;
+            }
+            
+            const diveBtn = this.querySelector('.ocean-btn');
+            const originalText = diveBtn.innerHTML;
+            
+            diveBtn.innerHTML = '<span>Descending...</span> <i class="fas fa-spinner fa-spin"></i>';
+            diveBtn.disabled = true;
+            
+            setTimeout(() => {
+                diveBtn.innerHTML = '<span>Welcome to the depths!</span> <i class="fas fa-fish"></i>';
+                showOceanNotification('You have discovered the underwater realm!', 'success');
+                
+                setTimeout(() => {
+                    diveBtn.innerHTML = originalText;
+                    diveBtn.disabled = false;
+                    this.reset();
+                    depthMarker.style.left = '30%';
+                    depthValue.textContent = '30m';
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Password toggle
+        const oceanToggle = oceanForm.querySelector('.ocean-toggle');
+        if (oceanToggle) {
+            oceanToggle.addEventListener('click', function() {
+                const input = document.getElementById('ocean-password');
+                const icon = this.querySelector('i');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    }
+    
+    function showOceanNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 105, 148, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid \${type === 'success' ? '#7fffd4' : type === 'error' ? '#ff6b6b' : '#ffd700'};
+            border-radius: 30px;
+            color: white;
+            padding: 15px 25px;
+            font-size: 0.85rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px rgba(127, 255, 212, 0.3);
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
      
 
 

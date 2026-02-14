@@ -2423,9 +2423,9 @@
 
 /* Beautiful Copy Button */
 .copy-btn {
-    position: absolute;
+    position: sticky;
     top: 2rem;
-    right: 2rem;
+    left: 40rem;
     background: linear-gradient(135deg, #7c3aed, #ec4899);
     border: none;
     color: white;
