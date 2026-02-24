@@ -34015,6 +34015,3867 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });`
 },
+// ====================================================================
+// TEMPLATE 78: Neural Network AI Form
+// ====================================================================
+form78: {
+    name: "Neural Network AI Form",
+    category: "advanced ai neural",
+    html: `<div class="form-container neural-network-bg">
+    <canvas class="neural-canvas" id="neural-canvas-78"></canvas>
+    
+    <div class="neural-nodes">
+        <div class="node-layer input-layer">
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+        </div>
+        <div class="node-layer hidden-layer-1">
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+        </div>
+        <div class="node-layer hidden-layer-2">
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+        </div>
+        <div class="node-layer output-layer">
+            <div class="node"></div>
+            <div class="node"></div>
+        </div>
+    </div>
+    
+    <div class="neural-connections"></div>
+    
+    <div class="ai-consciousness-bar">
+        <div class="consciousness-level">
+            <div class="level-fill"></div>
+        </div>
+        <span class="consciousness-text">AI CONSCIOUSNESS: 47%</span>
+    </div>
+    
+    <div class="neural-card">
+        <div class="neural-header">
+            <div class="ai-logo">
+                <i class="fas fa-brain"></i>
+                <span>NEURALINK</span>
+                <div class="pulse-ring"></div>
+            </div>
+            <h3 class="neural-title">Quantum Neural Interface</h3>
+            <p class="neural-subtitle">Establish synaptic connection</p>
+        </div>
+        
+        <form class="neural-form" id="neuralForm">
+            <div class="neural-input-group" data-neuron="input-1">
+                <div class="synapse-field">
+                    <div class="axon"></div>
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Neural signature" required>
+                    <div class="dendrite"></div>
+                </div>
+                <div class="neural-activity">
+                    <span class="spike"></span>
+                    <span class="spike"></span>
+                    <span class="spike"></span>
+                </div>
+            </div>
+            
+            <div class="neural-input-group" data-neuron="input-2">
+                <div class="synapse-field">
+                    <div class="axon"></div>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Synaptic code" required id="neural-password">
+                    <button type="button" class="neural-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <div class="dendrite"></div>
+                </div>
+                <div class="neural-activity">
+                    <span class="spike"></span>
+                    <span class="spike"></span>
+                    <span class="spike"></span>
+                </div>
+            </div>
+            
+            <div class="neural-weights">
+                <div class="weight-control">
+                    <span class="weight-label">SYNAPSE WEIGHT</span>
+                    <div class="weight-slider">
+                        <input type="range" min="0" max="100" value="75" class="neural-slider" id="synapseWeight">
+                        <div class="slider-track"></div>
+                    </div>
+                    <span class="weight-value">0.75</span>
+                </div>
+            </div>
+            
+            <div class="neural-options">
+                <label class="neural-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="neural-checkbox-glow"></span>
+                    <span class="neural-checkbox-box">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span class="neural-checkbox-text">Enable synaptic plasticity</span>
+                </label>
+                <a href="#" class="neural-link">
+                    <i class="fas fa-code-branch"></i> Neural reset
+                </a>
+            </div>
+            
+            <div class="neural-prediction">
+                <span class="prediction-label">AI PREDICTION:</span>
+                <span class="prediction-value" id="aiPrediction">Authentication required</span>
+            </div>
+            
+            <button type="submit" class="neural-btn" id="neuralSubmit">
+                <span>ESTABLISH CONNECTION</span>
+                <i class="fas fa-project-diagram"></i>
+                <div class="neural-pulse"></div>
+            </button>
+        </form>
+        
+        <div class="neural-stats">
+            <div class="stat">
+                <span class="stat-label">NEURONS</span>
+                <span class="stat-value">1.2M</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">SYNAPSES</span>
+                <span class="stat-value">4.7B</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">PROCESSING</span>
+                <span class="stat-value">9.8 TFLOPS</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="quantum-state">
+        <span>⚛ QUANTUM ENTANGLEMENT: ACTIVE</span>
+    </div>
+</div>`,
+    css: `.neural-network-bg {
+    background: #0a0a1a;
+    border-radius: 30px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid #00ffff;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+.neural-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.neural-nodes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.node-layer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-layer {
+    top: 20%;
+    left: 5%;
+}
+
+.hidden-layer-1 {
+    top: 15%;
+    left: 25%;
+}
+
+.hidden-layer-2 {
+    top: 25%;
+    left: 45%;
+}
+
+.output-layer {
+    top: 30%;
+    right: 5%;
+}
+
+.node {
+    width: 12px;
+    height: 12px;
+    background: rgba(0, 255, 255, 0.3);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    animation: node-pulse 2s infinite;
+}
+
+.node::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: node-ring 3s infinite;
+}
+
+@keyframes node-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.5); opacity: 1; }
+}
+
+@keyframes node-ring {
+    0% { transform: scale(1); opacity: 0.3; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+.neural-connections {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(0, 255, 255, 0.02) 10px,
+        rgba(0, 255, 255, 0.02) 20px
+    );
+}
+
+.ai-consciousness-bar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.consciousness-level {
+    width: 150px;
+    height: 4px;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.level-fill {
+    width: 47%;
+    height: 100%;
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    animation: consciousness-wave 2s infinite;
+}
+
+@keyframes consciousness-wave {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.consciousness-text {
+    color: rgba(0, 255, 255, 0.5);
+    font-size: 0.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+.neural-card {
+    position: relative;
+    background: rgba(10, 10, 30, 0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 20px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    z-index: 20;
+    overflow: hidden;
+}
+
+.neural-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ai-logo {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.ai-logo i {
+    font-size: 2rem;
+    color: #00ffff;
+    filter: drop-shadow(0 0 15px #00ffff);
+    animation: brain-pulse 2s infinite;
+}
+
+@keyframes brain-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); filter: drop-shadow(0 0 25px #00ffff); }
+}
+
+.ai-logo span {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: white;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+.pulse-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: ring-pulse 2s infinite;
+}
+
+@keyframes ring-pulse {
+    0% { width: 60px; height: 60px; opacity: 0.5; }
+    100% { width: 100px; height: 100px; opacity: 0; }
+}
+
+.neural-title {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.neural-subtitle {
+    color: rgba(0, 255, 255, 0.6);
+    font-size: 0.65rem;
+}
+
+.neural-input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.synapse-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 0 16px;
+    overflow: hidden;
+}
+
+.axon {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.synapse-field:focus-within .axon {
+    transform: translateX(0);
+}
+
+.synapse-field i {
+    color: #00ffff;
+    font-size: 0.9rem;
+    margin-right: 10px;
+    z-index: 2;
+}
+
+.synapse-field input {
+    flex: 1;
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.85rem;
+    z-index: 2;
+}
+
+.synapse-field input:focus {
+    outline: none;
+}
+
+.dendrite {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.synapse-field:focus-within .dendrite {
+    transform: translateX(0);
+}
+
+.neural-activity {
+    display: flex;
+    gap: 3px;
+    margin-top: 5px;
+    justify-content: center;
+}
+
+.spike {
+    width: 3px;
+    height: 10px;
+    background: #00ffff;
+    animation: spike-fire 1s infinite;
+}
+
+.spike:nth-child(1) { animation-delay: 0s; }
+.spike:nth-child(2) { animation-delay: 0.2s; }
+.spike:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes spike-fire {
+    0%, 100% { height: 5px; opacity: 0.3; }
+    50% { height: 15px; opacity: 1; }
+}
+
+.neural-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #00ffff;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.neural-weights {
+    margin: 20px 0;
+}
+
+.weight-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.weight-label {
+    color: rgba(0, 255, 255, 0.7);
+    font-size: 0.7rem;
+    min-width: 100px;
+}
+
+.weight-slider {
+    flex: 1;
+    position: relative;
+    height: 30px;
+}
+
+.neural-slider {
+    width: 100%;
+    height: 2px;
+    -webkit-appearance: none;
+    background: transparent;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.neural-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #00ffff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 15px #00ffff;
+    animation: thumb-pulse 1s infinite;
+}
+
+.slider-track {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    border-radius: 1px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.weight-value {
+    color: #00ffff;
+    font-size: 0.8rem;
+    min-width: 45px;
+}
+
+.neural-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.neural-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    position: relative;
+}
+
+.neural-checkbox input {
+    display: none;
+}
+
+.neural-checkbox-glow {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(circle, #00ffff, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.neural-checkbox input:checked ~ .neural-checkbox-glow {
+    opacity: 0.5;
+}
+
+.neural-checkbox-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #00ffff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+.neural-checkbox input:checked + .neural-checkbox-glow + .neural-checkbox-box {
+    background: #00ffff;
+    color: #0a0a1a;
+}
+
+.neural-checkbox-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+}
+
+.neural-link {
+    color: #00ffff;
+    text-decoration: none;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.neural-prediction {
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.prediction-label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.65rem;
+}
+
+.prediction-value {
+    color: #00ffff;
+    font-size: 0.75rem;
+    font-family: 'Courier New', monospace;
+}
+
+.neural-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    color: white;
+    border: 1px solid #00ffff;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.neural-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+    top: 0;
+    left: -100%;
+    animation: neural-pulse 2s infinite;
+}
+
+@keyframes neural-pulse {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.neural-btn:hover {
+    background: rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.neural-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.55rem;
+}
+
+.stat-value {
+    color: #00ffff;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.quantum-state {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: rgba(0, 255, 255, 0.3);
+    font-size: 0.5rem;
+    letter-spacing: 2px;
+}`,
+    js: `// Neural Network AI Form
+document.addEventListener('DOMContentLoaded', function() {
+    const neuralForm = document.getElementById('neuralForm');
+    const canvas = document.getElementById('neural-canvas-78');
+    const weightSlider = document.getElementById('synapseWeight');
+    const weightValue = document.querySelector('.weight-value');
+    const aiPrediction = document.getElementById('aiPrediction');
+    
+    // Neural network visualization
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
+        
+        function drawNeuralNetwork() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw connections
+            const nodes = document.querySelectorAll('.node');
+            nodes.forEach((node, i) => {
+                nodes.forEach((otherNode, j) => {
+                    if (i !== j && Math.random() > 0.7) {
+                        const rect1 = node.getBoundingClientRect();
+                        const rect2 = otherNode.getBoundingClientRect();
+                        const canvasRect = canvas.getBoundingClientRect();
+                        
+                        ctx.beginPath();
+                        ctx.moveTo(rect1.left - canvasRect.left, rect1.top - canvasRect.top);
+                        ctx.lineTo(rect2.left - canvasRect.left, rect2.top - canvasRect.top);
+                        ctx.strokeStyle = 'rgba(0, 255, 255, 0.1)';
+                        ctx.stroke();
+                    }
+                });
+            });
+            
+            requestAnimationFrame(drawNeuralNetwork);
+        }
+        
+        drawNeuralNetwork();
+    }
+    
+    // Weight slider
+    if (weightSlider) {
+        weightSlider.addEventListener('input', function() {
+            const val = this.value / 100;
+            weightValue.textContent = val.toFixed(2);
+            
+            // Update AI prediction based on weight
+            if (aiPrediction) {
+                if (val > 0.7) {
+                    aiPrediction.textContent = 'High confidence (92%)';
+                } else if (val > 0.4) {
+                    aiPrediction.textContent = 'Medium confidence (65%)';
+                } else {
+                    aiPrediction.textContent = 'Low confidence (31%)';
+                }
+            }
+        });
+    }
+    
+    // Form submission
+    if (neuralForm) {
+        neuralForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = document.getElementById('neural-password').value;
+            const weight = weightSlider ? weightSlider.value : 75;
+            
+            if (!email || !password) {
+                showNeuralNotification('Insufficient neural input', 'error');
+                return;
+            }
+            
+            const submitBtn = document.getElementById('neuralSubmit');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span>PROCESSING...</span> <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            // Simulate neural processing
+            setTimeout(() => {
+                const confidence = Math.random() * 100;
+                submitBtn.innerHTML = '<span>CONNECTION ESTABLISHED</span> <i class="fas fa-brain"></i>';
+                showNeuralNotification(\`Neural link established with \${confidence.toFixed(1)}% confidence\`, 'success');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    neuralForm.reset();
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    // Password toggle
+    const neuralToggle = document.querySelector('.neural-toggle');
+    if (neuralToggle) {
+        neuralToggle.addEventListener('click', function() {
+            const input = document.getElementById('neural-password');
+            const icon = this.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+    }
+    
+    function showNeuralNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0a0a1a;
+            border: 1px solid \${type === 'success' ? '#00ffff' : '#ff00ff'};
+            border-radius: 10px;
+            color: white;
+            padding: 15px 25px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px \${type === 'success' ? 'rgba(0, 255, 255, 0.3)' : 'rgba(255, 0, 255, 0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 79: Holographic Time Dialation Form
+// ====================================================================
+form79: {
+    name: "Holographic Time Dialation Form",
+    category: "advanced holographic time",
+    html: `<div class="form-container time-dialation-bg">
+    <div class="einstein-ring"></div>
+    
+    <div class="time-layers">
+        <div class="time-layer past" data-time="-1000">
+            <span class="time-echo">PAST</span>
+        </div>
+        <div class="time-layer present" data-time="0">
+            <span class="time-now">NOW</span>
+        </div>
+        <div class="time-layer future" data-time="1000">
+            <span class="time-echo">FUTURE</span>
+        </div>
+    </div>
+    
+    <div class="spacetime-grid">
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-curve"></div>
+    </div>
+    
+    <div class="chrono-particles">
+        <div class="chrono-particle"></div>
+        <div class="chrono-particle"></div>
+        <div class="chrono-particle"></div>
+        <div class="chrono-particle"></div>
+        <div class="chrono-particle"></div>
+    </div>
+    
+    <div class="time-dialation-card">
+        <div class="chrono-shield"></div>
+        
+        <div class="time-header">
+            <div class="time-logo">
+                <i class="fas fa-clock"></i>
+                <i class="fas fa-infinity"></i>
+            </div>
+            <h3 class="time-title">Temporal Dialation</h3>
+            <p class="time-subtitle">Experience time differently</p>
+        </div>
+        
+        <div class="time-display" id="timeDisplay">
+            <div class="relative-time">
+                <span class="relative-label">YOUR TIME</span>
+                <span class="relative-value">00:00:00</span>
+            </div>
+            <div class="absolute-time">
+                <span class="absolute-label">ABSOLUTE</span>
+                <span class="absolute-value">∞</span>
+            </div>
+        </div>
+        
+        <form class="time-form" id="timeForm">
+            <div class="temporal-input">
+                <div class="temporal-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Temporal email" required>
+                    <div class="time-dilation-bar"></div>
+                </div>
+                <span class="time-offset">Δt = +0.0ms</span>
+            </div>
+            
+            <div class="temporal-input">
+                <div class="temporal-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Chronal key" required id="time-password">
+                    <button type="button" class="time-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <div class="time-dilation-bar"></div>
+                </div>
+                <span class="time-offset">Δt = -0.0ms</span>
+            </div>
+            
+            <div class="time-dialation-control">
+                <span class="dialation-label">TIME DIALATION FACTOR: γ = <span id="gammaValue">1.0</span></span>
+                <div class="dialation-slider">
+                    <input type="range" min="1" max="3" step="0.1" value="1" class="time-slider" id="timeSlider">
+                    <div class="slider-wormhole"></div>
+                </div>
+                <div class="time-effects">
+                    <span class="effect redshift">REDSHIFT</span>
+                    <span class="effect blueshift">BLUESHIFT</span>
+                </div>
+            </div>
+            
+            <div class="time-options">
+                <label class="time-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="time-checkbox-box">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span>Synchronize timelines</span>
+                </label>
+                <a href="#" class="time-link">Paradox resolver</a>
+            </div>
+            
+            <div class="spacetime-curvature">
+                <div class="curvature-meter">
+                    <div class="curvature-fill" style="width: 45%"></div>
+                </div>
+                <span class="curvature-text">SPACETIME CURVATURE: 45%</span>
+            </div>
+            
+            <button type="submit" class="time-btn" id="timeBtn">
+                <span>TRAVEL THROUGH TIME</span>
+                <i class="fas fa-hourglass-half"></i>
+                <div class="time-warp"></div>
+            </button>
+        </form>
+        
+        <div class="chrono-stats">
+            <div class="chrono-stat">
+                <span class="chrono-label">PROPER TIME</span>
+                <span class="chrono-value">2.7s</span>
+            </div>
+            <div class="chrono-stat">
+                <span class="chrono-label">COORDINATE TIME</span>
+                <span class="chrono-value">4.2s</span>
+            </div>
+            <div class="chrono-stat">
+                <span class="chrono-label">GRAVITATIONAL</span>
+                <span class="chrono-value">1.5g</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="event-horizon"></div>
+</div>`,
+    css: `.time-dialation-bg {
+    background: #030014;
+    border-radius: 30px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid #7f00ff;
+    box-shadow: 0 0 50px rgba(127, 0, 255, 0.1);
+}
+
+.einstein-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    border: 2px solid rgba(127, 0, 255, 0.1);
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(127, 0, 255, 0.1);
+    animation: ring-rotate 20s linear infinite;
+}
+
+@keyframes ring-rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.time-layers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+
+.time-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.03);
+    transform-style: preserve-3d;
+}
+
+.past {
+    transform: translateZ(-100px) rotateY(10deg);
+    color: rgba(255, 0, 0, 0.1);
+}
+
+.present {
+    transform: translateZ(0) rotateY(0deg);
+}
+
+.future {
+    transform: translateZ(100px) rotateY(-10deg);
+    color: rgba(0, 255, 255, 0.1);
+}
+
+.spacetime-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    perspective: 500px;
+}
+
+.grid-line {
+    position: absolute;
+    background: rgba(127, 0, 255, 0.1);
+}
+
+.grid-line:nth-child(1) {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    transform: rotateX(60deg);
+}
+
+.grid-line:nth-child(2) {
+    width: 100%;
+    height: 1px;
+    bottom: 30%;
+    transform: rotateX(45deg);
+}
+
+.grid-line:nth-child(3) {
+    height: 100%;
+    width: 1px;
+    left: 40%;
+    transform: rotateY(45deg);
+}
+
+.grid-line:nth-child(4) {
+    height: 100%;
+    width: 1px;
+    right: 30%;
+    transform: rotateY(30deg);
+}
+
+.grid-curve {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 2px solid rgba(127, 0, 255, 0.1);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(60deg);
+}
+
+.chrono-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.chrono-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: chrono-flow 10s linear infinite;
+}
+
+.chrono-particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.chrono-particle:nth-child(2) { top: 40%; left: 30%; animation-delay: 2s; }
+.chrono-particle:nth-child(3) { top: 60%; left: 50%; animation-delay: 4s; }
+.chrono-particle:nth-child(4) { top: 80%; left: 70%; animation-delay: 6s; }
+.chrono-particle:nth-child(5) { top: 30%; left: 90%; animation-delay: 8s; }
+
+@keyframes chrono-flow {
+    0% { transform: translateX(0) translateY(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateX(100px) translateY(-100px); opacity: 0; }
+}
+
+.time-dialation-card {
+    position: relative;
+    background: rgba(3, 0, 20, 0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 20px;
+    border: 1px solid rgba(127, 0, 255, 0.3);
+    z-index: 20;
+}
+
+.chrono-shield {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle at 50% 50%, rgba(127, 0, 255, 0.1), transparent);
+    pointer-events: none;
+}
+
+.time-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.time-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.time-logo i {
+    font-size: 2rem;
+    color: #7f00ff;
+    filter: drop-shadow(0 0 15px #7f00ff);
+    animation: time-pulse 3s infinite;
+}
+
+.time-logo i:nth-child(2) {
+    animation-delay: 1s;
+}
+
+@keyframes time-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.time-title {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 3px;
+    text-shadow: 0 0 10px #7f00ff;
+}
+
+.time-subtitle {
+    color: rgba(127, 0, 255, 0.7);
+    font-size: 0.65rem;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+.relative-time,
+.absolute-time {
+    text-align: center;
+}
+
+.relative-label,
+.absolute-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.55rem;
+}
+
+.relative-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #7f00ff;
+    font-family: 'Courier New', monospace;
+}
+
+.absolute-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgba(127, 0, 255, 0.5);
+}
+
+.temporal-input {
+    margin-bottom: 15px;
+}
+
+.temporal-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(127, 0, 255, 0.2);
+    border-radius: 20px;
+    padding: 0 16px;
+}
+
+.temporal-field i {
+    color: #7f00ff;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.temporal-field input {
+    flex: 1;
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.85rem;
+}
+
+.temporal-field input:focus {
+    outline: none;
+}
+
+.time-dilation-bar {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #7f00ff, #ff00ff);
+    transition: width 0.3s ease;
+}
+
+.temporal-field:focus-within .time-dilation-bar {
+    width: 100%;
+}
+
+.time-offset {
+    position: absolute;
+    right: 10px;
+    top: -18px;
+    color: rgba(127, 0, 255, 0.7);
+    font-size: 0.6rem;
+}
+
+.time-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #7f00ff;
+    cursor: pointer;
+}
+
+.time-dialation-control {
+    margin: 25px 0;
+}
+
+.dialation-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+}
+
+.dialation-slider {
+    position: relative;
+    height: 30px;
+    margin-bottom: 15px;
+}
+
+.time-slider {
+    width: 100%;
+    height: 2px;
+    -webkit-appearance: none;
+    background: transparent;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.time-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #7f00ff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 20px #7f00ff;
+}
+
+.slider-wormhole {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #7f00ff, #ff00ff, #7f00ff);
+    border-radius: 1px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.time-effects {
+    display: flex;
+    justify-content: space-between;
+}
+
+.effect {
+    font-size: 0.6rem;
+    padding: 4px 8px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.effect.redshift {
+    color: #ff6b6b;
+    border: 1px solid #ff6b6b;
+}
+
+.effect.blueshift {
+    color: #6b9eff;
+    border: 1px solid #6b9eff;
+}
+
+.time-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.time-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+}
+
+.time-checkbox input {
+    display: none;
+}
+
+.time-checkbox-box {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #7f00ff;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+}
+
+.time-checkbox input:checked + .time-checkbox-box {
+    background: #7f00ff;
+    color: white;
+}
+
+.time-link {
+    color: #7f00ff;
+    text-decoration: none;
+    font-size: 0.7rem;
+}
+
+.spacetime-curvature {
+    margin: 20px 0;
+}
+
+.curvature-meter {
+    height: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.curvature-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #7f00ff, #ff00ff);
+    border-radius: 3px;
+    animation: curvature-wave 3s infinite;
+}
+
+@keyframes curvature-wave {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.curvature-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.6rem;
+}
+
+.time-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    color: white;
+    border: 1px solid #7f00ff;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+    transition: all 0.3s ease;
+}
+
+.time-warp {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(127, 0, 255, 0.2), transparent);
+    top: 0;
+    left: -100%;
+    animation: time-warp 3s infinite;
+}
+
+@keyframes time-warp {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.time-btn:hover {
+    background: rgba(127, 0, 255, 0.1);
+    box-shadow: 0 0 30px rgba(127, 0, 255, 0.3);
+}
+
+.chrono-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(127, 0, 255, 0.2);
+}
+
+.chrono-stat {
+    text-align: center;
+}
+
+.chrono-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.55rem;
+}
+
+.chrono-value {
+    color: #7f00ff;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.event-horizon {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(127, 0, 255, 0.2), transparent);
+    filter: blur(20px);
+}`,
+    js: `// Holographic Time Dialation Form
+document.addEventListener('DOMContentLoaded', function() {
+    const timeForm = document.getElementById('timeForm');
+    const timeSlider = document.getElementById('timeSlider');
+    const gammaValue = document.getElementById('gammaValue');
+    const relativeTime = document.querySelector('.relative-value');
+    const curvatureFill = document.querySelector('.curvature-fill');
+    const curvatureText = document.querySelector('.curvature-text');
+    
+    // Time dilation effect
+    if (timeSlider) {
+        timeSlider.addEventListener('input', function() {
+            const gamma = parseFloat(this.value).toFixed(1);
+            gammaValue.textContent = gamma;
+            
+            // Update relative time based on dilation
+            const now = new Date();
+            const dilatedSeconds = now.getSeconds() * gamma;
+            relativeTime.textContent = new Date(now.setSeconds(dilatedSeconds)).toLocaleTimeString();
+            
+            // Update spacetime curvature
+            const curvature = ((gamma - 1) / 2) * 100;
+            curvatureFill.style.width = curvature + '%';
+            curvatureText.textContent = \`SPACETIME CURVATURE: \${curvature.toFixed(0)}%\`;
+            
+            // Update time offsets
+            const offsets = document.querySelectorAll('.time-offset');
+            offsets[0].textContent = \`Δt = +\${(gamma * 0.1).toFixed(1)}ms\`;
+            offsets[1].textContent = \`Δt = -\${(gamma * 0.1).toFixed(1)}ms\`;
+        });
+    }
+    
+    // Form submission
+    if (timeForm) {
+        timeForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = document.getElementById('time-password').value;
+            
+            if (!email || !password) {
+                showTimeNotification('Temporal coordinates required', 'error');
+                return;
+            }
+            
+            const timeBtn = document.getElementById('timeBtn');
+            const originalText = timeBtn.innerHTML;
+            
+            timeBtn.innerHTML = '<span>WARPING...</span> <i class="fas fa-spinner fa-spin"></i>';
+            timeBtn.disabled = true;
+            
+            setTimeout(() => {
+                timeBtn.innerHTML = '<span>ARRIVED IN FUTURE</span> <i class="fas fa-clock"></i>';
+                showTimeNotification('Time travel successful! Welcome to year ' + (new Date().getFullYear() + 100), 'success');
+                
+                setTimeout(() => {
+                    timeBtn.innerHTML = originalText;
+                    timeBtn.disabled = false;
+                    timeForm.reset();
+                    relativeTime.textContent = new Date().toLocaleTimeString();
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    // Password toggle
+    const timeToggle = document.querySelector('.time-toggle');
+    if (timeToggle) {
+        timeToggle.addEventListener('click', function() {
+            const input = document.getElementById('time-password');
+            const icon = this.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+    }
+    
+    function showTimeNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #030014;
+            border: 1px solid \${type === 'success' ? '#7f00ff' : '#ff00ff'};
+            border-radius: 15px;
+            color: white;
+            padding: 15px 25px;
+            font-size: 0.8rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px \${type === 'success' ? 'rgba(127, 0, 255, 0.3)' : 'rgba(255, 0, 255, 0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 80: DNA Genetic Code Form
+// ====================================================================
+form80: {
+    name: "DNA Genetic Code Form",
+    category: "advanced dna genetic",
+    html: `<div class="form-container dna-helix-bg">
+    <div class="dna-helix" id="dnaHelix">
+        <div class="helix-strand left">
+            <div class="nucleotide"></div>
+            <div class="nucleotide"></div>
+            <div class="nucleotide"></div>
+            <div class="nucleotide"></div>
+            <div class="nucleotide"></div>
+            <div class="nucleotide"></div>
+        </div>
+        <div class="helix-strand right">
+            <div class="nucleotide"></div>
+            <div class="nucleotide"></div>
+            <div class="nucleotide"></div>
+            <div class="nucleotide"></div>
+            <div class="nucleotide"></div>
+            <div class="nucleotide"></div>
+        </div>
+        <div class="base-pairs">
+            <div class="base-pair"></div>
+            <div class="base-pair"></div>
+            <div class="base-pair"></div>
+            <div class="base-pair"></div>
+            <div class="base-pair"></div>
+            <div class="base-pair"></div>
+        </div>
+    </div>
+    
+    <div class="genetic-code">
+        <div class="codon">A-T</div>
+        <div class="codon">G-C</div>
+        <div class="codon">T-A</div>
+        <div class="codon">C-G</div>
+        <div class="codon">A-T</div>
+    </div>
+    
+    <div class="molecular-structure">
+        <div class="atom"></div>
+        <div class="atom"></div>
+        <div class="atom"></div>
+        <div class="molecular-bond"></div>
+    </div>
+    
+    <div class="dna-card">
+        <div class="dna-header">
+            <div class="dna-logo">
+                <i class="fas fa-dna"></i>
+                <span>GENOME</span>
+            </div>
+            <h3 class="dna-title">Genetic Authentication</h3>
+            <p class="dna-subtitle">Your unique biological signature</p>
+        </div>
+        
+        <div class="dna-sequence" id="dnaSequence">
+            <span class="base adenine">A</span>
+            <span class="base thymine">T</span>
+            <span class="base guanine">G</span>
+            <span class="base cytosine">C</span>
+            <span class="base adenine">A</span>
+            <span class="base thymine">T</span>
+            <span class="base guanine">G</span>
+            <span class="base cytosine">C</span>
+        </div>
+        
+        <form class="dna-form" id="dnaForm">
+            <div class="genetic-input">
+                <div class="genetic-field">
+                    <i class="fas fa-dna"></i>
+                    <input type="text" placeholder="Enter genetic marker" required id="geneticMarker">
+                    <div class="nucleotide-indicator">
+                        <span class="base-a">A</span>
+                        <span class="base-t">T</span>
+                        <span class="base-g">G</span>
+                        <span class="base-c">C</span>
+                    </div>
+                </div>
+                <div class="mutation-rate">Mutation rate: 0.01%</div>
+            </div>
+            
+            <div class="genetic-input">
+                <div class="genetic-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Genetic password" required id="dna-password">
+                    <button type="button" class="dna-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="dna-helix-small"></div>
+            </div>
+            
+            <div class="chromosome-selector">
+                <span class="chromosome-label">Select chromosome:</span>
+                <div class="chromosome-options">
+                    <label class="chromosome-option">
+                        <input type="radio" name="chromosome" value="x" checked>
+                        <span class="chromosome">X</span>
+                    </label>
+                    <label class="chromosome-option">
+                        <input type="radio" name="chromosome" value="y">
+                        <span class="chromosome">Y</span>
+                    </label>
+                    <label class="chromosome-option">
+                        <input type="radio" name="chromosome" value="1">
+                        <span class="chromosome">1</span>
+                    </label>
+                    <label class="chromosome-option">
+                        <input type="radio" name="chromosome" value="2">
+                        <span class="chromosome">2</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="gene-expression">
+                <div class="expression-bar">
+                    <div class="expression-fill" style="width: 65%"></div>
+                </div>
+                <span class="expression-text">GENE EXPRESSION: 65%</span>
+            </div>
+            
+            <div class="dna-options">
+                <label class="dna-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="dna-checkbox-box">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span>Store genetic data</span>
+                </label>
+                <a href="#" class="dna-link">
+                    <i class="fas fa-flask"></i> Mutate
+                </a>
+            </div>
+            
+            <button type="submit" class="dna-btn" id="dnaBtn">
+                <span>SEQUENCE GENOME</span>
+                <i class="fas fa-dna"></i>
+                <div class="dna-pulse"></div>
+            </button>
+        </form>
+        
+        <div class="genetic-stats">
+            <div class="stat">
+                <span class="stat-label">BASE PAIRS</span>
+                <span class="stat-value">3.2B</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">GENES</span>
+                <span class="stat-value">20K</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">UNIQUE</span>
+                <span class="stat-value">99.9%</span>
+            </div>
+        </div>
+    </div>
+</div>`,
+    css: `.dna-helix-bg {
+    background: #001a1a;
+    border-radius: 30px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid #00ff9d;
+    box-shadow: 0 0 30px rgba(0, 255, 157, 0.1);
+}
+
+.dna-helix {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    perspective: 500px;
+}
+
+.helix-strand {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.left {
+    left: 10%;
+}
+
+.right {
+    right: 10%;
+}
+
+.nucleotide {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(0, 255, 157, 0.1);
+    border: 1px solid rgba(0, 255, 157, 0.3);
+    animation: nucleotide-float 3s infinite;
+}
+
+.left .nucleotide:nth-child(even) {
+    animation-delay: 0.5s;
+}
+
+.right .nucleotide:nth-child(odd) {
+    animation-delay: 1s;
+}
+
+@keyframes nucleotide-float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.1); }
+}
+
+.base-pairs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.base-pair {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #00ff9d, #ff6b6b);
+    transform: rotate(45deg);
+    animation: pair-pulse 2s infinite;
+}
+
+@keyframes pair-pulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.8; }
+}
+
+.genetic-code {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.codon {
+    padding: 3px 6px;
+    background: rgba(0, 255, 157, 0.1);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    border-radius: 10px;
+    color: #00ff9d;
+    font-size: 0.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+.molecular-structure {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.atom {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff, #00ff9d);
+    box-shadow: 0 0 15px #00ff9d;
+}
+
+.atom:nth-child(1) { top: 0; left: 0; }
+.atom:nth-child(2) { top: 0; left: 20px; }
+.atom:nth-child(3) { top: 20px; left: 10px; }
+
+.molecular-bond {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: 20px;
+    height: 2px;
+    background: #00ff9d;
+    transform: rotate(60deg);
+}
+
+.dna-card {
+    position: relative;
+    background: rgba(0, 26, 26, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 20px;
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    z-index: 20;
+}
+
+.dna-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dna-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.dna-logo i {
+    font-size: 2rem;
+    color: #00ff9d;
+    filter: drop-shadow(0 0 15px #00ff9d);
+    animation: dna-spin 5s linear infinite;
+}
+
+@keyframes dna-spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+.dna-logo span {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: white;
+    text-shadow: 0 0 10px #00ff9d;
+}
+
+.dna-title {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.dna-subtitle {
+    color: rgba(0, 255, 157, 0.7);
+    font-size: 0.65rem;
+}
+
+.dna-sequence {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+.base {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    animation: base-flash 2s infinite;
+}
+
+.base.adenine {
+    background: #ff6b6b;
+    color: white;
+    box-shadow: 0 0 15px #ff6b6b;
+}
+
+.base.thymine {
+    background: #6b9eff;
+    color: white;
+    box-shadow: 0 0 15px #6b9eff;
+}
+
+.base.guanine {
+    background: #6bff6b;
+    color: #001a1a;
+    box-shadow: 0 0 15px #6bff6b;
+}
+
+.base.cytosine {
+    background: #ffff6b;
+    color: #001a1a;
+    box-shadow: 0 0 15px #ffff6b;
+}
+
+@keyframes base-flash {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.genetic-input {
+    margin-bottom: 20px;
+}
+
+.genetic-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    border-radius: 20px;
+    padding: 0 16px;
+}
+
+.genetic-field i {
+    color: #00ff9d;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.genetic-field input {
+    flex: 1;
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.85rem;
+}
+
+.genetic-field input:focus {
+    outline: none;
+}
+
+.nucleotide-indicator {
+    position: absolute;
+    right: 16px;
+    display: flex;
+    gap: 5px;
+}
+
+.nucleotide-indicator span {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 0.6rem;
+    font-weight: bold;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.genetic-field input:focus ~ .nucleotide-indicator span {
+    opacity: 1;
+}
+
+.base-a { background: #ff6b6b; color: white; }
+.base-t { background: #6b9eff; color: white; }
+.base-g { background: #6bff6b; color: #001a1a; }
+.base-c { background: #ffff6b; color: #001a1a; }
+
+.mutation-rate {
+    color: rgba(0, 255, 157, 0.5);
+    font-size: 0.6rem;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.dna-helix-small {
+    width: 100%;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, #00ff9d, #ff6b6b, #00ff9d);
+    background-size: 20px 100%;
+    animation: helix-move 1s linear infinite;
+}
+
+@keyframes helix-move {
+    from { background-position: 0 0; }
+    to { background-position: 20px 0; }
+}
+
+.dna-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #00ff9d;
+    cursor: pointer;
+}
+
+.chromosome-selector {
+    margin: 20px 0;
+}
+
+.chromosome-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+}
+
+.chromosome-options {
+    display: flex;
+    gap: 15px;
+}
+
+.chromosome-option {
+    cursor: pointer;
+}
+
+.chromosome-option input {
+    display: none;
+}
+
+.chromosome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.chromosome-option input:checked + .chromosome {
+    background: #00ff9d;
+    color: #001a1a;
+    border-color: #00ff9d;
+    box-shadow: 0 0 20px #00ff9d;
+}
+
+.gene-expression {
+    margin: 20px 0;
+}
+
+.expression-bar {
+    height: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.expression-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00ff9d, #6bff6b);
+    border-radius: 3px;
+    animation: expression-wave 2s infinite;
+}
+
+@keyframes expression-wave {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.expression-text {
+    color: rgba(0, 255, 157, 0.7);
+    font-size: 0.6rem;
+}
+
+.dna-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.dna-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+}
+
+.dna-checkbox input {
+    display: none;
+}
+
+.dna-checkbox-box {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #00ff9d;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+}
+
+.dna-checkbox input:checked + .dna-checkbox-box {
+    background: #00ff9d;
+    color: #001a1a;
+}
+
+.dna-link {
+    color: #00ff9d;
+    text-decoration: none;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dna-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    color: white;
+    border: 1px solid #00ff9d;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+    transition: all 0.3s ease;
+}
+
+.dna-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.2), transparent);
+    top: 0;
+    left: -100%;
+    animation: dna-pulse 2s infinite;
+}
+
+@keyframes dna-pulse {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.dna-btn:hover {
+    background: rgba(0, 255, 157, 0.1);
+    box-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
+}
+
+.genetic-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 255, 157, 0.1);
+}`,
+    js: `// DNA Genetic Code Form
+document.addEventListener('DOMContentLoaded', function() {
+    const dnaForm = document.getElementById('dnaForm');
+    const geneticMarker = document.getElementById('geneticMarker');
+    const dnaSequence = document.getElementById('dnaSequence');
+    const expressionFill = document.querySelector('.expression-fill');
+    const expressionText = document.querySelector('.expression-text');
+    
+    // Genetic marker input
+    if (geneticMarker) {
+        geneticMarker.addEventListener('input', function() {
+            const value = this.value.toUpperCase().replace(/[^ATGC]/g, '');
+            this.value = value;
+            
+            // Update DNA sequence preview
+            if (value.length > 0) {
+                const bases = dnaSequence.querySelectorAll('.base');
+                for (let i = 0; i < Math.min(value.length, bases.length); i++) {
+                    const base = value[i];
+                    bases[i].textContent = base;
+                    
+                    // Update class based on base
+                    bases[i].className = 'base';
+                    if (base === 'A') bases[i].classList.add('adenine');
+                    else if (base === 'T') bases[i].classList.add('thymine');
+                    else if (base === 'G') bases[i].classList.add('guanine');
+                    else if (base === 'C') bases[i].classList.add('cytosine');
+                }
+            }
+            
+            // Update gene expression based on GC content
+            const gcCount = (value.match(/[GC]/g) || []).length;
+            const expression = value.length > 0 ? (gcCount / value.length) * 100 : 65;
+            expressionFill.style.width = expression + '%';
+            expressionText.textContent = \`GENE EXPRESSION: \${expression.toFixed(0)}%\`;
+        });
+    }
+    
+    // Form submission
+    if (dnaForm) {
+        dnaForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const marker = geneticMarker.value;
+            const password = document.getElementById('dna-password').value;
+            const chromosome = this.querySelector('input[name="chromosome"]:checked').value;
+            
+            if (!marker || !password) {
+                showDNANotification('Incomplete genetic sequence', 'error');
+                return;
+            }
+            
+            const dnaBtn = document.getElementById('dnaBtn');
+            const originalText = dnaBtn.innerHTML;
+            
+            dnaBtn.innerHTML = '<span>SEQUENCING...</span> <i class="fas fa-spinner fa-spin"></i>';
+            dnaBtn.disabled = true;
+            
+            setTimeout(() => {
+                const match = Math.random() * 100;
+                dnaBtn.innerHTML = '<span>GENOME MATCHED!</span> <i class="fas fa-dna"></i>';
+                showDNANotification(\`Genetic match: \${match.toFixed(1)}% - Chromosome \${chromosome.toUpperCase()} verified\`, 'success');
+                
+                setTimeout(() => {
+                    dnaBtn.innerHTML = originalText;
+                    dnaBtn.disabled = false;
+                    dnaForm.reset();
+                    expressionFill.style.width = '65%';
+                    expressionText.textContent = 'GENE EXPRESSION: 65%';
+                    
+                    // Reset DNA sequence
+                    const bases = dnaSequence.querySelectorAll('.base');
+                    const defaultBases = ['A','T','G','C','A','T','G','C'];
+                    bases.forEach((base, i) => {
+                        base.textContent = defaultBases[i];
+                        base.className = 'base';
+                        if (defaultBases[i] === 'A') base.classList.add('adenine');
+                        else if (defaultBases[i] === 'T') base.classList.add('thymine');
+                        else if (defaultBases[i] === 'G') base.classList.add('guanine');
+                        else base.classList.add('cytosine');
+                    });
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    // Password toggle
+    const dnaToggle = document.querySelector('.dna-toggle');
+    if (dnaToggle) {
+        dnaToggle.addEventListener('click', function() {
+            const input = document.getElementById('dna-password');
+            const icon = this.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+    }
+    
+    function showDNANotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #001a1a;
+            border: 1px solid \${type === 'success' ? '#00ff9d' : '#ff6b6b'};
+            border-radius: 15px;
+            color: white;
+            padding: 15px 25px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px \${type === 'success' ? 'rgba(0, 255, 157, 0.3)' : 'rgba(255, 107, 107, 0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 81: Quantum Computing Qubit Form
+// ====================================================================
+form81: {
+    name: "Quantum Computing Qubit Form",
+    category: "advanced quantum qubit",
+    html: `<div class="form-container quantum-computing-bg">
+    <div class="qubit-states">
+        <div class="bloch-sphere">
+            <div class="sphere-axis x"></div>
+            <div class="sphere-axis y"></div>
+            <div class="sphere-axis z"></div>
+            <div class="qubit-vector" id="qubitVector"></div>
+        </div>
+        <div class="state-vector">
+            <span class="state-label">|ψ⟩ =</span>
+            <span class="state-value" id="stateValue">α|0⟩ + β|1⟩</span>
+        </div>
+    </div>
+    
+    <div class="quantum-gates">
+        <div class="gate hadamard">H</div>
+        <div class="gate pauli-x">X</div>
+        <div class="gate pauli-y">Y</div>
+        <div class="gate pauli-z">Z</div>
+        <div class="gate cnot">CNOT</div>
+    </div>
+    
+    <div class="quantum-circuit">
+        <div class="circuit-line"></div>
+        <div class="circuit-line"></div>
+        <div class="circuit-line"></div>
+        <div class="measurement"></div>
+    </div>
+    
+    <div class="quantum-card">
+        <div class="quantum-header">
+            <div class="quantum-logo">
+                <i class="fas fa-atom"></i>
+                <span>QUBIT</span>
+            </div>
+            <h3 class="quantum-title">Quantum Entanglement</h3>
+            <p class="quantum-subtitle">Superposition based authentication</p>
+        </div>
+        
+        <div class="qubit-display" id="qubitDisplay">
+            <div class="qubit">
+                <span class="qubit-label">QUBIT 1</span>
+                <span class="qubit-state" id="qubit1State">|0⟩</span>
+            </div>
+            <div class="entanglement-symbol">⊗</div>
+            <div class="qubit">
+                <span class="qubit-label">QUBIT 2</span>
+                <span class="qubit-state" id="qubit2State">|1⟩</span>
+            </div>
+        </div>
+        
+        <form class="quantum-form" id="quantumForm">
+            <div class="quantum-input">
+                <div class="quantum-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Quantum email" required>
+                    <div class="probability-cloud"></div>
+                </div>
+                <span class="probability" id="emailProb">P=0.85</span>
+            </div>
+            
+            <div class="quantum-input">
+                <div class="quantum-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Quantum key" required id="quantum-password">
+                    <button type="button" class="quantum-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <div class="probability-cloud"></div>
+                </div>
+                <span class="probability" id="passProb">P=0.92</span>
+            </div>
+            
+            <div class="superposition-control">
+                <span class="superposition-label">SUPERPOSITION: <span id="superpositionValue">|0⟩ (75%) + |1⟩ (25%)</span></span>
+                <div class="probability-bar">
+                    <div class="prob-zero" style="width: 75%"></div>
+                    <div class="prob-one" style="width: 25%"></div>
+                </div>
+            </div>
+            
+            <div class="quantum-options">
+                <label class="quantum-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="quantum-checkbox-box">
+                        <span class="box-zero">0</span>
+                        <span class="box-one">1</span>
+                    </span>
+                    <span>Entangle qubits</span>
+                </label>
+                <a href="#" class="quantum-link">
+                    <i class="fas fa-wave-square"></i> Collapse
+                </a>
+            </div>
+            
+            <div class="decoherence-meter">
+                <div class="meter-label">DECOHERENCE:</div>
+                <div class="meter-bar">
+                    <div class="meter-fill" style="width: 15%"></div>
+                </div>
+                <span class="meter-value">15%</span>
+            </div>
+            
+            <button type="submit" class="quantum-submit-btn" id="quantumBtn">
+                <span>MEASURE STATE</span>
+                <i class="fas fa-arrow-right"></i>
+                <div class="quantum-pulse"></div>
+            </button>
+        </form>
+        
+        <div class="quantum-stats">
+            <div class="stat">
+                <span class="stat-label">COHERENCE</span>
+                <span class="stat-value">85%</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">ENTANGLEMENT</span>
+                <span class="stat-value">92%</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">FIDELITY</span>
+                <span class="stat-value">99.9%</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="quantum-noise">
+        <span>QUANTUM NOISE: 2.3e-15</span>
+    </div>
+</div>`,
+    css: `.quantum-computing-bg {
+    background: #000814;
+    border-radius: 30px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid #4d4dff;
+    box-shadow: 0 0 50px rgba(77, 77, 255, 0.1);
+}
+
+.qubit-states {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+}
+
+.bloch-sphere {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(77, 77, 255, 0.3);
+    border-radius: 50%;
+}
+
+.sphere-axis {
+    position: absolute;
+    background: rgba(77, 77, 255, 0.2);
+}
+
+.sphere-axis.x {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sphere-axis.y {
+    height: 100%;
+    width: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sphere-axis.z {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    transform: rotate(45deg);
+}
+
+.qubit-vector {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, #4d4dff, #ff4d4d);
+    transform-origin: left;
+    transform: rotate(30deg);
+    animation: vector-rotate 3s infinite;
+}
+
+@keyframes vector-rotate {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.state-vector {
+    margin-top: 10px;
+    color: rgba(77, 77, 255, 0.7);
+    font-size: 0.6rem;
+    font-family: 'Courier New', monospace;
+}
+
+.quantum-gates {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.gate {
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #4d4dff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4d4dff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.gate:hover {
+    background: #4d4dff;
+    color: black;
+    box-shadow: 0 0 20px #4d4dff;
+}
+
+.quantum-circuit {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 100px;
+}
+
+.circuit-line {
+    height: 2px;
+    background: rgba(77, 77, 255, 0.2);
+    margin: 5px 0;
+}
+
+.measurement {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #4d4dff;
+    border-radius: 50%;
+    margin: 5px auto;
+    animation: measure-pulse 1s infinite;
+}
+
+@keyframes measure-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+}
+
+.quantum-card {
+    position: relative;
+    background: rgba(0, 8, 20, 0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 20px;
+    border: 1px solid rgba(77, 77, 255, 0.2);
+    z-index: 20;
+}
+
+.quantum-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.quantum-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.quantum-logo i {
+    font-size: 2rem;
+    color: #4d4dff;
+    filter: drop-shadow(0 0 15px #4d4dff);
+    animation: atom-spin 3s linear infinite;
+}
+
+@keyframes atom-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.quantum-logo span {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: white;
+    text-shadow: 0 0 10px #4d4dff;
+}
+
+.quantum-title {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.quantum-subtitle {
+    color: rgba(77, 77, 255, 0.7);
+    font-size: 0.65rem;
+}
+
+.qubit-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+.qubit {
+    text-align: center;
+}
+
+.qubit-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.55rem;
+}
+
+.qubit-state {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4d4dff;
+    font-family: 'Courier New', monospace;
+}
+
+.entanglement-symbol {
+    color: #ff4d4d;
+    font-size: 1.5rem;
+    animation: symbol-pulse 2s infinite;
+}
+
+@keyframes symbol-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.quantum-input {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.quantum-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(77, 77, 255, 0.2);
+    border-radius: 20px;
+    padding: 0 16px;
+    overflow: hidden;
+}
+
+.quantum-field i {
+    color: #4d4dff;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.quantum-field input {
+    flex: 1;
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.85rem;
+}
+
+.quantum-field input:focus {
+    outline: none;
+}
+
+.probability-cloud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(77, 77, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.quantum-field:focus-within .probability-cloud {
+    opacity: 1;
+}
+
+.probability {
+    position: absolute;
+    right: 10px;
+    top: -18px;
+    color: rgba(77, 77, 255, 0.7);
+    font-size: 0.6rem;
+    font-family: 'Courier New', monospace;
+}
+
+.quantum-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #4d4dff;
+    cursor: pointer;
+}
+
+.superposition-control {
+    margin: 25px 0;
+}
+
+.superposition-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+}
+
+.probability-bar {
+    display: flex;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.prob-zero {
+    background: #4d4dff;
+    transition: width 0.3s ease;
+}
+
+.prob-one {
+    background: #ff4d4d;
+    transition: width 0.3s ease;
+}
+
+.quantum-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.quantum-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+}
+
+.quantum-checkbox input {
+    display: none;
+}
+
+.quantum-checkbox-box {
+    position: relative;
+    width: 36px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #4d4dff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+}
+
+.box-zero,
+.box-one {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    transition: transform 0.3s ease;
+}
+
+.box-zero {
+    background: #4d4dff;
+    color: white;
+}
+
+.box-one {
+    background: #ff4d4d;
+    color: white;
+    margin-left: auto;
+}
+
+.quantum-checkbox input:checked ~ .quantum-checkbox-box .box-zero {
+    transform: translateX(16px);
+}
+
+.quantum-checkbox input:checked ~ .quantum-checkbox-box .box-one {
+    transform: translateX(-16px);
+}
+
+.quantum-link {
+    color: #4d4dff;
+    text-decoration: none;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.decoherence-meter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.meter-label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.6rem;
+    min-width: 70px;
+}
+
+.meter-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4d4dff, #ff4d4d);
+    border-radius: 3px;
+}
+
+.meter-value {
+    color: #ff4d4d;
+    font-size: 0.6rem;
+    min-width: 35px;
+}
+
+.quantum-submit-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    color: white;
+    border: 1px solid #4d4dff;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+    transition: all 0.3s ease;
+}
+
+.quantum-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(77, 77, 255, 0.2), transparent);
+    top: 0;
+    left: -100%;
+    animation: quantum-pulse 2s infinite;
+}
+
+@keyframes quantum-pulse {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.quantum-submit-btn:hover {
+    background: rgba(77, 77, 255, 0.1);
+    box-shadow: 0 0 30px rgba(77, 77, 255, 0.3);
+}
+
+.quantum-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(77, 77, 255, 0.1);
+}
+
+.quantum-noise {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    color: rgba(77, 77, 255, 0.3);
+    font-size: 0.45rem;
+    font-family: 'Courier New', monospace;
+}`,
+    js: `// Quantum Computing Qubit Form
+document.addEventListener('DOMContentLoaded', function() {
+    const quantumForm = document.getElementById('quantumForm');
+    const qubit1State = document.getElementById('qubit1State');
+    const qubit2State = document.getElementById('qubit2State');
+    const superpositionValue = document.getElementById('superpositionValue');
+    const probZero = document.querySelector('.prob-zero');
+    const probOne = document.querySelector('.prob-one');
+    const meterFill = document.querySelector('.meter-fill');
+    const meterValue = document.querySelector('.meter-value');
+    const emailProb = document.getElementById('emailProb');
+    const passProb = document.getElementById('passProb');
+    const quantumCheckbox = document.querySelector('.quantum-checkbox input');
+    
+    // Quantum gates interaction
+    const gates = document.querySelectorAll('.gate');
+    gates.forEach(gate => {
+        gate.addEventListener('click', function() {
+            const gateType = this.textContent;
+            
+            // Apply quantum gate effect
+            if (gateType === 'H') {
+                // Hadamard - creates superposition
+                probZero.style.width = '50%';
+                probOne.style.width = '50%';
+                qubit1State.textContent = '|+⟩';
+                qubit2State.textContent = '|+⟩';
+                superpositionValue.textContent = '|0⟩ (50%) + |1⟩ (50%)';
+            } else if (gateType === 'X') {
+                // Pauli-X (NOT gate)
+                if (qubit1State.textContent === '|0⟩') {
+                    qubit1State.textContent = '|1⟩';
+                } else if (qubit1State.textContent === '|1⟩') {
+                    qubit1State.textContent = '|0⟩';
+                }
+            } else if (gateType === 'Y' || gateType === 'Z') {
+                // Phase gates
+                qubit1State.style.color = '#ff4d4d';
+                qubit2State.style.color = '#ff4d4d';
+                setTimeout(() => {
+                    qubit1State.style.color = '#4d4dff';
+                    qubit2State.style.color = '#4d4dff';
+                }, 500);
+            } else if (gateType === 'CNOT') {
+                // CNOT gate - entangles qubits
+                qubit1State.textContent = '|Φ⁺⟩';
+                qubit2State.textContent = '|Φ⁺⟩';
+                superpositionValue.textContent = '|00⟩ + |11⟩ (entangled)';
+                probZero.style.width = '50%';
+                probOne.style.width = '50%';
+            }
+            
+            // Update probabilities
+            updateProbabilities();
+        });
+    });
+    
+    // Update probability displays
+    function updateProbabilities() {
+        const zeroProb = parseInt(probZero.style.width) || 75;
+        const oneProb = 100 - zeroProb;
+        
+        emailProb.textContent = \`P=\${(zeroProb / 100).toFixed(2)}\`;
+        passProb.textContent = \`P=\${(oneProb / 100).toFixed(2)}\`;
+        
+        // Update decoherence (random fluctuation)
+        const decoherence = Math.random() * 20;
+        meterFill.style.width = decoherence + '%';
+        meterValue.textContent = decoherence.toFixed(1) + '%';
+    }
+    
+    // Entanglement checkbox
+    if (quantumCheckbox) {
+        quantumCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                qubit1State.textContent = '|Φ⁺⟩';
+                qubit2State.textContent = '|Φ⁺⟩';
+                superpositionValue.textContent = '|00⟩ + |11⟩ (entangled)';
+                probZero.style.width = '50%';
+                probOne.style.width = '50%';
+            } else {
+                qubit1State.textContent = '|0⟩';
+                qubit2State.textContent = '|1⟩';
+                superpositionValue.textContent = '|0⟩ (75%) + |1⟩ (25%)';
+                probZero.style.width = '75%';
+                probOne.style.width = '25%';
+            }
+            updateProbabilities();
+        });
+    }
+    
+    // Form submission
+    if (quantumForm) {
+        quantumForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = document.getElementById('quantum-password').value;
+            
+            if (!email || !password) {
+                showQuantumNotification('Qubit state incomplete', 'error');
+                return;
+            }
+            
+            const quantumBtn = document.getElementById('quantumBtn');
+            const originalText = quantumBtn.innerHTML;
+            
+            quantumBtn.innerHTML = '<span>MEASURING...</span> <i class="fas fa-spinner fa-spin"></i>';
+            quantumBtn.disabled = true;
+            
+            setTimeout(() => {
+                // Collapse superposition to a definite state
+                const measurement = Math.random() > 0.5 ? '|0⟩' : '|1⟩';
+                qubit1State.textContent = measurement;
+                qubit2State.textContent = measurement === '|0⟩' ? '|1⟩' : '|0⟩';
+                
+                quantumBtn.innerHTML = '<span>STATE MEASURED</span> <i class="fas fa-check"></i>';
+                showQuantumNotification(\`Quantum state collapsed to \${measurement}\`, 'success');
+                
+                setTimeout(() => {
+                    quantumBtn.innerHTML = originalText;
+                    quantumBtn.disabled = false;
+                    quantumForm.reset();
+                    
+                    // Reset to default superposition
+                    if (quantumCheckbox.checked) {
+                        qubit1State.textContent = '|Φ⁺⟩';
+                        qubit2State.textContent = '|Φ⁺⟩';
+                    } else {
+                        qubit1State.textContent = '|0⟩';
+                        qubit2State.textContent = '|1⟩';
+                    }
+                    probZero.style.width = '75%';
+                    probOne.style.width = '25%';
+                    updateProbabilities();
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    // Password toggle
+    const quantumToggle = document.querySelector('.quantum-toggle');
+    if (quantumToggle) {
+        quantumToggle.addEventListener('click', function() {
+            const input = document.getElementById('quantum-password');
+            const icon = this.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+    }
+    
+    function showQuantumNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #000814;
+            border: 1px solid \${type === 'success' ? '#4d4dff' : '#ff4d4d'};
+            border-radius: 10px;
+            color: white;
+            padding: 15px 25px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px \${type === 'success' ? 'rgba(77, 77, 255, 0.3)' : 'rgba(255, 77, 77, 0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
+
+// ====================================================================
+// TEMPLATE 82: Fractal Dimension Form
+// ====================================================================
+form82: {
+    name: "Fractal Dimension Form",
+    category: "advanced fractal mandelbrot",
+    html: `<div class="form-container fractal-dimension-bg">
+    <canvas class="fractal-canvas" id="fractalCanvas"></canvas>
+    
+    <div class="mandelbrot-set">
+        <div class="zoom-level" id="zoomLevel">∞</div>
+        <div class="fractal-controls">
+            <button class="zoom-in">+</button>
+            <button class="zoom-out">-</button>
+        </div>
+    </div>
+    
+    <div class="fractal-card">
+        <div class="fractal-header">
+            <div class="fractal-logo">
+                <i class="fas fa-infinity"></i>
+                <span>FRACTAL</span>
+            </div>
+            <h3 class="fractal-title">Infinite Complexity</h3>
+            <p class="fractal-subtitle">Self-similar authentication</p>
+        </div>
+        
+        <div class="dimension-display">
+            <span class="dimension-label">HAUSDORFF DIMENSION:</span>
+            <span class="dimension-value" id="fractalDim">1.618</span>
+        </div>
+        
+        <form class="fractal-form" id="fractalForm">
+            <div class="fractal-input">
+                <div class="fractal-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email" required>
+                    <div class="fractal-pattern"></div>
+                </div>
+                <span class="iteration">i=42</span>
+            </div>
+            
+            <div class="fractal-input">
+                <div class="fractal-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" required id="fractal-password">
+                    <button type="button" class="fractal-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <div class="fractal-pattern"></div>
+                </div>
+                <span class="iteration">i=73</span>
+            </div>
+            
+            <div class="complex-plane">
+                <div class="complex-coordinate">
+                    <span class="coord-label">REAL:</span>
+                    <input type="range" min="-2" max="2" step="0.01" value="-0.5" class="real-slider" id="realSlider">
+                    <span class="coord-value" id="realValue">-0.5</span>
+                </div>
+                <div class="complex-coordinate">
+                    <span class="coord-label">IMAG:</span>
+                    <input type="range" min="-2" max="2" step="0.01" value="0.5" class="imag-slider" id="imagSlider">
+                    <span class="coord-value" id="imagValue">0.5</span>
+                </div>
+            </div>
+            
+            <div class="iteration-counter">
+                <span class="counter-label">MAX ITERATIONS:</span>
+                <div class="counter-bar">
+                    <div class="counter-fill" style="width: 50%"></div>
+                </div>
+                <span class="counter-value">50</span>
+            </div>
+            
+            <div class="fractal-options">
+                <label class="fractal-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="fractal-checkbox-box">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span>Enable infinite zoom</span>
+                </label>
+                <a href="#" class="fractal-link">
+                    <i class="fas fa-sync-alt"></i> Regenerate
+                </a>
+            </div>
+            
+            <button type="submit" class="fractal-btn" id="fractalBtn">
+                <span>EXPLORE INFINITY</span>
+                <i class="fas fa-search"></i>
+                <div class="fractal-pulse"></div>
+            </button>
+        </form>
+        
+        <div class="fractal-stats">
+            <div class="stat">
+                <span class="stat-label">DIMENSION</span>
+                <span class="stat-value">1.618</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">ITERATIONS</span>
+                <span class="stat-value">∞</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">SCALE</span>
+                <span class="stat-value">1e-42</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="fractal-quote">
+        <span>"To see a world in a grain of sand"</span>
+    </div>
+</div>`,
+    css: `.fractal-dimension-bg {
+    background: #0a0a0a;
+    border-radius: 30px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid #ff6b6b;
+    box-shadow: 0 0 50px rgba(255, 107, 107, 0.1);
+}
+
+.fractal-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.mandelbrot-set {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.zoom-level {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgba(255, 107, 107, 0.5);
+    font-family: 'Courier New', monospace;
+}
+
+.fractal-controls {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.fractal-controls button {
+    width: 25px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.fractal-controls button:hover {
+    background: #ff6b6b;
+    color: black;
+}
+
+.fractal-card {
+    position: relative;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 20px;
+    border: 1px solid rgba(255, 107, 107, 0.2);
+    z-index: 20;
+}
+
+.fractal-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.fractal-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.fractal-logo i {
+    font-size: 2rem;
+    color: #ff6b6b;
+    filter: drop-shadow(0 0 15px #ff6b6b);
+    animation: fractal-spin 10s linear infinite;
+}
+
+@keyframes fractal-spin {
+    from { transform: rotate(0deg) scale(1); }
+    to { transform: rotate(360deg) scale(1); }
+}
+
+.fractal-logo span {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: white;
+    text-shadow: 0 0 10px #ff6b6b;
+}
+
+.fractal-title {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.fractal-subtitle {
+    color: rgba(255, 107, 107, 0.7);
+    font-size: 0.65rem;
+}
+
+.dimension-display {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.dimension-label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.65rem;
+}
+
+.dimension-value {
+    color: #ff6b6b;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.fractal-input {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.fractal-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 107, 107, 0.2);
+    border-radius: 20px;
+    padding: 0 16px;
+    overflow: hidden;
+}
+
+.fractal-field i {
+    color: #ff6b6b;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.fractal-field input {
+    flex: 1;
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 0.85rem;
+}
+
+.fractal-field input:focus {
+    outline: none;
+}
+
+.fractal-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 107, 107, 0.05),
+        rgba(255, 107, 107, 0.05) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.fractal-field:focus-within .fractal-pattern {
+    opacity: 1;
+}
+
+.iteration {
+    position: absolute;
+    right: 10px;
+    top: -18px;
+    color: rgba(255, 107, 107, 0.7);
+    font-size: 0.6rem;
+    font-family: 'Courier New', monospace;
+}
+
+.fractal-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    cursor: pointer;
+}
+
+.complex-plane {
+    margin: 25px 0;
+}
+
+.complex-coordinate {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.coord-label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.6rem;
+    min-width: 40px;
+}
+
+.complex-coordinate input[type="range"] {
+    flex: 1;
+    height: 2px;
+    -webkit-appearance: none;
+    background: rgba(255, 107, 107, 0.2);
+}
+
+.complex-coordinate input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px #ff6b6b;
+}
+
+.coord-value {
+    color: #ff6b6b;
+    font-size: 0.7rem;
+    min-width: 40px;
+}
+
+.iteration-counter {
+    margin: 20px 0;
+}
+
+.counter-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+}
+
+.counter-bar {
+    height: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.counter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+    border-radius: 3px;
+}
+
+.counter-value {
+    color: #ff6b6b;
+    font-size: 0.7rem;
+    float: right;
+}
+
+.fractal-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.fractal-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.7rem;
+}
+
+.fractal-checkbox input {
+    display: none;
+}
+
+.fractal-checkbox-box {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ff6b6b;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+}
+
+.fractal-checkbox input:checked + .fractal-checkbox-box {
+    background: #ff6b6b;
+    color: black;
+}
+
+.fractal-link {
+    color: #ff6b6b;
+    text-decoration: none;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.fractal-btn {
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    color: white;
+    border: 1px solid #ff6b6b;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+    transition: all 0.3s ease;
+}
+
+.fractal-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.2), transparent);
+    top: 0;
+    left: -100%;
+    animation: fractal-pulse 2s infinite;
+}
+
+@keyframes fractal-pulse {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.fractal-btn:hover {
+    background: rgba(255, 107, 107, 0.1);
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+}
+
+.fractal-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 107, 107, 0.1);
+}
+
+.fractal-quote {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: rgba(255, 107, 107, 0.2);
+    font-size: 0.55rem;
+    font-style: italic;
+}`,
+    js: `// Fractal Dimension Form
+document.addEventListener('DOMContentLoaded', function() {
+    const fractalForm = document.getElementById('fractalForm');
+    const canvas = document.getElementById('fractalCanvas');
+    const realSlider = document.getElementById('realSlider');
+    const imagSlider = document.getElementById('imagSlider');
+    const realValue = document.getElementById('realValue');
+    const imagValue = document.getElementById('imagValue');
+    const zoomLevel = document.getElementById('zoomLevel');
+    const fractalDim = document.getElementById('fractalDim');
+    const counterFill = document.querySelector('.counter-fill');
+    const counterValue = document.querySelector('.counter-value');
+    
+    let zoom = 1;
+    let maxIterations = 50;
+    
+    // Mandelbrot set visualization
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
+        
+        function drawMandelbrot() {
+            const width = canvas.width;
+            const height = canvas.height;
+            const imageData = ctx.createImageData(width, height);
+            
+            const realMin = -2.0 / zoom;
+            const realMax = 1.0 / zoom;
+            const imagMin = -1.5 / zoom;
+            const imagMax = 1.5 / zoom;
+            
+            for (let x = 0; x < width; x++) {
+                for (let y = 0; y < height; y++) {
+                    const real = realMin + (x / width) * (realMax - realMin);
+                    const imag = imagMin + (y / height) * (imagMax - imagMin);
+                    
+                    let zReal = 0;
+                    let zImag = 0;
+                    let iteration = 0;
+                    
+                    while (zReal * zReal + zImag * zImag < 4 && iteration < maxIterations) {
+                        const tempReal = zReal * zReal - zImag * zImag + real;
+                        zImag = 2 * zReal * zImag + imag;
+                        zReal = tempReal;
+                        iteration++;
+                    }
+                    
+                    const pixelIndex = (y * width + x) * 4;
+                    
+                    if (iteration === maxIterations) {
+                        // Inside Mandelbrot set
+                        imageData.data[pixelIndex] = 255;
+                        imageData.data[pixelIndex + 1] = 107;
+                        imageData.data[pixelIndex + 2] = 107;
+                        imageData.data[pixelIndex + 3] = 50;
+                    } else {
+                        // Outside - color based on iteration count
+                        const color = Math.floor((iteration / maxIterations) * 255);
+                        imageData.data[pixelIndex] = color;
+                        imageData.data[pixelIndex + 1] = color;
+                        imageData.data[pixelIndex + 2] = color;
+                        imageData.data[pixelIndex + 3] = 255;
+                    }
+                }
+            }
+            
+            ctx.putImageData(imageData, 0, 0);
+            requestAnimationFrame(drawMandelbrot);
+        }
+        
+        drawMandelbrot();
+    }
+    
+    // Zoom controls
+    document.querySelector('.zoom-in').addEventListener('click', function() {
+        zoom *= 2;
+        zoomLevel.textContent = zoom.toExponential(1);
+        
+        // Update Hausdorff dimension approximation
+        const dim = 1.5 + Math.log(zoom) / 10;
+        fractalDim.textContent = dim.toFixed(3);
+    });
+    
+    document.querySelector('.zoom-out').addEventListener('click', function() {
+        zoom /= 2;
+        zoomLevel.textContent = zoom.toExponential(1);
+        
+        const dim = 1.5 + Math.log(zoom) / 10;
+        fractalDim.textContent = dim.toFixed(3);
+    });
+    
+    // Complex plane sliders
+    if (realSlider) {
+        realSlider.addEventListener('input', function() {
+            realValue.textContent = parseFloat(this.value).toFixed(2);
+        });
+    }
+    
+    if (imagSlider) {
+        imagSlider.addEventListener('input', function() {
+            imagValue.textContent = parseFloat(this.value).toFixed(2);
+        });
+    }
+    
+    // Iteration counter
+    function updateIterations(value) {
+        maxIterations = value;
+        counterFill.style.width = (value / 100) * 100 + '%';
+        counterValue.textContent = value;
+    }
+    
+    // Form submission
+    if (fractalForm) {
+        fractalForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[type="email"]').value;
+            const password = document.getElementById('fractal-password').value;
+            
+            if (!email || !password) {
+                showFractalNotification('Incomplete fractal dimension', 'error');
+                return;
+            }
+            
+            const fractalBtn = document.getElementById('fractalBtn');
+            const originalText = fractalBtn.innerHTML;
+            
+            fractalBtn.innerHTML = '<span>ZOOMING...</span> <i class="fas fa-spinner fa-spin"></i>';
+            fractalBtn.disabled = true;
+            
+            setTimeout(() => {
+                // Generate random fractal dimension
+                const newDim = (1.5 + Math.random()).toFixed(3);
+                fractalDim.textContent = newDim;
+                
+                fractalBtn.innerHTML = '<span>INFINITY REACHED</span> <i class="fas fa-check"></i>';
+                showFractalNotification(\`Fractal dimension: \${newDim}\`, 'success');
+                
+                setTimeout(() => {
+                    fractalBtn.innerHTML = originalText;
+                    fractalBtn.disabled = false;
+                    fractalForm.reset();
+                }, 2000);
+            }, 2000);
+        });
+    }
+    
+    // Password toggle
+    const fractalToggle = document.querySelector('.fractal-toggle');
+    if (fractalToggle) {
+        fractalToggle.addEventListener('click', function() {
+            const input = document.getElementById('fractal-password');
+            const icon = this.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+    }
+    
+    function showFractalNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.style.cssText = \`
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0a0a0a;
+            border: 1px solid \${type === 'success' ? '#ff6b6b' : '#ff4444'};
+            border-radius: 10px;
+            color: white;
+            padding: 15px 25px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 0 30px \${type === 'success' ? 'rgba(255, 107, 107, 0.3)' : 'rgba(255, 68, 68, 0.3)'};
+        \`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+});`
+},
      
 
 
